@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 enum Constants {
 	enum Network {
@@ -17,4 +18,8 @@ extension UIFont {
 	static let title = UIFont.boldSystemFont(ofSize: 21)
 	static let text = UIFont.systemFont(ofSize: 16)
 	static let secondaryText = UIFont.systemFont(ofSize: 14)
+}
+
+extension AnimationView {
+	static let relaxAnimation = AnimationView(name: "relaxAnimation")
 }

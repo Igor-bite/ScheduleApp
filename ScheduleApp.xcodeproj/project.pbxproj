@@ -41,6 +41,10 @@
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
 		A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */; };
 		A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99828D91B35001D3C93 /* LessonsService.swift */; };
+		A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99C28D923A0001D3C93 /* Lottie */; };
+		A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */; };
+		A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */; };
+		A5B5B9A528D92F54001D3C93 /* GradientLoadingBar in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
 		E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
@@ -88,6 +92,8 @@
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTypeCapsuleView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
+		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
+		A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduleView.swift; sourceTree = "<group>"; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */,
 				A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */,
 				A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */,
+				A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */,
 				A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */,
 				A53A54AA28D8F1E0004E0D66 /* Alamofire in Frameworks */,
 				A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */,
@@ -135,6 +142,7 @@
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
+				A5B5B9A528D92F54001D3C93 /* GradientLoadingBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */,
+				A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -214,6 +223,14 @@
 				A5B5B99828D91B35001D3C93 /* LessonsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A5B5B9A028D926C9001D3C93 /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */,
+			);
+			path = LottieAnimations;
 			sourceTree = "<group>";
 		};
 		A5ED262228D374F30041EBBD /* Application */ = {
@@ -261,6 +278,7 @@
 				E0FD11F821477C98008C2EF8 /* Resources */,
 				E0FD11F721477C92008C2EF8 /* Configurations */,
 				A5ED262228D374F30041EBBD /* Application */,
+				A5B5B9A028D926C9001D3C93 /* LottieAnimations */,
 			);
 			path = ScheduleApp;
 			sourceTree = "<group>";
@@ -373,6 +391,8 @@
 				A53A54C828D8F262004E0D66 /* SnapKit */,
 				A53A54CB28D8F270004E0D66 /* SPConfetti */,
 				A5B5B99328D915EB001D3C93 /* SkeletonView */,
+				A5B5B99C28D923A0001D3C93 /* Lottie */,
+				A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -437,6 +457,8 @@
 				A53A54C728D8F262004E0D66 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 				A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -453,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */,
 				E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */,
 				E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -511,6 +534,7 @@
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
+				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
 				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,6 +809,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fxm90/GradientLoadingBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -877,6 +917,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		A5B5B99C28D923A0001D3C93 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */;
+			productName = GradientLoadingBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

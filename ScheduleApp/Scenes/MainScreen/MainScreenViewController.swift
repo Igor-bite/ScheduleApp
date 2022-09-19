@@ -8,9 +8,9 @@
 import UIKit
 import Reusable
 import SnapKit
+import GradientLoadingBar
 
 public final class MainScreenViewController: UIViewController {
-
 	private lazy var table: UITableView = {
 		let table = UITableView()
 		table.showsVerticalScrollIndicator = false
@@ -23,6 +23,32 @@ public final class MainScreenViewController: UIViewController {
 		table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		return table
 	}()
+
+	private lazy var emptyView: EmptyScheduleView = {
+		let view = EmptyScheduleView(frame: .zero)
+		view.refreshAction = {
+			self.refresh()
+		}
+		return view
+	}()
+
+	private let gradientLoadingBar = GradientLoadingBar(
+		height: 4.0,
+		isRelativeToSafeArea: true
+	)
+
+	private var hasNoSchedule: Bool = false {
+		didSet {
+			guard self.hasNoSchedule != oldValue
+			else { return }
+
+			if self.hasNoSchedule {
+				self.showEmptyView()
+			} else {
+				self.showSchedule()
+			}
+		}
+	}
 
 	// MARK: - Public properties -
 
@@ -40,15 +66,36 @@ public final class MainScreenViewController: UIViewController {
 
 	private func setupViews() {
 		view.addSubview(table)
+		view.addSubview(emptyView)
 
 		table.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
 		}
+
+		emptyView.snp.makeConstraints { make in
+			make.centerX.centerY.equalToSuperview()
+			make.height.width.equalToSuperview()
+		}
+
+		emptyView.isHidden = true
 	}
 
 	@objc
 	private func refresh() {
 		presenter.loadLessons()
+		gradientLoadingBar.fadeIn()
+	}
+
+	private func showEmptyView() {
+		emptyView.isHidden = false
+		emptyView.playAnimation()
+		table.isHidden = true
+	}
+
+	private func showSchedule() {
+		emptyView.isHidden = true
+		emptyView.stopAnimation()
+		table.isHidden = false
 	}
 }
 
@@ -57,8 +104,15 @@ public final class MainScreenViewController: UIViewController {
 extension MainScreenViewController: MainScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
-			self?.table.reloadData()
-			self?.table.refreshControl?.endRefreshing()
+			self?.gradientLoadingBar.fadeOut()
+			if let count = self?.presenter.numberOfItems,
+			   count == .zero {
+				self?.hasNoSchedule = true
+			} else {
+				self?.hasNoSchedule = false
+				self?.table.reloadData()
+				self?.table.refreshControl?.endRefreshing()
+			}
 		}
 	}
 }

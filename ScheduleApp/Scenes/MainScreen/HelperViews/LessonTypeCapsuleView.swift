@@ -13,7 +13,7 @@ final class LessonTypeCapsuleView: UIView {
 		static let height = 24.0
 		static let cornerRadius = 12.0
 	}
-	
+
 	private let label = {
 		let label = UILabel()
 		label.textAlignment = .center
