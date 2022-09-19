@@ -14,10 +14,11 @@ public final class MainScreenViewController: UIViewController {
 	private lazy var table: UITableView = {
 		let table = UITableView()
 		table.showsVerticalScrollIndicator = false
-		table.rowHeight = 60
+		table.rowHeight = 160
 		table.delegate = self
 		table.dataSource = self
-		table.register(cellType: MainScreenTableViewCell.self)
+		table.register(cellType: LessonTableViewCell.self)
+		table.separatorStyle = .none
 		table.refreshControl = UIRefreshControl()
 		table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		return table
@@ -68,7 +69,7 @@ extension MainScreenViewController: UITableViewDataSource {
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell: MainScreenTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+		let cell: LessonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
 		let lesson = presenter.item(at: indexPath)
 		cell.configure(with: lesson)
 		return cell
