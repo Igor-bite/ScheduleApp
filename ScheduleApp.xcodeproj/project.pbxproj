@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */; };
+		A568DF0628D3C85C00341814 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */; };
+		A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* MainScreenViewController.swift */; };
+		A568DF0828D3C85C00341814 /* MainScreenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */; };
+		A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */; };
+		A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */; };
+		A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0D28D3C89B00341814 /* LessonModel.swift */; };
+		A568DF1028D3C8AC00341814 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */; };
+		A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1528D3C9C600341814 /* BaseWireframe.swift */; };
+		A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1628D3C9C600341814 /* FormatterInterface.swift */; };
+		A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1728D3C9C600341814 /* PresenterInterface.swift */; };
+		A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1828D3C9C600341814 /* ViewInterface.swift */; };
+		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
+		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
+		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
 		E01BC7292148DA4C004BB3A4 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01BC7272148DA45004BB3A4 /* Core.framework */; };
 		E01BC72A2148DA4C004BB3A4 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E01BC7272148DA45004BB3A4 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
@@ -41,6 +56,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInterfaces.swift; sourceTree = "<group>"; };
+		A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		A568DF0128D3C85C00341814 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenFormatter.swift; sourceTree = "<group>"; };
+		A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWireframe.swift; sourceTree = "<group>"; };
+		A568DF0D28D3C89B00341814 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
+		A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
+		A568DF1528D3C9C600341814 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
+		A568DF1628D3C9C600341814 /* FormatterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterInterface.swift; sourceTree = "<group>"; };
+		A568DF1728D3C9C600341814 /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
+		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
+		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E01BC7272148DA45004BB3A4 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01BC7292148DA4C004BB3A4 /* Core.framework in Frameworks */,
+				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,11 +115,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A568DEFE28D3C84D00341814 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A568DF0C28D3C89000341814 /* Models */,
+				A568DF0B28D3C88C00341814 /* Cell */,
+				A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */,
+				A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */,
+				A568DF0128D3C85C00341814 /* MainScreenViewController.swift */,
+				A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */,
+				A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */,
+				A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		A568DF0B28D3C88C00341814 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A568DF0C28D3C89000341814 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A568DF0D28D3C89B00341814 /* LessonModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A568DF1128D3C8D100341814 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A568DF1428D3C9B600341814 /* BaseVIPER */ = {
+			isa = PBXGroup;
+			children = (
+				A568DF1528D3C9C600341814 /* BaseWireframe.swift */,
+				A568DF1628D3C9C600341814 /* FormatterInterface.swift */,
+				A568DF1728D3C9C600341814 /* PresenterInterface.swift */,
+				A568DF1828D3C9C600341814 /* ViewInterface.swift */,
+				A568DF1928D3C9C600341814 /* InteractorInterface.swift */,
+			);
+			name = BaseVIPER;
+			sourceTree = "<group>";
+		};
 		A5ED262228D374F30041EBBD /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A568DF1428D3C9B600341814 /* BaseVIPER */,
+				A568DF1128D3C8D100341814 /* Helpers */,
 				E0FD121D214783B2008C2EF8 /* AppDelegate.swift */,
 				E0FD121C214783B2008C2EF8 /* main.swift */,
+				A568DF1F28D3CDDA00341814 /* Constants.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -97,6 +180,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A568DEFE28D3C84D00341814 /* MainScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -228,6 +312,9 @@
 			dependencies = (
 			);
 			name = ScheduleApp;
+			packageProductDependencies = (
+				A568DF2228D3D0FD00341814 /* AsyncPlus */,
+			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -280,6 +367,9 @@
 				Base,
 			);
 			mainGroup = E0FD11A721477963008C2EF8;
+			packageReferences = (
+				A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */,
+			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,8 +426,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
+				A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */,
+				A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */,
+				A568DF1028D3C8AC00341814 /* MainScreenTableViewCell.swift in Sources */,
+				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
+				A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */,
+				A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */,
+				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
+				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
+				A568DF0628D3C85C00341814 /* MainScreenPresenter.swift in Sources */,
+				A568DF0828D3C85C00341814 /* MainScreenFormatter.swift in Sources */,
+				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
+				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
+				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +618,25 @@
 			defaultConfigurationName = Staging;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/async-plus/async-plus.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A568DF2228D3D0FD00341814 /* AsyncPlus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
+			productName = AsyncPlus;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0FD11A821477963008C2EF8 /* Project object */;
 }

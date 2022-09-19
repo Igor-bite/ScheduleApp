@@ -1,6 +1,8 @@
 import UIKit
+import SPIndicator
 
 public protocol WireframeInterface: AnyObject {
+	func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide)
 }
 
 public class BaseWireframe<ViewController> where ViewController: UIViewController {
@@ -18,7 +20,11 @@ public class BaseWireframe<ViewController> where ViewController: UIViewControlle
 }
 
 extension BaseWireframe: WireframeInterface {
-
+	public func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide) {
+		DispatchQueue.main.async {
+			SPIndicator.present(title: title, message: message, preset: preset, from: presentSide)
+		}
+	}
 }
 
 public extension BaseWireframe {

@@ -1,6 +1,6 @@
 //
 //  MainScreenViewController.swift
-//  Core
+//  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
 //
@@ -18,22 +18,24 @@ public final class MainScreenViewController: UIViewController {
 		table.delegate = self
 		table.dataSource = self
 		table.register(cellType: MainScreenTableViewCell.self)
+		table.refreshControl = UIRefreshControl()
+		table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		return table
 	}()
 
-    // MARK: - Public properties -
+	// MARK: - Public properties -
 
-    // swiftlint:disable:next implicitly_unwrapped_optional
-    var presenter: MainScreenPresenterInterface!
+	// swiftlint:disable:next implicitly_unwrapped_optional
+	var presenter: MainScreenPresenterInterface!
 
-    // MARK: - Lifecycle -
+	// MARK: - Lifecycle -
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+	public override func viewDidLoad() {
+		super.viewDidLoad()
 
 		setupViews()
-		presenter.loadLessons()
-    }
+		refresh()
+	}
 
 	private func setupViews() {
 		view.addSubview(table)
@@ -41,6 +43,11 @@ public final class MainScreenViewController: UIViewController {
 		table.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
 		}
+	}
+
+	@objc
+	private func refresh() {
+		presenter.loadLessons()
 	}
 }
 
@@ -50,6 +57,7 @@ extension MainScreenViewController: MainScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
 			self?.table.reloadData()
+			self?.table.refreshControl?.endRefreshing()
 		}
 	}
 }
@@ -70,5 +78,6 @@ extension MainScreenViewController: UITableViewDataSource {
 extension MainScreenViewController: UITableViewDelegate {
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		presenter.itemSelected(at: indexPath)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

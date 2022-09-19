@@ -1,6 +1,6 @@
 //
 //  MainScreenInterfaces.swift
-//  Core
+//  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
 //
@@ -26,5 +26,5 @@ public protocol MainScreenFormatterInterface: FormatterInterface {
 }
 
 public protocol MainScreenInteractorInterface: InteractorInterface {
-	func getAllLessons() async -> [LessonModel]
+	func getAllLessons() async throws -> [LessonModel]
 }

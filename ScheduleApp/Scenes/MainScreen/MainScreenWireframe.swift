@@ -1,11 +1,12 @@
 //
 //  MainScreenWireframe.swift
-//  Core
+//  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
 //
 
 import UIKit
+import Core
 
 public final class MainScreenWireframe: BaseWireframe<MainScreenViewController> {
 

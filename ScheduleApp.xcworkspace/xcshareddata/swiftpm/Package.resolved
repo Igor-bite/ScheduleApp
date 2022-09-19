@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "async-plus",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/async-plus/async-plus.git",
+      "state" : {
+        "revision" : "c99c106ac4a6275f0a9507c3dd722ecd74c323d3",
+        "version" : "1.1.1"
+      }
+    },
+    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",

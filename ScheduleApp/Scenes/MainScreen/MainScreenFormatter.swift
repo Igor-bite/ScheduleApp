@@ -1,6 +1,6 @@
 //
 //  MainScreenFormatter.swift
-//  Core
+//  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
 //

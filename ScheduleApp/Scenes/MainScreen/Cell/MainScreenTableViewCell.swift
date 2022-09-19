@@ -1,12 +1,11 @@
 //
 //  MainScreenTableViewCell.swift
-//  Core
+//  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
-//  Copyright © 2022 messeb.com. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Reusable
 
 class MainScreenTableViewCell: UITableViewCell, Reusable {

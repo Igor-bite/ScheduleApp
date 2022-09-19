@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A536E43B28D38EF000A53B1E /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = A536E43A28D38EF000A53B1E /* Reusable */; };
-		A536E43D28D38F4A00A53B1E /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536E43C28D38F4A00A53B1E /* MainScreenTableViewCell.swift */; };
 		A536E44128D39B5200A53B1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A536E44028D39B5200A53B1E /* Kingfisher */; };
 		A536E44428D39B7800A53B1E /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A536E44328D39B7800A53B1E /* SafeSFSymbols */; };
 		A536E44728D39BBA00A53B1E /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A536E44628D39BBA00A53B1E /* SPIndicator */; };
@@ -17,20 +16,8 @@
 		A536E44F28D39C1300A53B1E /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A536E44E28D39C1300A53B1E /* CameraPermission */; };
 		A536E45128D39C1300A53B1E /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A536E45028D39C1300A53B1E /* NotificationPermission */; };
 		A536E45328D39C1300A53B1E /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A536E45228D39C1300A53B1E /* PhotoLibraryPermission */; };
-		A536E45628D39C4B00A53B1E /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A536E45528D39C4B00A53B1E /* LessonModel.swift */; };
 		A536E45928D39C9D00A53B1E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A536E45828D39C9D00A53B1E /* SnapKit */; };
 		A536E45C28D3AE9400A53B1E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A536E45B28D3AE9400A53B1E /* Alamofire */; };
-		A53BEBB628D36A6D00026780 /* MainScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB028D36A6D00026780 /* MainScreenInterfaces.swift */; };
-		A53BEBB728D36A6D00026780 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB128D36A6D00026780 /* MainScreenPresenter.swift */; };
-		A53BEBB828D36A6D00026780 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB228D36A6D00026780 /* MainScreenViewController.swift */; };
-		A53BEBB928D36A6D00026780 /* MainScreenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB328D36A6D00026780 /* MainScreenFormatter.swift */; };
-		A53BEBBA28D36A6D00026780 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB428D36A6D00026780 /* MainScreenInteractor.swift */; };
-		A53BEBBB28D36A6D00026780 /* MainScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53BEBB528D36A6D00026780 /* MainScreenWireframe.swift */; };
-		A5A4B37928D36C8C007C0BF3 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4B37428D36C8C007C0BF3 /* BaseWireframe.swift */; };
-		A5A4B37A28D36C8C007C0BF3 /* FormatterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4B37528D36C8C007C0BF3 /* FormatterInterface.swift */; };
-		A5A4B37B28D36C8C007C0BF3 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4B37628D36C8C007C0BF3 /* PresenterInterface.swift */; };
-		A5A4B37C28D36C8C007C0BF3 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4B37728D36C8C007C0BF3 /* ViewInterface.swift */; };
-		A5A4B37D28D36C8C007C0BF3 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A4B37828D36C8C007C0BF3 /* InteractorInterface.swift */; };
 		E0C82F4B21478DCC009EA559 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C82F4A21478DCC009EA559 /* Core.swift */; };
 		E0FD11E721477A5F008C2EF8 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0FD11DD21477A5F008C2EF8 /* Core.framework */; };
 		E0FD11EE21477A5F008C2EF8 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FD11E021477A5F008C2EF8 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,19 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A536E43C28D38F4A00A53B1E /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
-		A536E45528D39C4B00A53B1E /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
-		A53BEBB028D36A6D00026780 /* MainScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInterfaces.swift; sourceTree = "<group>"; };
-		A53BEBB128D36A6D00026780 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
-		A53BEBB228D36A6D00026780 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
-		A53BEBB328D36A6D00026780 /* MainScreenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenFormatter.swift; sourceTree = "<group>"; };
-		A53BEBB428D36A6D00026780 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
-		A53BEBB528D36A6D00026780 /* MainScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWireframe.swift; sourceTree = "<group>"; };
-		A5A4B37428D36C8C007C0BF3 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
-		A5A4B37528D36C8C007C0BF3 /* FormatterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterInterface.swift; sourceTree = "<group>"; };
-		A5A4B37628D36C8C007C0BF3 /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
-		A5A4B37728D36C8C007C0BF3 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
-		A5A4B37828D36C8C007C0BF3 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		E0C82F4A21478DCC009EA559 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		E0FD11DD21477A5F008C2EF8 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11E021477A5F008C2EF8 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
@@ -107,49 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A511650F28D35B4000F0A748 /* MainScreen */ = {
-			isa = PBXGroup;
-			children = (
-				A536E45428D39C3E00A53B1E /* Models */,
-				A536E43E28D38F5000A53B1E /* Cell */,
-				A53BEBB028D36A6D00026780 /* MainScreenInterfaces.swift */,
-				A53BEBB128D36A6D00026780 /* MainScreenPresenter.swift */,
-				A53BEBB228D36A6D00026780 /* MainScreenViewController.swift */,
-				A53BEBB328D36A6D00026780 /* MainScreenFormatter.swift */,
-				A53BEBB428D36A6D00026780 /* MainScreenInteractor.swift */,
-				A53BEBB528D36A6D00026780 /* MainScreenWireframe.swift */,
-			);
-			path = MainScreen;
-			sourceTree = "<group>";
-		};
-		A536E43E28D38F5000A53B1E /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				A536E43C28D38F4A00A53B1E /* MainScreenTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		A536E45428D39C3E00A53B1E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A536E45528D39C4B00A53B1E /* LessonModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		A5F3BACC28D362EA00BA48A1 /* BaseVIPER */ = {
-			isa = PBXGroup;
-			children = (
-				A5A4B37428D36C8C007C0BF3 /* BaseWireframe.swift */,
-				A5A4B37528D36C8C007C0BF3 /* FormatterInterface.swift */,
-				A5A4B37628D36C8C007C0BF3 /* PresenterInterface.swift */,
-				A5A4B37728D36C8C007C0BF3 /* ViewInterface.swift */,
-				A5A4B37828D36C8C007C0BF3 /* InteractorInterface.swift */,
-			);
-			path = BaseVIPER;
-			sourceTree = "<group>";
-		};
 		E0C82F27214789D8009EA559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +110,6 @@
 		E0FD11DF21477A5F008C2EF8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A5F3BACC28D362EA00BA48A1 /* BaseVIPER */,
-				A511650F28D35B4000F0A748 /* MainScreen */,
 				E0FD1225214784D5008C2EF8 /* Configurations */,
 				E0FD11E021477A5F008C2EF8 /* Core.h */,
 				E0C82F4A21478DCC009EA559 /* Core.swift */,
@@ -370,20 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A4B37D28D36C8C007C0BF3 /* InteractorInterface.swift in Sources */,
-				A536E43D28D38F4A00A53B1E /* MainScreenTableViewCell.swift in Sources */,
-				A5A4B37A28D36C8C007C0BF3 /* FormatterInterface.swift in Sources */,
-				A536E45628D39C4B00A53B1E /* LessonModel.swift in Sources */,
-				A53BEBB728D36A6D00026780 /* MainScreenPresenter.swift in Sources */,
-				A53BEBBA28D36A6D00026780 /* MainScreenInteractor.swift in Sources */,
-				A53BEBB928D36A6D00026780 /* MainScreenFormatter.swift in Sources */,
-				A5A4B37B28D36C8C007C0BF3 /* PresenterInterface.swift in Sources */,
-				A5A4B37928D36C8C007C0BF3 /* BaseWireframe.swift in Sources */,
-				A53BEBBB28D36A6D00026780 /* MainScreenWireframe.swift in Sources */,
 				E0C82F4B21478DCC009EA559 /* Core.swift in Sources */,
-				A53BEBB628D36A6D00026780 /* MainScreenInterfaces.swift in Sources */,
-				A53BEBB828D36A6D00026780 /* MainScreenViewController.swift in Sources */,
-				A5A4B37C28D36C8C007C0BF3 /* ViewInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
