@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
+		A53A54AA28D8F1E0004E0D66 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A928D8F1E0004E0D66 /* Alamofire */; };
+		A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AC28D8F212004E0D66 /* CalendarPermission */; };
+		A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AE28D8F212004E0D66 /* CameraPermission */; };
+		A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B028D8F212004E0D66 /* ContactsPermission */; };
+		A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B228D8F212004E0D66 /* FaceIDPermission */; };
+		A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B428D8F212004E0D66 /* MediaLibraryPermission */; };
+		A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B628D8F212004E0D66 /* MicrophonePermission */; };
+		A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B828D8F212004E0D66 /* NotificationPermission */; };
+		A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */; };
+		A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BC28D8F212004E0D66 /* RemindersPermission */; };
+		A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BF28D8F237004E0D66 /* SPIndicator */; };
+		A53A54C328D8F247004E0D66 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C228D8F247004E0D66 /* Reusable */; };
+		A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C528D8F253004E0D66 /* SafeSFSymbols */; };
+		A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C828D8F262004E0D66 /* SnapKit */; };
+		A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54CB28D8F270004E0D66 /* SPConfetti */; };
 		A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* MainScreenViewController.swift */; };
@@ -22,8 +38,6 @@
 		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
-		E01BC7292148DA4C004BB3A4 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01BC7272148DA45004BB3A4 /* Core.framework */; };
-		E01BC72A2148DA4C004BB3A4 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E01BC7272148DA45004BB3A4 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
 		E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
@@ -48,7 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E01BC72A2148DA4C004BB3A4 /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +83,6 @@
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E01BC7272148DA45004BB3A4 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,8 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E01BC7292148DA4C004BB3A4 /* Core.framework in Frameworks */,
+				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
+				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
+				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
+				A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */,
+				A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */,
+				A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */,
+				A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */,
+				A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */,
+				A53A54AA28D8F1E0004E0D66 /* Alamofire in Frameworks */,
+				A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */,
+				A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */,
+				A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */,
+				A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */,
 				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
+				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
+				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
+				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,21 +212,12 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		E0C82F2E21478A4B009EA559 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E01BC7272148DA45004BB3A4 /* Core.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E0FD11A721477963008C2EF8 = {
 			isa = PBXGroup;
 			children = (
 				E0FD11B221477963008C2EF8 /* ScheduleApp */,
 				E0FD11C721477965008C2EF8 /* ScheduleAppTests */,
 				E0FD11B121477963008C2EF8 /* Products */,
-				E0C82F2E21478A4B009EA559 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,6 +332,22 @@
 			name = ScheduleApp;
 			packageProductDependencies = (
 				A568DF2228D3D0FD00341814 /* AsyncPlus */,
+				A53A54A628D8F1D0004E0D66 /* Kingfisher */,
+				A53A54A928D8F1E0004E0D66 /* Alamofire */,
+				A53A54AC28D8F212004E0D66 /* CalendarPermission */,
+				A53A54AE28D8F212004E0D66 /* CameraPermission */,
+				A53A54B028D8F212004E0D66 /* ContactsPermission */,
+				A53A54B228D8F212004E0D66 /* FaceIDPermission */,
+				A53A54B428D8F212004E0D66 /* MediaLibraryPermission */,
+				A53A54B628D8F212004E0D66 /* MicrophonePermission */,
+				A53A54B828D8F212004E0D66 /* NotificationPermission */,
+				A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */,
+				A53A54BC28D8F212004E0D66 /* RemindersPermission */,
+				A53A54BF28D8F237004E0D66 /* SPIndicator */,
+				A53A54C228D8F247004E0D66 /* Reusable */,
+				A53A54C528D8F253004E0D66 /* SafeSFSymbols */,
+				A53A54C828D8F262004E0D66 /* SnapKit */,
+				A53A54CB28D8F270004E0D66 /* SPConfetti */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -369,6 +403,14 @@
 			mainGroup = E0FD11A721477963008C2EF8;
 			packageReferences = (
 				A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */,
+				A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A53A54A828D8F1E0004E0D66 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
+				A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				A53A54C128D8F247004E0D66 /* XCRemoteSwiftPackageReference "Reusable" */,
+				A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
+				A53A54C728D8F262004E0D66 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -620,6 +662,70 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		A53A54A828D8F1E0004E0D66 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A53A54C128D8F247004E0D66 /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/SafeSFSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A53A54C728D8F262004E0D66 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/async-plus/async-plus.git";
@@ -631,6 +737,86 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A53A54A628D8F1D0004E0D66 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A53A54A928D8F1E0004E0D66 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54A828D8F1E0004E0D66 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A53A54AC28D8F212004E0D66 /* CalendarPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = CalendarPermission;
+		};
+		A53A54AE28D8F212004E0D66 /* CameraPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = CameraPermission;
+		};
+		A53A54B028D8F212004E0D66 /* ContactsPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = ContactsPermission;
+		};
+		A53A54B228D8F212004E0D66 /* FaceIDPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = FaceIDPermission;
+		};
+		A53A54B428D8F212004E0D66 /* MediaLibraryPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = MediaLibraryPermission;
+		};
+		A53A54B628D8F212004E0D66 /* MicrophonePermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = MicrophonePermission;
+		};
+		A53A54B828D8F212004E0D66 /* NotificationPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = NotificationPermission;
+		};
+		A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = PhotoLibraryPermission;
+		};
+		A53A54BC28D8F212004E0D66 /* RemindersPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = RemindersPermission;
+		};
+		A53A54BF28D8F237004E0D66 /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
+		};
+		A53A54C228D8F247004E0D66 /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54C128D8F247004E0D66 /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
+		};
+		A53A54C528D8F253004E0D66 /* SafeSFSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */;
+			productName = SafeSFSymbols;
+		};
+		A53A54C828D8F262004E0D66 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54C728D8F262004E0D66 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A53A54CB28D8F270004E0D66 /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
+		};
 		A568DF2228D3D0FD00341814 /* AsyncPlus */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
