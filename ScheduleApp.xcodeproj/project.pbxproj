@@ -30,7 +30,7 @@
 		A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */; };
 		A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */; };
 		A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0D28D3C89B00341814 /* LessonModel.swift */; };
-		A568DF1028D3C8AC00341814 /* MainScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */; };
+		A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0F28D3C8AC00341814 /* LessonTableViewCell.swift */; };
 		A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1528D3C9C600341814 /* BaseWireframe.swift */; };
 		A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1628D3C9C600341814 /* FormatterInterface.swift */; };
 		A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1728D3C9C600341814 /* PresenterInterface.swift */; };
@@ -38,6 +38,9 @@
 		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
+		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
+		A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */; };
+		A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99828D91B35001D3C93 /* LessonsService.swift */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
 		E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
@@ -76,13 +79,15 @@
 		A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWireframe.swift; sourceTree = "<group>"; };
 		A568DF0D28D3C89B00341814 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
-		A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewCell.swift; sourceTree = "<group>"; };
+		A568DF0F28D3C8AC00341814 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		A568DF1528D3C9C600341814 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		A568DF1628D3C9C600341814 /* FormatterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterInterface.swift; sourceTree = "<group>"; };
 		A568DF1728D3C9C600341814 /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTypeCapsuleView.swift; sourceTree = "<group>"; };
+		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
 				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
+				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +151,7 @@
 		A568DEFE28D3C84D00341814 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A5B5B99528D91954001D3C93 /* HelperViews */,
 				A568DF0C28D3C89000341814 /* Models */,
 				A568DF0B28D3C88C00341814 /* Cell */,
 				A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */,
@@ -153,6 +160,7 @@
 				A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */,
 				A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */,
 				A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */,
+				A5B5B99A28D91B3A001D3C93 /* Services */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -160,7 +168,7 @@
 		A568DF0B28D3C88C00341814 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A568DF0F28D3C8AC00341814 /* MainScreenTableViewCell.swift */,
+				A568DF0F28D3C8AC00341814 /* LessonTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -190,6 +198,22 @@
 				A568DF1928D3C9C600341814 /* InteractorInterface.swift */,
 			);
 			name = BaseVIPER;
+			sourceTree = "<group>";
+		};
+		A5B5B99528D91954001D3C93 /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
+		A5B5B99A28D91B3A001D3C93 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A5B5B99828D91B35001D3C93 /* LessonsService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A5ED262228D374F30041EBBD /* Application */ = {
@@ -348,6 +372,7 @@
 				A53A54C528D8F253004E0D66 /* SafeSFSymbols */,
 				A53A54C828D8F262004E0D66 /* SnapKit */,
 				A53A54CB28D8F270004E0D66 /* SPConfetti */,
+				A5B5B99328D915EB001D3C93 /* SkeletonView */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -411,6 +436,7 @@
 				A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
 				A53A54C728D8F262004E0D66 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */,
+				A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -469,9 +495,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
+				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
 				A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */,
 				A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */,
-				A568DF1028D3C8AC00341814 /* MainScreenTableViewCell.swift in Sources */,
+				A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */,
+				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
 				A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */,
 				A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */,
@@ -528,6 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D7YJ8BY8H;
+				INFOPLIST_KEY_CFBundleDisplayName = ScheduleApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +564,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorKlyuzhev.ScheduleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -581,14 +614,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D7YJ8BY8H;
+				INFOPLIST_KEY_CFBundleDisplayName = ScheduleApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorKlyuzhev.ScheduleApp;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -601,6 +639,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D7YJ8BY8H;
+				INFOPLIST_KEY_CFBundleDisplayName = ScheduleApp;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +647,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.IgorKlyuzhev.ScheduleApp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Staging;
 		};
@@ -734,6 +777,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -821,6 +872,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
 			productName = AsyncPlus;
+		};
+		A5B5B99328D915EB001D3C93 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

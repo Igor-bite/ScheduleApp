@@ -1,7 +1,7 @@
 #include "SharedSigning.xcconfig"
 
 // Packing
-PRODUCT_BUNDLE_IDENTIFIER = com.example.iosproject
+PRODUCT_BUNDLE_IDENTIFIER = com.IgorKlyuzhev.ScheduleApp
 
 // Signing
 CODE_SIGN_STYLE = Manual
