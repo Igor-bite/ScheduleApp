@@ -8,6 +8,7 @@
 import UIKit
 import Reusable
 import SkeletonView
+import Lottie
 
 class LessonTableViewCell: UITableViewCell, Reusable {
 	private enum Constants {
@@ -24,24 +25,36 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		label.font = .title
 		return label
 	}()
+
 	private let teacherLabel = {
 		let label = UILabel()
 		label.textColor = .gray
 		label.font = .text
 		return label
 	}()
+
 	private let lessonDescriptionLabel = {
 		let label = UILabel()
 		label.textColor = .gray
 		label.font = .secondaryText
 		return label
 	}()
+
 	private let timeLabel = {
 		let label = UILabel()
 		label.textAlignment = .right
 		label.textColor = .gray
 		label.font = .secondaryText
 		return label
+	}()
+	
+	private let activeIndicator = {
+		let view = AnimationView.activeIndicator
+		view.contentMode = .scaleAspectFit
+		view.loopMode = .loop
+		view.animationSpeed = 0.5
+		view.isHidden = true
+		return view
 	}()
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -67,6 +80,14 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 //		teacherLabel.isSkeletonable = true
 //		teacherLabel.showAnimatedGradientSkeleton()
 //		teacherLabel.startSkeletonAnimation()
+
+		if Date().isBetweeen(date: lesson.startDateTime, andDate: lesson.endDateTime) {
+			activeIndicator.play()
+			activeIndicator.isHidden = false
+		} else {
+			activeIndicator.stop()
+			activeIndicator.isHidden = true
+		}
 	}
 
 	func setupViews() {
@@ -87,6 +108,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		containerView.addSubview(teacherLabel)
 		containerView.addSubview(lessonDescriptionLabel)
 		containerView.addSubview(timeLabel)
+		containerView.addSubview(activeIndicator)
 
 		lessonTypeView.snp.makeConstraints { make in
 			make.left.top.equalToSuperview().offset(Constants.offset)
@@ -114,7 +136,12 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 			make.bottom.equalToSuperview().inset(10)
 			make.top.greaterThanOrEqualTo(teacherLabel.snp.bottom).offset(10)
 			make.left.equalToSuperview().offset(Constants.offset)
-			make.right.equalToSuperview().inset(Constants.offset)
+			make.width.equalToSuperview().multipliedBy(0.7)
+		}
+
+		activeIndicator.snp.makeConstraints { make in
+			make.right.bottom.equalToSuperview().inset(7)
+			make.width.height.equalTo(25)
 		}
 	}
 }

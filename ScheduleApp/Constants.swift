@@ -22,4 +22,5 @@ extension UIFont {
 
 extension AnimationView {
 	static let relaxAnimation = AnimationView(name: "relaxAnimation")
+	static let activeIndicator = AnimationView(name: "activeIndicator")
 }
