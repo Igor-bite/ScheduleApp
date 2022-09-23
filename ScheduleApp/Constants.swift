@@ -15,9 +15,20 @@ enum Constants {
 }
 
 extension UIFont {
-	static let title = UIFont.boldSystemFont(ofSize: 21)
-	static let text = UIFont.systemFont(ofSize: 16)
-	static let secondaryText = UIFont.systemFont(ofSize: 14)
+	static let title = roundedSystemFont(ofSize: 21, weight: .semibold)
+	static let text = roundedSystemFont(ofSize: 16)
+	static let secondaryText = roundedSystemFont(ofSize: 14)
+
+	private static func roundedSystemFont(ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
+		let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
+		let roundedFont: UIFont
+		if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
+			roundedFont = UIFont(descriptor: descriptor, size: size)
+		} else {
+			roundedFont = systemFont
+		}
+		return roundedFont
+	}
 }
 
 extension AnimationView {

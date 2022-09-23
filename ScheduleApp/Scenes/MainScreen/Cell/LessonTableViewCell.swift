@@ -47,7 +47,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		label.font = .secondaryText
 		return label
 	}()
-	
+
 	private let activeIndicator = {
 		let view = AnimationView.activeIndicator
 		view.contentMode = .scaleAspectFit
@@ -101,7 +101,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		}
 		containerView.layer.cornerRadius = Constants.cellCornerRadius
 		containerView.layer.masksToBounds = true
-		containerView.backgroundColor = .init(white: 0, alpha: 0.2)
+		containerView.backgroundColor = .init(white: 0, alpha: 0.07)
 
 		containerView.addSubview(lessonTypeView)
 		containerView.addSubview(lessonNameLabel)
