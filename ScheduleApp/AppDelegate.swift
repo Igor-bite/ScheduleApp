@@ -19,4 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		NotificationCenter.default.post(.init(name: .AppDidBecomeActive))
+	}
+}
+
+extension Notification.Name {
+	static let AppDidBecomeActive = Notification.Name("applicationDidBecomeActiveNotification")
 }

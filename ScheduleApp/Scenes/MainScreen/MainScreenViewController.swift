@@ -80,12 +80,6 @@ public final class MainScreenViewController: UIViewController {
 		emptyView.isHidden = true
 	}
 
-	@objc
-	private func refresh() {
-		presenter.loadLessons()
-		gradientLoadingBar.fadeIn()
-	}
-
 	private func showEmptyView() {
 		emptyView.isHidden = false
 		emptyView.playAnimation()
@@ -114,6 +108,12 @@ extension MainScreenViewController: MainScreenViewInterface {
 				self?.table.refreshControl?.endRefreshing()
 			}
 		}
+	}
+
+	@objc
+	public func refresh() {
+		presenter.loadLessons()
+		gradientLoadingBar.fadeIn()
 	}
 }
 

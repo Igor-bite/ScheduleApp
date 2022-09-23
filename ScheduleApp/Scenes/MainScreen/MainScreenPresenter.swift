@@ -35,6 +35,17 @@ public final class MainScreenPresenter {
 		self.formatter = formatter
 		self.interactor = interactor
 		self.wireframe = wireframe
+
+		NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: .AppDidBecomeActive, object: nil)
+	}
+
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+
+	@objc
+	private func refreshData() {
+		view.refresh()
 	}
 }
 

@@ -12,6 +12,7 @@ public protocol MainScreenWireframeInterface: WireframeInterface {
 
 public protocol MainScreenViewInterface: ViewInterface {
 	func reloadData()
+	func refresh()
 }
 
 public protocol MainScreenPresenterInterface: PresenterInterface {
