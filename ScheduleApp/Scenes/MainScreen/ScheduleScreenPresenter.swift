@@ -1,5 +1,5 @@
 //
-//  MainScreenPresenter.swift
+//  ScheduleScreenPresenter.swift
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
@@ -8,14 +8,14 @@
 import Foundation
 import AsyncPlus
 
-public final class MainScreenPresenter {
+public final class ScheduleScreenPresenter {
 
 	// MARK: - Private properties -
 
 	private unowned let view: MainScreenViewInterface
-	private let formatter: MainScreenFormatterInterface
-	private let interactor: MainScreenInteractorInterface
-	private let wireframe: MainScreenWireframeInterface
+	private let formatter: ScheduleScreenFormatterInterface
+	private let interactor: ScheduleScreenInteractorInterface
+	private let wireframe: ScheduleScreenWireframeInterface
 
 	private var lessons = [LessonModel]() {
 		didSet {
@@ -27,9 +27,9 @@ public final class MainScreenPresenter {
 
 	init(
 		view: MainScreenViewInterface,
-		formatter: MainScreenFormatterInterface,
-		interactor: MainScreenInteractorInterface,
-		wireframe: MainScreenWireframeInterface
+		formatter: ScheduleScreenFormatterInterface,
+		interactor: ScheduleScreenInteractorInterface,
+		wireframe: ScheduleScreenWireframeInterface
 	) {
 		self.view = view
 		self.formatter = formatter
@@ -51,7 +51,7 @@ public final class MainScreenPresenter {
 
 // MARK: - Extensions -
 
-extension MainScreenPresenter: MainScreenPresenterInterface {
+extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
 	public var numberOfItems: Int {
 		lessons.count
 	}

@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		let initialViewController = UINavigationController()
-		initialViewController.setRootWireframe(MainScreenWireframe())
+		initialViewController.setRootWireframe(ScheduleScreenWireframe())
 
         window.rootViewController = initialViewController
         window.makeKeyAndVisible()

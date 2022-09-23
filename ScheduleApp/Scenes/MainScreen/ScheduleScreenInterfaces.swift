@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol MainScreenWireframeInterface: WireframeInterface {
+public protocol ScheduleScreenWireframeInterface: WireframeInterface {
 }
 
 public protocol MainScreenViewInterface: ViewInterface {
@@ -15,7 +15,7 @@ public protocol MainScreenViewInterface: ViewInterface {
 	func refresh()
 }
 
-public protocol MainScreenPresenterInterface: PresenterInterface {
+public protocol ScheduleScreenPresenterInterface: PresenterInterface {
 	var numberOfItems: Int { get }
 
 	func item(at indexPath: IndexPath) -> LessonModel
@@ -23,9 +23,9 @@ public protocol MainScreenPresenterInterface: PresenterInterface {
 	func loadLessons()
 }
 
-public protocol MainScreenFormatterInterface: FormatterInterface {
+public protocol ScheduleScreenFormatterInterface: FormatterInterface {
 }
 
-public protocol MainScreenInteractorInterface: InteractorInterface {
+public protocol ScheduleScreenInteractorInterface: InteractorInterface {
 	func getAllLessons() async throws -> [LessonModel]
 }

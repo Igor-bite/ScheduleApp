@@ -101,7 +101,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		}
 		containerView.layer.cornerRadius = Constants.cellCornerRadius
 		containerView.layer.masksToBounds = true
-		containerView.backgroundColor = .init(white: 0, alpha: 0.07)
+		containerView.backgroundColor = .grayColor
 
 		containerView.addSubview(lessonTypeView)
 		containerView.addSubview(lessonNameLabel)

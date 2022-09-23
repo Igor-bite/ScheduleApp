@@ -23,12 +23,12 @@
 		A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C528D8F253004E0D66 /* SafeSFSymbols */; };
 		A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C828D8F262004E0D66 /* SnapKit */; };
 		A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54CB28D8F270004E0D66 /* SPConfetti */; };
-		A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */; };
-		A568DF0628D3C85C00341814 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */; };
-		A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* MainScreenViewController.swift */; };
-		A568DF0828D3C85C00341814 /* MainScreenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */; };
-		A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */; };
-		A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */; };
+		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
+		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
+		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
+		A568DF0828D3C85C00341814 /* ScheduleScreenFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0228D3C85C00341814 /* ScheduleScreenFormatter.swift */; };
+		A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0328D3C85C00341814 /* ScheduleScreenInteractor.swift */; };
+		A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0428D3C85C00341814 /* ScheduleScreenWireframe.swift */; };
 		A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0D28D3C89B00341814 /* LessonModel.swift */; };
 		A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0F28D3C8AC00341814 /* LessonTableViewCell.swift */; };
 		A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1528D3C9C600341814 /* BaseWireframe.swift */; };
@@ -78,12 +78,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInterfaces.swift; sourceTree = "<group>"; };
-		A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
-		A568DF0128D3C85C00341814 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
-		A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenFormatter.swift; sourceTree = "<group>"; };
-		A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
-		A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWireframe.swift; sourceTree = "<group>"; };
+		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
+		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
+		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
+		A568DF0228D3C85C00341814 /* ScheduleScreenFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenFormatter.swift; sourceTree = "<group>"; };
+		A568DF0328D3C85C00341814 /* ScheduleScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInteractor.swift; sourceTree = "<group>"; };
+		A568DF0428D3C85C00341814 /* ScheduleScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenWireframe.swift; sourceTree = "<group>"; };
 		A568DF0D28D3C89B00341814 /* LessonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonModel.swift; sourceTree = "<group>"; };
 		A568DF0F28D3C8AC00341814 /* LessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableViewCell.swift; sourceTree = "<group>"; };
 		A568DF1528D3C9C600341814 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
@@ -166,12 +166,12 @@
 				A5B5B99528D91954001D3C93 /* HelperViews */,
 				A568DF0C28D3C89000341814 /* Models */,
 				A568DF0B28D3C88C00341814 /* Cell */,
-				A568DEFF28D3C85C00341814 /* MainScreenInterfaces.swift */,
-				A568DF0028D3C85C00341814 /* MainScreenPresenter.swift */,
-				A568DF0128D3C85C00341814 /* MainScreenViewController.swift */,
-				A568DF0228D3C85C00341814 /* MainScreenFormatter.swift */,
-				A568DF0328D3C85C00341814 /* MainScreenInteractor.swift */,
-				A568DF0428D3C85C00341814 /* MainScreenWireframe.swift */,
+				A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */,
+				A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */,
+				A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */,
+				A568DF0228D3C85C00341814 /* ScheduleScreenFormatter.swift */,
+				A568DF0328D3C85C00341814 /* ScheduleScreenInteractor.swift */,
+				A568DF0428D3C85C00341814 /* ScheduleScreenWireframe.swift */,
 				A5B5B99A28D91B3A001D3C93 /* Services */,
 			);
 			path = MainScreen;
@@ -527,17 +527,17 @@
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */,
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
-				A568DF0728D3C85C00341814 /* MainScreenViewController.swift in Sources */,
-				A568DF0928D3C85C00341814 /* MainScreenInteractor.swift in Sources */,
+				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
+				A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */,
 				A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */,
 				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
-				A568DF0528D3C85C00341814 /* MainScreenInterfaces.swift in Sources */,
-				A568DF0A28D3C85C00341814 /* MainScreenWireframe.swift in Sources */,
+				A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */,
+				A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
-				A568DF0628D3C85C00341814 /* MainScreenPresenter.swift in Sources */,
-				A568DF0828D3C85C00341814 /* MainScreenFormatter.swift in Sources */,
+				A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */,
+				A568DF0828D3C85C00341814 /* ScheduleScreenFormatter.swift in Sources */,
 				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,

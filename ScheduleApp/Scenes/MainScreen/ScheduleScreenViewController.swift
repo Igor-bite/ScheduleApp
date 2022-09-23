@@ -1,5 +1,5 @@
 //
-//  MainScreenViewController.swift
+//  ScheduleScreenViewController.swift
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 15.09.2022.
@@ -10,7 +10,7 @@ import Reusable
 import SnapKit
 import GradientLoadingBar
 
-public final class MainScreenViewController: UIViewController {
+public final class ScheduleScreenViewController: UIViewController {
 	private lazy var table: UITableView = {
 		let table = UITableView()
 		table.showsVerticalScrollIndicator = false
@@ -24,7 +24,7 @@ public final class MainScreenViewController: UIViewController {
 		return table
 	}()
 
-	private lazy var emptyView: EmptyScheduleView = {
+	private lazy var whenEmptyView: EmptyScheduleView = {
 		let view = EmptyScheduleView(frame: .zero)
 		view.refreshAction = {
 			self.refresh()
@@ -53,7 +53,7 @@ public final class MainScreenViewController: UIViewController {
 	// MARK: - Public properties -
 
 	// swiftlint:disable:next implicitly_unwrapped_optional
-	var presenter: MainScreenPresenterInterface!
+	var presenter: ScheduleScreenPresenterInterface!
 
 	// MARK: - Lifecycle -
 
@@ -65,37 +65,38 @@ public final class MainScreenViewController: UIViewController {
 	}
 
 	private func setupViews() {
+		view.addSubview(weekView)
 		view.addSubview(table)
-		view.addSubview(emptyView)
+		view.addSubview(whenEmptyView)
 
 		table.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
 		}
 
-		emptyView.snp.makeConstraints { make in
+		whenEmptyView.snp.makeConstraints { make in
 			make.centerX.centerY.equalToSuperview()
 			make.height.width.equalToSuperview()
 		}
 
-		emptyView.isHidden = true
+		whenEmptyView.isHidden = true
 	}
 
 	private func showEmptyView() {
-		emptyView.isHidden = false
-		emptyView.playAnimation()
+		whenEmptyView.isHidden = false
+		whenEmptyView.playAnimation()
 		table.isHidden = true
 	}
 
 	private func showSchedule() {
-		emptyView.isHidden = true
-		emptyView.stopAnimation()
+		whenEmptyView.isHidden = true
+		whenEmptyView.stopAnimation()
 		table.isHidden = false
 	}
 }
 
 // MARK: - Extensions -
 
-extension MainScreenViewController: MainScreenViewInterface {
+extension ScheduleScreenViewController: MainScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
 			self?.gradientLoadingBar.fadeOut()
@@ -117,7 +118,7 @@ extension MainScreenViewController: MainScreenViewInterface {
 	}
 }
 
-extension MainScreenViewController: UITableViewDataSource {
+extension ScheduleScreenViewController: UITableViewDataSource {
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		presenter.numberOfItems
 	}
@@ -130,7 +131,7 @@ extension MainScreenViewController: UITableViewDataSource {
 	}
 }
 
-extension MainScreenViewController: UITableViewDelegate {
+extension ScheduleScreenViewController: UITableViewDelegate {
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		presenter.itemSelected(at: indexPath)
 		tableView.deselectRow(at: indexPath, animated: true)

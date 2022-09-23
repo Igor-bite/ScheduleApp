@@ -35,3 +35,7 @@ extension AnimationView {
 	static let relaxAnimation = AnimationView(name: "relaxAnimation")
 	static let activeIndicator = AnimationView(name: "activeIndicator")
 }
+
+extension UIColor {
+	static let grayColor = UIColor(white: 0, alpha: 0.07)
+}
