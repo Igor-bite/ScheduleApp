@@ -23,6 +23,7 @@
 		A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C528D8F253004E0D66 /* SafeSFSymbols */; };
 		A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C828D8F262004E0D66 /* SnapKit */; };
 		A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54CB28D8F270004E0D66 /* SPConfetti */; };
+		A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D0828DE29F700245559 /* JTAppleCalendar */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -146,6 +147,7 @@
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
+				A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */,
 				A5B5B9A528D92F54001D3C93 /* GradientLoadingBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +401,7 @@
 				A5B5B99328D915EB001D3C93 /* SkeletonView */,
 				A5B5B99C28D923A0001D3C93 /* Lottie */,
 				A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */,
+				A54F7D0828DE29F700245559 /* JTAppleCalendar */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -465,6 +468,7 @@
 				A5B5B99228D915EB001D3C93 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */,
+				A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -801,6 +805,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/async-plus/async-plus.git";
@@ -915,6 +927,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A53A54CA28D8F270004E0D66 /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
+		};
+		A54F7D0828DE29F700245559 /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
 		};
 		A568DF2228D3D0FD00341814 /* AsyncPlus */ = {
 			isa = XCSwiftPackageProductDependency;
