@@ -12,6 +12,11 @@ import GradientLoadingBar
 import JTAppleCalendar
 
 public final class ScheduleScreenViewController: UIViewController {
+	private enum Constants {
+		static let offset = 10.0
+		static let lessonRowHeight = 160.0
+		static let loadingBarHeight = 4.0
+	}
 	private lazy var todayButton = {
 		let button = UIButton()
 		button.backgroundColor = .blueColor
@@ -35,7 +40,7 @@ public final class ScheduleScreenViewController: UIViewController {
 	private lazy var table: UITableView = {
 		let table = UITableView()
 		table.showsVerticalScrollIndicator = false
-		table.rowHeight = 160
+		table.rowHeight = Constants.lessonRowHeight
 		table.delegate = self
 		table.dataSource = self
 		table.register(cellType: LessonTableViewCell.self)
@@ -54,7 +59,7 @@ public final class ScheduleScreenViewController: UIViewController {
 	}()
 
 	private let gradientLoadingBar = GradientLoadingBar(
-		height: 4.0,
+		height: Constants.loadingBarHeight,
 		isRelativeToSafeArea: true
 	)
 
@@ -97,33 +102,33 @@ public final class ScheduleScreenViewController: UIViewController {
 		view.addSubview(whenEmptyView)
 
 		todayButton.snp.makeConstraints { make in
-			make.right.equalToSuperview().inset(10)
-			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.right.equalToSuperview().inset(Constants.offset)
+			make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
 			make.width.equalTo(view.snp.width).dividedBy(5)
 			make.height.equalTo(25)
 		}
 
 		titleLabel.snp.makeConstraints { make in
 			make.centerX.equalToSuperview()
-			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
 			make.width.equalTo(view.snp.width).dividedBy(2)
 		}
 
 		weekView.snp.makeConstraints { make in
 			make.left.right.equalToSuperview()
-			make.top.equalTo(todayButton.snp.bottom).offset(10)
+			make.top.equalTo(todayButton.snp.bottom).offset(Constants.offset)
 			make.height.equalTo(DateCell.height)
 		}
 
 		table.snp.makeConstraints { make in
 			make.right.left.equalToSuperview()
-			make.top.equalTo(weekView.snp.bottom).offset(10)
+			make.top.equalTo(weekView.snp.bottom).offset(Constants.offset)
 			make.bottom.equalToSuperview()
 		}
 
 		whenEmptyView.snp.makeConstraints { make in
 			make.right.left.equalToSuperview()
-			make.top.equalTo(weekView.snp.bottom).offset(10)
+			make.top.equalTo(weekView.snp.bottom).offset(Constants.offset)
 			make.bottom.equalToSuperview()
 		}
 

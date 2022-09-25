@@ -13,11 +13,26 @@ import SnapKit
 
 class DateCell: JTACDayCell, Reusable {
 	private enum Constants {
-		static let height = 75.0
-		static let selectedColor = UIColor.blueColor
+		enum Selected {
+			static let bgColor = UIColor.blueColor
+			static let textColor = UIColor.white
+		}
+
+		enum Today {
+			static let dayNumberColor = UIColor.red
+			static let dayNameColor = UIColor.gray
+		}
+
+		enum Normal {
+			static let bgColor = UIColor.grayColor
+			static let dayNumberColor = UIColor.black
+			static let dayNameColor = UIColor.gray
+		}
+
+		static let cellHeight = 75.0
 	}
 
-	private let weekdayNameLabel = {
+	private let dayNameLabel = {
 		let label = UILabel()
 		label.font = .secondaryText
 		label.textColor = .gray
@@ -29,25 +44,25 @@ class DateCell: JTACDayCell, Reusable {
 		return label
 	}()
 
-	static let height = Constants.height
+	static let height = Constants.cellHeight
 
 	var weekday: DaysOfWeek? {
 		didSet {
 			switch weekday {
 			case .monday:
-				weekdayNameLabel.text = "Пн"
+				dayNameLabel.text = "Пн"
 			case .tuesday:
-				weekdayNameLabel.text = "Вт"
+				dayNameLabel.text = "Вт"
 			case .wednesday:
-				weekdayNameLabel.text = "Ср"
+				dayNameLabel.text = "Ср"
 			case .thursday:
-				weekdayNameLabel.text = "Чт"
+				dayNameLabel.text = "Чт"
 			case .friday:
-				weekdayNameLabel.text = "Пт"
+				dayNameLabel.text = "Пт"
 			case .saturday:
-				weekdayNameLabel.text = "Сб"
+				dayNameLabel.text = "Сб"
 			case .sunday:
-				weekdayNameLabel.text = "Вс"
+				dayNameLabel.text = "Вс"
 			case .none:
 				break
 			}
@@ -91,31 +106,31 @@ class DateCell: JTACDayCell, Reusable {
 		layer.cornerRadius = 10
 		backgroundColor = .grayColor
 
-		addSubview(weekdayNameLabel)
+		addSubview(dayNameLabel)
 		addSubview(dayNumberLabel)
 
-		weekdayNameLabel.textAlignment = .center
-		weekdayNameLabel.snp.makeConstraints { make in
+		dayNameLabel.textAlignment = .center
+		dayNameLabel.snp.makeConstraints { make in
 			make.right.top.left.equalToSuperview()
-			make.height.equalTo(Constants.height / 3)
+			make.height.equalTo(Constants.cellHeight / 3)
 		}
 
 		dayNumberLabel.textAlignment = .center
 		dayNumberLabel.snp.makeConstraints { make in
 			make.right.bottom.left.equalToSuperview()
-			make.height.equalTo(Constants.height * 2 / 3)
+			make.height.equalTo(Constants.cellHeight * 2 / 3)
 		}
 	}
 
 	func toggleSelection() {
 		if isSelected {
-			backgroundColor = Constants.selectedColor
+			backgroundColor = Constants.Selected.bgColor
 			dayNumberLabel.textColor = .white
-			weekdayNameLabel.textColor = .white
+			dayNameLabel.textColor = .white
 		} else {
-			backgroundColor = .grayColor
-			dayNumberLabel.textColor = isToday ? .red : .black
-			weekdayNameLabel.textColor = .gray
+			backgroundColor = Constants.Normal.bgColor
+			dayNumberLabel.textColor = isToday ? Constants.Today.dayNumberColor : Constants.Normal.dayNumberColor
+			dayNameLabel.textColor = isToday ? Constants.Today.dayNameColor : Constants.Normal.dayNameColor
 		}
 	}
 }

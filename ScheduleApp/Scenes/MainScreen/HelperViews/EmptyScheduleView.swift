@@ -14,7 +14,7 @@ final class EmptyScheduleView: UIView {
 	private enum Constants {
 		static let buttonWidth = 200.0
 		static let buttonOffset = 30.0
-		static let buttonColor = UIColor(red: 1 / 255, green: 186 / 255, blue: 239 / 255, alpha: 1)
+		static let buttonColor = UIColor.blueColor
 	}
 
 	var refreshAction: (() -> Void)?
