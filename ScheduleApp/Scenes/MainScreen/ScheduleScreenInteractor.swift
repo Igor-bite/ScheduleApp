@@ -9,7 +9,11 @@ import Foundation
 import Alamofire
 
 public final class ScheduleScreenInteractor {
-	private let lessonsService = LessonsService()
+	private let lessonsService: LessonsService
+
+	init(lessonsService: LessonsService = BasicLessonsService()) {
+		self.lessonsService = lessonsService
+	}
 }
 
 // MARK: - Extensions -

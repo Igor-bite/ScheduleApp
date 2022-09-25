@@ -8,7 +8,11 @@
 import Foundation
 import Alamofire
 
-final class LessonsService {
+protocol LessonsService {
+	func getLessons() async throws -> [LessonModel]
+}
+
+final class BasicLessonsService: LessonsService {
 	func getLessons() async throws -> [LessonModel] {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .iso8601

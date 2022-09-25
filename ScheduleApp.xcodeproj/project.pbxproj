@@ -25,6 +25,8 @@
 		A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54CB28D8F270004E0D66 /* SPConfetti */; };
 		A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D0828DE29F700245559 /* JTAppleCalendar */; };
 		A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D0A28E0D30B00245559 /* DateCell.swift */; };
+		A54F7D1128E104DA00245559 /* ScheduleScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */; };
+		A54F7D1428E1063600245559 /* MockedLessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1328E1063600245559 /* MockedLessonsService.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -81,6 +83,8 @@
 
 /* Begin PBXFileReference section */
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
+		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A54F7D1228E1062000245559 /* ScheduleScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */,
+				A54F7D1528E1063B00245559 /* Mocks */,
+			);
+			path = ScheduleScreen;
+			sourceTree = "<group>";
+		};
+		A54F7D1528E1063B00245559 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A54F7D1328E1063600245559 /* MockedLessonsService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		A568DEFE28D3C84D00341814 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FD1221214783F1008C2EF8 /* ScheduleAppTests.swift */,
+				A54F7D1228E1062000245559 /* ScheduleScreen */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -559,6 +581,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54F7D1128E104DA00245559 /* ScheduleScreenTests.swift in Sources */,
+				A54F7D1428E1063600245559 /* MockedLessonsService.swift in Sources */,
 				E0FD1222214783F1008C2EF8 /* ScheduleAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

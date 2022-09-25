@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct LessonModel: Codable {
+public struct LessonModel: Codable, Equatable {
 	var id: Int
 	var title: String
 	var description: String
