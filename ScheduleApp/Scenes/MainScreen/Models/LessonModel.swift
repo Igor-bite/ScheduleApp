@@ -29,7 +29,7 @@ enum LessonType: String {
 		case .seminar:
 			return .purple
 		case .practice:
-			return .blue
+			return .blueColor
 		}
 	}
 }

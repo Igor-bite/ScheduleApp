@@ -38,4 +38,5 @@ extension AnimationView {
 
 extension UIColor {
 	static let grayColor = UIColor(white: 0, alpha: 0.07)
+	static let blueColor = UIColor(red: 54 / 255, green: 134 / 255, blue: 247 / 255, alpha: 1)
 }

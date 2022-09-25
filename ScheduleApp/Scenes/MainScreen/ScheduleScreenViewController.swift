@@ -62,6 +62,7 @@ public final class ScheduleScreenViewController: UIViewController {
 
 	public override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationController?.isNavigationBarHidden = true
 
 		setupViews()
 		configureWeekView()
@@ -69,23 +70,28 @@ public final class ScheduleScreenViewController: UIViewController {
 	}
 
 	private func setupViews() {
+		view.backgroundColor = .white
+
 		view.addSubview(weekView)
 		view.addSubview(table)
 		view.addSubview(whenEmptyView)
 
 		weekView.snp.makeConstraints { make in
-			make.left.right.bottom.equalToSuperview()
-			make.height.equalTo(150)
+			make.left.right.equalToSuperview()
+			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.height.equalTo(DateCell.height)
 		}
 
 		table.snp.makeConstraints { make in
-			make.left.right.top.equalToSuperview()
-			make.bottom.equalTo(weekView.snp.top)
+			make.right.left.equalToSuperview()
+			make.top.equalTo(weekView.snp.bottom).offset(10)
+			make.bottom.equalToSuperview()
 		}
 
 		whenEmptyView.snp.makeConstraints { make in
-			make.right.left.top.equalToSuperview()
-			make.bottom.equalTo(weekView.snp.top)
+			make.right.left.equalToSuperview()
+			make.top.equalTo(weekView.snp.bottom).offset(10)
+			make.bottom.equalToSuperview()
 		}
 
 		whenEmptyView.isHidden = true
@@ -106,36 +112,15 @@ public final class ScheduleScreenViewController: UIViewController {
 	private func configureWeekView() {
 		weekView.calendarDelegate = self
 		weekView.calendarDataSource = self
-		weekView.register(DateCell.self, forCellWithReuseIdentifier: "dateCell")
+		weekView.register(cellType: DateCell.self)
 		weekView.cellSize = UIScreen.main.bounds.width / 7
+		weekView.scrollToDate(.init())
+		weekView.selectDates([.init()])
 
 		weekView.scrollDirection = .horizontal
 		weekView.scrollingMode = .stopAtEachCalendarFrame
 		weekView.showsHorizontalScrollIndicator = false
 	}
-
-	func configureCell(view: JTACDayCell?, cellState: CellState) {
-		guard let view = view as? DateCell else { return }
-		view.backgroundColor = .grayColor
-		view.numberText = cellState.text
-		switch cellState.day {
-		case .monday:
-			view.dayText = "Пн"
-		case .tuesday:
-			view.dayText = "Вт"
-		case .wednesday:
-			view.dayText = "Ср"
-		case .thursday:
-			view.dayText = "Чт"
-		case .friday:
-			view.dayText = "Пт"
-		case .saturday:
-			view.dayText = "Сб"
-		case .sunday:
-			view.dayText = "Вс"
-		}
-	}
-
 }
 
 // MARK: - Extensions -
@@ -157,10 +142,12 @@ extension ScheduleScreenViewController: MainScreenViewInterface {
 
 	@objc
 	public func refresh() {
-		presenter.loadLessons()
+		presenter.fetchLessons()
 		gradientLoadingBar.fadeIn()
 	}
 }
+
+// MARK: - Lessons table view
 
 extension ScheduleScreenViewController: UITableViewDataSource {
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -181,23 +168,38 @@ extension ScheduleScreenViewController: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
-// swiftlint:disable force_unwrapping vertical_parameter_alignment force_cast
+
+// MARK: - Weekdays view
+
 extension ScheduleScreenViewController: JTACMonthViewDataSource {
 	public func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy MM dd"
-		let startDate = formatter.date(from: "2022 09 19")!
-		let endDate = formatter.date(from: "2022 09 25")!
-		return ConfigurationParameters(startDate: startDate,
-									   endDate: endDate,
+		let startTimeInterval = DateComponents(month: -1)
+		let endTimeInterval = DateComponents(month: 1)
+
+		let start = Calendar.current.date(byAdding: startTimeInterval, to: Date())
+		let end = Calendar.current.date(byAdding: endTimeInterval, to: Date())
+
+		return ConfigurationParameters(startDate: start ?? .distantPast,
+									   endDate: end ?? .distantFuture,
 									   numberOfRows: 1,
 									   generateInDates: .forFirstMonthOnly,
 									   generateOutDates: .tillEndOfRow,
-									   hasStrictBoundaries: false)
+									   firstDayOfWeek: .monday,
+									   hasStrictBoundaries: true)
 	}
 }
 
 extension ScheduleScreenViewController: JTACMonthViewDelegate {
+	private func configureCell(view: JTACDayCell?, cellState: CellState) {
+		guard let view = view as? DateCell
+		else { return }
+		if cellState.date == Date() {
+			view.isSelected = true
+		}
+		view.dayNumber = cellState.text
+		view.weekday = cellState.day
+	}
+
 	public func calendar(_ calendar: JTAppleCalendar.JTACMonthView,
 						 willDisplay cell: JTAppleCalendar.JTACDayCell,
 						 forItemAt date: Date,
@@ -210,63 +212,13 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
 						 cellForItemAt date: Date,
 						 cellState: JTAppleCalendar.CellState,
 						 indexPath: IndexPath) -> JTAppleCalendar.JTACDayCell {
-		let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+		let cell: DateCell = calendar.dequeueReusableCell(for: indexPath)
 		self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
 		return cell
 	}
 
 	public func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-		print(date)
-		print(cellState)
-	}
-}
-
-class DateCell: JTACDayCell {
-	private let number = UILabel()
-	private let day = UILabel()
-
-	var numberText: String {
-		get {
-			number.text ?? ""
-		}
-		set {
-			number.text = newValue
-		}
-	}
-
-	var dayText: String {
-		get {
-			day.text ?? ""
-		}
-		set {
-			day.text = newValue
-		}
-	}
-
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-
-		setupViews()
-	}
-
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
-	func setupViews() {
-		addSubview(number)
-		addSubview(day)
-
-		number.textAlignment = .center
-		number.snp.makeConstraints { make in
-			make.right.top.left.equalToSuperview()
-			make.height.equalTo(30)
-		}
-
-		day.textAlignment = .center
-		day.snp.makeConstraints { make in
-			make.right.bottom.left.equalToSuperview()
-			make.top.equalTo(number.snp.bottom)
-		}
+		cell?.isSelected.toggle()
+		presenter.setDate(date)
 	}
 }

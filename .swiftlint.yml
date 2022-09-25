@@ -1,5 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - vertical_parameter_alignment_on_call
+  - vertical_parameter_alignment
   - nesting
   - object_literal
 

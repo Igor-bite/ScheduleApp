@@ -20,7 +20,9 @@ public protocol ScheduleScreenPresenterInterface: PresenterInterface {
 
 	func item(at indexPath: IndexPath) -> LessonModel
 	func itemSelected(at indexPath: IndexPath)
-	func loadLessons()
+	func fetchLessons()
+
+	func setDate(_ date: Date)
 }
 
 public protocol ScheduleScreenFormatterInterface: FormatterInterface {

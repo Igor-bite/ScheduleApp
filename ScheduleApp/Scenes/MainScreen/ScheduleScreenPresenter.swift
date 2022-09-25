@@ -17,11 +17,13 @@ public final class ScheduleScreenPresenter {
 	private let interactor: ScheduleScreenInteractorInterface
 	private let wireframe: ScheduleScreenWireframeInterface
 
-	private var lessons = [LessonModel]() {
+	private var lessonsForChosenDay = [LessonModel]() {
 		didSet {
 			view.reloadData()
 		}
 	}
+	private var lessons: [LessonModel]?
+	private var selectedDate = Date()
 
 	// MARK: - Lifecycle -
 
@@ -53,24 +55,38 @@ public final class ScheduleScreenPresenter {
 
 extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
 	public var numberOfItems: Int {
-		lessons.count
+		lessonsForChosenDay.count
 	}
 
 	public func item(at indexPath: IndexPath) -> LessonModel {
-		lessons[indexPath.row]
+		lessonsForChosenDay[indexPath.row]
 	}
 
 	public func itemSelected(at indexPath: IndexPath) {
-		print("Selected lesson with title \(lessons[indexPath.row])")
+		print("Selected lesson with title \(lessonsForChosenDay[indexPath.row])")
 	}
 
-	public func loadLessons() {
+	public func fetchLessons() {
 		attempt {
 			try await self.interactor.getAllLessons()
 		}.then { lessons in
 			self.lessons = lessons
+			self.updatePresentedLessons()
 		}.catch { _ in
 			self.wireframe.showAlert(title: "Error loading lessons", message: nil, preset: .error, presentSide: .top)
+		}
+	}
+
+	public func setDate(_ date: Date) {
+		selectedDate = date
+		updatePresentedLessons()
+	}
+
+	private func updatePresentedLessons() {
+		guard let lessons = lessons
+		else { return }
+		self.lessonsForChosenDay = lessons.filter { lesson in
+			lesson.startDateTime.get(.day) == selectedDate.get(.day)
 		}
 	}
 }
