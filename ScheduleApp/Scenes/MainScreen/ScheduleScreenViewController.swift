@@ -226,19 +226,18 @@ extension ScheduleScreenViewController: UITableViewDelegate {
 
 extension ScheduleScreenViewController: JTACMonthViewDataSource {
 	public func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-		let startTimeInterval = DateComponents(month: -1)
-		let endTimeInterval = DateComponents(month: 1)
+		let startTimeInterval = DateComponents(month: -6)
+		let endTimeInterval = DateComponents(month: 6)
 
 		let start = Calendar.current.date(byAdding: startTimeInterval, to: Date())
 		let end = Calendar.current.date(byAdding: endTimeInterval, to: Date())
-
 		return ConfigurationParameters(startDate: start ?? .distantPast,
 									   endDate: end ?? .distantFuture,
 									   numberOfRows: 1,
 									   generateInDates: .forFirstMonthOnly,
-									   generateOutDates: .tillEndOfRow,
+									   generateOutDates: .off,
 									   firstDayOfWeek: .monday,
-									   hasStrictBoundaries: true)
+									   hasStrictBoundaries: false)
 	}
 }
 
@@ -246,7 +245,7 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
 	private func configureCell(view: JTACDayCell?, cellState: CellState) {
 		guard let view = view as? DateCell
 		else { return }
-		view.isToday = cellState.date.get(.day) == Date().get(.day)
+		view.isToday = cellState.date.isToday()
 		view.dayNumber = cellState.text
 		view.weekday = cellState.day
 	}
@@ -275,6 +274,15 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
 		if cellState.selectionType == .userInitiated {
 			cell.isSelected.toggle()
 			presenter.setDate(date)
+		}
+	}
+
+	public func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+		if visibleDates.monthDates.contains(where: { $0.0.isToday() }) {
+			let isTodaySelected = calendar.selectedDates.contains { $0.isToday() }
+			updateTodayButton(with: !isTodaySelected)
+		} else {
+			updateTodayButton(with: true)
 		}
 	}
 }
