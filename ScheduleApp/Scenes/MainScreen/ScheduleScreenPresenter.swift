@@ -13,7 +13,6 @@ public final class ScheduleScreenPresenter {
 	// MARK: - Private properties -
 
 	private unowned let view: MainScreenViewInterface
-	private let formatter: ScheduleScreenFormatterInterface
 	private let interactor: ScheduleScreenInteractorInterface
 	private let wireframe: ScheduleScreenWireframeInterface
 
@@ -29,12 +28,10 @@ public final class ScheduleScreenPresenter {
 
 	init(
 		view: MainScreenViewInterface,
-		formatter: ScheduleScreenFormatterInterface,
 		interactor: ScheduleScreenInteractorInterface,
 		wireframe: ScheduleScreenWireframeInterface
 	) {
 		self.view = view
-		self.formatter = formatter
 		self.interactor = interactor
 		self.wireframe = wireframe
 

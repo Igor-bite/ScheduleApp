@@ -17,9 +17,10 @@ public final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewCont
         let moduleViewController = ScheduleScreenViewController()
         super.init(viewController: moduleViewController)
 
-        let formatter = ScheduleScreenFormatter()
         let interactor = ScheduleScreenInteractor()
-        let presenter = ScheduleScreenPresenter(view: moduleViewController, formatter: formatter, interactor: interactor, wireframe: self)
+        let presenter = ScheduleScreenPresenter(view: moduleViewController,
+												interactor: interactor,
+												wireframe: self)
         moduleViewController.presenter = presenter
     }
 

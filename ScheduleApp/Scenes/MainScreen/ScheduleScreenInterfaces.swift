@@ -25,9 +25,6 @@ public protocol ScheduleScreenPresenterInterface: PresenterInterface {
 	func setDate(_ date: Date)
 }
 
-public protocol ScheduleScreenFormatterInterface: FormatterInterface {
-}
-
 public protocol ScheduleScreenInteractorInterface: InteractorInterface {
 	func getAllLessons() async throws -> [LessonModel]
 }
