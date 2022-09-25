@@ -10,7 +10,7 @@ import UIKit
 public protocol ScheduleScreenWireframeInterface: WireframeInterface {
 }
 
-public protocol MainScreenViewInterface: ViewInterface {
+public protocol ScheduleScreenViewInterface: ViewInterface {
 	func reloadData()
 	func refresh()
 }

@@ -178,7 +178,7 @@ public final class ScheduleScreenViewController: UIViewController {
 
 // MARK: - Extensions -
 
-extension ScheduleScreenViewController: MainScreenViewInterface {
+extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
 			self?.gradientLoadingBar.fadeOut()

@@ -12,7 +12,7 @@ public final class ScheduleScreenPresenter {
 
 	// MARK: - Private properties -
 
-	private unowned let view: MainScreenViewInterface
+	private unowned let view: ScheduleScreenViewInterface
 	private let interactor: ScheduleScreenInteractorInterface
 	private let wireframe: ScheduleScreenWireframeInterface
 
@@ -27,7 +27,7 @@ public final class ScheduleScreenPresenter {
 	// MARK: - Lifecycle -
 
 	init(
-		view: MainScreenViewInterface,
+		view: ScheduleScreenViewInterface,
 		interactor: ScheduleScreenInteractorInterface,
 		wireframe: ScheduleScreenWireframeInterface
 	) {
