@@ -29,7 +29,7 @@ final class EmptyScheduleView: UIView {
 
 	private let refreshButton: UIButton = {
 		let button = UIButton(frame: .zero)
-		button.setTitle("Refresh", for: .normal)
+		button.setTitle("Обновить", for: .normal)
 		button.backgroundColor = Constants.buttonColor
 		button.setTitleColor(.white, for: .normal)
 		button.layer.cornerRadius = 10

@@ -63,6 +63,14 @@ class DateCell: JTACDayCell, Reusable {
 		}
 	}
 
+	var isToday: Bool = false {
+		didSet {
+			if !isSelected {
+				dayNumberLabel.textColor = isToday ? .red : .black
+			}
+		}
+	}
+
 	override var isSelected: Bool {
 		didSet {
 			toggleSelection()
@@ -106,7 +114,7 @@ class DateCell: JTACDayCell, Reusable {
 			weekdayNameLabel.textColor = .white
 		} else {
 			backgroundColor = .grayColor
-			dayNumberLabel.textColor = .black
+			dayNumberLabel.textColor = isToday ? .red : .black
 			weekdayNameLabel.textColor = .gray
 		}
 	}

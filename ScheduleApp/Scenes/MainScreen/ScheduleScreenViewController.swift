@@ -12,6 +12,24 @@ import GradientLoadingBar
 import JTAppleCalendar
 
 public final class ScheduleScreenViewController: UIViewController {
+	private lazy var todayButton = {
+		let button = UIButton()
+		button.backgroundColor = .blueColor
+		button.layer.cornerRadius = 7
+		button.setTitle("Сегодня", for: .normal)
+		button.titleLabel?.font = .text
+		button.addTarget(self, action: #selector(selectToday), for: .touchUpInside)
+		return button
+	}()
+
+	private lazy var titleLabel = {
+		let label = UILabel()
+		label.font = .title
+		label.text = "Расписание"
+		label.textAlignment = .center
+		return label
+	}()
+
 	private let weekView = JTACMonthView()
 
 	private lazy var table: UITableView = {
@@ -72,13 +90,28 @@ public final class ScheduleScreenViewController: UIViewController {
 	private func setupViews() {
 		view.backgroundColor = .white
 
+		view.addSubview(titleLabel)
+		view.addSubview(todayButton)
 		view.addSubview(weekView)
 		view.addSubview(table)
 		view.addSubview(whenEmptyView)
 
+		todayButton.snp.makeConstraints { make in
+			make.right.equalToSuperview().inset(10)
+			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.width.equalTo(view.snp.width).dividedBy(5)
+			make.height.equalTo(25)
+		}
+
+		titleLabel.snp.makeConstraints { make in
+			make.centerX.equalToSuperview()
+			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.width.equalTo(view.snp.width).dividedBy(2)
+		}
+
 		weekView.snp.makeConstraints { make in
 			make.left.right.equalToSuperview()
-			make.top.equalTo(view.snp.topMargin).offset(10)
+			make.top.equalTo(todayButton.snp.bottom).offset(10)
 			make.height.equalTo(DateCell.height)
 		}
 
@@ -114,12 +147,27 @@ public final class ScheduleScreenViewController: UIViewController {
 		weekView.calendarDataSource = self
 		weekView.register(cellType: DateCell.self)
 		weekView.cellSize = UIScreen.main.bounds.width / 7
-		weekView.scrollToDate(.init())
-		weekView.selectDates([.init()])
+		selectToday()
 
 		weekView.scrollDirection = .horizontal
 		weekView.scrollingMode = .stopAtEachCalendarFrame
 		weekView.showsHorizontalScrollIndicator = false
+	}
+
+	@objc
+	private func selectToday() {
+		weekView.scrollToDate(.init())
+		weekView.selectDates([.init()])
+		updateTodayButton(with: false)
+		presenter.setDate(.init())
+	}
+
+	private func updateTodayButton(with isActive: Bool) {
+		guard todayButton.isUserInteractionEnabled != isActive
+		else { return }
+		todayButton.isUserInteractionEnabled = isActive
+		todayButton.backgroundColor = isActive ? .blueColor : .grayColor
+		todayButton.setTitleColor(isActive ? .white : .gray, for: .normal)
 	}
 }
 
@@ -193,9 +241,7 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
 	private func configureCell(view: JTACDayCell?, cellState: CellState) {
 		guard let view = view as? DateCell
 		else { return }
-		if cellState.date == Date() {
-			view.isSelected = true
-		}
+		view.isToday = cellState.date.get(.day) == Date().get(.day)
 		view.dayNumber = cellState.text
 		view.weekday = cellState.day
 	}
@@ -218,7 +264,12 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
 	}
 
 	public func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-		cell?.isSelected.toggle()
-		presenter.setDate(date)
+		guard let cell = cell as? DateCell
+		else { return }
+		updateTodayButton(with: cell.isSelected && !cell.isToday)
+		if cellState.selectionType == .userInitiated {
+			cell.isSelected.toggle()
+			presenter.setDate(date)
+		}
 	}
 }

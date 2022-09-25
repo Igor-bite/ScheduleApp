@@ -11,8 +11,8 @@ extension Date {
 	func isBetweeen(date date1: Date, andDate date2: Date) -> Bool {
 		date1.compare(self) == self.compare(date2)
 	}
-	
+
 	func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-		return calendar.component(component, from: self)
+		calendar.component(component, from: self)
 	}
 }
