@@ -3,6 +3,5 @@
 
 scheme("ScheduleApp")
 devices(["iPhone 13"])
-cloned_source_packages_path("SourcePackages")
 
 # clean(true)
