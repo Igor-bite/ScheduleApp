@@ -15,13 +15,23 @@ public final class SplashScreenViewController: UIViewController {
 		static let width = 199.0
 		static let topOffset = 130.0
 	}
+
 	private let bgImageView = UIImageView(image: UIImage(named: "splash-bg"))
+
 	private let animation: AnimationView = {
 		let view = AnimationView.icon
 		view.contentMode = .scaleAspectFit
 		view.loopMode = .playOnce
 		view.animationSpeed = 0.7
 		return view
+	}()
+
+	private let label: UILabel = {
+		let label = UILabel()
+		label.text = "Расписаниеееееееееееееее"
+		label.textColor = .white
+		label.font = .roundedSystemFont(ofSize: 150, weight: .semibold)
+		return label
 	}()
 
     // MARK: - Public properties -
@@ -37,9 +47,12 @@ public final class SplashScreenViewController: UIViewController {
 		setupViews()
     }
 
+	private var labelRightConstraint: Constraint?
+
 	func setupViews() {
 		view.addSubview(bgImageView)
 		view.addSubview(animation)
+		view.addSubview(label)
 
 		bgImageView.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
@@ -51,13 +64,31 @@ public final class SplashScreenViewController: UIViewController {
 			make.top.equalTo(view.snp.top).offset(130)
 			make.centerX.equalToSuperview()
 		}
+
+		label.snp.makeConstraints { make in
+			make.width.equalTo(label.intrinsicContentSize.width)
+			make.height.equalTo(label.intrinsicContentSize.height)
+			make.top.equalTo(animation.snp.bottom).offset(50)
+			self.labelRightConstraint = make.right.equalToSuperview().offset(label.intrinsicContentSize.width).constraint
+		}
 	}
 
 	public override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
+		animate()
+	}
+
+	private func animate() {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-			self.animation.play { _ in
+			self.animation.play()
+
+			self.labelRightConstraint?.update(inset: UIScreen.main.bounds.width)
+			UIView.animate(withDuration: 3, delay: 0, options: .curveEaseInOut) {
+				self.view.layoutIfNeeded()
+			}
+
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 				self.presenter.dismiss()
 			}
 		}
