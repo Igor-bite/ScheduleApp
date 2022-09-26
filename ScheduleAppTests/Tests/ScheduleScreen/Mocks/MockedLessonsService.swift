@@ -3,7 +3,6 @@
 //  ScheduleAppTests
 //
 //  Created by Игорь Клюжев on 26.09.2022.
-//  Copyright © 2022 messeb.com. All rights reserved.
 //
 
 @testable import ScheduleApp

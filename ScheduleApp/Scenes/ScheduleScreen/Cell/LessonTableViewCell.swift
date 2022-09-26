@@ -18,7 +18,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		static let cellCornerRadius = 15.0
 	}
 
-	private let lessonTypeView = LessonTypeCapsuleView()
+	private let lessonTypeView = CapsuleLabelView()
 
 	private let lessonNameLabel = {
 		let label = UILabel()
@@ -70,7 +70,8 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 	func configure(with lesson: LessonModel) {
 		lessonNameLabel.text = lesson.title
 		lessonDescriptionLabel.text = lesson.description
-		lessonTypeView.configure(with: lesson.lessonType)
+		lessonTypeView.configure(withText: lesson.lessonType.toText(),
+								 color: lesson.lessonType.bgColor())
 
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm"

@@ -1,5 +1,5 @@
 //
-//  LessonTypeCapsuleView.swift
+//  CapsuleLabelView.swift
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 20.09.2022.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class LessonTypeCapsuleView: UIView {
+final class CapsuleLabelView: UIView {
 	private enum Constants {
 		static let height = 24.0
 		static let cornerRadius = 12.0
@@ -33,9 +33,9 @@ final class LessonTypeCapsuleView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	func configure(with type: LessonType) {
-		backgroundColor = type.bgColor()
-		label.text = type.toText()
+	func configure(withText text: String, color: UIColor) {
+		backgroundColor = color
+		label.text = text
 
 		self.widthConstraint?.update(offset: label.intrinsicContentSize.width + 20)
 	}

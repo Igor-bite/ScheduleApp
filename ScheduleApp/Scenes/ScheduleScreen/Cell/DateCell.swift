@@ -3,7 +3,6 @@
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 25.09.2022.
-//  Copyright © 2022 messeb.com. All rights reserved.
 //
 
 import UIKit

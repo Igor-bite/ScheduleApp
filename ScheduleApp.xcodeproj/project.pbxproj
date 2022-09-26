@@ -47,7 +47,7 @@
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
-		A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */; };
+		A5B5B99728D91963001D3C93 /* CapsuleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */; };
 		A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99828D91B35001D3C93 /* LessonsService.swift */; };
 		A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99C28D923A0001D3C93 /* Lottie */; };
 		A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */; };
@@ -107,7 +107,7 @@
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTypeCapsuleView.swift; sourceTree = "<group>"; };
+		A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLabelView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
 		A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduleView.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 			sourceTree = "<group>";
 		};
 		A568DEFE28D3C84D00341814 /* MainScreen */ = {
+		A568DEFE28D3C84D00341814 /* ScheduleScreen */ = {
 			isa = PBXGroup;
 			children = (
 				A5B5B99528D91954001D3C93 /* HelperViews */,
@@ -217,7 +218,7 @@
 				A568DF0428D3C85C00341814 /* ScheduleScreenWireframe.swift */,
 				A5B5B99A28D91B3A001D3C93 /* Services */,
 			);
-			path = MainScreen;
+			path = ScheduleScreen;
 			sourceTree = "<group>";
 		};
 		A568DF0B28D3C88C00341814 /* Cell */ = {
@@ -260,7 +261,7 @@
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
-				A5B5B99628D91963001D3C93 /* LessonTypeCapsuleView.swift */,
+				A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */,
 				A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */,
 			);
 			path = HelperViews;
@@ -300,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				A54F7D1628E2118B00245559 /* SplashScreen */,
-				A568DEFE28D3C84D00341814 /* MainScreen */,
+				A568DEFE28D3C84D00341814 /* ScheduleScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -583,7 +584,7 @@
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
 				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
 				A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */,
-				A5B5B99728D91963001D3C93 /* LessonTypeCapsuleView.swift in Sources */,
+				A5B5B99728D91963001D3C93 /* CapsuleLabelView.swift in Sources */,
 				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
 				A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */,
