@@ -1,5 +1,9 @@
 disabled_rules: # rule identifiers to exclude from running
   - vertical_parameter_alignment_on_call
+  - vertical_parameter_alignment
+  - nesting
+  - object_literal
+  - let_var_whitespace
 
 opt_in_rules: # some rules are only opt-in
   - attributes
@@ -19,12 +23,10 @@ opt_in_rules: # some rules are only opt-in
   - first_where
   - implicit_return
   - implicitly_unwrapped_optional
-  - let_var_whitespace
   - multiline_parameters
   - nimble_operator
   # - no_extension_access_modifier
   - number_separator
-  - object_literal
   - operator_usage_whitespace
   - overridden_super_call
   - private_outlet
@@ -40,8 +42,6 @@ opt_in_rules: # some rules are only opt-in
 included: # paths to include during linting. `--path` is ignored if present.
   - ScheduleApp
   - ScheduleAppTests
-  - Core/Core
-  - Core/CoreTests
 
 
 excluded:

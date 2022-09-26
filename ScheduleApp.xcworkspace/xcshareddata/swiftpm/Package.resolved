@@ -10,12 +10,57 @@
       }
     },
     {
+      "identity" : "async-plus",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/async-plus/async-plus.git",
+      "state" : {
+        "revision" : "c99c106ac4a6275f0a9507c3dd722ecd74c323d3",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "gradientloadingbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fxm90/GradientLoadingBar",
+      "state" : {
+        "revision" : "385d133dfc1e8ea9d45518e946886680a0127288",
+        "version" : "2.3.5"
+      }
+    },
+    {
+      "identity" : "jtapplecalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/patchthecode/JTAppleCalendar",
+      "state" : {
+        "revision" : "89bc6f1c0426b3bd2856409ec600333a7d087e1b",
+        "version" : "8.0.4"
+      }
+    },
+    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
         "revision" : "be1a1acb283a702b99b630f586877ba02234b4cb",
         "version" : "7.3.2"
+      }
+    },
+    {
+      "identity" : "lightweightobservable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fxm90/LightweightObservable",
+      "state" : {
+        "revision" : "f7aeda3ab67922bd3ad252c5a311c58ee3e37bf5",
+        "version" : "2.2.2"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "314537ec697719fa33a9d48210f4d06a463286d3",
+        "version" : "3.4.3"
       }
     },
     {
@@ -43,6 +88,15 @@
       "state" : {
         "revision" : "0909c9b1132fca42aa1609f0dc5399ddb39e3b7b",
         "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "skeletonview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Juanpe/SkeletonView.git",
+      "state" : {
+        "revision" : "ca7d2edceee613e47b7857029fc82de633460e6f",
+        "version" : "1.30.2"
       }
     },
     {

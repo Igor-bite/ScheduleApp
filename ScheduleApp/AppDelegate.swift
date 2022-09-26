@@ -1,5 +1,4 @@
 import UIKit
-import Core
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -13,11 +12,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		let initialViewController = UINavigationController()
-		initialViewController.setRootWireframe(MainScreenWireframe())
+		initialViewController.setRootWireframe(ScheduleScreenWireframe())
 
         window.rootViewController = initialViewController
         window.makeKeyAndVisible()
 
         return true
     }
+
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		NotificationCenter.default.post(.init(name: .AppDidBecomeActive))
+	}
+}
+
+extension Notification.Name {
+	static let AppDidBecomeActive = Notification.Name("applicationDidBecomeActiveNotification")
 }
