@@ -1,7 +1,8 @@
 # Enable skip_build to skip debug builds for faster test performance
-skip_build(true)
+# skip_build(true)
 
 scheme("ScheduleApp")
 devices(["iPhone 13"])
+cloned_source_packages_path("SourcePackages")
 
-clean(true)
+# clean(true)
