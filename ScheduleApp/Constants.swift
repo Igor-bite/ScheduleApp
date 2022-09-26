@@ -10,7 +10,7 @@ import Lottie
 
 enum Constants {
 	enum Network {
-		static let baseUrl = "https://neoflex-practice.herokuapp.com"
+		static let baseUrl = "https://tinkoff-course-work.herokuapp.com"
 	}
 }
 
@@ -34,6 +34,7 @@ extension UIFont {
 extension AnimationView {
 	static let relaxAnimation = AnimationView(name: "relaxAnimation")
 	static let activeIndicator = AnimationView(name: "activeIndicator")
+	static let icon = AnimationView(name: "icon")
 }
 
 extension UIColor {
