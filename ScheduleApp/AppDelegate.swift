@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let initialViewController = UINavigationController()
 		initialViewController.setRootWireframe(
 			SplashScreenWireframe {
-				initialViewController.setRootWireframe(ScheduleScreenWireframe(), animated: false)
+				UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+					initialViewController.setRootWireframe(ScheduleScreenWireframe(), animated: false)
+				}
 			}
 		)
 

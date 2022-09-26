@@ -29,8 +29,6 @@ public final class SplashScreenPresenter {
 
 extension SplashScreenPresenter: SplashScreenPresenterInterface {
 	public func dismiss() {
-		UIView.animate(withDuration: 1.0) {
-			self.wireframe.dismissSplash()
-		}
+		self.wireframe.dismissSplash()
 	}
 }
