@@ -22,6 +22,8 @@ final class LessonTypeCapsuleView: UIView {
 		return label
 	}()
 
+	private var widthConstraint: Constraint?
+
 	init() {
 		super.init(frame: .zero)
 		setupViews()
@@ -33,11 +35,9 @@ final class LessonTypeCapsuleView: UIView {
 
 	func configure(with type: LessonType) {
 		backgroundColor = type.bgColor()
-		label.text = type.rawValue
+		label.text = type.toText()
 
-		snp.makeConstraints { make in
-			make.width.equalTo(label.intrinsicContentSize.width + 20)
-		}
+		self.widthConstraint?.update(offset: label.intrinsicContentSize.width + 20)
 	}
 
 	private func setupViews() {
@@ -49,6 +49,10 @@ final class LessonTypeCapsuleView: UIView {
 		addSubview(label)
 		label.snp.makeConstraints { make in
 			make.edges.equalToSuperview()
+		}
+
+		snp.makeConstraints { make in
+			self.widthConstraint = make.width.equalTo(label.intrinsicContentSize.width + 20).constraint
 		}
 	}
 }

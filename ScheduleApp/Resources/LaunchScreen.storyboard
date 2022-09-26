@@ -4,15 +4,50 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController"/>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ub7-5p-BV3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-icon" translatesAutoresizingMaskIntoConstraints="NO" id="LN0-dC-1Mm">
+                                <rect key="frame" x="88" y="130" width="199" height="284"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="284" id="MBY-rD-6HN"/>
+                                    <constraint firstAttribute="width" constant="199" id="N95-BP-IyT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="splash-bg" translatesAutoresizingMaskIntoConstraints="NO" id="AsX-iD-TXJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LN0-dC-1Mm" firstAttribute="top" secondItem="Ub7-5p-BV3" secondAttribute="top" constant="130" id="8jD-q4-gkn"/>
+                            <constraint firstAttribute="trailing" secondItem="AsX-iD-TXJ" secondAttribute="trailing" id="XxT-eo-HSI"/>
+                            <constraint firstItem="AsX-iD-TXJ" firstAttribute="top" secondItem="Ub7-5p-BV3" secondAttribute="top" id="ZlZ-EC-fnP"/>
+                            <constraint firstAttribute="bottom" secondItem="AsX-iD-TXJ" secondAttribute="bottom" id="gzL-PW-MCl"/>
+                            <constraint firstItem="LN0-dC-1Mm" firstAttribute="centerX" secondItem="Ub7-5p-BV3" secondAttribute="centerX" id="mhD-eT-Ev6"/>
+                            <constraint firstItem="AsX-iD-TXJ" firstAttribute="leading" secondItem="Ub7-5p-BV3" secondAttribute="leading" id="wNy-3w-UbK"/>
+                        </constraints>
+                    </view>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash-bg" width="360" height="640"/>
+        <image name="splash-icon" width="852" height="1066"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

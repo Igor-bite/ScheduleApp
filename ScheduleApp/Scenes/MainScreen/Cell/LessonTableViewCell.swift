@@ -70,7 +70,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 	func configure(with lesson: LessonModel) {
 		lessonNameLabel.text = lesson.title
 		lessonDescriptionLabel.text = lesson.description
-		lessonTypeView.configure(with: .lection)
+		lessonTypeView.configure(with: lesson.lessonType)
 
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm"

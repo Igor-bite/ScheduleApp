@@ -27,6 +27,11 @@
 		A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D0A28E0D30B00245559 /* DateCell.swift */; };
 		A54F7D1128E104DA00245559 /* ScheduleScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */; };
 		A54F7D1428E1063600245559 /* MockedLessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1328E1063600245559 /* MockedLessonsService.swift */; };
+		A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */; };
+		A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */; };
+		A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1928E211B300245559 /* SplashScreenViewController.swift */; };
+		A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */; };
+		A54F7D2028E2125300245559 /* icon.json in Resources */ = {isa = PBXBuildFile; fileRef = A54F7D1F28E2125300245559 /* icon.json */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -84,6 +89,11 @@
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
 		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
+		A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInterfaces.swift; sourceTree = "<group>"; };
+		A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
+		A54F7D1928E211B300245559 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenWireframe.swift; sourceTree = "<group>"; };
+		A54F7D1F28E2125300245559 /* icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon.json; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +193,17 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		A54F7D1628E2118B00245559 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */,
+				A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */,
+				A54F7D1928E211B300245559 /* SplashScreenViewController.swift */,
+				A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		A568DEFE28D3C84D00341814 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +279,7 @@
 			children = (
 				A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */,
 				A5B5B9A628D93253001D3C93 /* activeIndicator.json */,
+				A54F7D1F28E2125300245559 /* icon.json */,
 			);
 			path = LottieAnimations;
 			sourceTree = "<group>";
@@ -277,6 +299,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A54F7D1628E2118B00245559 /* SplashScreen */,
 				A568DEFE28D3C84D00341814 /* MainScreen */,
 			);
 			path = Scenes;
@@ -509,6 +532,7 @@
 			files = (
 				A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */,
 				A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */,
+				A54F7D2028E2125300245559 /* icon.json in Resources */,
 				E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */,
 				E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -550,7 +574,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */,
+				A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
+				A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */,
+				A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */,
 				A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */,
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
 				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
@@ -611,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0FD1207214781CA008C2EF8 /* Release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -671,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0FD1205214781CA008C2EF8 /* Debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D7YJ8BY8H;
@@ -694,6 +724,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0FD1203214781CA008C2EF8 /* Staging.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

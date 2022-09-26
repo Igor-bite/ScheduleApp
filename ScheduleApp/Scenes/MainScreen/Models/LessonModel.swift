@@ -15,21 +15,46 @@ public struct LessonModel: Codable, Equatable {
 	var courseId: Int
 	var startDateTime: Date
 	var endDateTime: Date
+	var lessonType: LessonType
 }
 
 enum LessonType: String {
-	case lection = "Лекция"
-	case seminar = "Семинар"
-	case practice = "Практика"
+	case lecture
+	case seminar
+	case practice
 
 	func bgColor() -> UIColor {
 		switch self {
-		case .lection:
+		case .lecture:
 			return .init(red: 60 / 255, green: 207 / 255, blue: 78 / 255, alpha: 1)
 		case .seminar:
 			return .purple
 		case .practice:
 			return .blueColor
+		}
+	}
+
+	func toText() -> String {
+		switch self {
+		case .lecture:
+			return "Лекция"
+		case .seminar:
+			return "Семинар"
+		case .practice:
+			return "Практика"
+		}
+	}
+}
+
+extension LessonType: Codable {
+	init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		let rawString = try container.decode(String.self)
+
+		if let userType = LessonType(rawValue: rawString.lowercased()) {
+			self = userType
+		} else {
+			throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
 		}
 	}
 }

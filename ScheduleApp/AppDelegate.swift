@@ -12,7 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		let initialViewController = UINavigationController()
-		initialViewController.setRootWireframe(ScheduleScreenWireframe())
+		initialViewController.setRootWireframe(
+			SplashScreenWireframe {
+				UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+					initialViewController.setRootWireframe(ScheduleScreenWireframe(), animated: false)
+				}
+			}
+		)
 
         window.rootViewController = initialViewController
         window.makeKeyAndVisible()
