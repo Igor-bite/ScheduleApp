@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		initialViewController.setRootWireframe(
 			SplashScreenWireframe {
 				UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-					initialViewController.setRootWireframe(ScheduleScreenWireframe(), animated: false)
+					initialViewController.setRootWireframe(CoursesScreenWireframe(), animated: false)
 				}
 			}
 		)

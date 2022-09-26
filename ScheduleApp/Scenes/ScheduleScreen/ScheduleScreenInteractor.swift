@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 public final class ScheduleScreenInteractor {
 	private let lessonsService: LessonsService
