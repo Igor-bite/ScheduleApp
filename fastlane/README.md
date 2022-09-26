@@ -21,21 +21,6 @@ or alternatively using `brew cask install fastlane`
 fastlane ios test
 ```
 
-### ios staging
-```
-fastlane ios staging
-```
-
-### ios release
-```
-fastlane ios release
-```
-
-### ios encrypt
-```
-fastlane ios encrypt
-```
-
 
 ----
 

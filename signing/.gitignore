@@ -1,4 +1,0 @@
-# Prevents check in unencrypted file
-*.mobileprovision
-*.p12
-*.cert

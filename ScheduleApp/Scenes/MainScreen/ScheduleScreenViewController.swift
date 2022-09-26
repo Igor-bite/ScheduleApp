@@ -17,6 +17,7 @@ public final class ScheduleScreenViewController: UIViewController {
 		static let lessonRowHeight = 160.0
 		static let loadingBarHeight = 4.0
 	}
+
 	private lazy var todayButton = {
 		let button = UIButton()
 		button.backgroundColor = .blueColor
