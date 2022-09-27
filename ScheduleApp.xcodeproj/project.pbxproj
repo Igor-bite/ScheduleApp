@@ -50,6 +50,8 @@
 		A54F7D4B28E3463A00245559 /* CoursesCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4628E3463900245559 /* CoursesCreatorScreenViewController.swift */; };
 		A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */; };
 		A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */; };
+		A54F7D5028E3498500245559 /* FluidSlider in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D4F28E3498500245559 /* FluidSlider */; };
+		A54F7D5328E34B9800245559 /* STTextView in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D5228E34B9800245559 /* STTextView */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -178,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54F7D5028E3498500245559 /* FluidSlider in Frameworks */,
 				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
 				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
 				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
@@ -196,6 +199,7 @@
 				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
+				A54F7D5328E34B9800245559 /* STTextView in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
 				A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */,
 				A5B5B9A528D92F54001D3C93 /* GradientLoadingBar in Frameworks */,
@@ -549,6 +553,8 @@
 				A5B5B99C28D923A0001D3C93 /* Lottie */,
 				A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */,
 				A54F7D0828DE29F700245559 /* JTAppleCalendar */,
+				A54F7D4F28E3498500245559 /* FluidSlider */,
+				A54F7D5228E34B9800245559 /* STTextView */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -616,6 +622,8 @@
 				A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */,
 				A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+				A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */,
+				A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -988,6 +996,22 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/fluid-slider";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onl1ner/STTextView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/async-plus/async-plus.git";
@@ -1107,6 +1131,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
+		};
+		A54F7D4F28E3498500245559 /* FluidSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */;
+			productName = FluidSlider;
+		};
+		A54F7D5228E34B9800245559 /* STTextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */;
+			productName = STTextView;
 		};
 		A568DF2228D3D0FD00341814 /* AsyncPlus */ = {
 			isa = XCSwiftPackageProductDependency;

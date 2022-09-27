@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "fluid-slider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Ramotion/fluid-slider",
+      "state" : {
+        "revision" : "68e2df951208496be4fb48202d790c937fa8c8fc",
+        "version" : "1.1.0"
+      }
+    },
+    {
       "identity" : "gradientloadingbar",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fxm90/GradientLoadingBar",
@@ -124,6 +133,15 @@
       "state" : {
         "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
         "version" : "1.6.4"
+      }
+    },
+    {
+      "identity" : "sttextview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onl1ner/STTextView",
+      "state" : {
+        "revision" : "f414d0e74d7862a601549774f58307017c1f5cb4",
+        "version" : "1.1.3"
       }
     }
   ],
