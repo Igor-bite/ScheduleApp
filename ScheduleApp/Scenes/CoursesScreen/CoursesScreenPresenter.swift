@@ -66,4 +66,8 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
 		guard let courses else { return }
 		coursesToShow = courses
 	}
+
+	public func createNewCourse() {
+		wireframe.presentCourseCreator()
+	}
 }

@@ -27,4 +27,7 @@ public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewContro
 // MARK: - Extensions -
 
 extension CoursesScreenWireframe: CoursesScreenWireframeInterface {
+	public func presentCourseCreator() {
+		navigationController?.presentWireframe(CoursesCreatorScreenWireframe())
+	}
 }

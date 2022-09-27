@@ -93,7 +93,7 @@ public final class CoursesScreenViewController: UIViewController {
 
 	@objc
 	private func createNewCourse() {
-
+		presenter.createNewCourse()
 	}
 }
 
