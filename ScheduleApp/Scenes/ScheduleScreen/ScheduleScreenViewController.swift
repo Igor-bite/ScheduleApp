@@ -19,18 +19,14 @@ public final class ScheduleScreenViewController: UIViewController {
 	}
 
 	private lazy var todayButton = {
-		let button = UIButton()
-		button.backgroundColor = .blueColor
-		button.layer.cornerRadius = 7
+		let button = UIButton.barButton
 		button.setTitle("Сегодня", for: .normal)
-		button.titleLabel?.font = .text
 		button.addTarget(self, action: #selector(selectToday), for: .touchUpInside)
 		return button
 	}()
 
 	private lazy var titleLabel = {
-		let label = UILabel()
-		label.font = .title
+		let label = UILabel.titleLabel
 		label.text = "Расписание"
 		label.textAlignment = .center
 		return label
@@ -94,7 +90,7 @@ public final class ScheduleScreenViewController: UIViewController {
 	}
 
 	private func setupViews() {
-		view.backgroundColor = .white
+		view.backgroundColor = .Pallette.mainBgColor
 
 		view.addSubview(titleLabel)
 		view.addSubview(todayButton)
@@ -172,8 +168,8 @@ public final class ScheduleScreenViewController: UIViewController {
 		guard todayButton.isUserInteractionEnabled != isActive
 		else { return }
 		todayButton.isUserInteractionEnabled = isActive
-		todayButton.backgroundColor = isActive ? .blueColor : .grayColor
-		todayButton.setTitleColor(isActive ? .white : .gray, for: .normal)
+		todayButton.backgroundColor = isActive ? .Pallette.buttonBg : .Pallette.gray
+		todayButton.setTitleColor(isActive ? .Pallette.textColor.darkThemeColor : .Pallette.secondaryTextColor, for: .normal)
 	}
 }
 

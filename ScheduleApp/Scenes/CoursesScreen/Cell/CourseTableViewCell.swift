@@ -19,25 +19,11 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 	}
 
 	private let courseTypeView = CapsuleLabelView()
-
-	private let courseNameLabel = {
-		let label = UILabel()
-		label.font = .title
-		return label
-	}()
-
-	private let courseDescriptionLabel = {
-		let label = UILabel()
-		label.textColor = .gray
-		label.font = .secondaryText
-		return label
-	}()
-
+	private let courseNameLabel = UILabel.titleLabel
+	private let courseDescriptionLabel = UILabel.secondaryTextLabel
 	private let vacantPlaceCountLabel = {
-		let label = UILabel()
+		let label = UILabel.secondaryTextLabel
 		label.textAlignment = .right
-		label.textColor = .gray
-		label.font = .secondaryText
 		return label
 	}()
 
@@ -54,7 +40,7 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 	func configure(with course: CourseModel) {
 		courseNameLabel.text = course.title
 		courseDescriptionLabel.text = course.description
-		courseTypeView.configure(withText: course.courseType.type.toText(), color: .blueColor)
+		courseTypeView.configure(withText: course.courseType.type.toText(), color: .init(light: .Pallette.lightBlue, dark: .Pallette.blue))
 		vacantPlaceCountLabel.text = "\(course.studentCount)/\(course.studentCount)"
 	}
 
@@ -69,7 +55,7 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 		}
 		containerView.layer.cornerRadius = Constants.cellCornerRadius
 		containerView.layer.masksToBounds = true
-		containerView.backgroundColor = .grayColor
+		containerView.backgroundColor = .Pallette.cellBgColor
 
 		containerView.addSubview(courseTypeView)
 		containerView.addSubview(courseNameLabel)

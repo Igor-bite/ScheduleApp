@@ -20,31 +20,18 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 
 	private let lessonTypeView = CapsuleLabelView()
 
-	private let lessonNameLabel = {
-		let label = UILabel()
-		label.font = .title
-		return label
-	}()
-
+	private let lessonNameLabel = UILabel.titleLabel
 	private let teacherLabel = {
-		let label = UILabel()
-		label.textColor = .gray
-		label.font = .text
+		let label = UILabel.textLabel
+		label.textColor = .Pallette.secondaryTextColor
 		return label
 	}()
 
-	private let lessonDescriptionLabel = {
-		let label = UILabel()
-		label.textColor = .gray
-		label.font = .secondaryText
-		return label
-	}()
+	private let lessonDescriptionLabel = UILabel.secondaryTextLabel
 
 	private let timeLabel = {
-		let label = UILabel()
+		let label = UILabel.secondaryTextLabel
 		label.textAlignment = .right
-		label.textColor = .gray
-		label.font = .secondaryText
 		return label
 	}()
 
@@ -102,7 +89,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 		}
 		containerView.layer.cornerRadius = Constants.cellCornerRadius
 		containerView.layer.masksToBounds = true
-		containerView.backgroundColor = .grayColor
+		containerView.backgroundColor = .Pallette.cellBgColor
 
 		containerView.addSubview(lessonTypeView)
 		containerView.addSubview(lessonNameLabel)

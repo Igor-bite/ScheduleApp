@@ -13,7 +13,7 @@ final class EmptyScheduleView: UIView {
 	private enum Constants {
 		static let buttonWidth = 200.0
 		static let buttonOffset = 30.0
-		static let buttonColor = UIColor.blueColor
+		static let buttonColor = UIColor.Pallette.buttonBg
 	}
 
 	var refreshAction: (() -> Void)?
@@ -27,10 +27,8 @@ final class EmptyScheduleView: UIView {
 	}()
 
 	private let refreshButton: UIButton = {
-		let button = UIButton(frame: .zero)
+		let button = UIButton.barButton
 		button.setTitle("Обновить", for: .normal)
-		button.backgroundColor = Constants.buttonColor
-		button.setTitleColor(.white, for: .normal)
 		button.layer.cornerRadius = 10
 		button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 		return button

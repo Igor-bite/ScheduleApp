@@ -18,18 +18,14 @@ public final class CoursesScreenViewController: UIViewController {
 	}
 
 	private lazy var createCourseButton = {
-		let button = UIButton()
-		button.backgroundColor = .blueColor
-		button.layer.cornerRadius = 7
+		let button = UIButton.barButton
 		button.setTitle("Создать", for: .normal)
-		button.titleLabel?.font = .text
 		button.addTarget(self, action: #selector(createNewCourse), for: .touchUpInside)
 		return button
 	}()
 
 	private lazy var titleLabel = {
-		let label = UILabel()
-		label.font = .title
+		let label = UILabel.titleLabel
 		label.text = "Курсы"
 		label.textAlignment = .center
 		return label
@@ -69,7 +65,7 @@ public final class CoursesScreenViewController: UIViewController {
     }
 
 	private func setupViews() {
-		view.backgroundColor = .white
+		view.backgroundColor = .Pallette.mainBgColor
 
 		view.addSubview(titleLabel)
 		view.addSubview(createCourseButton)

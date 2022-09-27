@@ -15,10 +15,9 @@ final class CapsuleLabelView: UIView {
 	}
 
 	private let label = {
-		let label = UILabel()
+		let label = UILabel.secondaryTextLabel
 		label.textAlignment = .center
-		label.font = .secondaryText
-		label.textColor = .white
+		label.textColor = .Pallette.textColor.darkThemeColor
 		return label
 	}()
 
