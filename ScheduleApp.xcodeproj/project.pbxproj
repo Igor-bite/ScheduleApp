@@ -50,7 +50,6 @@
 		A54F7D4B28E3463A00245559 /* CoursesCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4628E3463900245559 /* CoursesCreatorScreenViewController.swift */; };
 		A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */; };
 		A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */; };
-		A54F7D5028E3498500245559 /* FluidSlider in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D4F28E3498500245559 /* FluidSlider */; };
 		A54F7D5328E34B9800245559 /* STTextView in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D5228E34B9800245559 /* STTextView */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
@@ -66,6 +65,7 @@
 		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
+		A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */ = {isa = PBXBuildFile; productRef = A5A78D8228EB8B1600646816 /* CocoaTextField */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
 		A5B5B99728D91963001D3C93 /* CapsuleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */; };
 		A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99828D91B35001D3C93 /* LessonsService.swift */; };
@@ -180,7 +180,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A54F7D5028E3498500245559 /* FluidSlider in Frameworks */,
 				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
 				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
 				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
@@ -194,6 +193,7 @@
 				A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */,
 				A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */,
 				A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */,
+				A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */,
 				A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */,
 				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
 				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
@@ -553,8 +553,8 @@
 				A5B5B99C28D923A0001D3C93 /* Lottie */,
 				A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */,
 				A54F7D0828DE29F700245559 /* JTAppleCalendar */,
-				A54F7D4F28E3498500245559 /* FluidSlider */,
 				A54F7D5228E34B9800245559 /* STTextView */,
+				A5A78D8228EB8B1600646816 /* CocoaTextField */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -622,8 +622,8 @@
 				A5B5B99B28D923A0001D3C93 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */,
 				A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
-				A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */,
 				A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */,
+				A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -996,14 +996,6 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Ramotion/fluid-slider";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onl1ner/STTextView";
@@ -1015,6 +1007,14 @@
 		A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/async-plus/async-plus.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/edgar-zigis/CocoaTextField";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -1132,11 +1132,6 @@
 			package = A54F7D0728DE29F700245559 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
 			productName = JTAppleCalendar;
 		};
-		A54F7D4F28E3498500245559 /* FluidSlider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A54F7D4E28E3498500245559 /* XCRemoteSwiftPackageReference "fluid-slider" */;
-			productName = FluidSlider;
-		};
 		A54F7D5228E34B9800245559 /* STTextView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A54F7D5128E34B9700245559 /* XCRemoteSwiftPackageReference "STTextView" */;
@@ -1146,6 +1141,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
 			productName = AsyncPlus;
+		};
+		A5A78D8228EB8B1600646816 /* CocoaTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */;
+			productName = CocoaTextField;
 		};
 		A5B5B99328D915EB001D3C93 /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;

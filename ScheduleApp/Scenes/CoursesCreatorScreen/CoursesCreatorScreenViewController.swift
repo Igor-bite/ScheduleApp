@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import SnapKit
+import STTextView
+import CocoaTextField
 
 public final class CoursesCreatorScreenViewController: UIViewController {
 	enum Constants {
 		static let submitButtonHeight = 48
-		static let gapHeight = 10
+		static let gapHeight = 20
 		static let sideOffset = 16
 		static let sectionHeight = 44
 		static let twoThirdsSections = sectionHeight / 3 * 2
@@ -32,27 +35,75 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 
 	private let courseTypeSegmentedControl = UISegmentedControl(items: ["Оффлайн", "Онлайн"])
 
-	private let titleEnterInput = {
-		let textField = UITextField()
-		textField.placeholder = "Название курса"
+    private var placeholderAttributes: [NSAttributedString.Key: Any] {
+        [
+            NSAttributedString.Key.foregroundColor: UIColor.Pallette.secondaryTextColor.withAlphaComponent(0.4),
+            NSAttributedString.Key.font: UIFont.text
+        ]
+    }
+
+    private lazy var titleEnterInput = {
+        let textField = CocoaTextField()
+        textField.placeholder = "Название курса"
+        textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
+        textField.activeHintColor = .Pallette.buttonBg
+        textField.focusedBackgroundColor = .Pallette.mainBgColor
+        textField.defaultBackgroundColor = .Pallette.mainBgColor
+        textField.borderColor = .Pallette.buttonBg
+        textField.errorColor = UIColor(red: 231 / 255, green: 76 / 255, blue: 60 / 255, alpha: 0.7)
+        textField.borderWidth = 1
+        textField.cornerRadius = 11
+        return textField
+    }()
+
+	private lazy var descriptionEnterInput = {
+		let textField = STTextView()
+        let placeholder = "Описание курса"
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
+		textField.font = .text
+        textField.textContainerInset.left = 10
+        textField.layer.cornerRadius = 11
+        textField.layer.borderColor = UIColor.Pallette.buttonBg.lightThemeColor.cgColor
+        textField.layer.borderWidth = 1
 		return textField
 	}()
 
-	private let descriptionEnterInput = {
-		let textField = UITextField()
-		textField.placeholder = "Описание курса"
-		return textField
-	}()
+    private lazy var customEnterInput1 = {
+        let textField = CocoaTextField()
+        textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
+        textField.activeHintColor = .Pallette.buttonBg
+        textField.focusedBackgroundColor = .Pallette.mainBgColor
+        textField.defaultBackgroundColor = .Pallette.mainBgColor
+        textField.borderColor = .Pallette.buttonBg
+        textField.errorColor = UIColor(red: 231 / 255, green: 76 / 255, blue: 60 / 255, alpha: 0.7)
+        textField.borderWidth = 1
+        textField.cornerRadius = 11
+        return textField
+    }()
 
-//	private let studentCount
+    private lazy var customEnterInput2 = {
+        let textField = CocoaTextField()
+        textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
+        textField.activeHintColor = .Pallette.buttonBg
+        textField.focusedBackgroundColor = .Pallette.mainBgColor
+        textField.defaultBackgroundColor = .Pallette.mainBgColor
+        textField.borderColor = .Pallette.buttonBg
+        textField.errorColor = UIColor(red: 231 / 255, green: 76 / 255, blue: 60 / 255, alpha: 0.7)
+        textField.borderWidth = 1
+        textField.cornerRadius = 11
+        return textField
+    }()
 
-	private let submitButton: UIButton = {
+	private lazy var submitButton: UIButton = {
 		let button = UIButton.barButton
 		button.setTitle("Создать", for: .normal)
 		button.layer.cornerRadius = 15
 		button.addTarget(self, action: #selector(createCourse), for: .touchUpInside)
 		return button
 	}()
+
+    private var bottomOfflineConstraint: Constraint?
+    private var bottomOnlineConstraint: Constraint?
 
     // MARK: - Public properties -
 
@@ -64,23 +115,28 @@ public final class CoursesCreatorScreenViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        traceKeyboard()
+        hideKeyboardOnTap()
+        view.backgroundColor = .clear
 		setupViews()
+        addSegementedControlAction()
+        updateEnterInputVisibility()
     }
 
 	public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 		titleEnterInput.becomeFirstResponder()
 	}
 
 	private func setupViews() {
-		traceKeyboard()
-		hideKeyboardOnTap()
-		view.backgroundColor = .clear
-
 		view.addSubview(contentView)
 		contentView.addSubview(labelView)
 		contentView.addSubview(courseTypeSegmentedControl)
 		contentView.addSubview(titleEnterInput)
+		contentView.addSubview(descriptionEnterInput)
 		contentView.addSubview(submitButton)
+        contentView.addSubview(customEnterInput1)
+        contentView.addSubview(customEnterInput2)
 
 		contentView.snp.makeConstraints { make in
 			make.leading.trailing.equalToSuperview()
@@ -106,27 +162,85 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 			make.leading.equalToSuperview().offset(Constants.sideOffset)
 			make.trailing.equalToSuperview().inset(Constants.sideOffset)
 			make.height.equalTo(Constants.sectionHeight)
-			make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight)
+			make.bottom.equalTo(descriptionEnterInput.snp.top).offset(-Constants.gapHeight)
 		}
+
+		descriptionEnterInput.snp.makeConstraints { make in
+			make.left.equalToSuperview().offset(Constants.sideOffset)
+			make.right.equalToSuperview().inset(Constants.sideOffset)
+			make.height.equalTo(Constants.sectionHeight * 2)
+			make.bottom.equalTo(customEnterInput1.snp.top).offset(-Constants.gapHeight)
+		}
+
+        customEnterInput1.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            self.bottomOfflineConstraint = make.bottom.equalTo(customEnterInput2.snp.top).offset(-Constants.gapHeight).constraint
+            self.bottomOnlineConstraint = make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight).constraint
+        }
+
+        customEnterInput2.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight)
+        }
 
 		submitButton.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(Constants.sideOffset)
 			make.trailing.equalToSuperview().inset(Constants.sideOffset)
 			make.height.equalTo(Constants.sectionHeight)
-			make.bottom.equalTo(contentView.snp.bottom).inset(Constants.gapHeight + Int(UIApplication.shared.windows.first!.safeAreaInsets.bottom))
-		}
 
-		courseTypeSegmentedControl.selectedSegmentIndex = 0
-		courseTypeSegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged), for: .valueChanged)
+            guard let safeAreaInsets = UIApplication.shared.windows.first?.safeAreaInsets else { return }
+			make.bottom.equalTo(contentView.snp.bottom).inset(Constants.gapHeight + Int(safeAreaInsets.bottom))
+		}
 	}
+
+    private func addSegementedControlAction() {
+        courseTypeSegmentedControl.selectedSegmentIndex = 0
+        courseTypeSegmentedControl.addTarget(self, action: #selector(self.segmentedValueChanged), for: .valueChanged)
+    }
+
+    private func updateEnterInputVisibility() {
+        switch courseTypeSegmentedControl.selectedSegmentIndex {
+        case 0:
+            bottomOfflineConstraint?.isActive = true
+            bottomOnlineConstraint?.isActive = false
+            UIView.animate(withDuration: 1.0) {
+                self.customEnterInput1.placeholder = "Название университета"
+                self.customEnterInput2.placeholder = "Адрес корпуса"
+                self.customEnterInput2.alpha = 1
+                self.view.layoutIfNeeded()
+            }
+        case 1:
+            bottomOfflineConstraint?.isActive = false
+            bottomOnlineConstraint?.isActive = true
+            UIView.animate(withDuration: 1.0) {
+                self.customEnterInput1.placeholder = "Ссылка на платформу с уроками"
+                self.customEnterInput2.alpha = 0
+                self.view.layoutIfNeeded()
+            }
+        default:
+            break
+        }
+    }
 
 	@objc
 	func segmentedValueChanged() {
 		print("Selected Segment Index is : \(courseTypeSegmentedControl.selectedSegmentIndex)")
+        updateEnterInputVisibility()
 	}
 
 	@objc
 	private func createCourse() {
+        guard let name = titleEnterInput.text,
+              let description = descriptionEnterInput.text,
+              let url = customEnterInput1.text
+        else { return }
+
+        print("Making new course with name: \(name), desc: \(description), url: \(url)")
+        customEnterInput1.setError(errorString: "Неверная ссылка")
 //		if let taskName = titleEnterInput.text,
 //		   taskName != "" {
 //

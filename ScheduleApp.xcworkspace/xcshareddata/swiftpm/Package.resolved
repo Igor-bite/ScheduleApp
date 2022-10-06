@@ -19,12 +19,12 @@
       }
     },
     {
-      "identity" : "fluid-slider",
+      "identity" : "cocoatextfield",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Ramotion/fluid-slider",
+      "location" : "https://github.com/edgar-zigis/CocoaTextField",
       "state" : {
-        "revision" : "68e2df951208496be4fb48202d790c937fa8c8fc",
-        "version" : "1.1.0"
+        "revision" : "0087ad64c9f5dfc287ad6163306667ad92bf8837",
+        "version" : "1.1.2"
       }
     },
     {
