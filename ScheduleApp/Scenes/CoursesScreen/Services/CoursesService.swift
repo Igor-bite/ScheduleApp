@@ -14,7 +14,7 @@ protocol CoursesService {
 
 final class BasicCoursesService: CoursesService {
 	func getCourses() async throws -> [CourseModel] {
-		return try await AF.request(Constants.Network.baseUrl + "/course")
+		try await AF.request(Constants.Network.baseUrl + "/course")
 			.authenticate(username: "admin", password: "admin")
 //			.authenticate(username: "SomeUsername", password: "SomePassword")
 			.serializingDecodable([CourseModel].self)

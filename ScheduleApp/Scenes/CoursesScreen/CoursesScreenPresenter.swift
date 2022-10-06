@@ -40,17 +40,17 @@ public final class CoursesScreenPresenter {
 
 extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
 	public var numberOfItems: Int {
-		return coursesToShow.count
+		coursesToShow.count
 	}
-	
+
 	public func item(at indexPath: IndexPath) -> CourseModel {
 		coursesToShow[indexPath.row]
 	}
-	
+
 	public func itemSelected(at indexPath: IndexPath) {
 		print("Selected course at \(indexPath)")
 	}
-	
+
 	public func fetchLessons() {
 		attempt {
 			try await self.interactor.getAllCourses()

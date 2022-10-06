@@ -54,7 +54,8 @@ extension LessonType: Codable {
 		if let userType = LessonType(rawValue: rawString.lowercased()) {
 			self = userType
 		} else {
-			throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
+			throw DecodingError.dataCorruptedError(in: container,
+                                                   debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
 		}
 	}
 }

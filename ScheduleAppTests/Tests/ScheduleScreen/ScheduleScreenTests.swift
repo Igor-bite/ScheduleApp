@@ -11,15 +11,7 @@ import AsyncPlus
 
 final class ScheduleScreenTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-//	MARK: - Interactor
+// MARK: - Interactor
 
     func test_interactor_getAllLessons() throws {
 		let lessonsService = MockedLessonsService()

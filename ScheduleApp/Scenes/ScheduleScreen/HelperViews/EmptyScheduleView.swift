@@ -26,7 +26,7 @@ final class EmptyScheduleView: UIView {
 		return view
 	}()
 
-	private let refreshButton: UIButton = {
+	private lazy var refreshButton: UIButton = {
 		let button = UIButton.barButton
 		button.setTitle("Обновить", for: .normal)
 		button.layer.cornerRadius = 10
