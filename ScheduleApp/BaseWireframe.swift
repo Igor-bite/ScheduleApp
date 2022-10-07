@@ -1,8 +1,11 @@
 import UIKit
 import SPIndicator
+import GradientLoadingBar
 
 public protocol WireframeInterface: AnyObject {
 	func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide)
+    func showLoadingBar()
+    func hideLoadingBar()
 }
 
 public class BaseWireframe<ViewController> where ViewController: UIViewController {
@@ -25,6 +28,18 @@ extension BaseWireframe: WireframeInterface {
 			SPIndicator.present(title: title, message: message, preset: preset, from: presentSide)
 		}
 	}
+
+    public func showLoadingBar() {
+        DispatchQueue.main.async {
+            GradientLoadingBar.shared.fadeIn()
+        }
+    }
+
+    public func hideLoadingBar() {
+        DispatchQueue.main.async {
+            GradientLoadingBar.shared.fadeOut()
+        }
+    }
 }
 
 public extension BaseWireframe {
@@ -58,4 +73,9 @@ public extension UINavigationController {
         setViewControllers([wireframe.viewController], animated: animated)
     }
 
+}
+
+fileprivate extension GradientLoadingBar {
+    static let shared = GradientLoadingBar(height: Constants.loadingBarHeight,
+                                           isRelativeToSafeArea: true)
 }

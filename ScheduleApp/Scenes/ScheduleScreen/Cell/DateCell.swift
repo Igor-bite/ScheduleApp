@@ -3,7 +3,6 @@
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 25.09.2022.
-//  Copyright © 2022 messeb.com. All rights reserved.
 //
 
 import UIKit
@@ -14,35 +13,26 @@ import SnapKit
 class DateCell: JTACDayCell, Reusable {
 	private enum Constants {
 		enum Selected {
-			static let bgColor = UIColor.blueColor
-			static let textColor = UIColor.white
+			static let bgColor = UIColor.Pallette.buttonBg
+			static let textColor = UIColor.Pallette.textColor.darkThemeColor
 		}
 
 		enum Today {
 			static let dayNumberColor = UIColor.red
-			static let dayNameColor = UIColor.gray
+			static let dayNameColor = UIColor.Pallette.secondaryTextColor
 		}
 
 		enum Normal {
-			static let bgColor = UIColor.grayColor
-			static let dayNumberColor = UIColor.black
-			static let dayNameColor = UIColor.gray
+			static let bgColor = UIColor.Pallette.gray
+			static let dayNumberColor = UIColor.Pallette.textColor
+			static let dayNameColor = UIColor.Pallette.secondaryTextColor
 		}
 
 		static let cellHeight = 75.0
 	}
 
-	private let dayNameLabel = {
-		let label = UILabel()
-		label.font = .secondaryText
-		label.textColor = .gray
-		return label
-	}()
-	private let dayNumberLabel = {
-		let label = UILabel()
-		label.font = .title
-		return label
-	}()
+	private let dayNameLabel = UILabel.secondaryTextLabel
+	private let dayNumberLabel = UILabel.titleLabel
 
 	static let height = Constants.cellHeight
 
@@ -80,15 +70,13 @@ class DateCell: JTACDayCell, Reusable {
 
 	var isToday: Bool = false {
 		didSet {
-			if !isSelected {
-				dayNumberLabel.textColor = isToday ? .red : .black
-			}
+			updateColors()
 		}
 	}
 
 	override var isSelected: Bool {
 		didSet {
-			toggleSelection()
+			updateColors()
 		}
 	}
 
@@ -104,7 +92,7 @@ class DateCell: JTACDayCell, Reusable {
 
 	private func setupViews() {
 		layer.cornerRadius = 10
-		backgroundColor = .grayColor
+		backgroundColor = .Pallette.gray
 
 		addSubview(dayNameLabel)
 		addSubview(dayNumberLabel)
@@ -122,11 +110,11 @@ class DateCell: JTACDayCell, Reusable {
 		}
 	}
 
-	func toggleSelection() {
+	func updateColors() {
 		if isSelected {
 			backgroundColor = Constants.Selected.bgColor
-			dayNumberLabel.textColor = .white
-			dayNameLabel.textColor = .white
+			dayNumberLabel.textColor = Constants.Selected.textColor
+			dayNameLabel.textColor = Constants.Selected.textColor
 		} else {
 			backgroundColor = Constants.Normal.bgColor
 			dayNumberLabel.textColor = isToday ? Constants.Today.dayNumberColor : Constants.Normal.dayNumberColor

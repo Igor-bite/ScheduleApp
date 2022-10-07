@@ -29,7 +29,7 @@ public final class SplashScreenViewController: UIViewController {
 	private let label: UILabel = {
 		let label = UILabel()
 		label.text = "Расписаниеееееееееееееее"
-		label.textColor = .white
+		label.textColor = .Pallette.textColor.themeInverted
 		label.font = .roundedSystemFont(ofSize: 150, weight: .semibold)
 		return label
 	}()

@@ -64,12 +64,15 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
 	}
 
 	public func fetchLessons() {
+        self.wireframe.showLoadingBar()
 		attempt {
 			try await self.interactor.getAllLessons()
 		}.then { lessons in
+            self.wireframe.hideLoadingBar()
 			self.lessons = lessons
 			self.updatePresentedLessons()
 		}.catch { _ in
+            self.wireframe.hideLoadingBar()
 			self.wireframe.showAlert(title: "Error loading lessons", message: nil, preset: .error, presentSide: .top)
 		}
 	}

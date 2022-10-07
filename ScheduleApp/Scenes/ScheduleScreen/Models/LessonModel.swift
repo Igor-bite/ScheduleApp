@@ -26,11 +26,11 @@ enum LessonType: String {
 	func bgColor() -> UIColor {
 		switch self {
 		case .lecture:
-			return .init(red: 60 / 255, green: 207 / 255, blue: 78 / 255, alpha: 1)
+			return .Pallette.green
 		case .seminar:
-			return .purple
+			return .Pallette.blue
 		case .practice:
-			return .blueColor
+			return .Pallette.skyBlue
 		}
 	}
 
@@ -54,7 +54,8 @@ extension LessonType: Codable {
 		if let userType = LessonType(rawValue: rawString.lowercased()) {
 			self = userType
 		} else {
-			throw DecodingError.dataCorruptedError(in: container, debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
+			throw DecodingError.dataCorruptedError(in: container,
+                                                   debugDescription: "Cannot initialize UserType from invalid String value \(rawString)")
 		}
 	}
 }

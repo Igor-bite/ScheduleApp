@@ -8,7 +8,6 @@
 import UIKit
 import Reusable
 import SnapKit
-import GradientLoadingBar
 import JTAppleCalendar
 
 public final class ScheduleScreenViewController: UIViewController {
@@ -19,18 +18,14 @@ public final class ScheduleScreenViewController: UIViewController {
 	}
 
 	private lazy var todayButton = {
-		let button = UIButton()
-		button.backgroundColor = .blueColor
-		button.layer.cornerRadius = 7
+		let button = UIButton.barButton
 		button.setTitle("Сегодня", for: .normal)
-		button.titleLabel?.font = .text
 		button.addTarget(self, action: #selector(selectToday), for: .touchUpInside)
 		return button
 	}()
 
 	private lazy var titleLabel = {
-		let label = UILabel()
-		label.font = .title
+		let label = UILabel.titleLabel
 		label.text = "Расписание"
 		label.textAlignment = .center
 		return label
@@ -58,11 +53,6 @@ public final class ScheduleScreenViewController: UIViewController {
 		}
 		return view
 	}()
-
-	private let gradientLoadingBar = GradientLoadingBar(
-		height: Constants.loadingBarHeight,
-		isRelativeToSafeArea: true
-	)
 
 	private var hasNoSchedule: Bool = false {
 		didSet {
@@ -94,7 +84,7 @@ public final class ScheduleScreenViewController: UIViewController {
 	}
 
 	private func setupViews() {
-		view.backgroundColor = .white
+		view.backgroundColor = .Pallette.mainBgColor
 
 		view.addSubview(titleLabel)
 		view.addSubview(todayButton)
@@ -172,8 +162,8 @@ public final class ScheduleScreenViewController: UIViewController {
 		guard todayButton.isUserInteractionEnabled != isActive
 		else { return }
 		todayButton.isUserInteractionEnabled = isActive
-		todayButton.backgroundColor = isActive ? .blueColor : .grayColor
-		todayButton.setTitleColor(isActive ? .white : .gray, for: .normal)
+		todayButton.backgroundColor = isActive ? .Pallette.buttonBg : .Pallette.gray
+		todayButton.setTitleColor(isActive ? .Pallette.textColor.darkThemeColor : .Pallette.secondaryTextColor, for: .normal)
 	}
 }
 
@@ -182,7 +172,6 @@ public final class ScheduleScreenViewController: UIViewController {
 extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
-			self?.gradientLoadingBar.fadeOut()
 			if let count = self?.presenter.numberOfItems,
 			   count == .zero {
 				self?.hasNoSchedule = true
@@ -197,7 +186,6 @@ extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 	@objc
 	public func refresh() {
 		presenter.fetchLessons()
-		gradientLoadingBar.fadeIn()
 	}
 }
 

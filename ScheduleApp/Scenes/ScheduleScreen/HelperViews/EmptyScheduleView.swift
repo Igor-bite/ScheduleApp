@@ -3,7 +3,6 @@
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 20.09.2022.
-//  Copyright © 2022 messeb.com. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +13,7 @@ final class EmptyScheduleView: UIView {
 	private enum Constants {
 		static let buttonWidth = 200.0
 		static let buttonOffset = 30.0
-		static let buttonColor = UIColor.blueColor
+		static let buttonColor = UIColor.Pallette.buttonBg
 	}
 
 	var refreshAction: (() -> Void)?
@@ -27,11 +26,9 @@ final class EmptyScheduleView: UIView {
 		return view
 	}()
 
-	private let refreshButton: UIButton = {
-		let button = UIButton(frame: .zero)
+	private lazy var refreshButton: UIButton = {
+		let button = UIButton.barButton
 		button.setTitle("Обновить", for: .normal)
-		button.backgroundColor = Constants.buttonColor
-		button.setTitleColor(.white, for: .normal)
 		button.layer.cornerRadius = 10
 		button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 		return button
