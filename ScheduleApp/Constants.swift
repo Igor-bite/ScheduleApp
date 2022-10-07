@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Lottie
 
 enum Constants {
 	enum Network {
@@ -14,10 +13,4 @@ enum Constants {
 	}
 
     static let loadingBarHeight = 4.0
-}
-
-extension AnimationView {
-	static let relaxAnimation = AnimationView(name: "relaxAnimation")
-	static let activeIndicator = AnimationView(name: "activeIndicator")
-	static let icon = AnimationView(name: "icon")
 }
