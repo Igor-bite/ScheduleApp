@@ -48,12 +48,15 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
 	}
 
 	public func fetchLessons() {
+        self.wireframe.showLoadingBar()
 		attempt {
 			try await self.interactor.getAllCourses()
 		}.then { courses in
+            self.wireframe.hideLoadingBar()
 			self.courses = courses
 			self.updatePresentedCourses()
 		}.catch { error in
+            self.wireframe.hideLoadingBar()
 			self.wireframe.showAlert(title: "Error loading courses", message: nil, preset: .error, presentSide: .top)
 		}
 	}

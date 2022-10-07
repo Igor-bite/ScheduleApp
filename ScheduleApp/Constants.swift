@@ -12,6 +12,8 @@ enum Constants {
 	enum Network {
 		static let baseUrl = "https://tinkoff-course-work.herokuapp.com"
 	}
+
+    static let loadingBarHeight = 4.0
 }
 
 extension AnimationView {

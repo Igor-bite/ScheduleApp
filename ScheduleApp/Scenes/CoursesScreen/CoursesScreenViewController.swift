@@ -8,13 +8,11 @@
 import UIKit
 import Reusable
 import SnapKit
-import GradientLoadingBar
 
 public final class CoursesScreenViewController: UIViewController {
 	private enum Constants {
 		static let offset = 10.0
 		static let courseRowHeight = 160.0
-		static let loadingBarHeight = 4.0
 	}
 
 	private lazy var createCourseButton = {
@@ -43,11 +41,6 @@ public final class CoursesScreenViewController: UIViewController {
 		table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
 		return table
 	}()
-
-	private let gradientLoadingBar = GradientLoadingBar(
-		height: Constants.loadingBarHeight,
-		isRelativeToSafeArea: true
-	)
 
     // MARK: - Public properties -
 
@@ -102,7 +95,6 @@ public final class CoursesScreenViewController: UIViewController {
 extension CoursesScreenViewController: CoursesScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
-			self?.gradientLoadingBar.fadeOut()
 			if let count = self?.presenter.numberOfItems,
 			   count == .zero {
 			} else {
@@ -115,7 +107,6 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
 	@objc
 	public func refresh() {
 		presenter.fetchLessons()
-		gradientLoadingBar.fadeIn()
 	}
 
     public func insertNewCourse(at indexPath: IndexPath) {

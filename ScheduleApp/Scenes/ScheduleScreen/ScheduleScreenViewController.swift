@@ -8,7 +8,6 @@
 import UIKit
 import Reusable
 import SnapKit
-import GradientLoadingBar
 import JTAppleCalendar
 
 public final class ScheduleScreenViewController: UIViewController {
@@ -54,11 +53,6 @@ public final class ScheduleScreenViewController: UIViewController {
 		}
 		return view
 	}()
-
-	private let gradientLoadingBar = GradientLoadingBar(
-		height: Constants.loadingBarHeight,
-		isRelativeToSafeArea: true
-	)
 
 	private var hasNoSchedule: Bool = false {
 		didSet {
@@ -178,7 +172,6 @@ public final class ScheduleScreenViewController: UIViewController {
 extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 	public func reloadData() {
 		DispatchQueue.main.async { [weak self] in
-			self?.gradientLoadingBar.fadeOut()
 			if let count = self?.presenter.numberOfItems,
 			   count == .zero {
 				self?.hasNoSchedule = true
@@ -193,7 +186,6 @@ extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 	@objc
 	public func refresh() {
 		presenter.fetchLessons()
-		gradientLoadingBar.fadeIn()
 	}
 }
 

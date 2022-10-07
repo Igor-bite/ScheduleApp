@@ -36,11 +36,14 @@ public final class CoursesCreatorScreenPresenter {
 
 extension CoursesCreatorScreenPresenter: CoursesCreatorScreenPresenterInterface {
     public func createCourse(_ course: CreateCourseModel) {
+        self.wireframe.showLoadingBar()
         attempt {
             try await self.interactor.createCourse(course)
         }.then { course in
+            self.wireframe.hideLoadingBar()
             self.completion(course)
         }.catch { error in
+            self.wireframe.hideLoadingBar()
             self.completion(nil)
             self.wireframe.showAlert(title: "Error adding course", message: nil, preset: .error, presentSide: .top)
         }
