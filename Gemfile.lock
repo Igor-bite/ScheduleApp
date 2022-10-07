@@ -38,7 +38,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
     emoji_regex (1.0.1)
-    excon (0.92.5)
+    excon (0.93.0)
     faraday (0.17.5)
       multipart-post (>= 1.2, < 3)
     faraday-cookie_jar (0.0.7)
