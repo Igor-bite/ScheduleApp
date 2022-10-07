@@ -124,18 +124,17 @@ public final class ScheduleScreenViewController: UIViewController {
         }
 
         whenEmptyView.isHidden = true
+        whenEmptyView.isUserInteractionEnabled = false
     }
 
     private func showEmptyView() {
         whenEmptyView.isHidden = false
         whenEmptyView.playAnimation()
-        table.isHidden = true
     }
 
     private func showSchedule() {
         whenEmptyView.isHidden = true
         whenEmptyView.stopAnimation()
-        table.isHidden = false
     }
 
     private func configureWeekView() {
@@ -173,15 +172,9 @@ public final class ScheduleScreenViewController: UIViewController {
 extension ScheduleScreenViewController: ScheduleScreenViewInterface {
     public func reloadData() {
         DispatchQueue.main.async { [weak self] in
-            if let count = self?.presenter.numberOfItems,
-               count == .zero
-            {
-                self?.hasNoSchedule = true
-            } else {
-                self?.hasNoSchedule = false
-                self?.table.reloadData()
-                self?.table.refreshControl?.endRefreshing()
-            }
+            self?.hasNoSchedule = (self?.presenter.numberOfItems ?? 0) == 0
+            self?.table.reloadData()
+            self?.table.refreshControl?.endRefreshing()
         }
     }
 

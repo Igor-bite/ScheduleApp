@@ -73,6 +73,7 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
             self.updatePresentedLessons()
         }.catch { _ in
             self.wireframe.hideLoadingBar()
+            self.updatePresentedLessons()
             self.wireframe.showAlert(title: "Error loading lessons", message: nil, preset: .error, presentSide: .top)
         }
     }
@@ -83,10 +84,8 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
     }
 
     private func updatePresentedLessons() {
-        guard let lessons = lessons
-        else { return }
-        lessonsForChosenDay = lessons.filter { lesson in
+        lessonsForChosenDay = lessons?.filter { lesson in
             lesson.startDateTime.get(.day) == selectedDate.get(.day)
-        }
+        } ?? []
     }
 }
