@@ -148,6 +148,7 @@ public final class ScheduleScreenViewController: UIViewController {
 		weekView.scrollDirection = .horizontal
 		weekView.scrollingMode = .stopAtEachCalendarFrame
 		weekView.showsHorizontalScrollIndicator = false
+        weekView.backgroundColor = .systemBackground
 	}
 
 	@objc

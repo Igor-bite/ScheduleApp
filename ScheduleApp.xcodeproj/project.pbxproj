@@ -76,7 +76,7 @@
 		A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B9A628D93253001D3C93 /* activeIndicator.json */; };
 		A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A828D93305001D3C93 /* DateExtension.swift */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
-		E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */; };
+		E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
 		E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121D214783B2008C2EF8 /* AppDelegate.swift */; };
 		E0FD1222214783F1008C2EF8 /* ScheduleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD1221214783F1008C2EF8 /* ScheduleAppTests.swift */; };
@@ -154,7 +154,7 @@
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assests.xcassets; sourceTree = "<group>"; };
+		E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0FD120021477D29008C2EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0FD1202214781CA008C2EF8 /* ReleaseTest.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseTest.xcconfig; sourceTree = "<group>"; };
 		E0FD1203214781CA008C2EF8 /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -479,7 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */,
-				E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */,
+				E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -659,7 +659,7 @@
 				A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */,
 				A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */,
 				A54F7D2028E2125300245559 /* icon.json in Resources */,
-				E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */,
+				E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */,
 				E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
