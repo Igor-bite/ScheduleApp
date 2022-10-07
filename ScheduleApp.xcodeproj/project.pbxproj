@@ -27,10 +27,7 @@
 		A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D0A28E0D30B00245559 /* DateCell.swift */; };
 		A54F7D1128E104DA00245559 /* ScheduleScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */; };
 		A54F7D1428E1063600245559 /* MockedLessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1328E1063600245559 /* MockedLessonsService.swift */; };
-		A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */; };
-		A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */; };
 		A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1928E211B300245559 /* SplashScreenViewController.swift */; };
-		A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */; };
 		A54F7D2028E2125300245559 /* icon.json in Resources */ = {isa = PBXBuildFile; fileRef = A54F7D1F28E2125300245559 /* icon.json */; };
 		A54F7D2728E259E400245559 /* CoursesScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D2228E259E400245559 /* CoursesScreenInterfaces.swift */; };
 		A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D2328E259E400245559 /* CoursesScreenPresenter.swift */; };
@@ -52,6 +49,7 @@
 		A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */; };
 		A54F7D5328E34B9800245559 /* STTextView in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D5228E34B9800245559 /* STTextView */; };
 		A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52828F056B100F846FC /* Encodable + toDictionary.swift */; };
+		A550E52C28F0806800F846FC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52B28F0806800F846FC /* TabBar.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -110,10 +108,7 @@
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
 		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
-		A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInterfaces.swift; sourceTree = "<group>"; };
-		A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
 		A54F7D1928E211B300245559 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenWireframe.swift; sourceTree = "<group>"; };
 		A54F7D1F28E2125300245559 /* icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon.json; sourceTree = "<group>"; };
 		A54F7D2228E259E400245559 /* CoursesScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScreenInterfaces.swift; sourceTree = "<group>"; };
 		A54F7D2328E259E400245559 /* CoursesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScreenPresenter.swift; sourceTree = "<group>"; };
@@ -134,6 +129,7 @@
 		A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenInteractor.swift; sourceTree = "<group>"; };
 		A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenWireframe.swift; sourceTree = "<group>"; };
 		A550E52828F056B100F846FC /* Encodable + toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + toDictionary.swift"; sourceTree = "<group>"; };
+		A550E52B28F0806800F846FC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -238,10 +234,7 @@
 		A54F7D1628E2118B00245559 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */,
-				A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */,
 				A54F7D1928E211B300245559 /* SplashScreenViewController.swift */,
-				A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */,
 			);
 			path = SplashScreen;
 			sourceTree = "<group>";
@@ -306,6 +299,14 @@
 				A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */,
 			);
 			path = CoursesCreatorScreen;
+			sourceTree = "<group>";
+		};
+		A550E52A28F0805A00F846FC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A550E52B28F0806800F846FC /* TabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		A568DEFE28D3C84D00341814 /* ScheduleScreen */ = {
@@ -406,6 +407,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A550E52A28F0805A00F846FC /* TabBar */,
 				A54F7D4328E3461200245559 /* CoursesCreatorScreen */,
 				A54F7D2128E259BD00245559 /* CoursesScreen */,
 				A54F7D1628E2118B00245559 /* SplashScreen */,
@@ -688,13 +690,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
-				A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
-				A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
-				A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
 				A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */,
 				A54F7D3428E25D0B00245559 /* CourseTableViewCell.swift in Sources */,
@@ -724,6 +723,7 @@
 				A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */,
 				A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,
+				A550E52C28F0806800F846FC /* TabBar.swift in Sources */,
 				A54F7D4A28E3463A00245559 /* CoursesCreatorScreenPresenter.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
 				A54F7D3B28E3401F00245559 /* Labels.swift in Sources */,

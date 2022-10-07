@@ -34,12 +34,18 @@ public final class SplashScreenViewController: UIViewController {
 		return label
 	}()
 
-    // MARK: - Public properties -
-
-	// swiftlint:disable:next implicitly_unwrapped_optional
-    var presenter: SplashScreenPresenterInterface!
+    private let dismissAction: () -> Void
 
     // MARK: - Lifecycle -
+
+    init(dismissAction: @escaping () -> Void) {
+        self.dismissAction = dismissAction
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,13 +95,8 @@ public final class SplashScreenViewController: UIViewController {
 			}
 
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				self.presenter.dismiss()
+                self.dismissAction()
 			}
 		}
 	}
-}
-
-// MARK: - Extensions -
-
-extension SplashScreenViewController: SplashScreenViewInterface {
 }

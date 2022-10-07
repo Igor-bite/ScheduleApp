@@ -11,16 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			return false
 		}
 
-		let initialViewController = UINavigationController()
-		initialViewController.setRootWireframe(
-			SplashScreenWireframe {
-				UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-					initialViewController.setRootWireframe(CoursesScreenWireframe(), animated: false)
-				}
-			}
-		)
-
-        window.rootViewController = initialViewController
+        window.rootViewController = SplashScreenViewController {
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                window.rootViewController = TabBar()
+            }
+        }
         window.makeKeyAndVisible()
 
         return true
