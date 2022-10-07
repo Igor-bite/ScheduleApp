@@ -16,7 +16,7 @@ public final class SplashScreenViewController: UIViewController {
 		static let topOffset = 130.0
 	}
 
-	private let bgImageView = UIImageView(image: UIImage(named: "splash-bg"))
+    private let bgImageView = UIImageView(image: Asset.splashBg.image)
 
 	private let animation: AnimationView = {
 		let view = AnimationView.icon

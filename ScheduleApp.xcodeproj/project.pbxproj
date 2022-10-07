@@ -51,6 +51,7 @@
 		A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52828F056B100F846FC /* Encodable + toDictionary.swift */; };
 		A550E52C28F0806800F846FC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52B28F0806800F846FC /* TabBar.swift */; };
 		A550E52E28F084AF00F846FC /* AnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52D28F084AF00F846FC /* AnimationViews.swift */; };
+		A550E53728F08D6400F846FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53628F08D6400F846FC /* Assets.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -132,6 +133,7 @@
 		A550E52828F056B100F846FC /* Encodable + toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + toDictionary.swift"; sourceTree = "<group>"; };
 		A550E52B28F0806800F846FC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		A550E52D28F084AF00F846FC /* AnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViews.swift; sourceTree = "<group>"; };
+		A550E53628F08D6400F846FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -283,7 +285,7 @@
 		A54F7D3528E3400600245559 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				A550E53128F0853700F846FC /* Generated */,
+				A550E53528F08B5800F846FC /* Generated */,
 				A54F7D3628E3401400245559 /* Fonts.swift */,
 				A54F7D3828E3401A00245559 /* Colors.swift */,
 				A54F7D3A28E3401F00245559 /* Labels.swift */,
@@ -291,6 +293,7 @@
 				A550E52D28F084AF00F846FC /* AnimationViews.swift */,
 			);
 			name = UIComponents;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A54F7D4328E3461200245559 /* CoursesCreatorScreen */ = {
@@ -313,11 +316,25 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		A550E53128F0853700F846FC /* Generated */ = {
+		A550E53328F08B1E00F846FC /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A54F7D3528E3400600245559 /* UIComponents */,
+				A568DF1428D3C9B600341814 /* BaseVIPER */,
+				A568DF1128D3C8D100341814 /* Helpers */,
+				E0FD121D214783B2008C2EF8 /* AppDelegate.swift */,
+				E0FD121C214783B2008C2EF8 /* main.swift */,
+				A568DF1F28D3CDDA00341814 /* Constants.swift */,
 			);
-			name = Generated;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A550E53528F08B5800F846FC /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A550E53628F08D6400F846FC /* Assets.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		A568DEFE28D3C84D00341814 /* ScheduleScreen */ = {
@@ -361,6 +378,7 @@
 				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
 			);
 			name = Helpers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A568DF1428D3C9B600341814 /* BaseVIPER */ = {
@@ -373,6 +391,7 @@
 				A568DF1928D3C9C600341814 /* InteractorInterface.swift */,
 			);
 			name = BaseVIPER;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
@@ -400,19 +419,6 @@
 				A54F7D1F28E2125300245559 /* icon.json */,
 			);
 			path = LottieAnimations;
-			sourceTree = "<group>";
-		};
-		A5ED262228D374F30041EBBD /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				A54F7D3528E3400600245559 /* UIComponents */,
-				A568DF1428D3C9B600341814 /* BaseVIPER */,
-				A568DF1128D3C8D100341814 /* Helpers */,
-				E0FD121D214783B2008C2EF8 /* AppDelegate.swift */,
-				E0FD121C214783B2008C2EF8 /* main.swift */,
-				A568DF1F28D3CDDA00341814 /* Constants.swift */,
-			);
-			name = Application;
 			sourceTree = "<group>";
 		};
 		E0BB8FB721695633001922DE /* Scenes */ = {
@@ -451,7 +457,7 @@
 				E0BB8FB721695633001922DE /* Scenes */,
 				E0FD11F821477C98008C2EF8 /* Resources */,
 				E0FD11F721477C92008C2EF8 /* Configurations */,
-				A5ED262228D374F30041EBBD /* Application */,
+				A550E53328F08B1E00F846FC /* Application */,
 				A5B5B9A028D926C9001D3C93 /* LottieAnimations */,
 			);
 			path = ScheduleApp;
@@ -730,6 +736,7 @@
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
 				A54F7D4228E3443B00245559 /* UIViewControllerExtensions.swift in Sources */,
+				A550E53728F08D6400F846FC /* Assets.swift in Sources */,
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
 				A54F7D3D28E3402600245559 /* Buttons.swift in Sources */,
 				A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */,
