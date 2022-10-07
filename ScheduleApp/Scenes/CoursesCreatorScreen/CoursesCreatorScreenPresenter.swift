@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AsyncPlus
 
 public final class CoursesCreatorScreenPresenter {
 
@@ -31,4 +32,15 @@ public final class CoursesCreatorScreenPresenter {
 // MARK: - Extensions -
 
 extension CoursesCreatorScreenPresenter: CoursesCreatorScreenPresenterInterface {
+    public func createCourse(_ course: CreateCourseModel) {
+        attempt {
+            try await self.interactor.createCourse(course)
+        }.then { course in
+            print("Created new course: \(course)")
+            dump(course)
+//            self.updatePresentedCourses()
+        }.catch { error in
+            self.wireframe.showAlert(title: "Error adding course", message: nil, preset: .error, presentSide: .top)
+        }
+    }
 }

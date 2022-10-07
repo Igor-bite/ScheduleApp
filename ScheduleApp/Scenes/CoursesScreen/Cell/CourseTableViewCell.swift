@@ -21,11 +21,6 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 	private let courseTypeView = CapsuleLabelView()
 	private let courseNameLabel = UILabel.titleLabel
 	private let courseDescriptionLabel = UILabel.secondaryTextLabel
-	private let vacantPlaceCountLabel = {
-		let label = UILabel.secondaryTextLabel
-		label.textAlignment = .right
-		return label
-	}()
 
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,8 +35,7 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 	func configure(with course: CourseModel) {
 		courseNameLabel.text = course.title
 		courseDescriptionLabel.text = course.description
-		courseTypeView.configure(withText: course.courseType.type.toText(), color: .init(light: .Pallette.lightBlue, dark: .Pallette.blue))
-		vacantPlaceCountLabel.text = "\(course.studentCount)/\(course.studentCount)"
+		courseTypeView.configure(withText: course.type.toText(), color: .init(light: .Pallette.lightBlue, dark: .Pallette.blue))
 	}
 
 	func setupViews() {
@@ -60,16 +54,10 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 		containerView.addSubview(courseTypeView)
 		containerView.addSubview(courseNameLabel)
 		containerView.addSubview(courseDescriptionLabel)
-		containerView.addSubview(vacantPlaceCountLabel)
 
 		courseTypeView.snp.makeConstraints { make in
 			make.left.top.equalToSuperview().offset(Constants.offset)
-			make.right.lessThanOrEqualTo(vacantPlaceCountLabel.snp.left).inset(Constants.offset)
-		}
-
-		vacantPlaceCountLabel.snp.makeConstraints { make in
-			make.right.top.equalToSuperview().inset(Constants.offset)
-			make.width.equalToSuperview().multipliedBy(0.3)
+            make.right.lessThanOrEqualTo(snp.right).inset(Constants.offset)
 		}
 
 		courseNameLabel.snp.makeConstraints { make in

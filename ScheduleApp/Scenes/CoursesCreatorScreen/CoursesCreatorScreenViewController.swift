@@ -207,7 +207,7 @@ public final class CoursesCreatorScreenViewController: UIViewController {
         case 0:
             bottomOfflineConstraint?.isActive = true
             bottomOnlineConstraint?.isActive = false
-            UIView.animate(withDuration: 1.0) {
+            UIView.animate(withDuration: 0.5) {
                 self.customEnterInput1.placeholder = "Название университета"
                 self.customEnterInput2.placeholder = "Адрес корпуса"
                 self.customEnterInput2.alpha = 1
@@ -216,7 +216,7 @@ public final class CoursesCreatorScreenViewController: UIViewController {
         case 1:
             bottomOfflineConstraint?.isActive = false
             bottomOnlineConstraint?.isActive = true
-            UIView.animate(withDuration: 1.0) {
+            UIView.animate(withDuration: 0.5) {
                 self.customEnterInput1.placeholder = "Ссылка на платформу с уроками"
                 self.customEnterInput2.alpha = 0
                 self.view.layoutIfNeeded()
@@ -228,31 +228,36 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 
 	@objc
 	func segmentedValueChanged() {
-		print("Selected Segment Index is : \(courseTypeSegmentedControl.selectedSegmentIndex)")
         updateEnterInputVisibility()
 	}
 
 	@objc
 	private func createCourse() {
-        guard let name = titleEnterInput.text,
-              let description = descriptionEnterInput.text,
-              let url = customEnterInput1.text
+        let custom1 = customEnterInput1.text
+        let custom2 = customEnterInput2.text
+        var type: CourseModel.CourseType?
+
+        switch courseTypeSegmentedControl.selectedSegmentIndex {
+        case 0:
+            type = .offline(.init(type: CourseModel.CourseType.OfflineCourseType.typeName, universityName: custom1, address: custom2))
+        case 1:
+            type = .online(.init(type: CourseModel.CourseType.OnlineCourseType.typeName, lessonUrl: custom1))
+        default:
+            break
+        }
+
+        guard let type = type,
+              let description = descriptionEnterInput.text
         else { return }
 
-        print("Making new course with name: \(name), desc: \(description), url: \(url)")
-        customEnterInput1.setError(errorString: "Неверная ссылка")
-//		if let taskName = titleEnterInput.text,
-//		   taskName != "" {
-//
-//			guard let statusIndex = statusPicker.selectedValueIndexes[safe: 0] else { return }
-//			let userIndexes = usersPicker.selectedValueIndexes
-//
-//			tasksInput?.addTask(taskName: taskName, statusIndex: statusIndex, userIndexes: userIndexes)
-//			self.dismiss(animated: true, completion: nil)
-//		} else {
-//			titleEnterInput.alert()
-//			return
-//		}
+        guard let name = titleEnterInput.text
+        else {
+            titleEnterInput.setError(errorString: "Курс необходимо назвать")
+            return
+        }
+
+        presenter.createCourse(.init(title: name, description: description, categoryId: 0, curatorId: 0, type: type))
+        self.dismiss(animated: true, completion: nil)
 	}
 }
 

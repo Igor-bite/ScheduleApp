@@ -14,7 +14,9 @@ public protocol CoursesCreatorScreenViewInterface: ViewInterface {
 }
 
 public protocol CoursesCreatorScreenPresenterInterface: PresenterInterface {
+    func createCourse(_ course: CreateCourseModel)
 }
 
 public protocol CoursesCreatorScreenInteractorInterface: InteractorInterface {
+    func createCourse(_ course: CreateCourseModel) async throws -> CourseModel
 }

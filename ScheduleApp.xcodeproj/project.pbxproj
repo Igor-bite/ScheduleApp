@@ -51,6 +51,7 @@
 		A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */; };
 		A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */; };
 		A54F7D5328E34B9800245559 /* STTextView in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D5228E34B9800245559 /* STTextView */; };
+		A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52828F056B100F846FC /* Encodable + toDictionary.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -132,6 +133,7 @@
 		A54F7D4628E3463900245559 /* CoursesCreatorScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenViewController.swift; sourceTree = "<group>"; };
 		A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenInteractor.swift; sourceTree = "<group>"; };
 		A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenWireframe.swift; sourceTree = "<group>"; };
+		A550E52828F056B100F846FC /* Encodable + toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + toDictionary.swift"; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				A5B5B9A828D93305001D3C93 /* DateExtension.swift */,
 				A54F7D4128E3443B00245559 /* UIViewControllerExtensions.swift */,
+				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */,
 				A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */,
 				A54F7D4928E3463A00245559 /* CoursesCreatorScreenInterfaces.swift in Sources */,
+				A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
