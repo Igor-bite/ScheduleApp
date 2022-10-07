@@ -36,7 +36,7 @@ class TabBar: UITabBarController {
     private func makeCoursesScreen() -> UIViewController {
         let coursesNavigationController = UINavigationController()
         coursesNavigationController.setRootWireframe(CoursesScreenWireframe())
-        coursesNavigationController.tabBarItem.image = Asset.coursesTabIcon.image
+        coursesNavigationController.tabBarItem.image = Asset.coursesTabIcon.image.resizeImage(targetSize: .init(width: 20, height: 20))
         coursesNavigationController.tabBarItem.title = "Курсы"
         return coursesNavigationController
     }
@@ -44,9 +44,7 @@ class TabBar: UITabBarController {
     private func makeScheduleScreen() -> UIViewController {
         let scheduleNavigationController = UINavigationController()
         scheduleNavigationController.setRootWireframe(ScheduleScreenWireframe())
-        if #available(iOS 15.0, *) {
-            scheduleNavigationController.tabBarItem.image = Asset.scheduleTabIcon.image
-        }
+        scheduleNavigationController.tabBarItem.image = Asset.scheduleTabIcon.image.resizeImage(targetSize: .init(width: 20, height: 20))
         scheduleNavigationController.tabBarItem.title = "Расписание"
         return scheduleNavigationController
     }
