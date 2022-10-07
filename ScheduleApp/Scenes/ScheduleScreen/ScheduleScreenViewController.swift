@@ -54,16 +54,12 @@ public final class ScheduleScreenViewController: UIViewController {
         return view
     }()
 
-    private var hasNoSchedule: Bool = false {
+    var hasNoSchedule: Bool = false {
         didSet {
             guard hasNoSchedule != oldValue
             else { return }
 
-            if hasNoSchedule {
-                showEmptyView()
-            } else {
-                showSchedule()
-            }
+            updateEmptyViewVisibility()
         }
     }
 
@@ -81,6 +77,11 @@ public final class ScheduleScreenViewController: UIViewController {
         setupViews()
         configureWeekView()
         refresh()
+    }
+
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateEmptyViewVisibility()
     }
 
     private func setupViews() {
@@ -127,12 +128,20 @@ public final class ScheduleScreenViewController: UIViewController {
         whenEmptyView.isUserInteractionEnabled = false
     }
 
+    private func updateEmptyViewVisibility() {
+        if hasNoSchedule {
+            showEmptyView()
+        } else {
+            hideEmptyView()
+        }
+    }
+
     private func showEmptyView() {
         whenEmptyView.isHidden = false
         whenEmptyView.playAnimation()
     }
 
-    private func showSchedule() {
+    private func hideEmptyView() {
         whenEmptyView.isHidden = true
         whenEmptyView.stopAnimation()
     }
