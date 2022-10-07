@@ -1,5 +1,3 @@
-public protocol ViewInterface: AnyObject {
-}
+public protocol ViewInterface: AnyObject {}
 
-public extension ViewInterface {
-}
+public extension ViewInterface {}

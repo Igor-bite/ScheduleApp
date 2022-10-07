@@ -27,6 +27,7 @@ internal enum Asset {
     internal static let coursesTabIcon = ImageAsset(name: "courses-tab-icon")
     internal static let scheduleTabIcon = ImageAsset(name: "schedule-tab-icon")
 }
+
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
 // MARK: - Implementation Details
@@ -122,4 +123,5 @@ private final class BundleToken {
 #endif
     }()
 }
+
 // swiftlint:enable convenience_type

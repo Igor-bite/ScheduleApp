@@ -1,15 +1,15 @@
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
         window = UIWindow(frame: UIScreen.main.bounds)
-		guard let window = window else {
-			return false
-		}
+        guard let window = window else {
+            return false
+        }
 
         window.rootViewController = SplashScreenViewController {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-	func applicationDidBecomeActive(_ application: UIApplication) {
-		NotificationCenter.default.post(.init(name: .AppDidBecomeActive))
-	}
+    func applicationDidBecomeActive(_: UIApplication) {
+        NotificationCenter.default.post(.init(name: .AppDidBecomeActive))
+    }
 }
 
 extension Notification.Name {
-	static let AppDidBecomeActive = Notification.Name("applicationDidBecomeActiveNotification")
+    static let AppDidBecomeActive = Notification.Name("applicationDidBecomeActiveNotification")
 }

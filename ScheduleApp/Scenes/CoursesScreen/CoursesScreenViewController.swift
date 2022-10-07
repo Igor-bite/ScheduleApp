@@ -5,42 +5,42 @@
 //  Created by Игорь Клюжев on 27.09.2022.
 //
 
-import UIKit
 import Reusable
 import SnapKit
+import UIKit
 
 public final class CoursesScreenViewController: UIViewController {
-	private enum Constants {
-		static let offset = 10.0
-		static let courseRowHeight = 160.0
-	}
+    private enum Constants {
+        static let offset = 10.0
+        static let courseRowHeight = 160.0
+    }
 
-	private lazy var createCourseButton = {
-		let button = UIButton.barButton
-		button.setTitle("Создать", for: .normal)
-		button.addTarget(self, action: #selector(createNewCourse), for: .touchUpInside)
-		return button
-	}()
+    private lazy var createCourseButton = {
+        let button = UIButton.barButton
+        button.setTitle("Создать", for: .normal)
+        button.addTarget(self, action: #selector(createNewCourse), for: .touchUpInside)
+        return button
+    }()
 
-	private lazy var titleLabel = {
-		let label = UILabel.titleLabel
-		label.text = "Курсы"
-		label.textAlignment = .center
-		return label
-	}()
+    private lazy var titleLabel = {
+        let label = UILabel.titleLabel
+        label.text = "Курсы"
+        label.textAlignment = .center
+        return label
+    }()
 
-	private lazy var table: UITableView = {
-		let table = UITableView()
-		table.showsVerticalScrollIndicator = false
-		table.rowHeight = Constants.courseRowHeight
-		table.delegate = self
-		table.dataSource = self
-		table.register(cellType: CourseTableViewCell.self)
-		table.separatorStyle = .none
-		table.refreshControl = UIRefreshControl()
-		table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-		return table
-	}()
+    private lazy var table: UITableView = {
+        let table = UITableView()
+        table.showsVerticalScrollIndicator = false
+        table.rowHeight = Constants.courseRowHeight
+        table.delegate = self
+        table.dataSource = self
+        table.register(cellType: CourseTableViewCell.self)
+        table.separatorStyle = .none
+        table.refreshControl = UIRefreshControl()
+        table.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return table
+    }()
 
     // MARK: - Public properties -
 
@@ -49,65 +49,66 @@ public final class CoursesScreenViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
-		navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
 
-		setupViews()
-		refresh()
+        setupViews()
+        refresh()
     }
 
-	private func setupViews() {
-		view.backgroundColor = .Pallette.mainBgColor
+    private func setupViews() {
+        view.backgroundColor = .Pallette.mainBgColor
 
-		view.addSubview(titleLabel)
-		view.addSubview(createCourseButton)
-		view.addSubview(table)
+        view.addSubview(titleLabel)
+        view.addSubview(createCourseButton)
+        view.addSubview(table)
 
-		createCourseButton.snp.makeConstraints { make in
-			make.right.equalToSuperview().inset(Constants.offset)
-			make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
-			make.width.equalTo(view.snp.width).dividedBy(5)
-			make.height.equalTo(25)
-		}
+        createCourseButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constants.offset)
+            make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
+            make.width.equalTo(view.snp.width).dividedBy(5)
+            make.height.equalTo(25)
+        }
 
-		titleLabel.snp.makeConstraints { make in
-			make.centerX.equalToSuperview()
-			make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
-			make.width.equalTo(view.snp.width).dividedBy(2)
-		}
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
+            make.width.equalTo(view.snp.width).dividedBy(2)
+        }
 
-		table.snp.makeConstraints { make in
-			make.right.left.equalToSuperview()
-			make.top.equalTo(titleLabel.snp.bottom).offset(Constants.offset)
-			make.bottom.equalToSuperview()
-		}
-	}
+        table.snp.makeConstraints { make in
+            make.right.left.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(Constants.offset)
+            make.bottom.equalToSuperview()
+        }
+    }
 
-	@objc
-	private func createNewCourse() {
-		presenter.createNewCourse()
-	}
+    @objc
+    private func createNewCourse() {
+        presenter.createNewCourse()
+    }
 }
 
 // MARK: - Extensions -
 
 extension CoursesScreenViewController: CoursesScreenViewInterface {
-	public func reloadData() {
-		DispatchQueue.main.async { [weak self] in
-			if let count = self?.presenter.numberOfItems,
-			   count == .zero {
-			} else {
-				self?.table.reloadData()
-				self?.table.refreshControl?.endRefreshing()
-			}
-		}
-	}
+    public func reloadData() {
+        DispatchQueue.main.async { [weak self] in
+            if let count = self?.presenter.numberOfItems,
+               count == .zero
+            {
+            } else {
+                self?.table.reloadData()
+                self?.table.refreshControl?.endRefreshing()
+            }
+        }
+    }
 
-	@objc
-	public func refresh() {
-		presenter.fetchLessons()
-	}
+    @objc
+    public func refresh() {
+        presenter.fetchLessons()
+    }
 
     public func insertNewCourse(at indexPath: IndexPath) {
         DispatchQueue.main.async {
@@ -121,21 +122,21 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
 // MARK: - Lessons table view
 
 extension CoursesScreenViewController: UITableViewDataSource {
-	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		presenter.numberOfItems
-	}
+    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        presenter.numberOfItems
+    }
 
-	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell: CourseTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-		let course = presenter.item(at: indexPath)
-		cell.configure(with: course)
-		return cell
-	}
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CourseTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        let course = presenter.item(at: indexPath)
+        cell.configure(with: course)
+        return cell
+    }
 }
 
 extension CoursesScreenViewController: UITableViewDelegate {
-	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter.itemSelected(at: indexPath)
-		tableView.deselectRow(at: indexPath, animated: true)
-	}
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.itemSelected(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

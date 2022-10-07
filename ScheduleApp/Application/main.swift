@@ -9,14 +9,13 @@ private let argv = UnsafeMutableRawPointer(CommandLine.unsafeArgv)
     .bindMemory(
         to: UnsafeMutablePointer<Int8>?.self,
         capacity: Int(CommandLine.argc)
-)
+    )
 
 // Could also be `nil` after the documentation
 private let principalClassName = NSStringFromClass(UIApplication.self)
 
 #if DEBUG
 extension ProcessInfo {
-
     private var isRunningTests: Bool {
         arguments.contains("IS_RUNNING_TESTS")
     }
@@ -31,8 +30,7 @@ extension ProcessInfo {
 }
 
 /// App delegate for the unit tests
-final class TestAppDelegate: UIResponder, UIApplicationDelegate {
-}
+final class TestAppDelegate: UIResponder, UIApplicationDelegate {}
 
 private let delegateClassName = NSStringFromClass(ProcessInfo.processInfo.appDelegateType)
 #else

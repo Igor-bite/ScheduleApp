@@ -8,7 +8,6 @@
 import UIKit
 
 public final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewController> {
-
     // MARK: - Private properties -
 
     // MARK: - Module setup -
@@ -19,14 +18,12 @@ public final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewCont
 
         let interactor = ScheduleScreenInteractor()
         let presenter = ScheduleScreenPresenter(view: moduleViewController,
-												interactor: interactor,
-												wireframe: self)
+                                                interactor: interactor,
+                                                wireframe: self)
         moduleViewController.presenter = presenter
     }
-
 }
 
 // MARK: - Extensions -
 
-extension ScheduleScreenWireframe: ScheduleScreenWireframeInterface {
-}
+extension ScheduleScreenWireframe: ScheduleScreenWireframeInterface {}

@@ -8,7 +8,6 @@
 import UIKit
 
 public final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorScreenViewController> {
-
     // MARK: - Private properties -
 
     // MARK: - Module setup -
@@ -24,10 +23,8 @@ public final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorSc
                                                       completion: completion)
         moduleViewController.presenter = presenter
     }
-
 }
 
 // MARK: - Extensions -
 
-extension CoursesCreatorScreenWireframe: CoursesCreatorScreenWireframeInterface {
-}
+extension CoursesCreatorScreenWireframe: CoursesCreatorScreenWireframeInterface {}

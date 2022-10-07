@@ -6,8 +6,8 @@
 //  Copyright © 2022 messeb.com. All rights reserved.
 //
 
-import UIKit
 import SafeSFSymbols
+import UIKit
 
 class TabBar: UITabBarController {
     override func viewDidLoad() {

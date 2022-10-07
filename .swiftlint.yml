@@ -6,6 +6,8 @@ disabled_rules: # rule identifiers to exclude from running
   - let_var_whitespace
   - conditional_returns_on_newline
   - strict_fileprivate
+  - multiline_parameters
+  - opening_brace
 
 opt_in_rules: # some rules are only opt-in
   - attributes
@@ -25,7 +27,6 @@ opt_in_rules: # some rules are only opt-in
   - first_where
   - implicit_return
   - implicitly_unwrapped_optional
-  - multiline_parameters
   - nimble_operator
   - number_separator
   - operator_usage_whitespace

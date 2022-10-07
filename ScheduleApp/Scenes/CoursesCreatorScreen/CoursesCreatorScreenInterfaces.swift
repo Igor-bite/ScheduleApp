@@ -7,11 +7,9 @@
 
 import UIKit
 
-public protocol CoursesCreatorScreenWireframeInterface: WireframeInterface {
-}
+public protocol CoursesCreatorScreenWireframeInterface: WireframeInterface {}
 
-public protocol CoursesCreatorScreenViewInterface: ViewInterface {
-}
+public protocol CoursesCreatorScreenViewInterface: ViewInterface {}
 
 public protocol CoursesCreatorScreenPresenterInterface: PresenterInterface {
     func createCourse(_ course: CreateCourseModel)

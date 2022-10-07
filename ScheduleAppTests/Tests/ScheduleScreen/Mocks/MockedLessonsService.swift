@@ -8,7 +8,7 @@
 @testable import ScheduleApp
 
 final class MockedLessonsService: LessonsService {
-	static let lessons = [
+    static let lessons = [
         LessonModel(
             id: 1, title: "Lesson",
             description: "Description", teacherId: 1,
@@ -17,7 +17,7 @@ final class MockedLessonsService: LessonsService {
         )
     ]
 
-	func getLessons() async throws -> [LessonModel] {
-		MockedLessonsService.lessons
-	}
+    func getLessons() async throws -> [LessonModel] {
+        MockedLessonsService.lessons
+    }
 }

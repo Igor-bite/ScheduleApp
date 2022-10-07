@@ -5,19 +5,18 @@
 //  Created by Игорь Клюжев on 27.09.2022.
 //
 
-import Foundation
 import AsyncPlus
+import Foundation
 
 public final class CoursesScreenPresenter {
-
     // MARK: - Private properties -
 
     private unowned let view: CoursesScreenViewInterface
     private let interactor: CoursesScreenInteractorInterface
     private let wireframe: CoursesScreenWireframeInterface
 
-	private var coursesToShow = [CourseModel]()
-	private var courses: [CourseModel]?
+    private var coursesToShow = [CourseModel]()
+    private var courses: [CourseModel]?
 
     // MARK: - Lifecycle -
 
@@ -35,34 +34,34 @@ public final class CoursesScreenPresenter {
 // MARK: - Extensions -
 
 extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
-	public var numberOfItems: Int {
-		coursesToShow.count
-	}
+    public var numberOfItems: Int {
+        coursesToShow.count
+    }
 
-	public func item(at indexPath: IndexPath) -> CourseModel {
-		coursesToShow[indexPath.row]
-	}
+    public func item(at indexPath: IndexPath) -> CourseModel {
+        coursesToShow[indexPath.row]
+    }
 
-	public func itemSelected(at indexPath: IndexPath) {
-		print("Selected course at \(indexPath)")
-	}
+    public func itemSelected(at indexPath: IndexPath) {
+        print("Selected course at \(indexPath)")
+    }
 
-	public func fetchLessons() {
-        self.wireframe.showLoadingBar()
-		attempt {
-			try await self.interactor.getAllCourses()
-		}.then { courses in
+    public func fetchLessons() {
+        wireframe.showLoadingBar()
+        attempt {
+            try await self.interactor.getAllCourses()
+        }.then { courses in
             self.wireframe.hideLoadingBar()
-			self.courses = courses
-			self.updatePresentedCourses()
-		}.catch { error in
+            self.courses = courses
+            self.updatePresentedCourses()
+        }.catch { _ in
             self.wireframe.hideLoadingBar()
-			self.wireframe.showAlert(title: "Error loading courses", message: nil, preset: .error, presentSide: .top)
-		}
-	}
+            self.wireframe.showAlert(title: "Error loading courses", message: nil, preset: .error, presentSide: .top)
+        }
+    }
 
-	private func updatePresentedCourses() {
-		guard let courses else { return }
+    private func updatePresentedCourses() {
+        guard let courses else { return }
         coursesToShow = courses.filter { course in
             switch course.type {
             case .base:
@@ -72,9 +71,9 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
             }
         }
         view.reloadData()
-	}
+    }
 
-	public func createNewCourse() {
+    public func createNewCourse() {
         wireframe.presentCourseCreator { course in
             if let course = course {
                 self.coursesToShow.append(course)
@@ -84,5 +83,5 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
                 self.wireframe.showAlert(title: "Error adding new course", message: "Please, try again", preset: .error, presentSide: .top)
             }
         }
-	}
+    }
 }
