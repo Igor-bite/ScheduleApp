@@ -8,7 +8,7 @@
 import Foundation
 
 public struct CourseModel: Codable {
-	enum CourseType: Codable {
+    enum CourseType: Codable {
         case base(BaseCourseType)
         case online(OnlineCourseType)
         case offline(OfflineCourseType)
@@ -38,26 +38,27 @@ public struct CourseModel: Codable {
             let container = try decoder.singleValueContainer()
 
             if let value = try? container.decode(BaseCourseType.self),
-               value.type == BaseCourseType.typeName {
-
+               value.type == BaseCourseType.typeName
+            {
                 self = .base(value)
                 return
             }
             if let value = try? container.decode(OnlineCourseType.self),
-               value.type == OnlineCourseType.typeName {
-
+               value.type == OnlineCourseType.typeName
+            {
                 self = .online(value)
                 return
             }
             if let value = try? container.decode(OfflineCourseType.self),
-               value.type == OfflineCourseType.typeName {
-
+               value.type == OfflineCourseType.typeName
+            {
                 self = .offline(value)
                 return
             }
             throw DecodingError.typeMismatch(
                 CourseType.self,
-                DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Type is not matched", underlyingError: nil))
+                DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Type is not matched", underlyingError: nil)
+            )
         }
 
         func encode(to encoder: Encoder) throws {
@@ -82,15 +83,14 @@ public struct CourseModel: Codable {
                 return "Оффлайн"
             }
         }
-
     }
 
-	let id: Int
-	let title: String
-	let description: String
-	let categoryId: Int
-	let curatorId: Int
-	let type: CourseType
+    let id: Int
+    let title: String
+    let description: String
+    let categoryId: Int
+    let curatorId: Int
+    let type: CourseType
 }
 
 public struct CreateCourseModel: Codable {

@@ -5,97 +5,99 @@
 //  Created by Игорь Клюжев on 26.09.2022.
 //
 
-import UIKit
-import SnapKit
 import Lottie
+import SnapKit
+import UIKit
 
 public final class SplashScreenViewController: UIViewController {
-	private enum Constants {
-		static let height = 284.0
-		static let width = 199.0
-		static let topOffset = 130.0
-	}
+    private enum Constants {
+        static let height = 284.0
+        static let width = 199.0
+        static let topOffset = 130.0
+    }
 
-	private let bgImageView = UIImageView(image: UIImage(named: "splash-bg"))
+    private let bgImageView = UIImageView(image: Asset.splashBg.image)
 
-	private let animation: AnimationView = {
-		let view = AnimationView.icon
-		view.contentMode = .scaleAspectFit
-		view.loopMode = .playOnce
-		view.animationSpeed = 0.7
-		return view
-	}()
+    private let animation: AnimationView = {
+        let view = AnimationView.icon
+        view.contentMode = .scaleAspectFit
+        view.loopMode = .playOnce
+        view.animationSpeed = 0.7
+        return view
+    }()
 
-	private let label: UILabel = {
-		let label = UILabel()
-		label.text = "Расписаниеееееееееееееее"
-		label.textColor = .Pallette.textColor.themeInverted
-		label.font = .roundedSystemFont(ofSize: 150, weight: .semibold)
-		return label
-	}()
+    private let label: UILabel = {
+        let label = UILabel()
+        label.text = "Расписаниеееееееееееееее"
+        label.textColor = .Pallette.textColor.themeInverted
+        label.font = .roundedSystemFont(ofSize: 150, weight: .semibold)
+        return label
+    }()
 
-    // MARK: - Public properties -
-
-	// swiftlint:disable:next implicitly_unwrapped_optional
-    var presenter: SplashScreenPresenterInterface!
+    private let dismissAction: () -> Void
 
     // MARK: - Lifecycle -
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
-		setupViews()
+    init(dismissAction: @escaping () -> Void) {
+        self.dismissAction = dismissAction
+        super.init(nibName: nil, bundle: nil)
     }
 
-	private var labelRightConstraint: Constraint?
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-	func setupViews() {
-		view.addSubview(bgImageView)
-		view.addSubview(animation)
-		view.addSubview(label)
+    override public func viewDidLoad() {
+        super.viewDidLoad()
 
-		bgImageView.snp.makeConstraints { make in
-			make.edges.equalToSuperview()
-		}
+        setupViews()
+    }
 
-		animation.snp.makeConstraints { make in
-			make.height.equalTo(284)
-			make.width.equalTo(199)
-			make.top.equalTo(view.snp.top).offset(130)
-			make.centerX.equalToSuperview()
-		}
+    private var labelRightConstraint: Constraint?
 
-		label.snp.makeConstraints { make in
-			make.width.equalTo(label.intrinsicContentSize.width)
-			make.height.equalTo(label.intrinsicContentSize.height)
-			make.top.equalTo(animation.snp.bottom).offset(50)
-			self.labelRightConstraint = make.right.equalToSuperview().offset(label.intrinsicContentSize.width).constraint
-		}
-	}
+    func setupViews() {
+        view.addSubview(bgImageView)
+        view.addSubview(animation)
+        view.addSubview(label)
 
-	public override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+        bgImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
 
-		animate()
-	}
+        animation.snp.makeConstraints { make in
+            make.height.equalTo(284)
+            make.width.equalTo(199)
+            make.top.equalTo(view.snp.top).offset(130)
+            make.centerX.equalToSuperview()
+        }
 
-	private func animate() {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-			self.animation.play()
+        label.snp.makeConstraints { make in
+            make.width.equalTo(label.intrinsicContentSize.width)
+            make.height.equalTo(label.intrinsicContentSize.height)
+            make.top.equalTo(animation.snp.bottom).offset(50)
+            self.labelRightConstraint = make.right.equalToSuperview().offset(label.intrinsicContentSize.width).constraint
+        }
+    }
 
-			self.labelRightConstraint?.update(inset: UIScreen.main.bounds.width)
-			UIView.animate(withDuration: 3, delay: 0, options: .curveEaseInOut) {
-				self.view.layoutIfNeeded()
-			}
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				self.presenter.dismiss()
-			}
-		}
-	}
-}
+        animate()
+    }
 
-// MARK: - Extensions -
+    private func animate() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.animation.play()
 
-extension SplashScreenViewController: SplashScreenViewInterface {
+            self.labelRightConstraint?.update(inset: UIScreen.main.bounds.width)
+            UIView.animate(withDuration: 3, delay: 0, options: .curveEaseInOut) {
+                self.view.layoutIfNeeded()
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.dismissAction()
+            }
+        }
+    }
 }

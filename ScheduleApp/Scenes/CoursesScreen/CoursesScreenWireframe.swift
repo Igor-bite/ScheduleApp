@@ -8,7 +8,6 @@
 import UIKit
 
 public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewController> {
-
     // MARK: - Private properties -
 
     // MARK: - Module setup -
@@ -21,7 +20,6 @@ public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewContro
         let presenter = CoursesScreenPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
         moduleViewController.presenter = presenter
     }
-
 }
 
 // MARK: - Extensions -
@@ -29,5 +27,5 @@ public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewContro
 extension CoursesScreenWireframe: CoursesScreenWireframeInterface {
     public func presentCourseCreator(completion: @escaping (CourseModel?) -> Void) {
         navigationController?.presentWireframe(CoursesCreatorScreenWireframe(completion: completion))
-	}
+    }
 }

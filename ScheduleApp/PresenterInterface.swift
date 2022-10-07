@@ -1,5 +1,3 @@
-public protocol PresenterInterface: AnyObject {
-}
+public protocol PresenterInterface: AnyObject {}
 
-public extension PresenterInterface {
-}
+public extension PresenterInterface {}

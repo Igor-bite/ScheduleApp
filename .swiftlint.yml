@@ -5,6 +5,9 @@ disabled_rules: # rule identifiers to exclude from running
   - object_literal
   - let_var_whitespace
   - conditional_returns_on_newline
+  - strict_fileprivate
+  - multiline_parameters
+  - opening_brace
 
 opt_in_rules: # some rules are only opt-in
   - attributes
@@ -24,17 +27,14 @@ opt_in_rules: # some rules are only opt-in
   - first_where
   - implicit_return
   - implicitly_unwrapped_optional
-  - multiline_parameters
   - nimble_operator
-  # - no_extension_access_modifier
   - number_separator
   - operator_usage_whitespace
   - overridden_super_call
   - private_outlet
   - prohibited_super_call
   - redundant_nil_coalescing
-  # - sorted_imports
-  - strict_fileprivate
+  - sorted_imports
   - switch_case_on_newline
   - trailing_closure
   - unneeded_parentheses_in_closure_argument

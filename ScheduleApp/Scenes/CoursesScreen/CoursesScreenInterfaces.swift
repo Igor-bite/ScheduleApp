@@ -12,21 +12,21 @@ public protocol CoursesScreenWireframeInterface: WireframeInterface {
 }
 
 public protocol CoursesScreenViewInterface: ViewInterface {
-	func reloadData()
-	func refresh()
+    func reloadData()
+    func refresh()
     func insertNewCourse(at indexPath: IndexPath)
 }
 
 public protocol CoursesScreenPresenterInterface: PresenterInterface {
-	var numberOfItems: Int { get }
+    var numberOfItems: Int { get }
 
-	func item(at indexPath: IndexPath) -> CourseModel
-	func itemSelected(at indexPath: IndexPath)
-	func fetchLessons()
+    func item(at indexPath: IndexPath) -> CourseModel
+    func itemSelected(at indexPath: IndexPath)
+    func fetchLessons()
 
-	func createNewCourse()
+    func createNewCourse()
 }
 
 public protocol CoursesScreenInteractorInterface: InteractorInterface {
-	func getAllCourses() async throws -> [CourseModel]
+    func getAllCourses() async throws -> [CourseModel]
 }

@@ -27,10 +27,7 @@
 		A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D0A28E0D30B00245559 /* DateCell.swift */; };
 		A54F7D1128E104DA00245559 /* ScheduleScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */; };
 		A54F7D1428E1063600245559 /* MockedLessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1328E1063600245559 /* MockedLessonsService.swift */; };
-		A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */; };
-		A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */; };
 		A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1928E211B300245559 /* SplashScreenViewController.swift */; };
-		A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */; };
 		A54F7D2028E2125300245559 /* icon.json in Resources */ = {isa = PBXBuildFile; fileRef = A54F7D1F28E2125300245559 /* icon.json */; };
 		A54F7D2728E259E400245559 /* CoursesScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D2228E259E400245559 /* CoursesScreenInterfaces.swift */; };
 		A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D2328E259E400245559 /* CoursesScreenPresenter.swift */; };
@@ -52,6 +49,10 @@
 		A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */; };
 		A54F7D5328E34B9800245559 /* STTextView in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7D5228E34B9800245559 /* STTextView */; };
 		A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52828F056B100F846FC /* Encodable + toDictionary.swift */; };
+		A550E52C28F0806800F846FC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52B28F0806800F846FC /* TabBar.swift */; };
+		A550E52E28F084AF00F846FC /* AnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52D28F084AF00F846FC /* AnimationViews.swift */; };
+		A550E53728F08D6400F846FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53628F08D6400F846FC /* Assets.swift */; };
+		A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53828F09B7C00F846FC /* UIImage+Resize.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -77,7 +78,7 @@
 		A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B9A628D93253001D3C93 /* activeIndicator.json */; };
 		A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A828D93305001D3C93 /* DateExtension.swift */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
-		E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */; };
+		E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
 		E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121D214783B2008C2EF8 /* AppDelegate.swift */; };
 		E0FD1222214783F1008C2EF8 /* ScheduleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD1221214783F1008C2EF8 /* ScheduleAppTests.swift */; };
@@ -110,10 +111,7 @@
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
 		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
-		A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenInterfaces.swift; sourceTree = "<group>"; };
-		A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenPresenter.swift; sourceTree = "<group>"; };
 		A54F7D1928E211B300245559 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
-		A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenWireframe.swift; sourceTree = "<group>"; };
 		A54F7D1F28E2125300245559 /* icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icon.json; sourceTree = "<group>"; };
 		A54F7D2228E259E400245559 /* CoursesScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScreenInterfaces.swift; sourceTree = "<group>"; };
 		A54F7D2328E259E400245559 /* CoursesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesScreenPresenter.swift; sourceTree = "<group>"; };
@@ -134,6 +132,10 @@
 		A54F7D4728E3463900245559 /* CoursesCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenInteractor.swift; sourceTree = "<group>"; };
 		A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCreatorScreenWireframe.swift; sourceTree = "<group>"; };
 		A550E52828F056B100F846FC /* Encodable + toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + toDictionary.swift"; sourceTree = "<group>"; };
+		A550E52B28F0806800F846FC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		A550E52D28F084AF00F846FC /* AnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViews.swift; sourceTree = "<group>"; };
+		A550E53628F08D6400F846FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		A550E53828F09B7C00F846FC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assests.xcassets; sourceTree = "<group>"; };
+		E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0FD120021477D29008C2EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0FD1202214781CA008C2EF8 /* ReleaseTest.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseTest.xcconfig; sourceTree = "<group>"; };
 		E0FD1203214781CA008C2EF8 /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -238,10 +240,7 @@
 		A54F7D1628E2118B00245559 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
-				A54F7D1728E211B300245559 /* SplashScreenInterfaces.swift */,
-				A54F7D1828E211B300245559 /* SplashScreenPresenter.swift */,
 				A54F7D1928E211B300245559 /* SplashScreenViewController.swift */,
-				A54F7D1A28E211B300245559 /* SplashScreenWireframe.swift */,
 			);
 			path = SplashScreen;
 			sourceTree = "<group>";
@@ -288,12 +287,15 @@
 		A54F7D3528E3400600245559 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A550E53528F08B5800F846FC /* Generated */,
 				A54F7D3628E3401400245559 /* Fonts.swift */,
 				A54F7D3828E3401A00245559 /* Colors.swift */,
 				A54F7D3A28E3401F00245559 /* Labels.swift */,
 				A54F7D3C28E3402600245559 /* Buttons.swift */,
+				A550E52D28F084AF00F846FC /* AnimationViews.swift */,
 			);
 			name = UIComponents;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A54F7D4328E3461200245559 /* CoursesCreatorScreen */ = {
@@ -306,6 +308,35 @@
 				A54F7D4828E3463900245559 /* CoursesCreatorScreenWireframe.swift */,
 			);
 			path = CoursesCreatorScreen;
+			sourceTree = "<group>";
+		};
+		A550E52A28F0805A00F846FC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A550E52B28F0806800F846FC /* TabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A550E53328F08B1E00F846FC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A54F7D3528E3400600245559 /* UIComponents */,
+				A568DF1428D3C9B600341814 /* BaseVIPER */,
+				A568DF1128D3C8D100341814 /* Helpers */,
+				E0FD121D214783B2008C2EF8 /* AppDelegate.swift */,
+				E0FD121C214783B2008C2EF8 /* main.swift */,
+				A568DF1F28D3CDDA00341814 /* Constants.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A550E53528F08B5800F846FC /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A550E53628F08D6400F846FC /* Assets.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		A568DEFE28D3C84D00341814 /* ScheduleScreen */ = {
@@ -347,8 +378,10 @@
 				A5B5B9A828D93305001D3C93 /* DateExtension.swift */,
 				A54F7D4128E3443B00245559 /* UIViewControllerExtensions.swift */,
 				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
+				A550E53828F09B7C00F846FC /* UIImage+Resize.swift */,
 			);
 			name = Helpers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A568DF1428D3C9B600341814 /* BaseVIPER */ = {
@@ -361,6 +394,7 @@
 				A568DF1928D3C9C600341814 /* InteractorInterface.swift */,
 			);
 			name = BaseVIPER;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
@@ -390,22 +424,10 @@
 			path = LottieAnimations;
 			sourceTree = "<group>";
 		};
-		A5ED262228D374F30041EBBD /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				A54F7D3528E3400600245559 /* UIComponents */,
-				A568DF1428D3C9B600341814 /* BaseVIPER */,
-				A568DF1128D3C8D100341814 /* Helpers */,
-				E0FD121D214783B2008C2EF8 /* AppDelegate.swift */,
-				E0FD121C214783B2008C2EF8 /* main.swift */,
-				A568DF1F28D3CDDA00341814 /* Constants.swift */,
-			);
-			name = Application;
-			sourceTree = "<group>";
-		};
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A550E52A28F0805A00F846FC /* TabBar */,
 				A54F7D4328E3461200245559 /* CoursesCreatorScreen */,
 				A54F7D2128E259BD00245559 /* CoursesScreen */,
 				A54F7D1628E2118B00245559 /* SplashScreen */,
@@ -438,7 +460,7 @@
 				E0BB8FB721695633001922DE /* Scenes */,
 				E0FD11F821477C98008C2EF8 /* Resources */,
 				E0FD11F721477C92008C2EF8 /* Configurations */,
-				A5ED262228D374F30041EBBD /* Application */,
+				A550E53328F08B1E00F846FC /* Application */,
 				A5B5B9A028D926C9001D3C93 /* LottieAnimations */,
 			);
 			path = ScheduleApp;
@@ -466,7 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */,
-				E0FD11FE21477D1C008C2EF8 /* Assests.xcassets */,
+				E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -646,7 +668,7 @@
 				A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */,
 				A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */,
 				A54F7D2028E2125300245559 /* icon.json in Resources */,
-				E0FD11FF21477D1C008C2EF8 /* Assests.xcassets in Resources */,
+				E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */,
 				E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,13 +710,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
-				A54F7D1B28E211B300245559 /* SplashScreenInterfaces.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
-				A54F7D1C28E211B300245559 /* SplashScreenPresenter.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
-				A54F7D1E28E211B300245559 /* SplashScreenWireframe.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
 				A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */,
 				A54F7D3428E25D0B00245559 /* CourseTableViewCell.swift in Sources */,
@@ -711,6 +730,7 @@
 				A54F7D4928E3463A00245559 /* CoursesCreatorScreenInterfaces.swift in Sources */,
 				A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
+				A550E52E28F084AF00F846FC /* AnimationViews.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
 				A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */,
@@ -719,11 +739,14 @@
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
 				A54F7D4228E3443B00245559 /* UIViewControllerExtensions.swift in Sources */,
+				A550E53728F08D6400F846FC /* Assets.swift in Sources */,
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
 				A54F7D3D28E3402600245559 /* Buttons.swift in Sources */,
 				A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */,
 				A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,
+				A550E52C28F0806800F846FC /* TabBar.swift in Sources */,
+				A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */,
 				A54F7D4A28E3463A00245559 /* CoursesCreatorScreenPresenter.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
 				A54F7D3B28E3401F00245559 /* Labels.swift in Sources */,

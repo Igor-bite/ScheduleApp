@@ -1,5 +1,3 @@
-public protocol FormatterInterface: AnyObject {
-}
+public protocol FormatterInterface: AnyObject {}
 
-public extension FormatterInterface {
-}
+public extension FormatterInterface {}

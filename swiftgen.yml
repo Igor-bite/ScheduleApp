@@ -1,0 +1,6 @@
+ xcassets:
+   inputs:
+     - ./ScheduleApp/Resources/Assets.xcassets
+   outputs:
+     - templateName: swift5
+       output: ./ScheduleApp/Generated/Assets.swift

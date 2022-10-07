@@ -5,24 +5,23 @@
 //  Created by Игорь Клюжев on 26.09.2022.
 //
 
-import XCTest
-@testable import ScheduleApp
 import AsyncPlus
+@testable import ScheduleApp
+import XCTest
 
 final class ScheduleScreenTests: XCTestCase {
-
-// MARK: - Interactor
+    // MARK: - Interactor
 
     func test_interactor_getAllLessons() throws {
-		let lessonsService = MockedLessonsService()
+        let lessonsService = MockedLessonsService()
         let sut = ScheduleScreenInteractor(lessonsService: lessonsService)
 
-		attempt {
-			try await sut.getAllLessons()
-		}.then { lessons in
-			XCTAssertTrue(lessons == MockedLessonsService.lessons)
-		}.catch { _ in
-			XCTFail("Should not fail with error")
-		}
+        attempt {
+            try await sut.getAllLessons()
+        }.then { lessons in
+            XCTAssertTrue(lessons == MockedLessonsService.lessons)
+        }.catch { _ in
+            XCTFail("Should not fail with error")
+        }
     }
 }

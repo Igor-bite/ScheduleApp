@@ -8,17 +8,17 @@
 import Foundation
 
 public final class CoursesScreenInteractor {
-	private let coursesService: CoursesService
+    private let coursesService: CoursesService
 
-	init(coursesService: CoursesService = BasicCoursesService()) {
-		self.coursesService = coursesService
-	}
+    init(coursesService: CoursesService = BasicCoursesService()) {
+        self.coursesService = coursesService
+    }
 }
 
 // MARK: - Extensions -
 
 extension CoursesScreenInteractor: CoursesScreenInteractorInterface {
-	public func getAllCourses() async throws -> [CourseModel] {
-		try await coursesService.getCourses()
-	}
+    public func getAllCourses() async throws -> [CourseModel] {
+        try await coursesService.getCourses()
+    }
 }
