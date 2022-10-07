@@ -8,12 +8,13 @@
 import UIKit
 
 public protocol CoursesScreenWireframeInterface: WireframeInterface {
-	func presentCourseCreator()
+    func presentCourseCreator(completion: @escaping (CourseModel?) -> Void)
 }
 
 public protocol CoursesScreenViewInterface: ViewInterface {
 	func reloadData()
 	func refresh()
+    func insertNewCourse(at indexPath: IndexPath)
 }
 
 public protocol CoursesScreenPresenterInterface: PresenterInterface {

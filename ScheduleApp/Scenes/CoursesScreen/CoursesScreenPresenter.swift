@@ -16,11 +16,7 @@ public final class CoursesScreenPresenter {
     private let interactor: CoursesScreenInteractorInterface
     private let wireframe: CoursesScreenWireframeInterface
 
-	private var coursesToShow = [CourseModel]() {
-		didSet {
-			view.reloadData()
-		}
-	}
+	private var coursesToShow = [CourseModel]()
 	private var courses: [CourseModel]?
 
     // MARK: - Lifecycle -
@@ -64,10 +60,26 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
 
 	private func updatePresentedCourses() {
 		guard let courses else { return }
-		coursesToShow = courses
+        coursesToShow = courses.filter { course in
+            switch course.type {
+            case .base:
+                return false
+            default:
+                return true
+            }
+        }
+        view.reloadData()
 	}
 
 	public func createNewCourse() {
-		wireframe.presentCourseCreator()
+        wireframe.presentCourseCreator { course in
+            if let course = course {
+                self.coursesToShow.append(course)
+                self.view.insertNewCourse(at: .init(row: self.coursesToShow.count - 1, section: 0))
+                self.wireframe.showAlert(title: "Added new course", message: nil, preset: .done, presentSide: .top)
+            } else {
+                self.wireframe.showAlert(title: "Error adding new course", message: "Please, try again", preset: .error, presentSide: .top)
+            }
+        }
 	}
 }

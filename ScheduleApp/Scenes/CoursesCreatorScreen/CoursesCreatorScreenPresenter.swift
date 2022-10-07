@@ -15,17 +15,20 @@ public final class CoursesCreatorScreenPresenter {
     private unowned let view: CoursesCreatorScreenViewInterface
     private let interactor: CoursesCreatorScreenInteractorInterface
     private let wireframe: CoursesCreatorScreenWireframeInterface
+    private let completion: (CourseModel?) -> Void
 
     // MARK: - Lifecycle -
 
     init(
         view: CoursesCreatorScreenViewInterface,
         interactor: CoursesCreatorScreenInteractorInterface,
-        wireframe: CoursesCreatorScreenWireframeInterface
+        wireframe: CoursesCreatorScreenWireframeInterface,
+        completion: @escaping (CourseModel?) -> Void
     ) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
+        self.completion = completion
     }
 }
 
@@ -36,10 +39,9 @@ extension CoursesCreatorScreenPresenter: CoursesCreatorScreenPresenterInterface 
         attempt {
             try await self.interactor.createCourse(course)
         }.then { course in
-            print("Created new course: \(course)")
-            dump(course)
-//            self.updatePresentedCourses()
+            self.completion(course)
         }.catch { error in
+            self.completion(nil)
             self.wireframe.showAlert(title: "Error adding course", message: nil, preset: .error, presentSide: .top)
         }
     }

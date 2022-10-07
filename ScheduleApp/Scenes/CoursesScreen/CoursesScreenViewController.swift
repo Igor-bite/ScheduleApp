@@ -117,6 +117,14 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
 		presenter.fetchLessons()
 		gradientLoadingBar.fadeIn()
 	}
+
+    public func insertNewCourse(at indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.table.beginUpdates()
+            self.table.insertRows(at: [indexPath], with: .automatic)
+            self.table.endUpdates()
+        }
+    }
 }
 
 // MARK: - Lessons table view
