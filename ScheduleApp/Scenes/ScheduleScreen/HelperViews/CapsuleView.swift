@@ -1,5 +1,5 @@
 //
-//  CapsuleLabelView.swift
+//  CapsuleView.swift
 //  ScheduleApp
 //
 //  Created by Игорь Клюжев on 20.09.2022.
@@ -8,7 +8,7 @@
 import SnapKit
 import UIKit
 
-final class CapsuleLabelView: UIView {
+final class CapsuleView: UIView {
     private enum Constants {
         static let height = 24.0
         static let cornerRadius = 12.0
@@ -23,9 +23,18 @@ final class CapsuleLabelView: UIView {
 
     private var widthConstraint: Constraint?
 
+    private var bgColor: UIColor? {
+        didSet {
+            backgroundColor = bgColor
+        }
+    }
+
+    var tapAction: (() -> Void)?
+
     init() {
         super.init(frame: .zero)
         setupViews()
+        setupTap()
     }
 
     @available(*, unavailable)
@@ -34,7 +43,7 @@ final class CapsuleLabelView: UIView {
     }
 
     func configure(withText text: String, color: UIColor) {
-        backgroundColor = color
+        bgColor = color
         label.text = text
 
         widthConstraint?.update(offset: label.intrinsicContentSize.width + 20)
@@ -53,6 +62,28 @@ final class CapsuleLabelView: UIView {
 
         snp.makeConstraints { make in
             self.widthConstraint = make.width.equalTo(label.intrinsicContentSize.width + 20).constraint
+        }
+    }
+
+    func setupTap() {
+        let touchDown = UILongPressGestureRecognizer(target: self, action: #selector(didTouchDown))
+        touchDown.minimumPressDuration = 0
+        addGestureRecognizer(touchDown)
+    }
+
+    @objc
+    func didTouchDown(gesture: UILongPressGestureRecognizer) {
+        guard let tapAction = tapAction else { return }
+        switch gesture.state {
+        case .began:
+            backgroundColor = bgColor?.withAlphaComponent(0.8)
+        case .ended:
+            tapAction()
+            fallthrough
+        case .cancelled:
+            backgroundColor = bgColor
+        default:
+            break
         }
     }
 }

@@ -18,9 +18,14 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         static let cellCornerRadius = 15.0
     }
 
-    private let lessonTypeView = CapsuleLabelView()
+    private let lessonTypeView = CapsuleView()
 
-    private let lessonNameLabel = UILabel.titleLabel
+    private let lessonNameLabel = {
+        let label = UILabel.titleLabel
+        label.numberOfLines = 2
+        return label
+    }()
+
     private let teacherLabel = {
         let label = UILabel.textLabel
         label.textColor = .Pallette.secondaryTextColor
@@ -37,6 +42,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 
     private let activeIndicator = {
         let view = AnimationView.activeIndicator
+        view.backgroundBehavior = .pauseAndRestore
         view.contentMode = .scaleAspectFit
         view.loopMode = .loop
         view.animationSpeed = 0.5
@@ -65,18 +71,15 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = "\(dateFormatter.string(from: lesson.startDateTime))-\(dateFormatter.string(from: lesson.endDateTime))"
 
-        teacherLabel.text = "Акимова Арина Николаевна"
-        //		teacherLabel.isSkeletonable = true
-        //		teacherLabel.showAnimatedGradientSkeleton()
-        //		teacherLabel.startSkeletonAnimation()
+        teacherLabel.text = "Скоринов Максим Юрьевич"
 
-        if Date().isBetweeen(date: lesson.startDateTime, andDate: lesson.endDateTime) {
-            activeIndicator.play()
-            activeIndicator.isHidden = false
-        } else {
-            activeIndicator.stop()
-            activeIndicator.isHidden = true
-        }
+//        if Date().isBetweeen(date: lesson.startDateTime, andDate: lesson.endDateTime) {
+//            activeIndicator.play()
+//            activeIndicator.isHidden = false
+//        } else {
+//            activeIndicator.stop()
+//            activeIndicator.isHidden = true
+//        }
     }
 
     func setupViews() {
@@ -110,20 +113,20 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         }
 
         lessonNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(lessonTypeView.snp.bottom).offset(5)
+            make.top.equalTo(lessonTypeView.snp.bottom).offset(Constants.offset / 4)
             make.left.equalToSuperview().offset(Constants.offset)
             make.right.equalToSuperview().inset(Constants.offset)
         }
 
         teacherLabel.snp.makeConstraints { make in
-            make.top.equalTo(lessonNameLabel.snp.bottom).offset(10)
+            make.top.equalTo(lessonNameLabel.snp.bottom).offset(Constants.offset / 4)
             make.left.equalToSuperview().offset(Constants.offset)
             make.right.equalToSuperview().inset(Constants.offset)
         }
 
         lessonDescriptionLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(10)
-            make.top.greaterThanOrEqualTo(teacherLabel.snp.bottom).offset(10)
+            make.bottom.equalToSuperview().inset(Constants.offset / 4)
+            make.top.greaterThanOrEqualTo(teacherLabel.snp.bottom).offset(Constants.offset / 4)
             make.left.equalToSuperview().offset(Constants.offset)
             make.width.equalToSuperview().multipliedBy(0.7)
         }

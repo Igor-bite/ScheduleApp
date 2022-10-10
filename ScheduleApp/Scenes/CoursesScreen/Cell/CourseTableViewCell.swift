@@ -18,9 +18,44 @@ class CourseTableViewCell: UITableViewCell, Reusable {
         static let cellCornerRadius = 15.0
     }
 
-    private let courseTypeView = CapsuleLabelView()
-    private let courseNameLabel = UILabel.titleLabel
-    private let courseDescriptionLabel = UILabel.secondaryTextLabel
+    private var course: CourseModel? {
+        didSet {
+            guard let course = course else { return }
+            courseNameLabel.text = course.title
+            let (university, place) = course.placeInfo()
+            universityNameLabel.text = university
+            placeInfoLabel.text = place
+            courseTypeView.configure(withText: course.type.toText(), color: course.type.bgColor())
+        }
+    }
+
+    private let courseTypeView = CapsuleView()
+    private let courseNameLabel = {
+        let label = UILabel.titleLabel
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        return label
+    }()
+
+    private let universityNameLabel = {
+        let label = UILabel.secondaryTextLabel
+        label.textAlignment = .center
+        return label
+    }()
+
+    private lazy var placeInfoLabel = {
+        let label = UILabel.secondaryTextLabel
+        label.textAlignment = .left
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handlePlaceInfoTap)))
+        return label
+    }()
+
+    private let enrollButtonView = {
+        let view = CapsuleView()
+        view.configure(withText: "Записаться", color: .Pallette.blue)
+        return view
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,10 +68,24 @@ class CourseTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with course: CourseModel) {
-        courseNameLabel.text = course.title
-        courseDescriptionLabel.text = course.description
-        courseTypeView.configure(withText: course.type.toText(), color: .init(light: .Pallette.lightBlue, dark: .Pallette.blue))
+    private var isEnrolled = false
+
+    func configure(with course: CourseModel, enrollAction: @escaping () -> Void) {
+        self.course = course
+//        if course.curatorId == 0 {
+//            enrollButtonView.configure(withText: "Ваш курс", color: .Pallette.purple)
+//            enrollButtonView.isUserInteractionEnabled = false
+//        } else {
+//            enrollButtonView.configure(withText: "Записаться", color: .Pallette.blue)
+//            enrollButtonView.isUserInteractionEnabled = true
+//        }
+
+        enrollButtonView.tapAction = {
+            self.isEnrolled.toggle()
+            self.enrollButtonView.configure(withText: self.isEnrolled ? "Вы записаны" : "Записаться",
+                                            color: self.isEnrolled ? .Pallette.green : .Pallette.blue)
+            enrollAction()
+        }
     }
 
     func setupViews() {
@@ -53,25 +102,55 @@ class CourseTableViewCell: UITableViewCell, Reusable {
         containerView.backgroundColor = .Pallette.cellBgColor
 
         containerView.addSubview(courseTypeView)
+        containerView.addSubview(universityNameLabel)
         containerView.addSubview(courseNameLabel)
-        containerView.addSubview(courseDescriptionLabel)
+        containerView.addSubview(placeInfoLabel)
+        containerView.addSubview(enrollButtonView)
 
         courseTypeView.snp.makeConstraints { make in
-            make.left.top.equalToSuperview().offset(Constants.offset)
-            make.right.lessThanOrEqualTo(snp.right).inset(Constants.offset)
+            make.left.top.equalToSuperview().offset(Constants.offset / 2)
+            make.width.lessThanOrEqualTo(containerView.snp.width).multipliedBy(0.3)
+        }
+
+        universityNameLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(Constants.offset / 2)
+            make.width.equalToSuperview().multipliedBy(0.6)
+            make.centerY.equalTo(courseTypeView)
         }
 
         courseNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(courseTypeView.snp.bottom).offset(20)
+            make.top.equalTo(courseTypeView.snp.bottom).offset(Constants.offset / 1.5)
             make.left.equalToSuperview().offset(Constants.offset)
             make.right.equalToSuperview().inset(Constants.offset)
         }
 
-        courseDescriptionLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(10)
-            make.top.greaterThanOrEqualTo(courseNameLabel.snp.bottom).offset(10)
+        placeInfoLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(Constants.offset / 2)
+            make.top.greaterThanOrEqualTo(courseNameLabel.snp.bottom).offset(Constants.offset / 2)
             make.left.equalToSuperview().offset(Constants.offset)
-            make.width.equalToSuperview().multipliedBy(0.7)
+        }
+
+        enrollButtonView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(Constants.offset / 2)
+            make.left.greaterThanOrEqualTo(placeInfoLabel.snp.right).offset(Constants.offset / 2)
+            make.right.equalToSuperview().inset(Constants.offset / 2)
+        }
+    }
+
+    @objc
+    private func handlePlaceInfoTap() {
+        guard let course = course else { return }
+        switch course.type {
+        case .online(let onlineInfo):
+            guard let urlString = onlineInfo.lessonUrl,
+                  let url = URL(string: urlString)
+            else { return }
+
+            UIApplication.shared.open(url)
+        case .offline:
+            break // TODO: Add opening maps for address
+        default:
+            break
         }
     }
 }

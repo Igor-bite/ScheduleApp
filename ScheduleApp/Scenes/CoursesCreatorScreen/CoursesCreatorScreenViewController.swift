@@ -233,8 +233,8 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 
     @objc
     private func createCourse() {
-        let custom1 = customEnterInput1.text
-        let custom2 = customEnterInput2.text
+        let custom1 = customEnterInput1.text?.nilIfEmpty
+        let custom2 = customEnterInput2.text?.nilIfEmpty
         var type: CourseModel.CourseType?
 
         switch courseTypeSegmentedControl.selectedSegmentIndex {

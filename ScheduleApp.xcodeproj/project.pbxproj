@@ -53,6 +53,7 @@
 		A550E52E28F084AF00F846FC /* AnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E52D28F084AF00F846FC /* AnimationViews.swift */; };
 		A550E53728F08D6400F846FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53628F08D6400F846FC /* Assets.swift */; };
 		A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53828F09B7C00F846FC /* UIImage+Resize.swift */; };
+		A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -69,7 +70,7 @@
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
 		A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */ = {isa = PBXBuildFile; productRef = A5A78D8228EB8B1600646816 /* CocoaTextField */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
-		A5B5B99728D91963001D3C93 /* CapsuleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */; };
+		A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleView.swift */; };
 		A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99828D91B35001D3C93 /* LessonsService.swift */; };
 		A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99C28D923A0001D3C93 /* Lottie */; };
 		A5B5B99F28D926C2001D3C93 /* relaxAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */; };
@@ -136,6 +137,7 @@
 		A550E52D28F084AF00F846FC /* AnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViews.swift; sourceTree = "<group>"; };
 		A550E53628F08D6400F846FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A550E53828F09B7C00F846FC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nilIfEmpty.swift"; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleLabelView.swift; sourceTree = "<group>"; };
+		A5B5B99628D91963001D3C93 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
 		A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduleView.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				A54F7D4128E3443B00245559 /* UIViewControllerExtensions.swift */,
 				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
 				A550E53828F09B7C00F846FC /* UIImage+Resize.swift */,
+				A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -400,7 +403,7 @@
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
-				A5B5B99628D91963001D3C93 /* CapsuleLabelView.swift */,
+				A5B5B99628D91963001D3C93 /* CapsuleView.swift */,
 				A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */,
 			);
 			path = HelperViews;
@@ -721,7 +724,7 @@
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
 				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
 				A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */,
-				A5B5B99728D91963001D3C93 /* CapsuleLabelView.swift in Sources */,
+				A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */,
 				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
 				A54F7D4B28E3463A00245559 /* CoursesCreatorScreenViewController.swift in Sources */,
@@ -752,6 +755,7 @@
 				A54F7D3B28E3401F00245559 /* Labels.swift in Sources */,
 				A54F7D2728E259E400245559 /* CoursesScreenInterfaces.swift in Sources */,
 				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
+				A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */,
 				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,6 +789,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -833,6 +838,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -846,6 +852,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
