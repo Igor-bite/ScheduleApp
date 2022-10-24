@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class ScheduleScreenInteractor {
+final class ScheduleScreenInteractor {
     private let lessonsService: LessonsService
 
     init(lessonsService: LessonsService = BasicLessonsService()) {
@@ -18,7 +18,7 @@ public final class ScheduleScreenInteractor {
 // MARK: - Extensions -
 
 extension ScheduleScreenInteractor: ScheduleScreenInteractorInterface {
-    public func getAllLessons() async throws -> [LessonModel] {
+    func getAllLessons() async throws -> [LessonModel] {
         try await lessonsService.getLessons()
     }
 }

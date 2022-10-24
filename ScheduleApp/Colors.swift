@@ -7,8 +7,8 @@
 
 import UIKit
 
-public extension UIColor {
-    internal enum Pallette {
+extension UIColor {
+    enum Pallette {
         static let pink = UIColor(red: 247 / 255, green: 37 / 255, blue: 133 / 255, alpha: 1)
         static let purple = UIColor(red: 114 / 255, green: 9 / 255, blue: 183 / 255, alpha: 1)
         static let blue = UIColor(red: 67 / 255, green: 97 / 255, blue: 238 / 255, alpha: 1)
@@ -31,7 +31,7 @@ public extension UIColor {
     /// - Parameters:
     ///   - light: The color for light mode.
     ///   - dark: The color for dark mode.
-    internal convenience init(light: UIColor, dark: UIColor) {
+    convenience init(light: UIColor, dark: UIColor) {
         self.init { traitCollection in
             if traitCollection.userInterfaceStyle == .dark {
                 return dark

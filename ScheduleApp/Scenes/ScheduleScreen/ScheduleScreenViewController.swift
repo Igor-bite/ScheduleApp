@@ -10,7 +10,7 @@ import Reusable
 import SnapKit
 import UIKit
 
-public final class ScheduleScreenViewController: UIViewController {
+final class ScheduleScreenViewController: UIViewController {
     private enum Constants {
         static let offset = 10.0
         static let lessonRowHeight = 160.0
@@ -70,7 +70,7 @@ public final class ScheduleScreenViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
 
@@ -79,7 +79,7 @@ public final class ScheduleScreenViewController: UIViewController {
         refresh()
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateEmptyViewVisibility()
     }
@@ -179,7 +179,7 @@ public final class ScheduleScreenViewController: UIViewController {
 // MARK: - Extensions -
 
 extension ScheduleScreenViewController: ScheduleScreenViewInterface {
-    public func reloadData() {
+    func reloadData() {
         DispatchQueue.main.async { [weak self] in
             self?.hasNoSchedule = (self?.presenter.numberOfItems ?? 0) == 0
             self?.table.reloadData()
@@ -188,7 +188,7 @@ extension ScheduleScreenViewController: ScheduleScreenViewInterface {
     }
 
     @objc
-    public func refresh() {
+    func refresh() {
         presenter.fetchLessons()
     }
 }
@@ -196,11 +196,11 @@ extension ScheduleScreenViewController: ScheduleScreenViewInterface {
 // MARK: - Lessons table view
 
 extension ScheduleScreenViewController: UITableViewDataSource {
-    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         presenter.numberOfItems
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LessonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let lesson = presenter.item(at: indexPath)
         cell.configure(with: lesson)
@@ -209,7 +209,7 @@ extension ScheduleScreenViewController: UITableViewDataSource {
 }
 
 extension ScheduleScreenViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.itemSelected(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -218,7 +218,7 @@ extension ScheduleScreenViewController: UITableViewDelegate {
 // MARK: - Weekdays view
 
 extension ScheduleScreenViewController: JTACMonthViewDataSource {
-    public func configureCalendar(_: JTACMonthView) -> ConfigurationParameters {
+    func configureCalendar(_: JTACMonthView) -> ConfigurationParameters {
         let startTimeInterval = DateComponents(month: -6)
         let endTimeInterval = DateComponents(month: 6)
 
@@ -243,26 +243,26 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
         view.weekday = cellState.day
     }
 
-    public func calendar(_: JTAppleCalendar.JTACMonthView,
-                         willDisplay cell: JTAppleCalendar.JTACDayCell,
-                         forItemAt _: Date,
-                         cellState: JTAppleCalendar.CellState,
-                         indexPath _: IndexPath)
+    func calendar(_: JTAppleCalendar.JTACMonthView,
+                  willDisplay cell: JTAppleCalendar.JTACDayCell,
+                  forItemAt _: Date,
+                  cellState: JTAppleCalendar.CellState,
+                  indexPath _: IndexPath)
     {
         configureCell(view: cell, cellState: cellState)
     }
 
-    public func calendar(_ calendar: JTAppleCalendar.JTACMonthView,
-                         cellForItemAt date: Date,
-                         cellState: JTAppleCalendar.CellState,
-                         indexPath: IndexPath) -> JTAppleCalendar.JTACDayCell
+    func calendar(_ calendar: JTAppleCalendar.JTACMonthView,
+                  cellForItemAt date: Date,
+                  cellState: JTAppleCalendar.CellState,
+                  indexPath: IndexPath) -> JTAppleCalendar.JTACDayCell
     {
         let cell: DateCell = calendar.dequeueReusableCell(for: indexPath)
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         return cell
     }
 
-    public func calendar(_: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath _: IndexPath) {
+    func calendar(_: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath _: IndexPath) {
         guard let cell = cell as? DateCell
         else { return }
         updateTodayButton(with: cell.isSelected && !cell.isToday)
@@ -272,7 +272,7 @@ extension ScheduleScreenViewController: JTACMonthViewDelegate {
         }
     }
 
-    public func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         if visibleDates.monthDates.contains(where: { $0.0.isToday() }) {
             let isTodaySelected = calendar.selectedDates.contains { $0.isToday() }
             updateTodayButton(with: !isTodaySelected)

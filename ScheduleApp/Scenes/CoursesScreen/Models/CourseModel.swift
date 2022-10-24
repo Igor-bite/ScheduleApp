@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct CourseModel: Codable, Equatable {
+struct CourseModel: Codable, Equatable {
     enum CourseType: Codable, Equatable {
         case base(BaseCourseType)
         case online(OnlineCourseType)
@@ -145,12 +145,12 @@ public struct CourseModel: Codable, Equatable {
         }
     }
 
-    public static func == (lhs: CourseModel, rhs: CourseModel) -> Bool {
+    static func == (lhs: CourseModel, rhs: CourseModel) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-public struct CreateCourseModel: Codable {
+struct CreateCourseModel: Codable {
     let title: String
     let description: String
     let categoryId: Int

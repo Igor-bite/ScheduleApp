@@ -9,7 +9,7 @@ import Lottie
 import SnapKit
 import UIKit
 
-public final class SplashScreenViewController: UIViewController {
+final class SplashScreenViewController: UIViewController {
     private enum Constants {
         static let height = 284.0
         static let width = 199.0
@@ -48,7 +48,7 @@ public final class SplashScreenViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
@@ -80,7 +80,7 @@ public final class SplashScreenViewController: UIViewController {
         }
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         animate()

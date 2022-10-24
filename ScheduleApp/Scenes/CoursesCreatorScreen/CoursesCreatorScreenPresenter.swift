@@ -8,7 +8,7 @@
 import AsyncPlus
 import Foundation
 
-public final class CoursesCreatorScreenPresenter {
+final class CoursesCreatorScreenPresenter {
     // MARK: - Private properties -
 
     private unowned let view: CoursesCreatorScreenViewInterface
@@ -34,7 +34,7 @@ public final class CoursesCreatorScreenPresenter {
 // MARK: - Extensions -
 
 extension CoursesCreatorScreenPresenter: CoursesCreatorScreenPresenterInterface {
-    public func createCourse(_ course: CreateCourseModel) {
+    func createCourse(_ course: CreateCourseModel) {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.createCourse(course)

@@ -7,12 +7,12 @@
 
 import UIKit
 
-public final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorScreenViewController> {
+final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorScreenViewController> {
     // MARK: - Private properties -
 
     // MARK: - Module setup -
 
-    public init(completion: @escaping (CourseModel?) -> Void) {
+    init(completion: @escaping (CourseModel?) -> Void) {
         let moduleViewController = CoursesCreatorScreenViewController()
         super.init(viewController: moduleViewController)
 

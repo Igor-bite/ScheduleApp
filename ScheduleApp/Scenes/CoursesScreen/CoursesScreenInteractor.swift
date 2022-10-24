@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class CoursesScreenInteractor {
+final class CoursesScreenInteractor {
     private let coursesService: CoursesService
 
     init(coursesService: CoursesService = BasicCoursesService()) {
@@ -18,19 +18,19 @@ public final class CoursesScreenInteractor {
 // MARK: - Extensions -
 
 extension CoursesScreenInteractor: CoursesScreenInteractorInterface {
-    public func getAllCourses() async throws -> [CourseModel] {
+    func getAllCourses() async throws -> [CourseModel] {
         try await coursesService.getAllCourses()
     }
 
-    public func getEnrolledCourses() async throws -> [CourseModel] {
+    func getEnrolledCourses() async throws -> [CourseModel] {
         try await coursesService.getEnrolledCourses()
     }
 
-    public func enrollOnCourse(_ course: CourseModel) {
+    func enrollOnCourse(_ course: CourseModel) {
         coursesService.enrollOnCourse(course)
     }
 
-    public func leaveCourse(_ course: CourseModel) {
+    func leaveCourse(_ course: CourseModel) {
         coursesService.leaveCourse(course)
     }
 }

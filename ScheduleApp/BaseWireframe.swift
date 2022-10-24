@@ -2,13 +2,13 @@ import GradientLoadingBar
 import SPIndicator
 import UIKit
 
-public protocol WireframeInterface: AnyObject {
+protocol WireframeInterface: AnyObject {
     func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide)
     func showLoadingBar()
     func hideLoadingBar()
 }
 
-public class BaseWireframe<ViewController> where ViewController: UIViewController {
+class BaseWireframe<ViewController> where ViewController: UIViewController {
     private unowned var _viewController: ViewController
 
     // We need it in order to retain the view controller reference upon first access
@@ -21,26 +21,26 @@ public class BaseWireframe<ViewController> where ViewController: UIViewControlle
 }
 
 extension BaseWireframe: WireframeInterface {
-    public func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide) {
+    func showAlert(title: String, message: String?, preset: SPIndicatorIconPreset, presentSide: SPIndicatorPresentSide) {
         DispatchQueue.main.async {
             SPIndicator.present(title: title, message: message, preset: preset, from: presentSide)
         }
     }
 
-    public func showLoadingBar() {
+    func showLoadingBar() {
         DispatchQueue.main.async {
             GradientLoadingBar.shared.fadeIn()
         }
     }
 
-    public func hideLoadingBar() {
+    func hideLoadingBar() {
         DispatchQueue.main.async {
             GradientLoadingBar.shared.fadeOut()
         }
     }
 }
 
-public extension BaseWireframe {
+extension BaseWireframe {
     var viewController: ViewController {
         defer { temporaryStoredViewController = nil }
         return _viewController
@@ -51,7 +51,7 @@ public extension BaseWireframe {
     }
 }
 
-public extension UIViewController {
+extension UIViewController {
     func presentWireframe<ViewController>(_ wireframe: BaseWireframe<ViewController>,
                                           animated: Bool = true, completion: (() -> Void)? = nil)
     {
@@ -59,7 +59,7 @@ public extension UIViewController {
     }
 }
 
-public extension UINavigationController {
+extension UINavigationController {
     func pushWireframe<ViewController>(_ wireframe: BaseWireframe<ViewController>, animated: Bool = true) {
         pushViewController(wireframe.viewController, animated: animated)
     }
