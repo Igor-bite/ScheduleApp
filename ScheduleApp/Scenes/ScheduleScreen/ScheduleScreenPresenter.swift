@@ -85,7 +85,9 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
 
     private func updatePresentedLessons() {
         lessonsForChosenDay = lessons?.filter { lesson in
-            lesson.startDateTime.get(.day) == selectedDate.get(.day)
+            lesson.startDateTime.get(.day) == selectedDate.get(.day) &&
+                lesson.startDateTime.get(.month) == selectedDate.get(.month) &&
+                lesson.startDateTime.get(.year) == selectedDate.get(.year)
         } ?? []
     }
 }

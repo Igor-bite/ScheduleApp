@@ -54,11 +54,11 @@
 		A550E53728F08D6400F846FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53628F08D6400F846FC /* Assets.swift */; };
 		A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53828F09B7C00F846FC /* UIImage+Resize.swift */; };
 		A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */; };
-		A56716D729070D0100CEE8EE /* RegistrationScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D229070D0100CEE8EE /* RegistrationScreenInterfaces.swift */; };
-		A56716D829070D0100CEE8EE /* RegistrationScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D329070D0100CEE8EE /* RegistrationScreenPresenter.swift */; };
-		A56716D929070D0100CEE8EE /* RegistrationScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D429070D0100CEE8EE /* RegistrationScreenViewController.swift */; };
-		A56716DA29070D0100CEE8EE /* RegistrationScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D529070D0100CEE8EE /* RegistrationScreenInteractor.swift */; };
-		A56716DB29070D0100CEE8EE /* RegistrationScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D629070D0100CEE8EE /* RegistrationScreenWireframe.swift */; };
+		A56716D729070D0100CEE8EE /* AuthScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D229070D0100CEE8EE /* AuthScreenInterfaces.swift */; };
+		A56716D829070D0100CEE8EE /* AuthScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D329070D0100CEE8EE /* AuthScreenPresenter.swift */; };
+		A56716D929070D0100CEE8EE /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D429070D0100CEE8EE /* AuthScreenViewController.swift */; };
+		A56716DA29070D0100CEE8EE /* AuthScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */; };
+		A56716DB29070D0100CEE8EE /* AuthScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */; };
 		A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716DE29070D3A00CEE8EE /* AuthService.swift */; };
 		A56716E229070D7F00CEE8EE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716E129070D7F00CEE8EE /* UserModel.swift */; };
 		A56716E5290710C400CEE8EE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A56716E4290710C400CEE8EE /* KeychainAccess */; };
@@ -146,11 +146,11 @@
 		A550E53628F08D6400F846FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A550E53828F09B7C00F846FC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nilIfEmpty.swift"; sourceTree = "<group>"; };
-		A56716D229070D0100CEE8EE /* RegistrationScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenInterfaces.swift; sourceTree = "<group>"; };
-		A56716D329070D0100CEE8EE /* RegistrationScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenPresenter.swift; sourceTree = "<group>"; };
-		A56716D429070D0100CEE8EE /* RegistrationScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenViewController.swift; sourceTree = "<group>"; };
-		A56716D529070D0100CEE8EE /* RegistrationScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenInteractor.swift; sourceTree = "<group>"; };
-		A56716D629070D0100CEE8EE /* RegistrationScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenWireframe.swift; sourceTree = "<group>"; };
+		A56716D229070D0100CEE8EE /* AuthScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenInterfaces.swift; sourceTree = "<group>"; };
+		A56716D329070D0100CEE8EE /* AuthScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenPresenter.swift; sourceTree = "<group>"; };
+		A56716D429070D0100CEE8EE /* AuthScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
+		A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenInteractor.swift; sourceTree = "<group>"; };
+		A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenWireframe.swift; sourceTree = "<group>"; };
 		A56716DE29070D3A00CEE8EE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A56716E129070D7F00CEE8EE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
@@ -362,11 +362,11 @@
 			children = (
 				A56716E029070D7700CEE8EE /* Models */,
 				A56716DC29070D1500CEE8EE /* Services */,
-				A56716D229070D0100CEE8EE /* RegistrationScreenInterfaces.swift */,
-				A56716D329070D0100CEE8EE /* RegistrationScreenPresenter.swift */,
-				A56716D429070D0100CEE8EE /* RegistrationScreenViewController.swift */,
-				A56716D529070D0100CEE8EE /* RegistrationScreenInteractor.swift */,
-				A56716D629070D0100CEE8EE /* RegistrationScreenWireframe.swift */,
+				A56716D229070D0100CEE8EE /* AuthScreenInterfaces.swift */,
+				A56716D329070D0100CEE8EE /* AuthScreenPresenter.swift */,
+				A56716D429070D0100CEE8EE /* AuthScreenViewController.swift */,
+				A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */,
+				A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */,
 			);
 			path = RegistrationScreen;
 			sourceTree = "<group>";
@@ -767,7 +767,7 @@
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
-				A56716D729070D0100CEE8EE /* RegistrationScreenInterfaces.swift in Sources */,
+				A56716D729070D0100CEE8EE /* AuthScreenInterfaces.swift in Sources */,
 				A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */,
 				A54F7D3428E25D0B00245559 /* CourseTableViewCell.swift in Sources */,
 				A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */,
@@ -788,17 +788,17 @@
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
 				A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */,
-				A56716DA29070D0100CEE8EE /* RegistrationScreenInteractor.swift in Sources */,
+				A56716DA29070D0100CEE8EE /* AuthScreenInteractor.swift in Sources */,
 				A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */,
-				A56716D929070D0100CEE8EE /* RegistrationScreenViewController.swift in Sources */,
-				A56716DB29070D0100CEE8EE /* RegistrationScreenWireframe.swift in Sources */,
+				A56716D929070D0100CEE8EE /* AuthScreenViewController.swift in Sources */,
+				A56716DB29070D0100CEE8EE /* AuthScreenWireframe.swift in Sources */,
 				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
 				A54F7D4228E3443B00245559 /* UIViewControllerExtensions.swift in Sources */,
 				A550E53728F08D6400F846FC /* Assets.swift in Sources */,
 				E0FD121F214783B2008C2EF8 /* AppDelegate.swift in Sources */,
-				A56716D829070D0100CEE8EE /* RegistrationScreenPresenter.swift in Sources */,
+				A56716D829070D0100CEE8EE /* AuthScreenPresenter.swift in Sources */,
 				A54F7D3D28E3402600245559 /* Buttons.swift in Sources */,
 				A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */,
 				A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */,

@@ -100,4 +100,8 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
     func leaveCourse(at indexPath: IndexPath) {
         interactor.leaveCourse(coursesToShow[indexPath.row])
     }
+
+    func logout() {
+        AuthService.shared.logout()
+    }
 }

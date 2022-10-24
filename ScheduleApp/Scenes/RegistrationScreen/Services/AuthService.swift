@@ -54,7 +54,8 @@ final class AuthService: AuthServiceProtocol {
     }
 
     func signUp(user: CreateUserModel) async throws -> UserModel {
-        let loggedUser = try await AF.request(Constants.Network.baseUrl + "/person", method: .post)
+        let loggedUser = try await AF.request(Constants.Network.baseUrl + "/person", method: .post,
+                                              parameters: user.asDictionary, encoding: JSONEncoding.default)
             .serializingDecodable(UserModel.self)
             .value
         currentUser = loggedUser
@@ -65,5 +66,6 @@ final class AuthService: AuthServiceProtocol {
     func logout() {
         removeFromKeychain()
         currentUser = nil
+        NotificationCenter.default.post(.init(name: .WantToLogOut))
     }
 }

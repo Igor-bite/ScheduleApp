@@ -22,5 +22,14 @@ struct CreateUserModel: Codable {
     let firstName: String
     let lastName: String
     let secondName: String
-    let birthday = "2001-10-30"
+    let birthday: String
+
+    init(username: String, password: String, firstName: String, lastName: String, secondName: String, birthday: String = "2001-10-30") {
+        self.username = username
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.secondName = secondName
+        self.birthday = birthday
+    }
 }
