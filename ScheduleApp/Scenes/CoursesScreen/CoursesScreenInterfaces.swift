@@ -32,6 +32,7 @@ public protocol CoursesScreenPresenterInterface: PresenterInterface {
 
 public protocol CoursesScreenInteractorInterface: InteractorInterface {
     func getAllCourses() async throws -> [CourseModel]
+    func getEnrolledCourses() async throws -> [CourseModel]
     func enrollOnCourse(_ course: CourseModel)
     func leaveCourse(_ course: CourseModel)
 }

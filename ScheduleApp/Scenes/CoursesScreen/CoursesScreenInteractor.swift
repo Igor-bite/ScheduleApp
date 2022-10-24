@@ -19,7 +19,11 @@ public final class CoursesScreenInteractor {
 
 extension CoursesScreenInteractor: CoursesScreenInteractorInterface {
     public func getAllCourses() async throws -> [CourseModel] {
-        try await coursesService.getCourses()
+        try await coursesService.getAllCourses()
+    }
+
+    public func getEnrolledCourses() async throws -> [CourseModel] {
+        try await coursesService.getEnrolledCourses()
     }
 
     public func enrollOnCourse(_ course: CourseModel) {

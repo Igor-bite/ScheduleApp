@@ -51,8 +51,16 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         attempt {
             try await self.interactor.getAllCourses()
         }.then { courses in
+            (courses, try await self.interactor.getEnrolledCourses())
+        }.then { allCourses, enrolledCourses in
+            var resultingCourses = allCourses
+            allCourses.enumerated().forEach { index, course in
+                if enrolledCourses.contains(where: { $0 == course }) {
+                    resultingCourses[index].isEnrolled = true
+                }
+            }
             self.wireframe.hideLoadingBar()
-            self.courses = courses
+            self.courses = resultingCourses
             self.updatePresentedCourses()
         }.catch { _ in
             self.wireframe.hideLoadingBar()
