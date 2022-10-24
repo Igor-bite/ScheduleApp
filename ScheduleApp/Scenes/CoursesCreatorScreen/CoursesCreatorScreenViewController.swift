@@ -154,6 +154,8 @@ public final class CoursesCreatorScreenViewController: UIViewController {
             UIView.animate(withDuration: 0.5) {
                 self.customEnterInput1.placeholder = "Название университета"
                 self.customEnterInput2.placeholder = "Адрес корпуса"
+                self.customEnterInput1.text = ""
+                self.customEnterInput2.text = ""
                 self.customEnterInput2.alpha = 1
                 self.view.layoutIfNeeded()
             }
@@ -162,6 +164,8 @@ public final class CoursesCreatorScreenViewController: UIViewController {
             bottomOnlineConstraint?.isActive = true
             UIView.animate(withDuration: 0.5) {
                 self.customEnterInput1.placeholder = "Ссылка на платформу с уроками"
+                self.customEnterInput1.text = ""
+                self.customEnterInput2.text = ""
                 self.customEnterInput2.alpha = 0
                 self.view.layoutIfNeeded()
             }
