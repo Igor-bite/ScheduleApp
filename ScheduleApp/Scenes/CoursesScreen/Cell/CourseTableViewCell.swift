@@ -148,7 +148,7 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 
             UIApplication.shared.open(url)
         case .offline:
-            break // TODO: Add opening maps for address
+            break
         default:
             break
         }

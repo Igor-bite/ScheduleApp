@@ -41,7 +41,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
     }()
 
     private let activeIndicator = {
-        let view = AnimationView.activeIndicator
+        let view = LottieAnimationView.activeIndicator
         view.backgroundBehavior = .pauseAndRestore
         view.contentMode = .scaleAspectFit
         view.loopMode = .loop

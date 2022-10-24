@@ -12,8 +12,8 @@ import UIKit
 final class EmptyScheduleView: UIView {
     var refreshAction: (() -> Void)?
 
-    private let animation: AnimationView = {
-        let view = AnimationView.relaxAnimation
+    private let animation: LottieAnimationView = {
+        let view = LottieAnimationView.relaxAnimation
         view.contentMode = .scaleAspectFit
         view.loopMode = .loop
         view.animationSpeed = 0.5
