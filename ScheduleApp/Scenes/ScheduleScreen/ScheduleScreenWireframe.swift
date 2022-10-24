@@ -7,12 +7,12 @@
 
 import UIKit
 
-public final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewController> {
+final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewController> {
     // MARK: - Private properties -
 
     // MARK: - Module setup -
 
-    public init() {
+    init() {
         let moduleViewController = ScheduleScreenViewController()
         super.init(viewController: moduleViewController)
 

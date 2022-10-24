@@ -10,7 +10,7 @@ import SnapKit
 import STTextView
 import UIKit
 
-public final class CoursesCreatorScreenViewController: UIViewController {
+final class CoursesCreatorScreenViewController: UIViewController {
     enum Constants {
         static let submitButtonHeight = 48
         static let gapHeight = 20
@@ -112,7 +112,7 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         traceKeyboard()
@@ -123,7 +123,7 @@ public final class CoursesCreatorScreenViewController: UIViewController {
         updateEnterInputVisibility()
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         titleEnterInput.becomeFirstResponder()
     }

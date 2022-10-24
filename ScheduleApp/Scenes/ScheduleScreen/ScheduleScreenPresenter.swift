@@ -8,7 +8,7 @@
 import AsyncPlus
 import Foundation
 
-public final class ScheduleScreenPresenter {
+final class ScheduleScreenPresenter {
     // MARK: - Private properties -
 
     private unowned let view: ScheduleScreenViewInterface
@@ -51,19 +51,19 @@ public final class ScheduleScreenPresenter {
 // MARK: - Extensions -
 
 extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
-    public var numberOfItems: Int {
+    var numberOfItems: Int {
         lessonsForChosenDay.count
     }
 
-    public func item(at indexPath: IndexPath) -> LessonModel {
+    func item(at indexPath: IndexPath) -> LessonModel {
         lessonsForChosenDay[indexPath.row]
     }
 
-    public func itemSelected(at indexPath: IndexPath) {
+    func itemSelected(at indexPath: IndexPath) {
         print("Selected lesson with title \(lessonsForChosenDay[indexPath.row])")
     }
 
-    public func fetchLessons() {
+    func fetchLessons() {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.getAllLessons()
@@ -78,14 +78,16 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
         }
     }
 
-    public func setDate(_ date: Date) {
+    func setDate(_ date: Date) {
         selectedDate = date
         updatePresentedLessons()
     }
 
     private func updatePresentedLessons() {
         lessonsForChosenDay = lessons?.filter { lesson in
-            lesson.startDateTime.get(.day) == selectedDate.get(.day)
+            lesson.startDateTime.get(.day) == selectedDate.get(.day) &&
+                lesson.startDateTime.get(.month) == selectedDate.get(.month) &&
+                lesson.startDateTime.get(.year) == selectedDate.get(.year)
         } ?? []
     }
 }

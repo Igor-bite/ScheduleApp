@@ -8,7 +8,7 @@
 import AsyncPlus
 import Foundation
 
-public final class CoursesScreenPresenter {
+final class CoursesScreenPresenter {
     // MARK: - Private properties -
 
     private unowned let view: CoursesScreenViewInterface
@@ -34,19 +34,19 @@ public final class CoursesScreenPresenter {
 // MARK: - Extensions -
 
 extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
-    public var numberOfItems: Int {
+    var numberOfItems: Int {
         coursesToShow.count
     }
 
-    public func item(at indexPath: IndexPath) -> CourseModel {
+    func item(at indexPath: IndexPath) -> CourseModel {
         coursesToShow[indexPath.row]
     }
 
-    public func itemSelected(at indexPath: IndexPath) {
+    func itemSelected(at indexPath: IndexPath) {
         print("Selected course at \(indexPath)")
     }
 
-    public func fetchLessons() {
+    func fetchLessons() {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.getAllCourses()
@@ -81,7 +81,7 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         view.reloadData()
     }
 
-    public func createNewCourse() {
+    func createNewCourse() {
         wireframe.presentCourseCreator { course in
             if let course = course {
                 self.coursesToShow.append(course)
@@ -93,11 +93,15 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         }
     }
 
-    public func enrollOnCourse(at indexPath: IndexPath) {
+    func enrollOnCourse(at indexPath: IndexPath) {
         interactor.enrollOnCourse(coursesToShow[indexPath.row])
     }
 
-    public func leaveCourse(at indexPath: IndexPath) {
+    func leaveCourse(at indexPath: IndexPath) {
         interactor.leaveCourse(coursesToShow[indexPath.row])
+    }
+
+    func logout() {
+        AuthService.shared.logout()
     }
 }

@@ -21,7 +21,7 @@ extension ProcessInfo {
     }
 
     /// Returns the proper app delegate type for the debug configuration
-    public var appDelegateType: UIApplicationDelegate.Type {
+    var appDelegateType: UIApplicationDelegate.Type {
         let appDelegateType: UIApplicationDelegate.Type = isRunningTests ?
             TestAppDelegate.self :
             AppDelegate.self

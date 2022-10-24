@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct LessonModel: Codable, Equatable {
+struct LessonModel: Codable, Equatable {
     let id: Int
     let title: String
     let description: String
@@ -19,7 +19,7 @@ public struct LessonModel: Codable, Equatable {
     let lessonType: LessonType
 }
 
-public struct TeacherModel: Codable, Equatable {
+struct TeacherModel: Codable, Equatable {
     let firstName: String
     let id: Int
     let lastName: String

@@ -7,12 +7,12 @@
 
 import UIKit
 
-public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewController> {
+final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewController> {
     // MARK: - Private properties -
 
     // MARK: - Module setup -
 
-    public init() {
+    init() {
         let moduleViewController = CoursesScreenViewController()
         super.init(viewController: moduleViewController)
 
@@ -25,7 +25,7 @@ public final class CoursesScreenWireframe: BaseWireframe<CoursesScreenViewContro
 // MARK: - Extensions -
 
 extension CoursesScreenWireframe: CoursesScreenWireframeInterface {
-    public func presentCourseCreator(completion: @escaping (CourseModel?) -> Void) {
+    func presentCourseCreator(completion: @escaping (CourseModel?) -> Void) {
         navigationController?.presentWireframe(CoursesCreatorScreenWireframe(completion: completion))
     }
 }

@@ -13,5 +13,10 @@ enum Constants {
 //        http://cloud.linc.systems:30333
     }
 
+    enum Keychain {
+        static let usernameKey = "username"
+        static let passwordKey = "password"
+    }
+
     static let loadingBarHeight = 4.0
 }

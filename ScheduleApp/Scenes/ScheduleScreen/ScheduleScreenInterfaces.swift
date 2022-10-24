@@ -7,14 +7,14 @@
 
 import UIKit
 
-public protocol ScheduleScreenWireframeInterface: WireframeInterface {}
+protocol ScheduleScreenWireframeInterface: WireframeInterface {}
 
-public protocol ScheduleScreenViewInterface: ViewInterface {
+protocol ScheduleScreenViewInterface: ViewInterface {
     func reloadData()
     func refresh()
 }
 
-public protocol ScheduleScreenPresenterInterface: PresenterInterface {
+protocol ScheduleScreenPresenterInterface: PresenterInterface {
     var numberOfItems: Int { get }
 
     func item(at indexPath: IndexPath) -> LessonModel
@@ -24,6 +24,6 @@ public protocol ScheduleScreenPresenterInterface: PresenterInterface {
     func setDate(_ date: Date)
 }
 
-public protocol ScheduleScreenInteractorInterface: InteractorInterface {
+protocol ScheduleScreenInteractorInterface: InteractorInterface {
     func getAllLessons() async throws -> [LessonModel]
 }

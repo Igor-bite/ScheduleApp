@@ -5,11 +5,12 @@
 //  Created by Игорь Клюжев on 26.09.2022.
 //
 
+import AsyncPlus
 import Lottie
 import SnapKit
 import UIKit
 
-public final class SplashScreenViewController: UIViewController {
+final class SplashScreenViewController: UIViewController {
     private enum Constants {
         static let height = 284.0
         static let width = 199.0
@@ -48,13 +49,37 @@ public final class SplashScreenViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
+        auth()
     }
 
     private var labelRightConstraint: Constraint?
+    private var canDismiss = false
+
+    private func auth() {
+        attempt {
+            try await AuthService.shared.tryToRestoreLogin()
+        }.then { user in
+            print("Logged in as: \(user.firstName) \(user.secondName)")
+            DispatchQueue.main.async {
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
+            }
+        }.catch { error in
+            print(error)
+            DispatchQueue.main.async {
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
+            }
+        }
+    }
 
     func setupViews() {
         view.addSubview(bgImageView)
@@ -80,7 +105,7 @@ public final class SplashScreenViewController: UIViewController {
         }
     }
 
-    override public func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         animate()
@@ -96,7 +121,10 @@ public final class SplashScreenViewController: UIViewController {
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.dismissAction()
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
             }
         }
     }

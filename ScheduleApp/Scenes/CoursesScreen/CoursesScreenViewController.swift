@@ -9,11 +9,18 @@ import Reusable
 import SnapKit
 import UIKit
 
-public final class CoursesScreenViewController: UIViewController {
+final class CoursesScreenViewController: UIViewController {
     private enum Constants {
         static let offset = 10.0
         static let courseRowHeight = 160.0
     }
+
+    private lazy var logoutButton = {
+        let button = UIButton.barButton
+        button.setTitle("Выйти", for: .normal)
+        button.addTarget(self, action: #selector(logout), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var createCourseButton = {
         let button = UIButton.barButton
@@ -49,7 +56,7 @@ public final class CoursesScreenViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
 
@@ -63,6 +70,14 @@ public final class CoursesScreenViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(createCourseButton)
         view.addSubview(table)
+        view.addSubview(logoutButton)
+
+        logoutButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(Constants.offset)
+            make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
+            make.width.equalTo(view.snp.width).dividedBy(5)
+            make.height.equalTo(25)
+        }
 
         createCourseButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(Constants.offset)
@@ -85,6 +100,11 @@ public final class CoursesScreenViewController: UIViewController {
     }
 
     @objc
+    private func logout() {
+        presenter.logout()
+    }
+
+    @objc
     private func createNewCourse() {
         presenter.createNewCourse()
     }
@@ -93,7 +113,7 @@ public final class CoursesScreenViewController: UIViewController {
 // MARK: - Extensions -
 
 extension CoursesScreenViewController: CoursesScreenViewInterface {
-    public func reloadData() {
+    func reloadData() {
         DispatchQueue.main.async { [weak self] in
             if let count = self?.presenter.numberOfItems,
                count == .zero
@@ -106,11 +126,11 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
     }
 
     @objc
-    public func refresh() {
+    func refresh() {
         presenter.fetchLessons()
     }
 
-    public func insertNewCourse(at indexPath: IndexPath) {
+    func insertNewCourse(at indexPath: IndexPath) {
         DispatchQueue.main.async {
             self.table.beginUpdates()
             self.table.insertRows(at: [indexPath], with: .automatic)
@@ -122,11 +142,11 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
 // MARK: - Lessons table view
 
 extension CoursesScreenViewController: UITableViewDataSource {
-    public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         presenter.numberOfItems
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CourseTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let course = presenter.item(at: indexPath)
         cell.configure(with: course) { shouldEnroll in
@@ -141,7 +161,7 @@ extension CoursesScreenViewController: UITableViewDataSource {
 }
 
 extension CoursesScreenViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.itemSelected(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }

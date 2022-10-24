@@ -1,3 +1,3 @@
-public protocol InteractorInterface: AnyObject {}
+protocol InteractorInterface: AnyObject {}
 
-public extension InteractorInterface {}
+extension InteractorInterface {}

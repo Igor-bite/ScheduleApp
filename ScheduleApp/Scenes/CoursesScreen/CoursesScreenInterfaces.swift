@@ -7,17 +7,17 @@
 
 import UIKit
 
-public protocol CoursesScreenWireframeInterface: WireframeInterface {
+protocol CoursesScreenWireframeInterface: WireframeInterface {
     func presentCourseCreator(completion: @escaping (CourseModel?) -> Void)
 }
 
-public protocol CoursesScreenViewInterface: ViewInterface {
+protocol CoursesScreenViewInterface: ViewInterface {
     func reloadData()
     func refresh()
     func insertNewCourse(at indexPath: IndexPath)
 }
 
-public protocol CoursesScreenPresenterInterface: PresenterInterface {
+protocol CoursesScreenPresenterInterface: PresenterInterface {
     var numberOfItems: Int { get }
 
     func item(at indexPath: IndexPath) -> CourseModel
@@ -28,9 +28,11 @@ public protocol CoursesScreenPresenterInterface: PresenterInterface {
 
     func enrollOnCourse(at indexPath: IndexPath)
     func leaveCourse(at indexPath: IndexPath)
+
+    func logout()
 }
 
-public protocol CoursesScreenInteractorInterface: InteractorInterface {
+protocol CoursesScreenInteractorInterface: InteractorInterface {
     func getAllCourses() async throws -> [CourseModel]
     func getEnrolledCourses() async throws -> [CourseModel]
     func enrollOnCourse(_ course: CourseModel)

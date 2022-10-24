@@ -11,14 +11,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
 
+        NotificationCenter.default.addObserver(self, selector: #selector(showAuthScreen), name: .WantToLogOut, object: nil)
+
         window.rootViewController = SplashScreenViewController {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-                window.rootViewController = TabBar()
+                if AuthService.shared.currentUser == nil {
+                    let wireframe = AuthScreenWireframe {
+                        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                            window.rootViewController = TabBar()
+                        }
+                    }
+                    let nav = UINavigationController()
+                    nav.setRootWireframe(wireframe)
+                    window.rootViewController = nav
+                } else {
+                    window.rootViewController = TabBar()
+                }
             }
         }
         window.makeKeyAndVisible()
 
         return true
+    }
+
+    @objc
+    private func showAuthScreen() {
+        guard let window = window else { return }
+        let wireframe = AuthScreenWireframe {
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                window.rootViewController = TabBar()
+            }
+        }
+        let nav = UINavigationController()
+        nav.setRootWireframe(wireframe)
+        window.rootViewController = nav
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
@@ -28,4 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension Notification.Name {
     static let AppDidBecomeActive = Notification.Name("applicationDidBecomeActiveNotification")
+    static let WantToLogOut = Notification.Name(rawValue: "wantsToLogOut")
 }
