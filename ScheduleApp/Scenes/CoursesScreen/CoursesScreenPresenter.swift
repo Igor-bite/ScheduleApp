@@ -51,8 +51,16 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         attempt {
             try await self.interactor.getAllCourses()
         }.then { courses in
+            (courses, try await self.interactor.getEnrolledCourses())
+        }.then { allCourses, enrolledCourses in
+            var resultingCourses = allCourses
+            allCourses.enumerated().forEach { index, course in
+                if enrolledCourses.contains(where: { $0 == course }) {
+                    resultingCourses[index].isEnrolled = true
+                }
+            }
             self.wireframe.hideLoadingBar()
-            self.courses = courses
+            self.courses = resultingCourses
             self.updatePresentedCourses()
         }.catch { _ in
             self.wireframe.hideLoadingBar()
@@ -86,6 +94,10 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
     }
 
     public func enrollOnCourse(at indexPath: IndexPath) {
-        print("Enrolling on course with name \(item(at: indexPath).title)")
+        interactor.enrollOnCourse(coursesToShow[indexPath.row])
+    }
+
+    public func leaveCourse(at indexPath: IndexPath) {
+        interactor.leaveCourse(coursesToShow[indexPath.row])
     }
 }

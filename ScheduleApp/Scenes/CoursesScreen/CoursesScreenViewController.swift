@@ -129,8 +129,12 @@ extension CoursesScreenViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CourseTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let course = presenter.item(at: indexPath)
-        cell.configure(with: course) {
-            self.presenter.enrollOnCourse(at: indexPath)
+        cell.configure(with: course) { shouldEnroll in
+            if shouldEnroll {
+                self.presenter.enrollOnCourse(at: indexPath)
+            } else {
+                self.presenter.leaveCourse(at: indexPath)
+            }
         }
         return cell
     }

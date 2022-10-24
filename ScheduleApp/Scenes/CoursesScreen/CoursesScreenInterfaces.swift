@@ -27,8 +27,12 @@ public protocol CoursesScreenPresenterInterface: PresenterInterface {
     func createNewCourse()
 
     func enrollOnCourse(at indexPath: IndexPath)
+    func leaveCourse(at indexPath: IndexPath)
 }
 
 public protocol CoursesScreenInteractorInterface: InteractorInterface {
     func getAllCourses() async throws -> [CourseModel]
+    func getEnrolledCourses() async throws -> [CourseModel]
+    func enrollOnCourse(_ course: CourseModel)
+    func leaveCourse(_ course: CourseModel)
 }

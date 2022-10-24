@@ -7,19 +7,19 @@
 
 import UIKit
 
-public struct CourseModel: Codable {
-    enum CourseType: Codable {
+public struct CourseModel: Codable, Equatable {
+    enum CourseType: Codable, Equatable {
         case base(BaseCourseType)
         case online(OnlineCourseType)
         case offline(OfflineCourseType)
 
-        struct BaseCourseType: Codable {
+        struct BaseCourseType: Codable, Equatable {
             static let typeName = "base"
 
             let type: String
         }
 
-        struct OfflineCourseType: Codable {
+        struct OfflineCourseType: Codable, Equatable {
             static let typeName = "offline"
 
             let type: String
@@ -27,7 +27,7 @@ public struct CourseModel: Codable {
             let address: String?
         }
 
-        struct OnlineCourseType: Codable {
+        struct OnlineCourseType: Codable, Equatable {
             static let typeName = "online"
 
             let type: String
@@ -94,6 +94,26 @@ public struct CourseModel: Codable {
                 return .Pallette.skyBlue
             }
         }
+
+        static func == (lhs: CourseModel.CourseType, rhs: CourseModel.CourseType) -> Bool {
+            switch lhs {
+            case .base(let baseCourseType1):
+                if case .base(let baseCourseType2) = rhs {
+                    return baseCourseType1 == baseCourseType2
+                }
+                return false
+            case .online(let onlineCourseType1):
+                if case .online(let onlineCourseType2) = rhs {
+                    return onlineCourseType1 == onlineCourseType2
+                }
+                return false
+            case .offline(let offlineCourseType1):
+                if case .offline(let offlineCourseType2) = rhs {
+                    return offlineCourseType1 == offlineCourseType2
+                }
+                return false
+            }
+        }
     }
 
     let id: Int
@@ -101,6 +121,7 @@ public struct CourseModel: Codable {
     let description: String
     let categoryId: Int
     let curatorId: Int
+    var isEnrolled: Bool?
     let type: CourseType
 
     func placeInfo() -> (university: String?, place: String?) {
