@@ -86,6 +86,10 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
     }
 
     public func enrollOnCourse(at indexPath: IndexPath) {
-        print("Enrolling on course with name \(item(at: indexPath).title)")
+        interactor.enrollOnCourse(coursesToShow[indexPath.row])
+    }
+
+    public func leaveCourse(at indexPath: IndexPath) {
+        interactor.leaveCourse(coursesToShow[indexPath.row])
     }
 }

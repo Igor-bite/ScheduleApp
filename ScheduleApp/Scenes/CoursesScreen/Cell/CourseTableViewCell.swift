@@ -70,21 +70,22 @@ class CourseTableViewCell: UITableViewCell, Reusable {
 
     private var isEnrolled = false
 
-    func configure(with course: CourseModel, enrollAction: @escaping () -> Void) {
+    func configure(with course: CourseModel, enrollAction: @escaping (Bool) -> Void) {
         self.course = course
-//        if course.curatorId == 0 {
-//            enrollButtonView.configure(withText: "Ваш курс", color: .Pallette.purple)
-//            enrollButtonView.isUserInteractionEnabled = false
-//        } else {
-//            enrollButtonView.configure(withText: "Записаться", color: .Pallette.blue)
-//            enrollButtonView.isUserInteractionEnabled = true
-//        }
+        if course.curatorId == 0 {
+            enrollButtonView.configure(withText: "Ваш курс", color: .Pallette.purple)
+            enrollButtonView.isUserInteractionEnabled = false
+        } else {
+            enrollButtonView.configure(withText: "Записаться", color: .Pallette.blue)
+            enrollButtonView.isUserInteractionEnabled = true
+        }
 
         enrollButtonView.tapAction = {
             self.isEnrolled.toggle()
             self.enrollButtonView.configure(withText: self.isEnrolled ? "Вы записаны" : "Записаться",
                                             color: self.isEnrolled ? .Pallette.green : .Pallette.blue)
-            enrollAction()
+
+            enrollAction(self.isEnrolled)
         }
     }
 

@@ -11,6 +11,8 @@ import Foundation
 protocol CoursesService {
     func getCourses() async throws -> [CourseModel]
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel
+    func enrollOnCourse(_ course: CourseModel)
+    func leaveCourse(_ course: CourseModel)
 }
 
 final class BasicCoursesService: CoursesService {
@@ -28,5 +30,19 @@ final class BasicCoursesService: CoursesService {
             .authenticate(username: "admin", password: "admin")
             .serializingDecodable(CourseModel.self)
             .value
+    }
+
+    func enrollOnCourse(_ course: CourseModel) {
+        AF.request(Constants.Network.baseUrl + "/course/enroll/\(course.id)", method: .put)
+            .authenticate(username: "admin", password: "admin").response { response in
+                print(response)
+            }
+    }
+
+    func leaveCourse(_ course: CourseModel) {
+        AF.request(Constants.Network.baseUrl + "/course/leave/\(course.id)", method: .put)
+            .authenticate(username: "admin", password: "admin").response { response in
+                print(response)
+            }
     }
 }
