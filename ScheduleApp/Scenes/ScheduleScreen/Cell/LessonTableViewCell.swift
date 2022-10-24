@@ -71,7 +71,8 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         dateFormatter.dateFormat = "HH:mm"
         timeLabel.text = "\(dateFormatter.string(from: lesson.startDateTime))-\(dateFormatter.string(from: lesson.endDateTime))"
 
-        teacherLabel.text = "Скоринов Максим Юрьевич"
+        let teacher = lesson.teacher
+        teacherLabel.text = "\(teacher.secondName) \(teacher.firstName) \(teacher.lastName)"
 
 //        if Date().isBetweeen(date: lesson.startDateTime, andDate: lesson.endDateTime) {
 //            activeIndicator.play()
