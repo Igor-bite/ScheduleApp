@@ -13,7 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window.rootViewController = SplashScreenViewController {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-                window.rootViewController = TabBar()
+                if AuthService.shared.currentUser == nil {
+                    let wireframe = RegistrationScreenWireframe {
+                        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                            window.rootViewController = TabBar()
+                        }
+                    }
+                    let nav = UINavigationController()
+                    nav.setRootWireframe(wireframe)
+                    window.rootViewController = nav
+                } else {
+                    window.rootViewController = TabBar()
+                }
             }
         }
         window.makeKeyAndVisible()

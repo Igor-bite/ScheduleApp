@@ -5,6 +5,7 @@
 //  Created by Игорь Клюжев on 26.09.2022.
 //
 
+import AsyncPlus
 import Lottie
 import SnapKit
 import UIKit
@@ -52,9 +53,33 @@ final class SplashScreenViewController: UIViewController {
         super.viewDidLoad()
 
         setupViews()
+        auth()
     }
 
     private var labelRightConstraint: Constraint?
+    private var canDismiss = false
+
+    private func auth() {
+        attempt {
+            try await AuthService.shared.tryToRestoreLogin()
+        }.then { user in
+            print("Logged in as: \(user.firstName) \(user.secondName)")
+            DispatchQueue.main.async {
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
+            }
+        }.catch { error in
+            print(error)
+            DispatchQueue.main.async {
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
+            }
+        }
+    }
 
     func setupViews() {
         view.addSubview(bgImageView)
@@ -96,7 +121,10 @@ final class SplashScreenViewController: UIViewController {
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.dismissAction()
+                if self.canDismiss {
+                    self.dismissAction()
+                }
+                self.canDismiss = true
             }
         }
     }
