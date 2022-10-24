@@ -144,6 +144,10 @@ public struct CourseModel: Codable, Equatable {
             }
         }
     }
+
+    public static func == (lhs: CourseModel, rhs: CourseModel) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 public struct CreateCourseModel: Codable {
