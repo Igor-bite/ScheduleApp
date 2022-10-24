@@ -12,6 +12,7 @@ final class MockedLessonsService: LessonsService {
         LessonModel(
             id: 1, title: "Lesson",
             description: "Description", teacherId: 1,
+            teacher: .init(firstName: "Максим", id: 1, lastName: "Юрьевич", secondName: "Скоринов"),
             courseId: 1, startDateTime: .init(),
             endDateTime: .init(), lessonType: .lecture
         )

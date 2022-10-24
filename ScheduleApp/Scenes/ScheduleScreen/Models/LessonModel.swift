@@ -8,14 +8,22 @@
 import UIKit
 
 public struct LessonModel: Codable, Equatable {
-    var id: Int
-    var title: String
-    var description: String
-    var teacherId: Int
-    var courseId: Int
-    var startDateTime: Date
-    var endDateTime: Date
-    var lessonType: LessonType
+    let id: Int
+    let title: String
+    let description: String
+    let teacherId: Int
+    let teacher: TeacherModel
+    let courseId: Int
+    let startDateTime: Date
+    let endDateTime: Date
+    let lessonType: LessonType
+}
+
+public struct TeacherModel: Codable, Equatable {
+    let firstName: String
+    let id: Int
+    let lastName: String
+    let secondName: String
 }
 
 enum LessonType: String {

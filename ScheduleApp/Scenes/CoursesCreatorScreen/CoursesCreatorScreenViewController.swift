@@ -138,63 +138,7 @@ public final class CoursesCreatorScreenViewController: UIViewController {
         contentView.addSubview(customEnterInput1)
         contentView.addSubview(customEnterInput2)
 
-        contentView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalTo(labelView.snp.top).offset(-Constants.gapHeight)
-        }
-
-        labelView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight)
-            make.bottom.equalTo(courseTypeSegmentedControl.snp.top).offset(-Constants.gapHeight)
-        }
-
-        courseTypeSegmentedControl.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.twoThirdsSections)
-            make.bottom.equalTo(titleEnterInput.snp.top).offset(-Constants.gapHeight)
-        }
-
-        titleEnterInput.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight)
-            make.bottom.equalTo(descriptionEnterInput.snp.top).offset(-Constants.gapHeight)
-        }
-
-        descriptionEnterInput.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Constants.sideOffset)
-            make.right.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight * 2)
-            make.bottom.equalTo(customEnterInput1.snp.top).offset(-Constants.gapHeight)
-        }
-
-        customEnterInput1.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight)
-            self.bottomOfflineConstraint = make.bottom.equalTo(customEnterInput2.snp.top).offset(-Constants.gapHeight).constraint
-            self.bottomOnlineConstraint = make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight).constraint
-        }
-
-        customEnterInput2.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight)
-            make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight)
-        }
-
-        submitButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
-            make.trailing.equalToSuperview().inset(Constants.sideOffset)
-            make.height.equalTo(Constants.sectionHeight)
-
-            guard let safeAreaInsets = UIApplication.shared.windows.first?.safeAreaInsets else { return }
-            make.bottom.equalTo(contentView.snp.bottom).inset(Constants.gapHeight + Int(safeAreaInsets.bottom))
-        }
+        makeConstraints()
     }
 
     private func addSegementedControlAction() {
@@ -233,8 +177,8 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 
     @objc
     private func createCourse() {
-        let custom1 = customEnterInput1.text
-        let custom2 = customEnterInput2.text
+        let custom1 = customEnterInput1.text?.nilIfEmpty
+        let custom2 = customEnterInput2.text?.nilIfEmpty
         var type: CourseModel.CourseType?
 
         switch courseTypeSegmentedControl.selectedSegmentIndex {
@@ -264,3 +208,61 @@ public final class CoursesCreatorScreenViewController: UIViewController {
 // MARK: - Extensions -
 
 extension CoursesCreatorScreenViewController: CoursesCreatorScreenViewInterface {}
+
+private extension CoursesCreatorScreenViewController {
+    func makeContentViewConstraints() {
+        contentView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(labelView.snp.top).offset(-Constants.gapHeight)
+        }
+    }
+
+    func makeConstraints() {
+        makeContentViewConstraints()
+        labelView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            make.bottom.equalTo(courseTypeSegmentedControl.snp.top).offset(-Constants.gapHeight)
+        }
+        courseTypeSegmentedControl.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.twoThirdsSections)
+            make.bottom.equalTo(titleEnterInput.snp.top).offset(-Constants.gapHeight)
+        }
+        titleEnterInput.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            make.bottom.equalTo(descriptionEnterInput.snp.top).offset(-Constants.gapHeight)
+        }
+        descriptionEnterInput.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(Constants.sideOffset)
+            make.right.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight * 2)
+            make.bottom.equalTo(customEnterInput1.snp.top).offset(-Constants.gapHeight)
+        }
+        customEnterInput1.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            self.bottomOfflineConstraint = make.bottom.equalTo(customEnterInput2.snp.top).offset(-Constants.gapHeight).constraint
+            self.bottomOnlineConstraint = make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight).constraint
+        }
+        customEnterInput2.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight)
+        }
+        submitButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset)
+            make.trailing.equalToSuperview().inset(Constants.sideOffset)
+            make.height.equalTo(Constants.sectionHeight)
+            guard let safeAreaInsets = UIApplication.shared.windows.first?.safeAreaInsets else { return }
+            make.bottom.equalTo(contentView.snp.bottom).inset(Constants.gapHeight + Int(safeAreaInsets.bottom))
+        }
+    }
+}

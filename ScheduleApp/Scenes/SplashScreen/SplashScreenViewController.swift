@@ -18,8 +18,8 @@ public final class SplashScreenViewController: UIViewController {
 
     private let bgImageView = UIImageView(image: Asset.splashBg.image)
 
-    private let animation: AnimationView = {
-        let view = AnimationView.icon
+    private let animation: LottieAnimationView = {
+        let view = LottieAnimationView.icon
         view.contentMode = .scaleAspectFit
         view.loopMode = .playOnce
         view.animationSpeed = 0.7

@@ -25,6 +25,8 @@ public protocol CoursesScreenPresenterInterface: PresenterInterface {
     func fetchLessons()
 
     func createNewCourse()
+
+    func enrollOnCourse(at indexPath: IndexPath)
 }
 
 public protocol CoursesScreenInteractorInterface: InteractorInterface {

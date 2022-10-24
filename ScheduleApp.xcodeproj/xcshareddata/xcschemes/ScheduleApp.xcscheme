@@ -46,13 +46,6 @@
             BlueprintName = "ScheduleApp"
             ReferencedContainer = "container:ScheduleApp.xcodeproj">
          </BuildableReference>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E0FD11DC21477A5F008C2EF8"
-            BuildableName = "Core.framework"
-            BlueprintName = "Core"
-            ReferencedContainer = "container:Core/Core.xcodeproj">
-         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference

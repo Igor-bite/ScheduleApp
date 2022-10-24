@@ -84,4 +84,8 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
             }
         }
     }
+
+    public func enrollOnCourse(at indexPath: IndexPath) {
+        print("Enrolling on course with name \(item(at: indexPath).title)")
+    }
 }

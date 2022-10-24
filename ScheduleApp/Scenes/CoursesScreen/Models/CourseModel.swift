@@ -5,7 +5,7 @@
 //  Created by Игорь Клюжев on 27.09.2022.
 //
 
-import Foundation
+import UIKit
 
 public struct CourseModel: Codable {
     enum CourseType: Codable {
@@ -83,6 +83,17 @@ public struct CourseModel: Codable {
                 return "Оффлайн"
             }
         }
+
+        func bgColor() -> UIColor {
+            switch self {
+            case .base:
+                return .Pallette.toxicBlue
+            case .online:
+                return .Pallette.blue
+            case .offline:
+                return .Pallette.skyBlue
+            }
+        }
     }
 
     let id: Int
@@ -91,6 +102,27 @@ public struct CourseModel: Codable {
     let categoryId: Int
     let curatorId: Int
     let type: CourseType
+
+    func placeInfo() -> (university: String?, place: String?) {
+        switch type {
+        case .base:
+            return (nil, nil)
+        case .online(let onlineInfo):
+            guard let lessonUrl = onlineInfo.lessonUrl else { return (nil, nil) }
+            return (nil, "🔗 \(lessonUrl)")
+        case .offline(let offlineInfo):
+            switch (offlineInfo.universityName?.nilIfEmpty, offlineInfo.address?.nilIfEmpty) {
+            case (.some(let uni), .some(let address)):
+                return ("🎓\(uni)", "📍\(address)")
+            case (nil, .some(let address)):
+                return (nil, "📍\(address)")
+            case (.some(let uni), nil):
+                return ("🎓\(uni)", nil)
+            case (nil, nil):
+                return (nil, nil)
+            }
+        }
+    }
 }
 
 public struct CreateCourseModel: Codable {
