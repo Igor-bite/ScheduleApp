@@ -157,3 +157,12 @@ struct CreateCourseModel: Codable {
     let curatorId: Int
     let type: CourseModel.CourseType
 }
+
+struct UpdateCourseModel: Codable {
+    let id: Int
+    let title: String
+    let description: String
+    let categoryId: Int
+    let curatorId: Int
+    let type: CourseModel.CourseType
+}

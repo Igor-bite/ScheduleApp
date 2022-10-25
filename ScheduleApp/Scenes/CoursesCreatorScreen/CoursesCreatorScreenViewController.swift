@@ -204,7 +204,8 @@ final class CoursesCreatorScreenViewController: UIViewController {
             return
         }
 
-        presenter.createCourse(.init(title: name, description: description, categoryId: 0, curatorId: 0, type: type))
+        guard let curatorId = AuthService.shared.currentUser?.id else { return }
+        presenter.createCourse(.init(title: name, description: description, categoryId: 0, curatorId: curatorId, type: type))
         dismiss(animated: true, completion: nil)
     }
 }
