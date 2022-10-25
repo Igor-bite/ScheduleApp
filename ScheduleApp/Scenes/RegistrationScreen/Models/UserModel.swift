@@ -33,3 +33,27 @@ struct CreateUserModel: Codable {
         self.birthday = birthday
     }
 }
+
+struct UpdateUserModel: Codable {
+    let username: String
+    let password: String
+    let firstName: String
+    let lastName: String
+    let secondName: String
+    let birthday: String
+    let id: Int
+
+    init(username: String, password: String,
+         firstName: String, lastName: String,
+         secondName: String, id: Int,
+         birthday: String = "2001-10-30")
+    {
+        self.username = username
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.secondName = secondName
+        self.birthday = birthday
+        self.id = id
+    }
+}

@@ -67,3 +67,24 @@ extension LessonType: Codable {
         }
     }
 }
+
+struct CreateLessonModel: Codable {
+    let title: String
+    let description: String
+    let teacherId: Int
+    let courseId: Int
+    let startDateTime: Date
+    let endDateTime: Date
+    let lessonType: LessonType
+}
+
+struct UpdateLessonModel: Codable {
+    let id: Int
+    let title: String
+    let description: String
+    let teacherId: Int
+    let courseId: Int
+    let startDateTime: Date
+    let endDateTime: Date
+    let lessonType: LessonType
+}
