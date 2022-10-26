@@ -6,7 +6,6 @@
 //  Copyright © 2022 messeb.com. All rights reserved.
 //
 
-import Alamofire
 import Foundation
 import KeychainAccess
 
@@ -23,16 +22,14 @@ final class AuthService: AuthServiceProtocol {
     static let shared = AuthService()
 
     private let keychain = Keychain(service: "com.ScheduleApp.AuthInfo").synchronizable(true)
+    private let network = NetworkService.shared
 
     var currentUser: UserModel?
 
     private init() {}
 
     func signIn(withUsername username: String, password: String) async throws -> UserModel {
-        let user = try await AF.request(Constants.Network.baseUrl + "/person")
-            .authenticate(username: username, password: password, persistence: .permanent)
-            .serializingDecodable(UserModel.self)
-            .value
+        let user = try await network.request(UserTarget.current).map(UserModel.self)
         currentUser = user
         save(username: username, password: password)
         return user
@@ -54,10 +51,7 @@ final class AuthService: AuthServiceProtocol {
     }
 
     func signUp(user: CreateUserModel) async throws -> UserModel {
-        let loggedUser = try await AF.request(Constants.Network.baseUrl + "/person", method: .post,
-                                              parameters: user.asDictionary, encoding: JSONEncoding.default)
-            .serializingDecodable(UserModel.self)
-            .value
+        let loggedUser = try await network.request(UserTarget.create(user)).map(UserModel.self)
         currentUser = loggedUser
         save(username: user.username, password: user.password)
         return loggedUser
@@ -67,5 +61,15 @@ final class AuthService: AuthServiceProtocol {
         removeFromKeychain()
         currentUser = nil
         NotificationCenter.default.post(.init(name: .WantToLogOut))
+    }
+
+    func basicAuthHeader() -> String? {
+        guard let username = keychain[Constants.Keychain.usernameKey],
+              let password = keychain[Constants.Keychain.passwordKey],
+              let data = (username + ":" + password).data(using: .utf8)
+        else {
+            return nil
+        }
+        return "Basic \(data.base64EncodedString())"
     }
 }
