@@ -28,4 +28,8 @@ extension CoursesScreenWireframe: CoursesScreenWireframeInterface {
     func presentCourseCreator(completion: @escaping (CourseModel?) -> Void) {
         navigationController?.presentWireframe(CoursesCreatorScreenWireframe(completion: completion))
     }
+
+    func presentCourseDescription(course: CourseModel) {
+        navigationController?.pushWireframe(CourseDescriptionScreenWireframe(course: course))
+    }
 }

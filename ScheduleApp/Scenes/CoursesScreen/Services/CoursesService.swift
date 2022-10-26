@@ -15,9 +15,30 @@ protocol CoursesService {
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel
     func enrollOnCourse(_ course: CourseModel)
     func leaveCourse(_ course: CourseModel)
+    func lessons(_ course: CourseModel) async throws -> [LessonModel]
+    func delete(_ course: CourseModel)
+    func clone(_ course: CourseModel)
 }
 
 final class BasicCoursesService: CoursesService {
+    func lessons(_ course: CourseModel) async throws -> [LessonModel] {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try await network.request(CourseTarget.lessons(id: course.id)).map([LessonModel].self, using: decoder)
+    }
+
+    func delete(_ course: CourseModel) {
+        network.request(CourseTarget.delete(id: course.id)) { result in
+            print(result)
+        }
+    }
+
+    func clone(_ course: CourseModel) {
+        network.request(CourseTarget.clone(id: course.id)) { result in
+            print(result)
+        }
+    }
+
     private let network = NetworkService.shared
 
     func getAllCourses() async throws -> [CourseModel] {

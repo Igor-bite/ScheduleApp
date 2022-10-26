@@ -29,9 +29,9 @@ final class AuthService: AuthServiceProtocol {
     private init() {}
 
     func signIn(withUsername username: String, password: String) async throws -> UserModel {
+        save(username: username, password: password)
         let user = try await network.request(UserTarget.current).map(UserModel.self)
         currentUser = user
-        save(username: username, password: password)
         return user
     }
 
@@ -41,13 +41,17 @@ final class AuthService: AuthServiceProtocol {
     }
 
     private func save(username: String, password: String) {
+        removeFromKeychain()
         keychain[Constants.Keychain.usernameKey] = username
         keychain[Constants.Keychain.passwordKey] = password
     }
 
     private func removeFromKeychain() {
-        keychain[Constants.Keychain.usernameKey] = nil
-        keychain[Constants.Keychain.passwordKey] = nil
+        do {
+            try keychain.removeAll()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     func signUp(user: CreateUserModel) async throws -> UserModel {

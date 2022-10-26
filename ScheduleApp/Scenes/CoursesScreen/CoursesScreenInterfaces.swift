@@ -9,6 +9,7 @@ import UIKit
 
 protocol CoursesScreenWireframeInterface: WireframeInterface {
     func presentCourseCreator(completion: @escaping (CourseModel?) -> Void)
+    func presentCourseDescription(course: CourseModel)
 }
 
 protocol CoursesScreenViewInterface: ViewInterface {
