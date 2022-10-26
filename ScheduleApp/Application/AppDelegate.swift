@@ -1,3 +1,6 @@
+#if DEBUG
+import Atlantis
+#endif
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         window.makeKeyAndVisible()
+
+#if DEBUG
+        Atlantis.start()
+#endif
 
         return true
     }

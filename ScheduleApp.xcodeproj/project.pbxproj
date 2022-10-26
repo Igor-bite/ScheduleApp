@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A513BB812909964000317E6B /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = A513BB802909964000317E6B /* Atlantis */; };
 		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
 		A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AC28D8F212004E0D66 /* CalendarPermission */; };
 		A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AE28D8F212004E0D66 /* CameraPermission */; };
@@ -223,6 +224,7 @@
 			files = (
 				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
 				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
+				A513BB812909964000317E6B /* Atlantis in Frameworks */,
 				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
 				A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */,
 				A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */,
@@ -685,6 +687,7 @@
 				A5A78D8228EB8B1600646816 /* CocoaTextField */,
 				A56716E4290710C400CEE8EE /* KeychainAccess */,
 				A56716E72907D80F00CEE8EE /* Moya */,
+				A513BB802909964000317E6B /* Atlantis */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -755,6 +758,7 @@
 				A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */,
 				A56716E3290710C400CEE8EE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				A56716E62907D80F00CEE8EE /* XCRemoteSwiftPackageReference "Moya" */,
+				A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -1078,6 +1082,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ProxymanApp/atlantis";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -1209,6 +1221,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A513BB802909964000317E6B /* Atlantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */;
+			productName = Atlantis;
+		};
 		A53A54A628D8F1D0004E0D66 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
