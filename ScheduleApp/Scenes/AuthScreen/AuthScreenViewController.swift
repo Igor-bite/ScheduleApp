@@ -311,7 +311,7 @@ final class AuthScreenViewController: UIViewController {
             return
         }
         guard let password = passwordInput.text,
-              !password.isEmpty
+              password.count > 3
         else {
             passwordInput.setError(errorString: "")
             return
@@ -330,7 +330,7 @@ final class AuthScreenViewController: UIViewController {
             return
         }
         guard let password = passwordInput.text,
-              password.count < 4
+              !password.isEmpty
         else {
             passwordInput.setError(errorString: "")
             return
