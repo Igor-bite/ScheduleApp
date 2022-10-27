@@ -69,9 +69,9 @@ final class CourseDescriptionScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .Pallette.mainBgColor
-        courseInfoView.configure(with: presenter.course) { _ in }
         setupViews()
         presenter.lessons()
+        reloadCourseInfo()
     }
 
     private func setupViews() {
@@ -142,7 +142,13 @@ final class CourseDescriptionScreenViewController: UIViewController {
 extension CourseDescriptionScreenViewController: CourseDescriptionScreenViewInterface {
     func reloadCourseInfo() {
         DispatchQueue.main.async {
-            self.courseInfoView.configure(with: self.presenter.course) { _ in }
+            self.courseInfoView.configure(with: self.presenter.course) { isEnrolled in
+                if isEnrolled {
+                    self.presenter.enroll()
+                } else {
+                    self.presenter.leave()
+                }
+            }
         }
     }
 

@@ -47,7 +47,7 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         wireframe.presentCourseDescription(course: course)
     }
 
-    func fetchLessons() {
+    func fetchCourses() {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.getAllCourses()

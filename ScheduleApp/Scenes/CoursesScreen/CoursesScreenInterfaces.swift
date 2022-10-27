@@ -23,7 +23,7 @@ protocol CoursesScreenPresenterInterface: PresenterInterface {
 
     func item(at indexPath: IndexPath) -> CourseModel
     func itemSelected(at indexPath: IndexPath)
-    func fetchLessons()
+    func fetchCourses()
 
     func createNewCourse()
 
