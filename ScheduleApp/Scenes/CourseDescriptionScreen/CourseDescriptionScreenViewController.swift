@@ -112,7 +112,11 @@ final class CourseDescriptionScreenViewController: UIViewController {
         lessonsTable.snp.makeConstraints { make in
             make.top.equalTo(leftBarButton.snp.bottom).offset(Constants.offset)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(addLessonButton.snp.top).inset(-20)
+            if presenter.course.curatorId != AuthService.shared.currentUser?.id {
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            } else {
+                make.bottom.equalTo(addLessonButton.snp.top).inset(-20)
+            }
         }
 
         addLessonButton.snp.makeConstraints { make in
