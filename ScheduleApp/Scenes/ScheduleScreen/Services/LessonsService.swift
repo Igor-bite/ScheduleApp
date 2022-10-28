@@ -23,14 +23,14 @@ final class BasicLessonsService: LessonsService {
     }()
 
     func getLessons() async throws -> [LessonModel] {
-        return try await network.request(LessonTarget.enrolled).map([LessonModel].self, using: decoder)
+        try await network.request(LessonTarget.all).map([LessonModel].self, using: decoder)
     }
 
     func createLesson(_ lesson: CreateLessonModel) async throws -> LessonModel {
-        return try await network.request(LessonTarget.create(lesson)).map(LessonModel.self, using: decoder)
+        try await network.request(LessonTarget.create(lesson)).map(LessonModel.self, using: decoder)
     }
 
     func updateLesson(_ lesson: UpdateLessonModel) async throws -> LessonModel {
-        return try await network.request(LessonTarget.update(lesson)).map(LessonModel.self, using: decoder)
+        try await network.request(LessonTarget.update(lesson)).map(LessonModel.self, using: decoder)
     }
 }

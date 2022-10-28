@@ -178,7 +178,9 @@ extension CourseDescriptionScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LessonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         if let lesson = presenter.lesson(forIndexPath: indexPath) {
-            cell.configure(with: lesson, shouldShowDate: true)
+            cell.configure(with: lesson, shouldShowDate: true) {
+                self.presenter.changeLesson(atIndexPath: indexPath)
+            }
         }
         return cell
     }

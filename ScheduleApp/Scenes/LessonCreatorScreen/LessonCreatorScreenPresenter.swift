@@ -14,7 +14,7 @@ final class LessonCreatorScreenPresenter {
     private unowned let view: LessonCreatorScreenViewInterface
     private let interactor: LessonCreatorScreenInteractorInterface
     private let wireframe: LessonCreatorScreenWireframeInterface
-    private(set) var course: CourseModel
+    private(set) var courseId: Int
     private(set) var lesson: LessonModel?
     private let completion: (LessonModel?) -> Void
 
@@ -24,14 +24,14 @@ final class LessonCreatorScreenPresenter {
         view: LessonCreatorScreenViewInterface,
         interactor: LessonCreatorScreenInteractorInterface,
         wireframe: LessonCreatorScreenWireframeInterface,
-        course: CourseModel,
+        courseId: Int,
         lesson: LessonModel? = nil,
         completion: @escaping (LessonModel?) -> Void
     ) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
-        self.course = course
+        self.courseId = courseId
         self.lesson = lesson
         self.completion = completion
     }

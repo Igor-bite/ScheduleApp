@@ -19,9 +19,9 @@ final class LessonCreatorScreenViewController: UIViewController {
         static let twoThirdsSections = sectionHeight / 3 * 2
     }
 
-    private let labelView: UILabel = {
+    private lazy var labelView: UILabel = {
         let view = UILabel.titleLabel
-        view.text = "Новый урок"
+        view.text = presenter.title
         return view
     }()
 
@@ -180,7 +180,7 @@ final class LessonCreatorScreenViewController: UIViewController {
 
         guard let curUserId = AuthService.shared.currentUser?.id else { return }
         presenter.commit(.init(title: name, description: description,
-                               teacherId: curUserId, courseId: presenter.course.id,
+                               teacherId: curUserId, courseId: presenter.courseId,
                                startDateTime: startDateTimePicker.date,
                                endDateTime: endDateTimePicker.date, lessonType: type))
         dismiss(animated: true, completion: nil)

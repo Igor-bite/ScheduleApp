@@ -12,12 +12,12 @@ final class LessonCreatorScreenWireframe: BaseWireframe<LessonCreatorScreenViewC
 
     // MARK: - Module setup -
 
-    init(course: CourseModel, lesson: LessonModel? = nil, completion: @escaping (LessonModel?) -> Void) {
+    init(courseId: Int, lesson: LessonModel? = nil, completion: @escaping (LessonModel?) -> Void) {
         let moduleViewController = LessonCreatorScreenViewController()
         super.init(viewController: moduleViewController)
 
         let interactor = LessonCreatorScreenInteractor()
-        let presenter = LessonCreatorScreenPresenter(view: moduleViewController, interactor: interactor, wireframe: self, course: course, lesson: lesson, completion: completion)
+        let presenter = LessonCreatorScreenPresenter(view: moduleViewController, interactor: interactor, wireframe: self, courseId: courseId, lesson: lesson, completion: completion)
         moduleViewController.presenter = presenter
     }
 }

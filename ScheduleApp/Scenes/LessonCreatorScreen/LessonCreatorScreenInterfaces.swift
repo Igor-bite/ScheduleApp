@@ -13,7 +13,7 @@ protocol LessonCreatorScreenViewInterface: ViewInterface {}
 
 protocol LessonCreatorScreenPresenterInterface: PresenterInterface {
     var title: String { get }
-    var course: CourseModel { get }
+    var courseId: Int { get }
     var lesson: LessonModel? { get }
     func commit(_ lesson: CreateLessonModel)
 }

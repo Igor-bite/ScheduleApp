@@ -78,6 +78,14 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
         }
     }
 
+    func changeLesson(_ lesson: LessonModel) {
+        wireframe.showLessonMaker(forLesson: lesson, courseId: lesson.courseId) { changed in
+            if changed != nil {
+                self.refreshData()
+            }
+        }
+    }
+
     func setDate(_ date: Date) {
         selectedDate = date
         updatePresentedLessons()

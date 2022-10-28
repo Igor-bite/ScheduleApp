@@ -93,7 +93,7 @@ extension CourseDescriptionScreenPresenter: CourseDescriptionScreenPresenterInte
     }
 
     func addLesson() {
-        wireframe.showLessonMaker(forLesson: nil, course: course) { lesson in
+        wireframe.showLessonMaker(forLesson: nil, courseId: course.id) { lesson in
             if let lesson = lesson {
                 self.courseLessons?.append(lesson)
                 self.view.reloadLessons()
@@ -103,7 +103,7 @@ extension CourseDescriptionScreenPresenter: CourseDescriptionScreenPresenterInte
 
     func changeLesson(atIndexPath indexPath: IndexPath) {
         guard let lessons = courseLessons else { return }
-        wireframe.showLessonMaker(forLesson: lessons[indexPath.row], course: course) { lesson in
+        wireframe.showLessonMaker(forLesson: lessons[indexPath.row], courseId: course.id) { lesson in
             if let lesson = lesson {
                 self.courseLessons?[indexPath.row] = lesson
                 self.view.reloadLessons()

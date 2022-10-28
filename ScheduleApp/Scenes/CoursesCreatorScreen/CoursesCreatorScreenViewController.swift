@@ -19,9 +19,9 @@ final class CoursesCreatorScreenViewController: UIViewController {
         static let twoThirdsSections = sectionHeight / 3 * 2
     }
 
-    private let labelView: UILabel = {
+    private lazy var labelView: UILabel = {
         let view = UILabel.titleLabel
-        view.text = "Новый курс"
+        view.text = presenter.title
         return view
     }()
 

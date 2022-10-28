@@ -34,7 +34,7 @@ extension CourseDescriptionScreenWireframe: CourseDescriptionScreenWireframeInte
         navigationController?.presentWireframe(CoursesCreatorScreenWireframe(course: course, completion: completion))
     }
 
-    func showLessonMaker(forLesson lesson: LessonModel?, course: CourseModel, completion: @escaping (LessonModel?) -> Void) {
-        navigationController?.presentWireframe(LessonCreatorScreenWireframe(course: course, lesson: lesson, completion: completion))
+    func showLessonMaker(forLesson lesson: LessonModel?, courseId: Int, completion: @escaping (LessonModel?) -> Void) {
+        navigationController?.presentWireframe(LessonCreatorScreenWireframe(courseId: courseId, lesson: lesson, completion: completion))
     }
 }

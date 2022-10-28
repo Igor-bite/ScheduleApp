@@ -10,7 +10,7 @@ import UIKit
 protocol CourseDescriptionScreenWireframeInterface: WireframeInterface {
     func goBack()
     func showCourseChange(forCourse course: CourseModel, completion: @escaping (CourseModel?) -> Void)
-    func showLessonMaker(forLesson lesson: LessonModel?, course: CourseModel, completion: @escaping (LessonModel?) -> Void)
+    func showLessonMaker(forLesson lesson: LessonModel?, courseId: Int, completion: @escaping (LessonModel?) -> Void)
 }
 
 protocol CourseDescriptionScreenViewInterface: ViewInterface {

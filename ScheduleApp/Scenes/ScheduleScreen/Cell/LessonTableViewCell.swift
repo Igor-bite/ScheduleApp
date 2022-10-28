@@ -7,6 +7,7 @@
 
 import Lottie
 import Reusable
+import SafeSFSymbols
 import SkeletonView
 import UIKit
 
@@ -40,15 +41,23 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         return label
     }()
 
-    private let activeIndicator = {
-        let view = LottieAnimationView.activeIndicator
-        view.backgroundBehavior = .pauseAndRestore
-        view.contentMode = .scaleAspectFit
-        view.loopMode = .loop
-        view.animationSpeed = 0.5
-        view.isHidden = true
-        return view
+    private let alarmImage = UIImage(.alarm).withTintColor(.white, renderingMode: .alwaysTemplate)
+
+    private let pencilImage = UIImage(.pencil).withTintColor(.white, renderingMode: .alwaysTemplate)
+
+    private lazy var actionButton = {
+        let button = UIButton()
+        button.backgroundColor = .Pallette.buttonBg
+        button.setImage(self.alarmImage, for: .normal)
+        button.tintColor = .white
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        return button
     }()
+
+    private var changeLessonAction: (() -> Void)?
+
+    private var isNotificationSet = false
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,7 +70,23 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with lesson: LessonModel, shouldShowDate: Bool = false) {
+    @objc
+    private func actionButtonTapped() {
+        if let changeLessonAction = changeLessonAction {
+            changeLessonAction()
+        } else {
+            isNotificationSet.toggle()
+            actionButton.backgroundColor = isNotificationSet ? .Pallette.green : .Pallette.buttonBg
+        }
+    }
+
+    func configure(with lesson: LessonModel, shouldShowDate: Bool = false, changeLessonAction: @escaping () -> Void) {
+        if lesson.teacherId == AuthService.shared.currentUser?.id {
+            self.changeLessonAction = changeLessonAction
+            actionButton.setImage(pencilImage, for: .normal)
+        } else {
+            actionButton.setImage(alarmImage, for: .normal)
+        }
         lessonNameLabel.text = lesson.title
         lessonDescriptionLabel.text = lesson.description
         lessonTypeView.configure(withText: lesson.lessonType.toText(),
@@ -80,14 +105,6 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 
         let teacher = lesson.teacher
         teacherLabel.text = "\(teacher.secondName) \(teacher.firstName) \(teacher.lastName)"
-
-//        if Date().isBetweeen(date: lesson.startDateTime, andDate: lesson.endDateTime) {
-//            activeIndicator.play()
-//            activeIndicator.isHidden = false
-//        } else {
-//            activeIndicator.stop()
-//            activeIndicator.isHidden = true
-//        }
     }
 
     func setupViews() {
@@ -108,7 +125,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         containerView.addSubview(teacherLabel)
         containerView.addSubview(lessonDescriptionLabel)
         containerView.addSubview(timeLabel)
-        containerView.addSubview(activeIndicator)
+        containerView.addSubview(actionButton)
 
         lessonTypeView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(Constants.offset)
@@ -139,9 +156,9 @@ class LessonTableViewCell: UITableViewCell, Reusable {
             make.width.equalToSuperview().multipliedBy(0.7)
         }
 
-        activeIndicator.snp.makeConstraints { make in
+        actionButton.snp.makeConstraints { make in
             make.right.bottom.equalToSuperview().inset(7)
-            make.width.height.equalTo(25)
+            make.width.height.equalTo(30)
         }
     }
 }
