@@ -21,4 +21,8 @@ extension CoursesCreatorScreenInteractor: CoursesCreatorScreenInteractorInterfac
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel {
         try await coursesService.createCourse(course)
     }
+
+    func updateCourse(_ course: UpdateCourseModel) async throws -> CourseModel {
+        try await coursesService.update(course)
+    }
 }

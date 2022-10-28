@@ -13,6 +13,7 @@ protocol CoursesService {
     func getTaughtCourses() async throws -> [CourseModel]
     func getEnrolledCourses() async throws -> [CourseModel]
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel
+    func update(_ course: UpdateCourseModel) async throws -> CourseModel
     func enrollOnCourse(_ course: CourseModel)
     func leaveCourse(_ course: CourseModel)
     func lessons(_ course: CourseModel) async throws -> [LessonModel]
@@ -55,6 +56,10 @@ final class BasicCoursesService: CoursesService {
 
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel {
         try await network.request(CourseTarget.create(course)).map(CourseModel.self)
+    }
+
+    func update(_ course: UpdateCourseModel) async throws -> CourseModel {
+        try await network.request(CourseTarget.update(course)).map(CourseModel.self)
     }
 
     func enrollOnCourse(_ course: CourseModel) {

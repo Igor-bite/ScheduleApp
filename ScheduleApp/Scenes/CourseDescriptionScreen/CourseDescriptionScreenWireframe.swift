@@ -30,5 +30,7 @@ extension CourseDescriptionScreenWireframe: CourseDescriptionScreenWireframeInte
         navigationController?.popViewController(animated: true)
     }
 
-    func showCourseChange() {}
+    func showCourseChange(forCourse course: CourseModel, completion: @escaping (CourseModel?) -> Void) {
+        navigationController?.presentWireframe(CoursesCreatorScreenWireframe(course: course, completion: completion))
+    }
 }

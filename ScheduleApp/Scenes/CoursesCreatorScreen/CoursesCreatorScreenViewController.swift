@@ -121,6 +121,7 @@ final class CoursesCreatorScreenViewController: UIViewController {
         setupViews()
         addSegementedControlAction()
         updateEnterInputVisibility()
+        updateText()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -205,8 +206,28 @@ final class CoursesCreatorScreenViewController: UIViewController {
         }
 
         guard let curatorId = AuthService.shared.currentUser?.id else { return }
-        presenter.createCourse(.init(title: name, description: description, categoryId: 0, curatorId: curatorId, type: type))
+        presenter.commit(.init(title: name, description: description, categoryId: 0, curatorId: curatorId, type: type))
         dismiss(animated: true, completion: nil)
+    }
+
+    private func updateText() {
+        guard let course = presenter.course else { return }
+        switch course.type {
+        case .offline(let offline):
+            courseTypeSegmentedControl.selectedSegmentIndex = 0
+            customEnterInput1.text = offline.universityName
+            customEnterInput2.text = offline.address
+        case .online(let online):
+            courseTypeSegmentedControl.selectedSegmentIndex = 1
+            customEnterInput1.text = online.lessonUrl
+        default:
+            break
+        }
+
+        titleEnterInput.text = course.title
+        descriptionEnterInput.text = course.description
+
+        submitButton.setTitle("Изменить", for: .normal)
     }
 }
 

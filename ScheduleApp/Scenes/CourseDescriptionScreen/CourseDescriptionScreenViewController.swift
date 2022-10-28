@@ -5,6 +5,7 @@
 //  Created by Игорь Клюжев on 25.10.2022.
 //
 
+import SnapKit
 import UIKit
 
 final class CourseDescriptionScreenViewController: UIViewController {
@@ -36,6 +37,9 @@ final class CourseDescriptionScreenViewController: UIViewController {
         let label = UILabel.titleLabel
         label.text = "Уроки"
         label.textAlignment = .center
+        label.backgroundColor = .Pallette.mainBgColor
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 10
         return label
     }()
 
@@ -44,8 +48,14 @@ final class CourseDescriptionScreenViewController: UIViewController {
         table.showsVerticalScrollIndicator = false
         table.rowHeight = Constants.lessonRowHeight
         table.dataSource = self
+        table.delegate = self
         table.register(cellType: LessonTableViewCell.self)
         table.separatorStyle = .none
+        table.layer.cornerRadius = 15
+        table.clipsToBounds = true
+        table.refreshControl = .init()
+        table.refreshControl?.addTarget(self, action: #selector(refreshLessons), for: .valueChanged)
+        table.refreshControl?.beginRefreshing()
         return table
     }()
 
@@ -70,15 +80,18 @@ final class CourseDescriptionScreenViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .Pallette.mainBgColor
         setupViews()
-        presenter.lessons()
+        refreshLessons()
         reloadCourseInfo()
+    }
+
+    @objc
+    private func refreshLessons() {
+        presenter.lessons()
     }
 
     private func setupViews() {
         view.addSubview(leftBarButton)
         view.addSubview(rightBarButton)
-        view.addSubview(courseInfoView)
-        view.addSubview(lessonsLabel)
         view.addSubview(lessonsTable)
         view.addSubview(addLessonButton)
 
@@ -96,30 +109,17 @@ final class CourseDescriptionScreenViewController: UIViewController {
             make.height.equalTo(25)
         }
 
-        courseInfoView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(leftBarButton.snp.bottom).offset(Constants.offset)
-            make.width.equalTo(view.snp.width)
-            make.height.equalTo(160)
-        }
-
-        lessonsLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(courseInfoView.snp.bottom).offset(Constants.offset)
-            make.width.equalTo(view.snp.width).inset(20)
-        }
-
         lessonsTable.snp.makeConstraints { make in
-            make.top.equalTo(lessonsLabel.snp.bottom).offset(Constants.offset)
+            make.top.equalTo(leftBarButton.snp.bottom).offset(Constants.offset)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(addLessonButton.snp.top).offset(20)
+            make.bottom.equalTo(addLessonButton.snp.top).inset(-20)
         }
 
         addLessonButton.snp.makeConstraints { make in
             make.height.equalTo(40)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(70)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
 
@@ -154,7 +154,16 @@ extension CourseDescriptionScreenViewController: CourseDescriptionScreenViewInte
 
     func reloadLessons() {
         DispatchQueue.main.async {
+            self.lessonsTable.refreshControl?.endRefreshing()
+            if self.presenter.numberOfLessons == 0 {
+                self.lessonsLabel.text = "Уроков пока нет"
+            } else {
+                self.lessonsLabel.text = "Уроки"
+            }
+            self.setupLessonsLabelConstraints()
             self.lessonsTable.reloadData()
+            self.view.setNeedsLayout()
+            self.view.layoutIfNeeded()
         }
     }
 }
@@ -167,8 +176,38 @@ extension CourseDescriptionScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LessonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         if let lesson = presenter.lesson(forIndexPath: indexPath) {
-            cell.configure(with: lesson)
+            cell.configure(with: lesson, shouldShowDate: true)
         }
         return cell
+    }
+}
+
+extension CourseDescriptionScreenViewController: UITableViewDelegate {
+    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let view = UIView()
+        view.addSubview(courseInfoView)
+        view.addSubview(lessonsLabel)
+
+        courseInfoView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(view.snp.width)
+            make.height.equalTo(Constants.lessonRowHeight)
+        }
+
+        setupLessonsLabelConstraints()
+
+        return view
+    }
+
+    private func setupLessonsLabelConstraints() {
+        lessonsLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(courseInfoView.snp.bottom).offset(Constants.offset)
+            make.width.equalTo(170)
+        }
+    }
+
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        Constants.lessonRowHeight + 45.0
     }
 }

@@ -12,7 +12,7 @@ import UIKit
 
 class LessonTableViewCell: UITableViewCell, Reusable {
     private enum Constants {
-        static let offset = 20.0
+        static let offset = 15.0
 
         static let cellOffset = 15.0
         static let cellCornerRadius = 15.0
@@ -61,15 +61,22 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with lesson: LessonModel) {
+    func configure(with lesson: LessonModel, shouldShowDate: Bool = false) {
         lessonNameLabel.text = lesson.title
         lessonDescriptionLabel.text = lesson.description
         lessonTypeView.configure(withText: lesson.lessonType.toText(),
                                  color: lesson.lessonType.bgColor())
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        timeLabel.text = "\(dateFormatter.string(from: lesson.startDateTime))-\(dateFormatter.string(from: lesson.endDateTime))"
+        dateFormatter.dateFormat = "dd.MM.yy HH:mm"
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        if shouldShowDate {
+            timeLabel.text = "\(dateFormatter.string(from: lesson.startDateTime))-\(timeFormatter.string(from: lesson.endDateTime))"
+        } else {
+            timeLabel.text = "\(timeFormatter.string(from: lesson.startDateTime))-\(timeFormatter.string(from: lesson.endDateTime))"
+        }
 
         let teacher = lesson.teacher
         teacherLabel.text = "\(teacher.secondName) \(teacher.firstName) \(teacher.lastName)"
@@ -110,7 +117,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 
         timeLabel.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(Constants.offset)
-            make.width.equalToSuperview().multipliedBy(0.3)
+            make.left.equalTo(lessonTypeView.snp.right).offset(Constants.offset)
         }
 
         lessonNameLabel.snp.makeConstraints { make in

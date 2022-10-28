@@ -15,7 +15,7 @@ final class CourseDescriptionScreenPresenter {
     private let interactor: CourseDescriptionScreenInteractorInterface
     private let wireframe: CourseDescriptionScreenWireframeInterface
 
-    var course: CourseModel {
+    private(set) var course: CourseModel {
         didSet {
             view.reloadCourseInfo()
         }
@@ -81,7 +81,11 @@ extension CourseDescriptionScreenPresenter: CourseDescriptionScreenPresenterInte
     }
 
     func change() {
-        wireframe.showCourseChange()
+        wireframe.showCourseChange(forCourse: course) { course in
+            if let course = course {
+                self.course = course
+            }
+        }
     }
 
     func dismiss() {

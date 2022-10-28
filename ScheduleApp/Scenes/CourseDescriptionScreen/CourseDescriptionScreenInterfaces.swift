@@ -9,7 +9,7 @@ import UIKit
 
 protocol CourseDescriptionScreenWireframeInterface: WireframeInterface {
     func goBack()
-    func showCourseChange()
+    func showCourseChange(forCourse course: CourseModel, completion: @escaping (CourseModel?) -> Void)
 }
 
 protocol CourseDescriptionScreenViewInterface: ViewInterface {
