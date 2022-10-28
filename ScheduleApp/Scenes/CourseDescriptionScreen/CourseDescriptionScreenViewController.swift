@@ -134,7 +134,9 @@ final class CourseDescriptionScreenViewController: UIViewController {
     }
 
     @objc
-    private func addLesson() {}
+    private func addLesson() {
+        presenter.addLesson()
+    }
 }
 
 // MARK: - Extensions -

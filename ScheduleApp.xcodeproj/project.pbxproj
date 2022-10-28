@@ -87,6 +87,11 @@
 		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
+		A57F5590290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */; };
+		A57F5591290BDE5D006509CB /* LessonCreatorScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */; };
+		A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */; };
+		A57F5593290BDE5D006509CB /* LessonCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */; };
+		A57F5594290BDE5D006509CB /* LessonCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */; };
 		A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */ = {isa = PBXBuildFile; productRef = A5A78D8228EB8B1600646816 /* CocoaTextField */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
 		A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleView.swift */; };
@@ -187,6 +192,11 @@
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenInterfaces.swift; sourceTree = "<group>"; };
+		A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenPresenter.swift; sourceTree = "<group>"; };
+		A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenViewController.swift; sourceTree = "<group>"; };
+		A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenInteractor.swift; sourceTree = "<group>"; };
+		A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenWireframe.swift; sourceTree = "<group>"; };
 		A5B5B99628D91963001D3C93 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
@@ -500,6 +510,18 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		A57F558A290BDE47006509CB /* LessonCreatorScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */,
+				A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */,
+				A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */,
+				A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */,
+				A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */,
+			);
+			path = LessonCreatorScreen;
+			sourceTree = "<group>";
+		};
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +552,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A57F558A290BDE47006509CB /* LessonCreatorScreen */,
 				A56717072907F5B200CEE8EE /* CourseDescriptionScreen */,
 				A56716D129070CEB00CEE8EE /* AuthScreen */,
 				A550E52A28F0805A00F846FC /* TabBar */,
@@ -822,6 +845,7 @@
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
+				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
@@ -830,6 +854,7 @@
 				A54F7D3428E25D0B00245559 /* CourseTableViewCell.swift in Sources */,
 				A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */,
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
+				A57F5594290BDE5D006509CB /* LessonCreatorScreenWireframe.swift in Sources */,
 				A567170F2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift in Sources */,
 				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
 				A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */,
@@ -855,6 +880,8 @@
 				A56716D929070D0100CEE8EE /* AuthScreenViewController.swift in Sources */,
 				A56717092907F5CA00CEE8EE /* UserModel.swift in Sources */,
 				A56716DB29070D0100CEE8EE /* AuthScreenWireframe.swift in Sources */,
+				A57F5593290BDE5D006509CB /* LessonCreatorScreenInteractor.swift in Sources */,
+				A57F5590290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift in Sources */,
 				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				A56716F92907E4B500CEE8EE /* NetworkService.swift in Sources */,
 				A56717102907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift in Sources */,
@@ -879,6 +906,7 @@
 				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
 				A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */,
 				A56716EF2907D91200CEE8EE /* UserTarget.swift in Sources */,
+				A57F5591290BDE5D006509CB /* LessonCreatorScreenPresenter.swift in Sources */,
 				A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */,
 				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
 			);

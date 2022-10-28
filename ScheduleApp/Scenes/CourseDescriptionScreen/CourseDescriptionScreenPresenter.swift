@@ -91,4 +91,23 @@ extension CourseDescriptionScreenPresenter: CourseDescriptionScreenPresenterInte
     func dismiss() {
         wireframe.goBack()
     }
+
+    func addLesson() {
+        wireframe.showLessonMaker(forLesson: nil, course: course) { lesson in
+            if let lesson = lesson {
+                self.courseLessons?.append(lesson)
+                self.view.reloadLessons()
+            }
+        }
+    }
+
+    func changeLesson(atIndexPath indexPath: IndexPath) {
+        guard let lessons = courseLessons else { return }
+        wireframe.showLessonMaker(forLesson: lessons[indexPath.row], course: course) { lesson in
+            if let lesson = lesson {
+                self.courseLessons?[indexPath.row] = lesson
+                self.view.reloadLessons()
+            }
+        }
+    }
 }
