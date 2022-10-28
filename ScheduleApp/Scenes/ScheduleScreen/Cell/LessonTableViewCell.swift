@@ -47,7 +47,8 @@ class LessonTableViewCell: UITableViewCell, Reusable {
 
     private lazy var actionButton = {
         let button = UIButton()
-        button.backgroundColor = .Pallette.buttonBg
+        let isNotificationSet = UserDefaults.standard.bool(forKey: notificationId ?? "")
+        button.backgroundColor = isNotificationSet ? .Pallette.green : .Pallette.buttonBg
         button.setImage(self.alarmImage, for: .normal)
         button.tintColor = .white
         button.layer.cornerRadius = 15
@@ -56,6 +57,12 @@ class LessonTableViewCell: UITableViewCell, Reusable {
     }()
 
     private var changeLessonAction: (() -> Void)?
+    private var lesson: LessonModel?
+
+    private var notificationId: String? {
+        guard let lesson = lesson else { return nil }
+        return "Notify for lesson \(lesson.id)"
+    }
 
     private var isNotificationSet = false
 
@@ -76,17 +83,28 @@ class LessonTableViewCell: UITableViewCell, Reusable {
             changeLessonAction()
         } else {
             isNotificationSet.toggle()
+            handleNotification(isAdded: isNotificationSet)
             actionButton.backgroundColor = isNotificationSet ? .Pallette.green : .Pallette.buttonBg
         }
     }
 
     func configure(with lesson: LessonModel, shouldShowDate: Bool = false, changeLessonAction: @escaping () -> Void) {
+        self.lesson = lesson
+        isNotificationSet = notificationId == nil ? false : UserDefaults.standard.bool(forKey: notificationId ?? "")
         if lesson.teacherId == AuthService.shared.currentUser?.id {
             self.changeLessonAction = changeLessonAction
             actionButton.setImage(pencilImage, for: .normal)
+            actionButton.backgroundColor = .systemOrange
         } else {
+            if lesson.startDateTime < Date().addingTimeInterval(5 * 60) {
+                actionButton.isHidden = true
+            } else {
+                actionButton.isHidden = false
+            }
             actionButton.setImage(alarmImage, for: .normal)
+            actionButton.backgroundColor = isNotificationSet ? .Pallette.green : .Pallette.buttonBg
         }
+
         lessonNameLabel.text = lesson.title
         lessonDescriptionLabel.text = lesson.description
         lessonTypeView.configure(withText: lesson.lessonType.toText(),
@@ -159,6 +177,26 @@ class LessonTableViewCell: UITableViewCell, Reusable {
         actionButton.snp.makeConstraints { make in
             make.right.bottom.equalToSuperview().inset(7)
             make.width.height.equalTo(30)
+        }
+    }
+
+    private func handleNotification(isAdded: Bool) {
+        let manager = NotificationManager.shared
+        guard let notificationId = notificationId,
+              let lesson = lesson
+        else { return }
+        if isAdded {
+            let date = lesson.startDateTime.addingTimeInterval(-5 * 60)
+            guard date > Date() else { return }
+            let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+            manager.addNotification(id: notificationId,
+                                    title: "⏰ \(lesson.lessonType.toText()) уже скоро!",
+                                    subtitle: lesson.title, trigger: trigger)
+            UserDefaults.standard.set(true, forKey: notificationId)
+        } else {
+            UserDefaults.standard.set(false, forKey: notificationId)
+            manager.removeNotifications([notificationId])
         }
     }
 }

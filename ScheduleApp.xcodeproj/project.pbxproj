@@ -9,15 +9,6 @@
 /* Begin PBXBuildFile section */
 		A513BB812909964000317E6B /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = A513BB802909964000317E6B /* Atlantis */; };
 		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
-		A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AC28D8F212004E0D66 /* CalendarPermission */; };
-		A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AE28D8F212004E0D66 /* CameraPermission */; };
-		A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B028D8F212004E0D66 /* ContactsPermission */; };
-		A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B228D8F212004E0D66 /* FaceIDPermission */; };
-		A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B428D8F212004E0D66 /* MediaLibraryPermission */; };
-		A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B628D8F212004E0D66 /* MicrophonePermission */; };
-		A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B828D8F212004E0D66 /* NotificationPermission */; };
-		A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */; };
-		A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BC28D8F212004E0D66 /* RemindersPermission */; };
 		A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BF28D8F237004E0D66 /* SPIndicator */; };
 		A53A54C328D8F247004E0D66 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C228D8F247004E0D66 /* Reusable */; };
 		A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C528D8F253004E0D66 /* SafeSFSymbols */; };
@@ -92,6 +83,8 @@
 		A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */; };
 		A57F5593290BDE5D006509CB /* LessonCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */; };
 		A57F5594290BDE5D006509CB /* LessonCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */; };
+		A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F5595290BFC43006509CB /* NotificationsManager.swift */; };
+		A57F559B290C0257006509CB /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A57F559A290C0257006509CB /* NotificationPermission */; };
 		A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */ = {isa = PBXBuildFile; productRef = A5A78D8228EB8B1600646816 /* CocoaTextField */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
 		A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleView.swift */; };
@@ -197,6 +190,7 @@
 		A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenViewController.swift; sourceTree = "<group>"; };
 		A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenInteractor.swift; sourceTree = "<group>"; };
 		A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenWireframe.swift; sourceTree = "<group>"; };
+		A57F5595290BFC43006509CB /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		A5B5B99628D91963001D3C93 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
@@ -232,24 +226,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
 				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
 				A513BB812909964000317E6B /* Atlantis in Frameworks */,
 				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
-				A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */,
-				A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */,
-				A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */,
-				A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */,
 				A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */,
-				A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */,
-				A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */,
 				A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */,
-				A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */,
 				A56716E82907D80F00CEE8EE /* Moya in Frameworks */,
+				A57F559B290C0257006509CB /* NotificationPermission in Frameworks */,
 				A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */,
 				A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */,
 				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
-				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A54F7D5328E34B9800245559 /* STTextView in Frameworks */,
@@ -492,6 +478,7 @@
 				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
 				A550E53828F09B7C00F846FC /* UIImage+Resize.swift */,
 				A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */,
+				A57F5595290BFC43006509CB /* NotificationsManager.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -688,15 +675,6 @@
 			packageProductDependencies = (
 				A568DF2228D3D0FD00341814 /* AsyncPlus */,
 				A53A54A628D8F1D0004E0D66 /* Kingfisher */,
-				A53A54AC28D8F212004E0D66 /* CalendarPermission */,
-				A53A54AE28D8F212004E0D66 /* CameraPermission */,
-				A53A54B028D8F212004E0D66 /* ContactsPermission */,
-				A53A54B228D8F212004E0D66 /* FaceIDPermission */,
-				A53A54B428D8F212004E0D66 /* MediaLibraryPermission */,
-				A53A54B628D8F212004E0D66 /* MicrophonePermission */,
-				A53A54B828D8F212004E0D66 /* NotificationPermission */,
-				A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */,
-				A53A54BC28D8F212004E0D66 /* RemindersPermission */,
 				A53A54BF28D8F237004E0D66 /* SPIndicator */,
 				A53A54C228D8F247004E0D66 /* Reusable */,
 				A53A54C528D8F253004E0D66 /* SafeSFSymbols */,
@@ -711,6 +689,7 @@
 				A56716E4290710C400CEE8EE /* KeychainAccess */,
 				A56716E72907D80F00CEE8EE /* Moya */,
 				A513BB802909964000317E6B /* Atlantis */,
+				A57F559A290C0257006509CB /* NotificationPermission */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -767,7 +746,6 @@
 			packageReferences = (
 				A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */,
 				A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 				A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 				A53A54C128D8F247004E0D66 /* XCRemoteSwiftPackageReference "Reusable" */,
 				A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
@@ -782,6 +760,7 @@
 				A56716E3290710C400CEE8EE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				A56716E62907D80F00CEE8EE /* XCRemoteSwiftPackageReference "Moya" */,
 				A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */,
+				A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -872,6 +851,7 @@
 				A550E52E28F084AF00F846FC /* LottieAnimationViews.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */,
+				A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
 				A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */,
 				A56716DA29070D0100CEE8EE /* AuthScreenInteractor.swift in Sources */,
@@ -1126,14 +1106,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
 		A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
@@ -1214,6 +1186,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/edgar-zigis/CocoaTextField";
@@ -1258,51 +1238,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		A53A54AC28D8F212004E0D66 /* CalendarPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = CalendarPermission;
-		};
-		A53A54AE28D8F212004E0D66 /* CameraPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = CameraPermission;
-		};
-		A53A54B028D8F212004E0D66 /* ContactsPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = ContactsPermission;
-		};
-		A53A54B228D8F212004E0D66 /* FaceIDPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = FaceIDPermission;
-		};
-		A53A54B428D8F212004E0D66 /* MediaLibraryPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = MediaLibraryPermission;
-		};
-		A53A54B628D8F212004E0D66 /* MicrophonePermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = MicrophonePermission;
-		};
-		A53A54B828D8F212004E0D66 /* NotificationPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = NotificationPermission;
-		};
-		A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = PhotoLibraryPermission;
-		};
-		A53A54BC28D8F212004E0D66 /* RemindersPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = RemindersPermission;
 		};
 		A53A54BF28D8F237004E0D66 /* SPIndicator */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1353,6 +1288,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
 			productName = AsyncPlus;
+		};
+		A57F559A290C0257006509CB /* NotificationPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = NotificationPermission;
 		};
 		A5A78D8228EB8B1600646816 /* CocoaTextField */ = {
 			isa = XCSwiftPackageProductDependency;

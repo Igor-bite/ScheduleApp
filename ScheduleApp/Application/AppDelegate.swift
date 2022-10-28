@@ -9,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication,
                      didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
+        UNUserNotificationCenter.current().delegate = NotificationManager.shared
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let window = window else {
             return false
