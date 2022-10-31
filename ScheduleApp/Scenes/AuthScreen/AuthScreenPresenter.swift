@@ -7,6 +7,7 @@
 
 import AsyncPlus
 import Foundation
+import SPConfetti
 
 final class AuthScreenPresenter {
     // MARK: - Private properties -
@@ -49,13 +50,17 @@ extension AuthScreenPresenter: AuthScreenPresenterInterface {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.signUp(user)
-        }.then { user in
-            print(user)
-            self.wireframe.navigateToMain()
-            self.wireframe.hideLoadingBar()
+        }.then { _ in
+            DispatchQueue.main.async {
+                self.wireframe.navigateToMain()
+                self.wireframe.hideLoadingBar()
+                SPConfetti.startAnimating(.fullWidthToDown, particles: [.star, .triangle, .heart], duration: 4.0)
+            }
         }.catch { _ in
-            self.wireframe.showAlert(title: "Error with sign up", message: nil, preset: .error, presentSide: .top)
-            self.wireframe.hideLoadingBar()
+            DispatchQueue.main.async {
+                self.wireframe.showAlert(title: "Error with sign up", message: nil, preset: .error, presentSide: .top)
+                self.wireframe.hideLoadingBar()
+            }
         }
     }
 }
