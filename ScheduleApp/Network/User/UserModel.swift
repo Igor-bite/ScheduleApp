@@ -14,6 +14,11 @@ struct UserModel: Codable {
     let lastName: String
     let secondName: String
 //    let birthday: Date
+    var roles: [RoleModel.Role]? = [.standard]
+
+    var isAdmin: Bool {
+        roles?.contains(.admin) ?? false
+    }
 }
 
 struct CreateUserModel: Codable {

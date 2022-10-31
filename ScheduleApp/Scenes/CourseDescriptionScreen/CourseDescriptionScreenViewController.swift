@@ -25,7 +25,8 @@ final class CourseDescriptionScreenViewController: UIViewController {
         let button = UIButton.barButton
         button.setTitle("Изменить", for: .normal)
         button.addTarget(self, action: #selector(changeCourse), for: .touchUpInside)
-        if presenter.course.curatorId != AuthService.shared.currentUser?.id {
+        let curUser = AuthService.shared.currentUser
+        if !(curUser?.isAdmin ?? false), presenter.course.curatorId != curUser?.id {
             button.isHidden = true
         }
         return button
@@ -63,7 +64,8 @@ final class CourseDescriptionScreenViewController: UIViewController {
         let button = UIButton.barButton
         button.setTitle("Добавить урок", for: .normal)
         button.addTarget(self, action: #selector(addLesson), for: .touchUpInside)
-        if presenter.course.curatorId != AuthService.shared.currentUser?.id {
+        let curUser = AuthService.shared.currentUser
+        if !(curUser?.isAdmin ?? false), presenter.course.curatorId != curUser?.id {
             button.isHidden = true
         }
         return button
@@ -112,7 +114,8 @@ final class CourseDescriptionScreenViewController: UIViewController {
         lessonsTable.snp.makeConstraints { make in
             make.top.equalTo(leftBarButton.snp.bottom).offset(Constants.offset)
             make.left.right.equalToSuperview()
-            if presenter.course.curatorId != AuthService.shared.currentUser?.id {
+            let curUser = AuthService.shared.currentUser
+            if !(curUser?.isAdmin ?? false), presenter.course.curatorId != curUser?.id {
                 make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             } else {
                 make.bottom.equalTo(addLessonButton.snp.top).inset(-20)

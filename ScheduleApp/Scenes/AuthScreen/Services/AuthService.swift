@@ -30,14 +30,22 @@ final class AuthService: AuthServiceProtocol {
 
     func signIn(withUsername username: String, password: String) async throws -> UserModel {
         save(username: username, password: password)
-        let user = try await network.request(UserTarget.current).map(UserModel.self)
+        var user = try await network.request(UserTarget.current).map(UserModel.self)
+        let roles = try await network.request(RoleTarget.role(id: user.id)).map([RoleModel].self)
+        user.roles = roles.map { $0.name }
         currentUser = user
         return user
     }
 
     func tryToRestoreLogin() async throws -> UserModel {
-        try await signIn(withUsername: keychain[Constants.Keychain.usernameKey] ?? "",
-                         password: keychain[Constants.Keychain.passwordKey] ?? "")
+        if let username = keychain[Constants.Keychain.usernameKey],
+           let password = keychain[Constants.Keychain.passwordKey]
+        {
+            return try await signIn(withUsername: username,
+                                    password: password)
+        } else {
+            throw AuthError.noCredentials
+        }
     }
 
     private func save(username: String, password: String) {
@@ -48,14 +56,17 @@ final class AuthService: AuthServiceProtocol {
 
     private func removeFromKeychain() {
         do {
-            try keychain.removeAll()
+            try keychain.remove(Constants.Keychain.usernameKey)
+            try keychain.remove(Constants.Keychain.passwordKey)
         } catch {
             print(error.localizedDescription)
         }
     }
 
     func signUp(user: CreateUserModel) async throws -> UserModel {
-        let loggedUser = try await network.request(UserTarget.create(user)).map(UserModel.self)
+        var loggedUser = try await network.request(UserTarget.create(user)).map(UserModel.self)
+        let roles = try await network.request(RoleTarget.role(id: loggedUser.id)).map([RoleModel].self)
+        loggedUser.roles = roles.map { $0.name }
         currentUser = loggedUser
         save(username: user.username, password: user.password)
         return loggedUser
@@ -76,4 +87,8 @@ final class AuthService: AuthServiceProtocol {
         }
         return "Basic \(data.base64EncodedString())"
     }
+}
+
+enum AuthError: Error {
+    case noCredentials
 }

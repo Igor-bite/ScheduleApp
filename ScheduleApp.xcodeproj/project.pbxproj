@@ -95,6 +95,8 @@
 		A5B5B9A528D92F54001D3C93 /* GradientLoadingBar in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B9A428D92F54001D3C93 /* GradientLoadingBar */; };
 		A5B5B9A728D93253001D3C93 /* activeIndicator.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B5B9A628D93253001D3C93 /* activeIndicator.json */; };
 		A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A828D93305001D3C93 /* DateExtension.swift */; };
+		A5F0EEE8290FE86F0073E2D2 /* RoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */; };
+		A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
 		E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
@@ -197,6 +199,8 @@
 		A5B5B9A128D92B6F001D3C93 /* EmptyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScheduleView.swift; sourceTree = "<group>"; };
 		A5B5B9A628D93253001D3C93 /* activeIndicator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeIndicator.json; sourceTree = "<group>"; };
 		A5B5B9A828D93305001D3C93 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTarget.swift; sourceTree = "<group>"; };
+		A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 		A56716E92907D81D00CEE8EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0EEE9290FEC510073E2D2 /* Role */,
 				A56716ED2907D85A00CEE8EE /* User */,
 				A56716EC2907D85400CEE8EE /* Lesson */,
 				A56716EB2907D84700CEE8EE /* CourseCategory */,
@@ -534,6 +539,15 @@
 				A54F7D1F28E2125300245559 /* icon.json */,
 			);
 			path = LottieAnimations;
+			sourceTree = "<group>";
+		};
+		A5F0EEE9290FEC510073E2D2 /* Role */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */,
+				A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */,
+			);
+			path = Role;
 			sourceTree = "<group>";
 		};
 		E0BB8FB721695633001922DE /* Scenes */ = {
@@ -827,6 +841,7 @@
 				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
+				A5F0EEE8290FE86F0073E2D2 /* RoleTarget.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
 				A56716D729070D0100CEE8EE /* AuthScreenInterfaces.swift in Sources */,
 				A54F7D1D28E211B300245559 /* SplashScreenViewController.swift in Sources */,
@@ -849,6 +864,7 @@
 				A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
 				A550E52E28F084AF00F846FC /* LottieAnimationViews.swift in Sources */,
+				A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */,
 				A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */,
