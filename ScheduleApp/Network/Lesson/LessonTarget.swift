@@ -54,9 +54,13 @@ extension LessonTarget: TargetType {
         case .taught, .enrolled, .lesson, .delete, .taughtBy, .all:
             return .requestPlain
         case .update(let updateLessonModel):
-            return .requestJSONEncodable(updateLessonModel)
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            return .requestCustomJSONEncodable(updateLessonModel, encoder: encoder)
         case .create(let createLessonModel):
-            return .requestJSONEncodable(createLessonModel)
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            return .requestCustomJSONEncodable(createLessonModel, encoder: encoder)
         }
     }
 }

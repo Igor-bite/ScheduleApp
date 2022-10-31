@@ -99,6 +99,11 @@ final class CoursesScreenViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refresh()
+    }
+
     @objc
     private func logout() {
         presenter.logout()
@@ -127,7 +132,7 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
 
     @objc
     func refresh() {
-        presenter.fetchLessons()
+        presenter.fetchCourses()
     }
 
     func insertNewCourse(at indexPath: IndexPath) {
@@ -139,7 +144,7 @@ extension CoursesScreenViewController: CoursesScreenViewInterface {
     }
 }
 
-// MARK: - Lessons table view
+// MARK: - Courses table view
 
 extension CoursesScreenViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {

@@ -43,10 +43,11 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
     }
 
     func itemSelected(at indexPath: IndexPath) {
-        print("Selected course at \(indexPath)")
+        let course = coursesToShow[indexPath.row]
+        wireframe.presentCourseDescription(course: course)
     }
 
-    func fetchLessons() {
+    func fetchCourses() {
         wireframe.showLoadingBar()
         attempt {
             try await self.interactor.getAllCourses()

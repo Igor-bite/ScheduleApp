@@ -203,7 +203,9 @@ extension ScheduleScreenViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: LessonTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let lesson = presenter.item(at: indexPath)
-        cell.configure(with: lesson)
+        cell.configure(with: lesson) {
+            self.presenter.changeLesson(lesson)
+        }
         return cell
     }
 }

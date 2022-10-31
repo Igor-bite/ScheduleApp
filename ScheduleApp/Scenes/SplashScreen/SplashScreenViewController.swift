@@ -62,8 +62,7 @@ final class SplashScreenViewController: UIViewController {
     private func auth() {
         attempt {
             try await AuthService.shared.tryToRestoreLogin()
-        }.then { user in
-            print("Logged in as: \(user.firstName) \(user.secondName)")
+        }.then { _ in
             DispatchQueue.main.async {
                 if self.canDismiss {
                     self.dismissAction()

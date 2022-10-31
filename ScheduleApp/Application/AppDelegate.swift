@@ -1,3 +1,6 @@
+#if DEBUG
+import Atlantis
+#endif
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -6,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication,
                      didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
+        UNUserNotificationCenter.current().delegate = NotificationManager.shared
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let window = window else {
             return false
@@ -30,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         window.makeKeyAndVisible()
+
+#if DEBUG
+        Atlantis.start()
+#endif
 
         return true
     }

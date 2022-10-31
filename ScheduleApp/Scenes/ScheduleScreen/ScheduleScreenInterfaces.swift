@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol ScheduleScreenWireframeInterface: WireframeInterface {}
+protocol ScheduleScreenWireframeInterface: WireframeInterface {
+    func showLessonMaker(forLesson lesson: LessonModel?, courseId: Int, completion: @escaping (LessonModel?) -> Void)
+}
 
 protocol ScheduleScreenViewInterface: ViewInterface {
     func reloadData()
@@ -20,6 +22,7 @@ protocol ScheduleScreenPresenterInterface: PresenterInterface {
     func item(at indexPath: IndexPath) -> LessonModel
     func itemSelected(at indexPath: IndexPath)
     func fetchLessons()
+    func changeLesson(_ lesson: LessonModel)
 
     func setDate(_ date: Date)
 }

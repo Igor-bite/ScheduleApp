@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "atlantis",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ProxymanApp/atlantis",
+      "state" : {
+        "revision" : "2b26bf7fe2c5751335dca015b9e77514210d28d4",
+        "version" : "1.18.2"
+      }
+    },
+    {
       "identity" : "cocoatextfield",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/edgar-zigis/CocoaTextField",
@@ -32,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fxm90/GradientLoadingBar",
       "state" : {
-        "revision" : "385d133dfc1e8ea9d45518e946886680a0127288",
-        "version" : "2.3.5"
+        "revision" : "85cd3fe00dd85135ba32d8a6629144c5590430ac",
+        "version" : "3.0.0"
       }
     },
     {
@@ -59,17 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "017f94ccfdacabb1ae7f45b75b4217b24c06e6ac",
-        "version" : "7.4.0"
-      }
-    },
-    {
-      "identity" : "lightweightobservable",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/fxm90/LightweightObservable",
-      "state" : {
-        "revision" : "f7aeda3ab67922bd3ad252c5a311c58ee3e37bf5",
-        "version" : "2.2.2"
+        "revision" : "44e891bdb61426a95e31492a67c7c0dfad1f87c5",
+        "version" : "7.4.1"
       }
     },
     {

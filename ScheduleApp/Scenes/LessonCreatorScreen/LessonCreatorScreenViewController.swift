@@ -1,8 +1,8 @@
 //
-//  CoursesCreatorScreenViewController.swift
+//  LessonCreatorScreenViewController.swift
 //  ScheduleApp
 //
-//  Created by Игорь Клюжев on 27.09.2022.
+//  Created by Игорь Клюжев on 28.10.2022.
 //
 
 import CocoaTextField
@@ -10,7 +10,7 @@ import SnapKit
 import STTextView
 import UIKit
 
-final class CoursesCreatorScreenViewController: UIViewController {
+final class LessonCreatorScreenViewController: UIViewController {
     enum Constants {
         static let submitButtonHeight = 48
         static let gapHeight = 20
@@ -33,7 +33,11 @@ final class CoursesCreatorScreenViewController: UIViewController {
         return view
     }()
 
-    private let courseTypeSegmentedControl = UISegmentedControl(items: ["Оффлайн", "Онлайн"])
+    private let lessonTypeSegmentedControl = {
+        let control = UISegmentedControl(items: ["Лекция", "Практика", "Семинар"])
+        control.selectedSegmentIndex = 0
+        return control
+    }()
 
     private var placeholderAttributes: [NSAttributedString.Key: Any] {
         [
@@ -44,7 +48,7 @@ final class CoursesCreatorScreenViewController: UIViewController {
 
     private lazy var titleEnterInput = {
         let textField = CocoaTextField()
-        textField.placeholder = "Название курса"
+        textField.placeholder = "Название урока"
         textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
         textField.activeHintColor = .Pallette.buttonBg
         textField.focusedBackgroundColor = .Pallette.mainBgColor
@@ -58,7 +62,7 @@ final class CoursesCreatorScreenViewController: UIViewController {
 
     private lazy var descriptionEnterInput = {
         let textField = STTextView()
-        let placeholder = "Описание курса"
+        let placeholder = "Описание урока"
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
         textField.font = .text
         textField.textContainerInset.left = 10
@@ -68,30 +72,35 @@ final class CoursesCreatorScreenViewController: UIViewController {
         return textField
     }()
 
-    private lazy var customEnterInput1 = {
-        let textField = CocoaTextField()
-        textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
-        textField.activeHintColor = .Pallette.buttonBg
-        textField.focusedBackgroundColor = .Pallette.mainBgColor
-        textField.defaultBackgroundColor = .Pallette.mainBgColor
-        textField.borderColor = .Pallette.buttonBg
-        textField.errorColor = UIColor(red: 231 / 255, green: 76 / 255, blue: 60 / 255, alpha: 0.7)
-        textField.borderWidth = 1
-        textField.cornerRadius = 11
-        return textField
+    private lazy var startDateLabel = {
+        let view = UILabel.titleLabel
+        view.text = "Начало:"
+        return view
     }()
 
-    private lazy var customEnterInput2 = {
-        let textField = CocoaTextField()
-        textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
-        textField.activeHintColor = .Pallette.buttonBg
-        textField.focusedBackgroundColor = .Pallette.mainBgColor
-        textField.defaultBackgroundColor = .Pallette.mainBgColor
-        textField.borderColor = .Pallette.buttonBg
-        textField.errorColor = UIColor(red: 231 / 255, green: 76 / 255, blue: 60 / 255, alpha: 0.7)
-        textField.borderWidth = 1
-        textField.cornerRadius = 11
-        return textField
+    private lazy var endDateLabel = {
+        let view = UILabel.titleLabel
+        view.text = "Конец:"
+        return view
+    }()
+
+    private lazy var startDateTimePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date()
+        picker.locale = .init(identifier: "ru_RU")
+        picker.datePickerMode = .dateAndTime
+        picker.preferredDatePickerStyle = .compact
+        picker.addTarget(self, action: #selector(updateEndDateTime), for: .valueChanged)
+        return picker
+    }()
+
+    private lazy var endDateTimePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date().addingTimeInterval(60 * 60 * 1.5) // adding 1.5 h
+        picker.locale = .init(identifier: "ru_RU")
+        picker.datePickerMode = .dateAndTime
+        picker.preferredDatePickerStyle = .compact
+        return picker
     }()
 
     private lazy var submitButton: UIButton = {
@@ -102,13 +111,10 @@ final class CoursesCreatorScreenViewController: UIViewController {
         return button
     }()
 
-    private var bottomOfflineConstraint: Constraint?
-    private var bottomOnlineConstraint: Constraint?
-
-    // MARK: - Public properties -
+    // MARK: - properties -
 
     // swiftlint:disable:next implicitly_unwrapped_optional
-    var presenter: CoursesCreatorScreenPresenterInterface!
+    var presenter: LessonCreatorScreenPresenterInterface!
 
     // MARK: - Lifecycle -
 
@@ -119,8 +125,6 @@ final class CoursesCreatorScreenViewController: UIViewController {
         hideKeyboardOnTap()
         view.backgroundColor = .clear
         setupViews()
-        addSegementedControlAction()
-        updateEnterInputVisibility()
         updateText()
     }
 
@@ -132,65 +136,29 @@ final class CoursesCreatorScreenViewController: UIViewController {
     private func setupViews() {
         view.addSubview(contentView)
         contentView.addSubview(labelView)
-        contentView.addSubview(courseTypeSegmentedControl)
+        contentView.addSubview(lessonTypeSegmentedControl)
         contentView.addSubview(titleEnterInput)
         contentView.addSubview(descriptionEnterInput)
+        contentView.addSubview(startDateLabel)
+        contentView.addSubview(endDateLabel)
+        contentView.addSubview(startDateTimePicker)
+        contentView.addSubview(endDateTimePicker)
         contentView.addSubview(submitButton)
-        contentView.addSubview(customEnterInput1)
-        contentView.addSubview(customEnterInput2)
 
         makeConstraints()
     }
 
-    private func addSegementedControlAction() {
-        courseTypeSegmentedControl.selectedSegmentIndex = 0
-        courseTypeSegmentedControl.addTarget(self, action: #selector(segmentedValueChanged), for: .valueChanged)
-    }
-
-    private func updateEnterInputVisibility() {
-        switch courseTypeSegmentedControl.selectedSegmentIndex {
-        case 0:
-            bottomOfflineConstraint?.isActive = true
-            bottomOnlineConstraint?.isActive = false
-            UIView.animate(withDuration: 0.5) {
-                self.customEnterInput1.placeholder = "Название университета"
-                self.customEnterInput2.placeholder = "Адрес корпуса"
-                self.customEnterInput1.text = ""
-                self.customEnterInput2.text = ""
-                self.customEnterInput2.alpha = 1
-                self.view.layoutIfNeeded()
-            }
-        case 1:
-            bottomOfflineConstraint?.isActive = false
-            bottomOnlineConstraint?.isActive = true
-            UIView.animate(withDuration: 0.5) {
-                self.customEnterInput1.placeholder = "Ссылка на платформу с уроками"
-                self.customEnterInput1.text = ""
-                self.customEnterInput2.text = ""
-                self.customEnterInput2.alpha = 0
-                self.view.layoutIfNeeded()
-            }
-        default:
-            break
-        }
-    }
-
-    @objc
-    func segmentedValueChanged() {
-        updateEnterInputVisibility()
-    }
-
     @objc
     private func createCourse() {
-        let custom1 = customEnterInput1.text?.nilIfEmpty
-        let custom2 = customEnterInput2.text?.nilIfEmpty
-        var type: CourseModel.CourseType?
+        var type: LessonType?
 
-        switch courseTypeSegmentedControl.selectedSegmentIndex {
+        switch lessonTypeSegmentedControl.selectedSegmentIndex {
         case 0:
-            type = .offline(.init(type: CourseModel.CourseType.OfflineCourseType.typeName, universityName: custom1, address: custom2))
+            type = .lecture
         case 1:
-            type = .online(.init(type: CourseModel.CourseType.OnlineCourseType.typeName, lessonUrl: custom1))
+            type = .practice
+        case 2:
+            type = .seminar
         default:
             break
         }
@@ -199,33 +167,46 @@ final class CoursesCreatorScreenViewController: UIViewController {
               let description = descriptionEnterInput.text
         else { return }
 
-        guard let name = titleEnterInput.text
+        guard let name = titleEnterInput.text?.nilIfEmpty
         else {
-            titleEnterInput.setError(errorString: "Курс необходимо назвать")
+            titleEnterInput.setError(errorString: "Урок необходимо назвать")
             return
         }
 
-        guard let curatorId = AuthService.shared.currentUser?.id else { return }
-        presenter.commit(.init(title: name, description: description, categoryId: 0, curatorId: curatorId, type: type))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        let start = formatter.string(from: startDateTimePicker.date)
+        print(start)
+
+        guard let curUserId = AuthService.shared.currentUser?.id else { return }
+        presenter.commit(.init(title: name, description: description,
+                               teacherId: curUserId, courseId: presenter.courseId,
+                               startDateTime: startDateTimePicker.date,
+                               endDateTime: endDateTimePicker.date, lessonType: type))
         dismiss(animated: true, completion: nil)
     }
 
+    @objc
+    private func updateEndDateTime() {
+        endDateTimePicker.date = startDateTimePicker.date.addingTimeInterval(60 * 60 * 1.5)
+    }
+
     private func updateText() {
-        guard let course = presenter.course else { return }
-        switch course.type {
-        case .offline(let offline):
-            courseTypeSegmentedControl.selectedSegmentIndex = 0
-            customEnterInput1.text = offline.universityName
-            customEnterInput2.text = offline.address
-        case .online(let online):
-            courseTypeSegmentedControl.selectedSegmentIndex = 1
-            customEnterInput1.text = online.lessonUrl
-        default:
-            break
+        guard let lesson = presenter.lesson else { return }
+        switch lesson.lessonType {
+        case .lecture:
+            lessonTypeSegmentedControl.selectedSegmentIndex = 0
+        case .practice:
+            lessonTypeSegmentedControl.selectedSegmentIndex = 1
+        case .seminar:
+            lessonTypeSegmentedControl.selectedSegmentIndex = 2
         }
 
-        titleEnterInput.text = course.title
-        descriptionEnterInput.text = course.description
+        titleEnterInput.text = lesson.title
+        descriptionEnterInput.text = lesson.description
+
+        startDateTimePicker.date = lesson.startDateTime
+        endDateTimePicker.date = lesson.endDateTime
 
         submitButton.setTitle("Изменить", for: .normal)
     }
@@ -233,9 +214,9 @@ final class CoursesCreatorScreenViewController: UIViewController {
 
 // MARK: - Extensions -
 
-extension CoursesCreatorScreenViewController: CoursesCreatorScreenViewInterface {}
+extension LessonCreatorScreenViewController: LessonCreatorScreenViewInterface {}
 
-private extension CoursesCreatorScreenViewController {
+private extension LessonCreatorScreenViewController {
     func makeContentViewConstraints() {
         contentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -250,9 +231,9 @@ private extension CoursesCreatorScreenViewController {
             make.leading.equalToSuperview().offset(Constants.sideOffset)
             make.trailing.equalToSuperview().inset(Constants.sideOffset)
             make.height.equalTo(Constants.sectionHeight)
-            make.bottom.equalTo(courseTypeSegmentedControl.snp.top).offset(-Constants.gapHeight)
+            make.bottom.equalTo(lessonTypeSegmentedControl.snp.top).offset(-Constants.gapHeight)
         }
-        courseTypeSegmentedControl.snp.makeConstraints { make in
+        lessonTypeSegmentedControl.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(Constants.sideOffset)
             make.trailing.equalToSuperview().inset(Constants.sideOffset)
             make.height.equalTo(Constants.twoThirdsSections)
@@ -268,21 +249,37 @@ private extension CoursesCreatorScreenViewController {
             make.left.equalToSuperview().offset(Constants.sideOffset)
             make.right.equalToSuperview().inset(Constants.sideOffset)
             make.height.equalTo(Constants.sectionHeight * 2)
-            make.bottom.equalTo(customEnterInput1.snp.top).offset(-Constants.gapHeight)
+            make.bottom.equalTo(startDateTimePicker.snp.top).offset(-Constants.gapHeight)
         }
-        customEnterInput1.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
+
+        startDateLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset * 2)
+            make.height.equalTo(Constants.sectionHeight)
+            make.width.equalTo(UIScreen.main.bounds.width).multipliedBy(0.2)
+            make.centerY.equalTo(startDateTimePicker)
+        }
+
+        startDateTimePicker.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(Constants.sideOffset)
             make.height.equalTo(Constants.sectionHeight)
-            self.bottomOfflineConstraint = make.bottom.equalTo(customEnterInput2.snp.top).offset(-Constants.gapHeight).constraint
-            self.bottomOnlineConstraint = make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight).constraint
+            make.bottom.equalTo(endDateTimePicker.snp.top).offset(-Constants.gapHeight)
+            make.width.equalTo(UIScreen.main.bounds.width).multipliedBy(0.6)
         }
-        customEnterInput2.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(Constants.sideOffset)
+
+        endDateLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.sideOffset * 2)
+            make.height.equalTo(Constants.sectionHeight)
+            make.width.equalTo(UIScreen.main.bounds.width).multipliedBy(0.2)
+            make.centerY.equalTo(endDateTimePicker)
+        }
+
+        endDateTimePicker.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(Constants.sideOffset)
             make.height.equalTo(Constants.sectionHeight)
             make.bottom.equalTo(submitButton.snp.top).offset(-Constants.gapHeight)
+            make.width.equalTo(UIScreen.main.bounds.width).multipliedBy(0.6)
         }
+
         submitButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(Constants.sideOffset)
             make.trailing.equalToSuperview().inset(Constants.sideOffset)

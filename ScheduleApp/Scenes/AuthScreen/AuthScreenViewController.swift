@@ -145,7 +145,7 @@ final class AuthScreenViewController: UIViewController {
         view.backgroundColor = .Pallette.mainBgColor
 
         setupViews()
-        update()
+        update(animated: false)
     }
 
     private var signInConstraint: Constraint?
@@ -236,7 +236,7 @@ final class AuthScreenViewController: UIViewController {
         state.toggle()
     }
 
-    private func updateButtonTitles() {
+    private func updateButtonTitles(animated: Bool = true) {
         switch state {
         case .signIn:
             activeButton.setTitle("Войти", for: .normal)
@@ -245,11 +245,13 @@ final class AuthScreenViewController: UIViewController {
             activeButton.setTitle("Зарегистрироваться", for: .normal)
             helperButton.setTitle("Войти", for: .normal)
         }
-        view.layoutIfNeeded()
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: 0) {
+            self.view.layoutIfNeeded()
+        }
     }
 
-    private func updateInputVisibility() {
-        UIView.animate(withDuration: 0.5, delay: 0) {
+    private func updateInputVisibility(animated: Bool = true) {
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: 0) {
             switch self.state {
             case .signUp:
                 self.firstNameInput.alpha = 1.0
@@ -263,24 +265,24 @@ final class AuthScreenViewController: UIViewController {
         }
     }
 
-    private func updateConstraints() {
-        UIView.animate(withDuration: 0.5, delay: 0) {
-            switch self.state {
-            case .signUp:
-                self.signInConstraint?.isActive = false
-                self.signUpConstraint?.isActive = true
-            case .signIn:
-                self.signInConstraint?.isActive = true
-                self.signUpConstraint?.isActive = false
-            }
+    private func updateConstraints(animated: Bool = true) {
+        switch state {
+        case .signUp:
+            signInConstraint?.isActive = false
+            signUpConstraint?.isActive = true
+        case .signIn:
+            signInConstraint?.isActive = true
+            signUpConstraint?.isActive = false
+        }
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: 0) {
             self.view.layoutIfNeeded()
         }
     }
 
-    private func update() {
-        updateButtonTitles()
-        updateInputVisibility()
-        updateConstraints()
+    private func update(animated: Bool = true) {
+        updateButtonTitles(animated: false)
+        updateInputVisibility(animated: animated)
+        updateConstraints(animated: animated)
     }
 
     private func signUp() {
@@ -309,7 +311,7 @@ final class AuthScreenViewController: UIViewController {
             return
         }
         guard let password = passwordInput.text,
-              !password.isEmpty
+              password.count > 3
         else {
             passwordInput.setError(errorString: "")
             return

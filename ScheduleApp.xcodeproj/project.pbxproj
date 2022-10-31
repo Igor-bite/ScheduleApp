@@ -7,16 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A513BB812909964000317E6B /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = A513BB802909964000317E6B /* Atlantis */; };
 		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
-		A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AC28D8F212004E0D66 /* CalendarPermission */; };
-		A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54AE28D8F212004E0D66 /* CameraPermission */; };
-		A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B028D8F212004E0D66 /* ContactsPermission */; };
-		A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B228D8F212004E0D66 /* FaceIDPermission */; };
-		A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B428D8F212004E0D66 /* MediaLibraryPermission */; };
-		A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B628D8F212004E0D66 /* MicrophonePermission */; };
-		A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54B828D8F212004E0D66 /* NotificationPermission */; };
-		A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */; };
-		A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BC28D8F212004E0D66 /* RemindersPermission */; };
 		A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BF28D8F237004E0D66 /* SPIndicator */; };
 		A53A54C328D8F247004E0D66 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C228D8F247004E0D66 /* Reusable */; };
 		A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54C528D8F253004E0D66 /* SafeSFSymbols */; };
@@ -59,7 +51,6 @@
 		A56716DA29070D0100CEE8EE /* AuthScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */; };
 		A56716DB29070D0100CEE8EE /* AuthScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */; };
 		A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716DE29070D3A00CEE8EE /* AuthService.swift */; };
-		A56716E229070D7F00CEE8EE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716E129070D7F00CEE8EE /* UserModel.swift */; };
 		A56716E5290710C400CEE8EE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = A56716E4290710C400CEE8EE /* KeychainAccess */; };
 		A56716E82907D80F00CEE8EE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A56716E72907D80F00CEE8EE /* Moya */; };
 		A56716EF2907D91200CEE8EE /* UserTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716EE2907D91200CEE8EE /* UserTarget.swift */; };
@@ -67,6 +58,12 @@
 		A56716F52907DE6700CEE8EE /* LessonTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716F42907DE6700CEE8EE /* LessonTarget.swift */; };
 		A56716F72907E1AC00CEE8EE /* CourseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716F62907E1AC00CEE8EE /* CourseTarget.swift */; };
 		A56716F92907E4B500CEE8EE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716F82907E4B500CEE8EE /* NetworkService.swift */; };
+		A56717092907F5CA00CEE8EE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56717082907F5CA00CEE8EE /* UserModel.swift */; };
+		A567170F2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567170A2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift */; };
+		A56717102907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567170B2907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift */; };
+		A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567170C2907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift */; };
+		A56717122907F5E700CEE8EE /* CourseDescriptionScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567170D2907F5E700CEE8EE /* CourseDescriptionScreenInteractor.swift */; };
+		A56717132907F5E700CEE8EE /* CourseDescriptionScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A567170E2907F5E700CEE8EE /* CourseDescriptionScreenWireframe.swift */; };
 		A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */; };
 		A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */; };
 		A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */; };
@@ -81,6 +78,13 @@
 		A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1928D3C9C600341814 /* InteractorInterface.swift */; };
 		A568DF2028D3CDDA00341814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A568DF1F28D3CDDA00341814 /* Constants.swift */; };
 		A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */ = {isa = PBXBuildFile; productRef = A568DF2228D3D0FD00341814 /* AsyncPlus */; };
+		A57F5590290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */; };
+		A57F5591290BDE5D006509CB /* LessonCreatorScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */; };
+		A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */; };
+		A57F5593290BDE5D006509CB /* LessonCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */; };
+		A57F5594290BDE5D006509CB /* LessonCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */; };
+		A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F5595290BFC43006509CB /* NotificationsManager.swift */; };
+		A57F559B290C0257006509CB /* NotificationPermission in Frameworks */ = {isa = PBXBuildFile; productRef = A57F559A290C0257006509CB /* NotificationPermission */; };
 		A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */ = {isa = PBXBuildFile; productRef = A5A78D8228EB8B1600646816 /* CocoaTextField */; };
 		A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A5B5B99328D915EB001D3C93 /* SkeletonView */; };
 		A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B99628D91963001D3C93 /* CapsuleView.swift */; };
@@ -157,12 +161,17 @@
 		A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenInteractor.swift; sourceTree = "<group>"; };
 		A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenWireframe.swift; sourceTree = "<group>"; };
 		A56716DE29070D3A00CEE8EE /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		A56716E129070D7F00CEE8EE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = ../../Scenes/RegistrationScreen/Models/UserModel.swift; sourceTree = "<group>"; };
 		A56716EE2907D91200CEE8EE /* UserTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTarget.swift; sourceTree = "<group>"; };
 		A56716F02907D9BF00CEE8EE /* TargetType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Extension.swift"; sourceTree = "<group>"; };
 		A56716F42907DE6700CEE8EE /* LessonTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTarget.swift; sourceTree = "<group>"; };
 		A56716F62907E1AC00CEE8EE /* CourseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTarget.swift; sourceTree = "<group>"; };
 		A56716F82907E4B500CEE8EE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A56717082907F5CA00CEE8EE /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		A567170A2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionScreenInterfaces.swift; sourceTree = "<group>"; };
+		A567170B2907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionScreenPresenter.swift; sourceTree = "<group>"; };
+		A567170C2907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionScreenViewController.swift; sourceTree = "<group>"; };
+		A567170D2907F5E700CEE8EE /* CourseDescriptionScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionScreenInteractor.swift; sourceTree = "<group>"; };
+		A567170E2907F5E700CEE8EE /* CourseDescriptionScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDescriptionScreenWireframe.swift; sourceTree = "<group>"; };
 		A568DEFF28D3C85C00341814 /* ScheduleScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenInterfaces.swift; sourceTree = "<group>"; };
 		A568DF0028D3C85C00341814 /* ScheduleScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenPresenter.swift; sourceTree = "<group>"; };
 		A568DF0128D3C85C00341814 /* ScheduleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +185,12 @@
 		A568DF1828D3C9C600341814 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		A568DF1928D3C9C600341814 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
 		A568DF1F28D3CDDA00341814 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenInterfaces.swift; sourceTree = "<group>"; };
+		A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenPresenter.swift; sourceTree = "<group>"; };
+		A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenViewController.swift; sourceTree = "<group>"; };
+		A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenInteractor.swift; sourceTree = "<group>"; };
+		A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCreatorScreenWireframe.swift; sourceTree = "<group>"; };
+		A57F5595290BFC43006509CB /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		A5B5B99628D91963001D3C93 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
 		A5B5B99828D91B35001D3C93 /* LessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsService.swift; sourceTree = "<group>"; };
 		A5B5B99E28D926C2001D3C93 /* relaxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnimation.json; sourceTree = "<group>"; };
@@ -211,23 +226,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A53A54AD28D8F212004E0D66 /* CalendarPermission in Frameworks */,
 				A53A54CC28D8F270004E0D66 /* SPConfetti in Frameworks */,
+				A513BB812909964000317E6B /* Atlantis in Frameworks */,
 				A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */,
-				A53A54BB28D8F212004E0D66 /* PhotoLibraryPermission in Frameworks */,
-				A53A54B528D8F212004E0D66 /* MediaLibraryPermission in Frameworks */,
-				A53A54BD28D8F212004E0D66 /* RemindersPermission in Frameworks */,
-				A53A54B728D8F212004E0D66 /* MicrophonePermission in Frameworks */,
 				A5B5B99D28D923A0001D3C93 /* Lottie in Frameworks */,
-				A53A54AF28D8F212004E0D66 /* CameraPermission in Frameworks */,
-				A53A54B128D8F212004E0D66 /* ContactsPermission in Frameworks */,
 				A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */,
-				A53A54B328D8F212004E0D66 /* FaceIDPermission in Frameworks */,
 				A56716E82907D80F00CEE8EE /* Moya in Frameworks */,
+				A57F559B290C0257006509CB /* NotificationPermission in Frameworks */,
 				A5A78D8328EB8B1600646816 /* CocoaTextField in Frameworks */,
 				A53A54C928D8F262004E0D66 /* SnapKit in Frameworks */,
 				A568DF2328D3D0FD00341814 /* AsyncPlus in Frameworks */,
-				A53A54B928D8F212004E0D66 /* NotificationPermission in Frameworks */,
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A54F7D5328E34B9800245559 /* STTextView in Frameworks */,
@@ -358,7 +366,7 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		A56716D129070CEB00CEE8EE /* RegistrationScreen */ = {
+		A56716D129070CEB00CEE8EE /* AuthScreen */ = {
 			isa = PBXGroup;
 			children = (
 				A56716DC29070D1500CEE8EE /* Services */,
@@ -368,7 +376,7 @@
 				A56716D529070D0100CEE8EE /* AuthScreenInteractor.swift */,
 				A56716D629070D0100CEE8EE /* AuthScreenWireframe.swift */,
 			);
-			path = RegistrationScreen;
+			path = AuthScreen;
 			sourceTree = "<group>";
 		};
 		A56716DC29070D1500CEE8EE /* Services */ = {
@@ -421,9 +429,21 @@
 			isa = PBXGroup;
 			children = (
 				A56716EE2907D91200CEE8EE /* UserTarget.swift */,
-				A56716E129070D7F00CEE8EE /* UserModel.swift */,
+				A56717082907F5CA00CEE8EE /* UserModel.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		A56717072907F5B200CEE8EE /* CourseDescriptionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A567170A2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift */,
+				A567170B2907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift */,
+				A567170C2907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift */,
+				A567170D2907F5E700CEE8EE /* CourseDescriptionScreenInteractor.swift */,
+				A567170E2907F5E700CEE8EE /* CourseDescriptionScreenWireframe.swift */,
+			);
+			path = CourseDescriptionScreen;
 			sourceTree = "<group>";
 		};
 		A568DEFE28D3C84D00341814 /* ScheduleScreen */ = {
@@ -458,6 +478,7 @@
 				A550E52828F056B100F846FC /* Encodable + toDictionary.swift */,
 				A550E53828F09B7C00F846FC /* UIImage+Resize.swift */,
 				A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */,
+				A57F5595290BFC43006509CB /* NotificationsManager.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -474,6 +495,18 @@
 			);
 			name = BaseVIPER;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A57F558A290BDE47006509CB /* LessonCreatorScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A57F558B290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift */,
+				A57F558C290BDE5D006509CB /* LessonCreatorScreenPresenter.swift */,
+				A57F558D290BDE5D006509CB /* LessonCreatorScreenViewController.swift */,
+				A57F558E290BDE5D006509CB /* LessonCreatorScreenInteractor.swift */,
+				A57F558F290BDE5D006509CB /* LessonCreatorScreenWireframe.swift */,
+			);
+			path = LessonCreatorScreen;
 			sourceTree = "<group>";
 		};
 		A5B5B99528D91954001D3C93 /* HelperViews */ = {
@@ -506,7 +539,9 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A56716D129070CEB00CEE8EE /* RegistrationScreen */,
+				A57F558A290BDE47006509CB /* LessonCreatorScreen */,
+				A56717072907F5B200CEE8EE /* CourseDescriptionScreen */,
+				A56716D129070CEB00CEE8EE /* AuthScreen */,
 				A550E52A28F0805A00F846FC /* TabBar */,
 				A54F7D4328E3461200245559 /* CoursesCreatorScreen */,
 				A54F7D2128E259BD00245559 /* CoursesScreen */,
@@ -640,15 +675,6 @@
 			packageProductDependencies = (
 				A568DF2228D3D0FD00341814 /* AsyncPlus */,
 				A53A54A628D8F1D0004E0D66 /* Kingfisher */,
-				A53A54AC28D8F212004E0D66 /* CalendarPermission */,
-				A53A54AE28D8F212004E0D66 /* CameraPermission */,
-				A53A54B028D8F212004E0D66 /* ContactsPermission */,
-				A53A54B228D8F212004E0D66 /* FaceIDPermission */,
-				A53A54B428D8F212004E0D66 /* MediaLibraryPermission */,
-				A53A54B628D8F212004E0D66 /* MicrophonePermission */,
-				A53A54B828D8F212004E0D66 /* NotificationPermission */,
-				A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */,
-				A53A54BC28D8F212004E0D66 /* RemindersPermission */,
 				A53A54BF28D8F237004E0D66 /* SPIndicator */,
 				A53A54C228D8F247004E0D66 /* Reusable */,
 				A53A54C528D8F253004E0D66 /* SafeSFSymbols */,
@@ -662,6 +688,8 @@
 				A5A78D8228EB8B1600646816 /* CocoaTextField */,
 				A56716E4290710C400CEE8EE /* KeychainAccess */,
 				A56716E72907D80F00CEE8EE /* Moya */,
+				A513BB802909964000317E6B /* Atlantis */,
+				A57F559A290C0257006509CB /* NotificationPermission */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -718,7 +746,6 @@
 			packageReferences = (
 				A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */,
 				A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 				A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 				A53A54C128D8F247004E0D66 /* XCRemoteSwiftPackageReference "Reusable" */,
 				A53A54C428D8F253004E0D66 /* XCRemoteSwiftPackageReference "SafeSFSymbols" */,
@@ -732,6 +759,8 @@
 				A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */,
 				A56716E3290710C400CEE8EE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				A56716E62907D80F00CEE8EE /* XCRemoteSwiftPackageReference "Moya" */,
+				A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */,
+				A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -795,6 +824,7 @@
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
+				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
 				A54F7D2E28E25A9F00245559 /* CourseModel.swift in Sources */,
@@ -803,30 +833,38 @@
 				A54F7D3428E25D0B00245559 /* CourseTableViewCell.swift in Sources */,
 				A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */,
 				A5B5B99928D91B35001D3C93 /* LessonsService.swift in Sources */,
+				A57F5594290BDE5D006509CB /* LessonCreatorScreenWireframe.swift in Sources */,
+				A567170F2907F5E700CEE8EE /* CourseDescriptionScreenInterfaces.swift in Sources */,
 				A568DF0728D3C85C00341814 /* ScheduleScreenViewController.swift in Sources */,
 				A568DF0928D3C85C00341814 /* ScheduleScreenInteractor.swift in Sources */,
+				A56717132907F5E700CEE8EE /* CourseDescriptionScreenWireframe.swift in Sources */,
 				A56716F52907DE6700CEE8EE /* LessonTarget.swift in Sources */,
 				A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */,
 				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
 				A54F7D4B28E3463A00245559 /* CoursesCreatorScreenViewController.swift in Sources */,
 				A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */,
-				A56716E229070D7F00CEE8EE /* UserModel.swift in Sources */,
 				A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */,
 				A54F7D4928E3463A00245559 /* CoursesCreatorScreenInterfaces.swift in Sources */,
 				A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
 				A550E52E28F084AF00F846FC /* LottieAnimationViews.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
+				A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */,
+				A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
 				A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */,
 				A56716DA29070D0100CEE8EE /* AuthScreenInteractor.swift in Sources */,
 				A56716F72907E1AC00CEE8EE /* CourseTarget.swift in Sources */,
 				A568DF0628D3C85C00341814 /* ScheduleScreenPresenter.swift in Sources */,
 				A56716D929070D0100CEE8EE /* AuthScreenViewController.swift in Sources */,
+				A56717092907F5CA00CEE8EE /* UserModel.swift in Sources */,
 				A56716DB29070D0100CEE8EE /* AuthScreenWireframe.swift in Sources */,
+				A57F5593290BDE5D006509CB /* LessonCreatorScreenInteractor.swift in Sources */,
+				A57F5590290BDE5D006509CB /* LessonCreatorScreenInterfaces.swift in Sources */,
 				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				A56716F92907E4B500CEE8EE /* NetworkService.swift in Sources */,
+				A56717102907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift in Sources */,
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
 				A54F7D4228E3443B00245559 /* UIViewControllerExtensions.swift in Sources */,
@@ -838,6 +876,7 @@
 				A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */,
 				A56716F12907D9BF00CEE8EE /* TargetType+Extension.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,
+				A56717122907F5E700CEE8EE /* CourseDescriptionScreenInteractor.swift in Sources */,
 				A550E52C28F0806800F846FC /* TabBar.swift in Sources */,
 				A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */,
 				A54F7D4A28E3463A00245559 /* CoursesCreatorScreenPresenter.swift in Sources */,
@@ -847,6 +886,7 @@
 				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
 				A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */,
 				A56716EF2907D91200CEE8EE /* UserTarget.swift in Sources */,
+				A57F5591290BDE5D006509CB /* LessonCreatorScreenPresenter.swift in Sources */,
 				A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */,
 				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
 			);
@@ -1050,20 +1090,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ProxymanApp/atlantis";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
-			};
-		};
-		A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
 			};
 		};
 		A53A54BE28D8F237004E0D66 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
@@ -1146,6 +1186,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/PermissionsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		A5A78D8128EB8B1600646816 /* XCRemoteSwiftPackageReference "CocoaTextField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/edgar-zigis/CocoaTextField";
@@ -1175,61 +1223,21 @@
 			repositoryURL = "https://github.com/fxm90/GradientLoadingBar";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A513BB802909964000317E6B /* Atlantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */;
+			productName = Atlantis;
+		};
 		A53A54A628D8F1D0004E0D66 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A53A54A528D8F1D0004E0D66 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		A53A54AC28D8F212004E0D66 /* CalendarPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = CalendarPermission;
-		};
-		A53A54AE28D8F212004E0D66 /* CameraPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = CameraPermission;
-		};
-		A53A54B028D8F212004E0D66 /* ContactsPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = ContactsPermission;
-		};
-		A53A54B228D8F212004E0D66 /* FaceIDPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = FaceIDPermission;
-		};
-		A53A54B428D8F212004E0D66 /* MediaLibraryPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = MediaLibraryPermission;
-		};
-		A53A54B628D8F212004E0D66 /* MicrophonePermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = MicrophonePermission;
-		};
-		A53A54B828D8F212004E0D66 /* NotificationPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = NotificationPermission;
-		};
-		A53A54BA28D8F212004E0D66 /* PhotoLibraryPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = PhotoLibraryPermission;
-		};
-		A53A54BC28D8F212004E0D66 /* RemindersPermission */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A53A54AB28D8F212004E0D66 /* XCRemoteSwiftPackageReference "PermissionsKit" */;
-			productName = RemindersPermission;
 		};
 		A53A54BF28D8F237004E0D66 /* SPIndicator */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1280,6 +1288,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A568DF2128D3D0FD00341814 /* XCRemoteSwiftPackageReference "async-plus" */;
 			productName = AsyncPlus;
+		};
+		A57F559A290C0257006509CB /* NotificationPermission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */;
+			productName = NotificationPermission;
 		};
 		A5A78D8228EB8B1600646816 /* CocoaTextField */ = {
 			isa = XCSwiftPackageProductDependency;

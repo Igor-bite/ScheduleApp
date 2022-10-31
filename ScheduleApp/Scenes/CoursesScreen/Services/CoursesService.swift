@@ -13,11 +13,33 @@ protocol CoursesService {
     func getTaughtCourses() async throws -> [CourseModel]
     func getEnrolledCourses() async throws -> [CourseModel]
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel
+    func update(_ course: UpdateCourseModel) async throws -> CourseModel
     func enrollOnCourse(_ course: CourseModel)
     func leaveCourse(_ course: CourseModel)
+    func lessons(_ course: CourseModel) async throws -> [LessonModel]
+    func delete(_ course: CourseModel)
+    func clone(_ course: CourseModel)
 }
 
 final class BasicCoursesService: CoursesService {
+    func lessons(_ course: CourseModel) async throws -> [LessonModel] {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try await network.request(CourseTarget.lessons(id: course.id)).map([LessonModel].self, using: decoder)
+    }
+
+    func delete(_ course: CourseModel) {
+        network.request(CourseTarget.delete(id: course.id)) { result in
+            print(result)
+        }
+    }
+
+    func clone(_ course: CourseModel) {
+        network.request(CourseTarget.clone(id: course.id)) { result in
+            print(result)
+        }
+    }
+
     private let network = NetworkService.shared
 
     func getAllCourses() async throws -> [CourseModel] {
@@ -34,6 +56,10 @@ final class BasicCoursesService: CoursesService {
 
     func createCourse(_ course: CreateCourseModel) async throws -> CourseModel {
         try await network.request(CourseTarget.create(course)).map(CourseModel.self)
+    }
+
+    func update(_ course: UpdateCourseModel) async throws -> CourseModel {
+        try await network.request(CourseTarget.update(course)).map(CourseModel.self)
     }
 
     func enrollOnCourse(_ course: CourseModel) {

@@ -12,7 +12,7 @@ final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorScreenVie
 
     // MARK: - Module setup -
 
-    init(completion: @escaping (CourseModel?) -> Void) {
+    init(course: CourseModel? = nil, completion: @escaping (CourseModel?) -> Void) {
         let moduleViewController = CoursesCreatorScreenViewController()
         super.init(viewController: moduleViewController)
 
@@ -20,6 +20,7 @@ final class CoursesCreatorScreenWireframe: BaseWireframe<CoursesCreatorScreenVie
         let presenter = CoursesCreatorScreenPresenter(view: moduleViewController,
                                                       interactor: interactor,
                                                       wireframe: self,
+                                                      course: course,
                                                       completion: completion)
         moduleViewController.presenter = presenter
     }

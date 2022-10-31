@@ -9,6 +9,7 @@ import UIKit
 
 protocol CoursesScreenWireframeInterface: WireframeInterface {
     func presentCourseCreator(completion: @escaping (CourseModel?) -> Void)
+    func presentCourseDescription(course: CourseModel)
 }
 
 protocol CoursesScreenViewInterface: ViewInterface {
@@ -22,7 +23,7 @@ protocol CoursesScreenPresenterInterface: PresenterInterface {
 
     func item(at indexPath: IndexPath) -> CourseModel
     func itemSelected(at indexPath: IndexPath)
-    func fetchLessons()
+    func fetchCourses()
 
     func createNewCourse()
 

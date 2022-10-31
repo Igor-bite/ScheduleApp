@@ -26,4 +26,8 @@ final class ScheduleScreenWireframe: BaseWireframe<ScheduleScreenViewController>
 
 // MARK: - Extensions -
 
-extension ScheduleScreenWireframe: ScheduleScreenWireframeInterface {}
+extension ScheduleScreenWireframe: ScheduleScreenWireframeInterface {
+    func showLessonMaker(forLesson lesson: LessonModel?, courseId: Int, completion: @escaping (LessonModel?) -> Void) {
+        navigationController?.presentWireframe(LessonCreatorScreenWireframe(courseId: courseId, lesson: lesson, completion: completion))
+    }
+}
