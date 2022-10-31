@@ -21,4 +21,12 @@ final class MockedLessonsService: LessonsService {
     func getLessons() async throws -> [LessonModel] {
         MockedLessonsService.lessons
     }
+
+    func createLesson(_: ScheduleApp.CreateLessonModel) async throws -> LessonModel {
+        MockedLessonsService.lessons[0]
+    }
+
+    func updateLesson(_: ScheduleApp.UpdateLessonModel) async throws -> LessonModel {
+        MockedLessonsService.lessons[0]
+    }
 }
