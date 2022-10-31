@@ -97,7 +97,6 @@
 		A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A828D93305001D3C93 /* DateExtension.swift */; };
 		A5F0EEE8290FE86F0073E2D2 /* RoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */; };
 		A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */; };
-		A5F0EEEE291009370073E2D2 /* ObjectForm in Frameworks */ = {isa = PBXBuildFile; productRef = A5F0EEED291009370073E2D2 /* ObjectForm */; };
 		A5F0EEF529100A030073E2D2 /* ProfileScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF029100A030073E2D2 /* ProfileScreenInterfaces.swift */; };
 		A5F0EEF629100A030073E2D2 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF129100A030073E2D2 /* ProfileScreenPresenter.swift */; };
 		A5F0EEF729100A030073E2D2 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF229100A030073E2D2 /* ProfileScreenViewController.swift */; };
@@ -254,7 +253,6 @@
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A54F7D5328E34B9800245559 /* STTextView in Frameworks */,
-				A5F0EEEE291009370073E2D2 /* ObjectForm in Frameworks */,
 				A56716E5290710C400CEE8EE /* KeychainAccess in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
 				A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */,
@@ -729,7 +727,6 @@
 				A56716E72907D80F00CEE8EE /* Moya */,
 				A513BB802909964000317E6B /* Atlantis */,
 				A57F559A290C0257006509CB /* NotificationPermission */,
-				A5F0EEED291009370073E2D2 /* ObjectForm */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -801,7 +798,6 @@
 				A56716E62907D80F00CEE8EE /* XCRemoteSwiftPackageReference "Moya" */,
 				A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */,
 				A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */,
-				A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -1274,14 +1270,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/haojianzong/ObjectForm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1369,11 +1357,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */;
 			productName = GradientLoadingBar;
-		};
-		A5F0EEED291009370073E2D2 /* ObjectForm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */;
-			productName = ObjectForm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
