@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
                 if AuthService.shared.currentUser == nil {
                     let wireframe = AuthScreenWireframe {
-                        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-                            window.rootViewController = TabBar()
+                        DispatchQueue.main.async {
+                            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                                window.rootViewController = TabBar()
+                            }
                         }
                     }
                     let nav = UINavigationController()

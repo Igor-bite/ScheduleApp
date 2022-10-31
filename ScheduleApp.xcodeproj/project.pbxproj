@@ -97,6 +97,12 @@
 		A5B5B9A928D93305001D3C93 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B9A828D93305001D3C93 /* DateExtension.swift */; };
 		A5F0EEE8290FE86F0073E2D2 /* RoleTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */; };
 		A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */; };
+		A5F0EEEE291009370073E2D2 /* ObjectForm in Frameworks */ = {isa = PBXBuildFile; productRef = A5F0EEED291009370073E2D2 /* ObjectForm */; };
+		A5F0EEF529100A030073E2D2 /* ProfileScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF029100A030073E2D2 /* ProfileScreenInterfaces.swift */; };
+		A5F0EEF629100A030073E2D2 /* ProfileScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF129100A030073E2D2 /* ProfileScreenPresenter.swift */; };
+		A5F0EEF729100A030073E2D2 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF229100A030073E2D2 /* ProfileScreenViewController.swift */; };
+		A5F0EEF829100A030073E2D2 /* ProfileScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF329100A030073E2D2 /* ProfileScreenInteractor.swift */; };
+		A5F0EEF929100A030073E2D2 /* ProfileScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0EEF429100A030073E2D2 /* ProfileScreenWireframe.swift */; };
 		E0FD11FD21477D0A008C2EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */; };
 		E0FD11FF21477D1C008C2EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FD11FE21477D1C008C2EF8 /* Assets.xcassets */; };
 		E0FD121E214783B2008C2EF8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FD121C214783B2008C2EF8 /* main.swift */; };
@@ -201,6 +207,11 @@
 		A5B5B9A828D93305001D3C93 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A5F0EEE7290FE86F0073E2D2 /* RoleTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleTarget.swift; sourceTree = "<group>"; };
 		A5F0EEEA290FEC5C0073E2D2 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
+		A5F0EEF029100A030073E2D2 /* ProfileScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenInterfaces.swift; sourceTree = "<group>"; };
+		A5F0EEF129100A030073E2D2 /* ProfileScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenPresenter.swift; sourceTree = "<group>"; };
+		A5F0EEF229100A030073E2D2 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
+		A5F0EEF329100A030073E2D2 /* ProfileScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenInteractor.swift; sourceTree = "<group>"; };
+		A5F0EEF429100A030073E2D2 /* ProfileScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenWireframe.swift; sourceTree = "<group>"; };
 		E0FD11B021477963008C2EF8 /* ScheduleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11C421477965008C2EF8 /* ScheduleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD11FC21477D0A008C2EF8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -243,6 +254,7 @@
 				A53A54C628D8F253004E0D66 /* SafeSFSymbols in Frameworks */,
 				A5B5B99428D915EB001D3C93 /* SkeletonView in Frameworks */,
 				A54F7D5328E34B9800245559 /* STTextView in Frameworks */,
+				A5F0EEEE291009370073E2D2 /* ObjectForm in Frameworks */,
 				A56716E5290710C400CEE8EE /* KeychainAccess in Frameworks */,
 				A53A54C328D8F247004E0D66 /* Reusable in Frameworks */,
 				A54F7D0928DE29F700245559 /* JTAppleCalendar in Frameworks */,
@@ -550,9 +562,22 @@
 			path = Role;
 			sourceTree = "<group>";
 		};
+		A5F0EEEF291009F20073E2D2 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0EEF029100A030073E2D2 /* ProfileScreenInterfaces.swift */,
+				A5F0EEF129100A030073E2D2 /* ProfileScreenPresenter.swift */,
+				A5F0EEF229100A030073E2D2 /* ProfileScreenViewController.swift */,
+				A5F0EEF329100A030073E2D2 /* ProfileScreenInteractor.swift */,
+				A5F0EEF429100A030073E2D2 /* ProfileScreenWireframe.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0EEEF291009F20073E2D2 /* ProfileScreen */,
 				A57F558A290BDE47006509CB /* LessonCreatorScreen */,
 				A56717072907F5B200CEE8EE /* CourseDescriptionScreen */,
 				A56716D129070CEB00CEE8EE /* AuthScreen */,
@@ -704,6 +729,7 @@
 				A56716E72907D80F00CEE8EE /* Moya */,
 				A513BB802909964000317E6B /* Atlantis */,
 				A57F559A290C0257006509CB /* NotificationPermission */,
+				A5F0EEED291009370073E2D2 /* ObjectForm */,
 			);
 			productName = ScheduleApp;
 			productReference = E0FD11B021477963008C2EF8 /* ScheduleApp.app */;
@@ -775,6 +801,7 @@
 				A56716E62907D80F00CEE8EE /* XCRemoteSwiftPackageReference "Moya" */,
 				A513BB7F2909964000317E6B /* XCRemoteSwiftPackageReference "atlantis" */,
 				A57F5599290C0257006509CB /* XCRemoteSwiftPackageReference "PermissionsKit" */,
+				A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */,
 			);
 			productRefGroup = E0FD11B121477963008C2EF8 /* Products */;
 			projectDirPath = "";
@@ -836,6 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
+				A5F0EEF529100A030073E2D2 /* ProfileScreenInterfaces.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
 				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
@@ -882,6 +910,7 @@
 				A56716F92907E4B500CEE8EE /* NetworkService.swift in Sources */,
 				A56717102907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift in Sources */,
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
+				A5F0EEF629100A030073E2D2 /* ProfileScreenPresenter.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
 				A54F7D4228E3443B00245559 /* UIViewControllerExtensions.swift in Sources */,
 				A550E53728F08D6400F846FC /* Assets.swift in Sources */,
@@ -898,10 +927,13 @@
 				A54F7D4A28E3463A00245559 /* CoursesCreatorScreenPresenter.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
 				A54F7D3B28E3401F00245559 /* Labels.swift in Sources */,
+				A5F0EEF929100A030073E2D2 /* ProfileScreenWireframe.swift in Sources */,
 				A54F7D2728E259E400245559 /* CoursesScreenInterfaces.swift in Sources */,
+				A5F0EEF829100A030073E2D2 /* ProfileScreenInteractor.swift in Sources */,
 				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
 				A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */,
 				A56716EF2907D91200CEE8EE /* UserTarget.swift in Sources */,
+				A5F0EEF729100A030073E2D2 /* ProfileScreenViewController.swift in Sources */,
 				A57F5591290BDE5D006509CB /* LessonCreatorScreenPresenter.swift in Sources */,
 				A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */,
 				A568DF0E28D3C89B00341814 /* LessonModel.swift in Sources */,
@@ -1242,6 +1274,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/haojianzong/ObjectForm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1329,6 +1369,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A5B5B9A328D92F54001D3C93 /* XCRemoteSwiftPackageReference "GradientLoadingBar" */;
 			productName = GradientLoadingBar;
+		};
+		A5F0EEED291009370073E2D2 /* ObjectForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5F0EEEC291009370073E2D2 /* XCRemoteSwiftPackageReference "ObjectForm" */;
+			productName = ObjectForm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
