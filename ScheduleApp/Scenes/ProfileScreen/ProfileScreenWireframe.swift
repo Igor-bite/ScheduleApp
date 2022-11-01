@@ -25,7 +25,9 @@ final class ProfileScreenWireframe: BaseWireframe<ProfileScreenViewController> {
 // MARK: - Extensions -
 
 extension ProfileScreenWireframe: ProfileScreenWireframeInterface {
-    func showPasswordChangeScreen() {}
+    func showPasswordChangeScreen() {
+        navigationController?.presentWireframe(PasswordChangeScreenWireframe())
+    }
 
     func showUserCreatorScreen() {}
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51024642911ABF500B5492A /* PasswordChangeScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510245F2911ABF500B5492A /* PasswordChangeScreenInterfaces.swift */; };
+		A51024652911ABF500B5492A /* PasswordChangeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024602911ABF500B5492A /* PasswordChangeScreenPresenter.swift */; };
+		A51024662911ABF500B5492A /* PasswordChangeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024612911ABF500B5492A /* PasswordChangeScreenViewController.swift */; };
+		A51024672911ABF500B5492A /* PasswordChangeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024622911ABF500B5492A /* PasswordChangeScreenInteractor.swift */; };
+		A51024682911ABF500B5492A /* PasswordChangeScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */; };
 		A513BB812909964000317E6B /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = A513BB802909964000317E6B /* Atlantis */; };
 		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
 		A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BF28D8F237004E0D66 /* SPIndicator */; };
@@ -134,6 +139,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A510245F2911ABF500B5492A /* PasswordChangeScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenInterfaces.swift; sourceTree = "<group>"; };
+		A51024602911ABF500B5492A /* PasswordChangeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenPresenter.swift; sourceTree = "<group>"; };
+		A51024612911ABF500B5492A /* PasswordChangeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenViewController.swift; sourceTree = "<group>"; };
+		A51024622911ABF500B5492A /* PasswordChangeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenInteractor.swift; sourceTree = "<group>"; };
+		A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenWireframe.swift; sourceTree = "<group>"; };
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
 		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
@@ -272,6 +282,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A510245E2911ABD800B5492A /* PasswordChangeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A510245F2911ABF500B5492A /* PasswordChangeScreenInterfaces.swift */,
+				A51024602911ABF500B5492A /* PasswordChangeScreenPresenter.swift */,
+				A51024612911ABF500B5492A /* PasswordChangeScreenViewController.swift */,
+				A51024622911ABF500B5492A /* PasswordChangeScreenInteractor.swift */,
+				A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */,
+			);
+			path = PasswordChangeScreen;
+			sourceTree = "<group>";
+		};
 		A54F7D1228E1062000245559 /* ScheduleScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +608,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A510245E2911ABD800B5492A /* PasswordChangeScreen */,
 				A5F0EEEF291009F20073E2D2 /* ProfileScreen */,
 				A57F558A290BDE47006509CB /* LessonCreatorScreen */,
 				A56717072907F5B200CEE8EE /* CourseDescriptionScreen */,
@@ -869,8 +892,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51024642911ABF500B5492A /* PasswordChangeScreenInterfaces.swift in Sources */,
 				A54F7D4C28E3463A00245559 /* CoursesCreatorScreenInteractor.swift in Sources */,
 				A5F0EEF529100A030073E2D2 /* ProfileScreenInterfaces.swift in Sources */,
+				A51024652911ABF500B5492A /* PasswordChangeScreenPresenter.swift in Sources */,
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
 				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
@@ -892,6 +917,7 @@
 				A5B5B99728D91963001D3C93 /* CapsuleView.swift in Sources */,
 				A568DF1028D3C8AC00341814 /* LessonTableViewCell.swift in Sources */,
 				A568DF1A28D3C9C600341814 /* BaseWireframe.swift in Sources */,
+				A51024682911ABF500B5492A /* PasswordChangeScreenWireframe.swift in Sources */,
 				A54F7D4B28E3463A00245559 /* CoursesCreatorScreenViewController.swift in Sources */,
 				A568DF0528D3C85C00341814 /* ScheduleScreenInterfaces.swift in Sources */,
 				A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */,
@@ -934,10 +960,12 @@
 				A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */,
 				A54F7D4A28E3463A00245559 /* CoursesCreatorScreenPresenter.swift in Sources */,
 				E0FD121E214783B2008C2EF8 /* main.swift in Sources */,
+				A51024672911ABF500B5492A /* PasswordChangeScreenInteractor.swift in Sources */,
 				A54F7D3B28E3401F00245559 /* Labels.swift in Sources */,
 				A5F0EEF929100A030073E2D2 /* ProfileScreenWireframe.swift in Sources */,
 				A54F7D2728E259E400245559 /* CoursesScreenInterfaces.swift in Sources */,
 				A5F0EEF829100A030073E2D2 /* ProfileScreenInteractor.swift in Sources */,
+				A51024662911ABF500B5492A /* PasswordChangeScreenViewController.swift in Sources */,
 				A5B5B9A228D92B6F001D3C93 /* EmptyScheduleView.swift in Sources */,
 				A56716DF29070D3A00CEE8EE /* AuthService.swift in Sources */,
 				A56716EF2907D91200CEE8EE /* UserTarget.swift in Sources */,
