@@ -89,6 +89,15 @@ final class AuthService: AuthServiceProtocol {
         }
         return "Basic \(data.base64EncodedString())"
     }
+
+    var credencials: URLCredential? {
+        guard let username = keychain[Constants.Keychain.usernameKey],
+              let password = keychain[Constants.Keychain.passwordKey]
+        else {
+            return nil
+        }
+        return .init(user: username, password: password, persistence: .none)
+    }
 }
 
 enum AuthError: Error {

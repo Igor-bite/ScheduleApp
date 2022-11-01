@@ -15,13 +15,6 @@ final class CoursesScreenViewController: UIViewController {
         static let courseRowHeight = 160.0
     }
 
-    private lazy var logoutButton = {
-        let button = UIButton.barButton
-        button.setTitle("Выйти", for: .normal)
-        button.addTarget(self, action: #selector(logout), for: .touchUpInside)
-        return button
-    }()
-
     private lazy var createCourseButton = {
         let button = UIButton.barButton
         button.setTitle("Создать", for: .normal)
@@ -70,14 +63,6 @@ final class CoursesScreenViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(createCourseButton)
         view.addSubview(table)
-        view.addSubview(logoutButton)
-
-        logoutButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Constants.offset)
-            make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
-            make.width.equalTo(view.snp.width).dividedBy(5)
-            make.height.equalTo(25)
-        }
 
         createCourseButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(Constants.offset)
@@ -102,11 +87,6 @@ final class CoursesScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
-    }
-
-    @objc
-    private func logout() {
-        presenter.logout()
     }
 
     @objc

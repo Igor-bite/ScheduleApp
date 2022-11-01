@@ -48,8 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func showAuthScreen() {
         guard let window = window else { return }
         let wireframe = AuthScreenWireframe {
-            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-                window.rootViewController = TabBar()
+            DispatchQueue.main.async {
+                UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                    window.rootViewController = TabBar()
+                }
             }
         }
         let nav = UINavigationController()

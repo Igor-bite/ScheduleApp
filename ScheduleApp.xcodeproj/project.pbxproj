@@ -45,6 +45,7 @@
 		A550E53728F08D6400F846FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53628F08D6400F846FC /* Assets.swift */; };
 		A550E53928F09B7C00F846FC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53828F09B7C00F846FC /* UIImage+Resize.swift */; };
 		A550E53B28F42A3C00F846FC /* String+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */; };
+		A553E9DA29117F6700C21C46 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A553E9D929117F6700C21C46 /* ProfileService.swift */; };
 		A56716D729070D0100CEE8EE /* AuthScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D229070D0100CEE8EE /* AuthScreenInterfaces.swift */; };
 		A56716D829070D0100CEE8EE /* AuthScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D329070D0100CEE8EE /* AuthScreenPresenter.swift */; };
 		A56716D929070D0100CEE8EE /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56716D429070D0100CEE8EE /* AuthScreenViewController.swift */; };
@@ -162,6 +163,7 @@
 		A550E53628F08D6400F846FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A550E53828F09B7C00F846FC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		A550E53A28F42A3C00F846FC /* String+nilIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nilIfEmpty.swift"; sourceTree = "<group>"; };
+		A553E9D929117F6700C21C46 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		A56716D229070D0100CEE8EE /* AuthScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenInterfaces.swift; sourceTree = "<group>"; };
 		A56716D329070D0100CEE8EE /* AuthScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenPresenter.swift; sourceTree = "<group>"; };
 		A56716D429070D0100CEE8EE /* AuthScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
@@ -380,6 +382,14 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		A553E9D829117F4C00C21C46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A553E9D929117F6700C21C46 /* ProfileService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A56716D129070CEB00CEE8EE /* AuthScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +573,7 @@
 		A5F0EEEF291009F20073E2D2 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A553E9D829117F4C00C21C46 /* Services */,
 				A5F0EEF029100A030073E2D2 /* ProfileScreenInterfaces.swift */,
 				A5F0EEF129100A030073E2D2 /* ProfileScreenPresenter.swift */,
 				A5F0EEF229100A030073E2D2 /* ProfileScreenViewController.swift */,
@@ -891,6 +902,7 @@
 				A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */,
+				A553E9DA29117F6700C21C46 /* ProfileService.swift in Sources */,
 				A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
 				A54F7D4D28E3463A00245559 /* CoursesCreatorScreenWireframe.swift in Sources */,

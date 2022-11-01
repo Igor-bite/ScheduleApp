@@ -7,10 +7,27 @@
 
 import UIKit
 
-protocol ProfileScreenWireframeInterface: WireframeInterface {}
+protocol ProfileScreenWireframeInterface: WireframeInterface {
+    func showPasswordChangeScreen()
+    func showUserCreatorScreen()
+}
 
 protocol ProfileScreenViewInterface: ViewInterface {}
 
-protocol ProfileScreenPresenterInterface: PresenterInterface {}
+protocol ProfileScreenPresenterInterface: PresenterInterface {
+    var currentUser: UserModel? { get }
+    var shouldShowCreateButton: Bool { get }
 
-protocol ProfileScreenInteractorInterface: InteractorInterface {}
+    func saveChanges(firstName: String, secondName: String, lastName: String)
+    func changePassword()
+    func removeAccount()
+    func logout()
+    func createNewUser()
+}
+
+protocol ProfileScreenInteractorInterface: InteractorInterface {
+    func createNewUser(user: CreateUserModel) async throws -> UserModel
+    func update(user: UpdateUserModel) async throws -> UserModel
+    func removeAccount(user: UserModel?) async throws
+    func logout()
+}

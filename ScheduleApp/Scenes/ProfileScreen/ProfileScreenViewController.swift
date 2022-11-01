@@ -26,7 +26,8 @@ final class ProfileScreenViewController: UIViewController {
     private lazy var createButton = {
         let button = UIButton.barButton
         button.setTitle("Создать", for: .normal)
-        button.addTarget(self, action: #selector(createNewUserCourse), for: .touchUpInside)
+        button.addTarget(self, action: #selector(createNewUser), for: .touchUpInside)
+        button.isHidden = !presenter.shouldShowCreateButton
         return button
     }()
 
@@ -114,6 +115,7 @@ final class ProfileScreenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideKeyboardOnTap()
         setUserData()
     }
 
@@ -184,7 +186,7 @@ final class ProfileScreenViewController: UIViewController {
     }
 
     private func setUserData() {
-        guard let curUser = AuthService.shared.currentUser else { return }
+        guard let curUser = presenter.currentUser else { return }
         titleLabel.text = "Привет, \(curUser.firstName)!"
         firstNameInput.text = curUser.firstName
         secondNameInput.text = curUser.secondName
@@ -193,24 +195,47 @@ final class ProfileScreenViewController: UIViewController {
 
     @objc
     private func saveButtonTapped() {
-        print("saveButtonTapped")
+        guard let firstName = firstNameInput.text else {
+            firstNameInput.setError(errorString: "")
+            return
+        }
+        guard let secondName = secondNameInput.text else {
+            secondNameInput.setError(errorString: "")
+            return
+        }
+        guard let lastName = lastNameInput.text else {
+            lastNameInput.setError(errorString: "")
+            return
+        }
+        presenter.saveChanges(firstName: firstName, secondName: secondName, lastName: lastName)
+    }
+
+    private func removeInputsFocus() {
+        view.endEditing(true)
     }
 
     @objc
     private func changePasswordButtonTapped() {
-        print("changePasswordButtonTapped")
+        removeInputsFocus()
+        presenter.changePassword()
     }
 
     @objc
     private func removeButtonTapped() {
-        print("removeButtonTapped")
+        removeInputsFocus()
+        presenter.removeAccount()
     }
 
     @objc
-    private func logout() {}
+    private func logout() {
+        presenter.logout()
+    }
 
     @objc
-    private func createNewUserCourse() {}
+    private func createNewUser() {
+        removeInputsFocus()
+        presenter.createNewUser()
+    }
 }
 
 // MARK: - Extensions -

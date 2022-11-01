@@ -13,7 +13,8 @@ enum UserTarget {
     case current
     case update(UpdateUserModel)
     case create(CreateUserModel)
-    case delete
+    case selfDelete
+    case delete(id: Int)
     case user(id: Int)
     case all
 }
@@ -23,7 +24,7 @@ extension UserTarget: TargetType {
         switch self {
         case .all:
             return "/person/all"
-        case .user(let id):
+        case .user(let id), .delete(let id):
             return "/person/\(id)"
         default:
             return "/person"
@@ -38,14 +39,14 @@ extension UserTarget: TargetType {
             return .put
         case .create:
             return .post
-        case .delete:
+        case .selfDelete, .delete:
             return .delete
         }
     }
 
     var task: Moya.Task {
         switch self {
-        case .current, .user, .delete, .all:
+        case .current, .user, .selfDelete, .delete, .all:
             return .requestPlain
         case .update(let updateUserModel):
             return .requestJSONEncodable(updateUserModel)

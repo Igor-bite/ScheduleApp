@@ -29,8 +29,6 @@ protocol CoursesScreenPresenterInterface: PresenterInterface {
 
     func enrollOnCourse(at indexPath: IndexPath)
     func leaveCourse(at indexPath: IndexPath)
-
-    func logout()
 }
 
 protocol CoursesScreenInteractorInterface: InteractorInterface {
