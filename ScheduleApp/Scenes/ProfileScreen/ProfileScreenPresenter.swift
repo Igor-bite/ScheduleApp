@@ -14,20 +14,20 @@ final class ProfileScreenPresenter {
     private unowned let view: ProfileScreenViewInterface
     private let interactor: ProfileScreenInteractorInterface
     private let wireframe: ProfileScreenWireframeInterface
-    var currentUser: UserModel?
+    var currentUser: UserModel? {
+        AuthService.shared.currentUser
+    }
 
     // MARK: - Lifecycle -
 
     init(
         view: ProfileScreenViewInterface,
         interactor: ProfileScreenInteractorInterface,
-        wireframe: ProfileScreenWireframeInterface,
-        user: UserModel? = AuthService.shared.currentUser
+        wireframe: ProfileScreenWireframeInterface
     ) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
-        currentUser = user
     }
 }
 
@@ -38,7 +38,7 @@ extension ProfileScreenPresenter: ProfileScreenPresenterInterface {
         currentUser?.isAdmin ?? false
     }
 
-    func saveChanges(firstName: String, secondName: String, lastName: String) {
+    func saveChanges(firstName: String, secondName: String, lastName: String, birthday: Date) {
         guard let currentUser = currentUser,
               let credencials = AuthService.shared.credencials,
               let user = credencials.user,
@@ -47,8 +47,10 @@ extension ProfileScreenPresenter: ProfileScreenPresenterInterface {
         attempt {
             let updateUser = UpdateUserModel(username: user, password: pass, firstName: firstName,
                                              lastName: lastName, secondName: secondName, id: currentUser.id,
-                                             birthday: .init())
+                                             birthday: birthday)
             return try await self.interactor.update(user: updateUser)
+        }.then { _ in
+            try await AuthService.shared.tryToRestoreLogin()
         }.then { _ in
             self.wireframe.showAlert(title: "Saved", message: nil, preset: .done, presentSide: .top)
         }.catch { _ in

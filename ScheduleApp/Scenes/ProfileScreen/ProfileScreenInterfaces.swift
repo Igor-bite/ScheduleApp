@@ -18,7 +18,7 @@ protocol ProfileScreenPresenterInterface: PresenterInterface {
     var currentUser: UserModel? { get }
     var shouldShowCreateButton: Bool { get }
 
-    func saveChanges(firstName: String, secondName: String, lastName: String)
+    func saveChanges(firstName: String, secondName: String, lastName: String, birthday: Date)
     func changePassword()
     func removeAccount()
     func logout()

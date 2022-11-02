@@ -73,6 +73,21 @@ final class ProfileScreenViewController: UIViewController {
         return textField
     }()
 
+    private lazy var birthdayLabel = {
+        let view = UILabel.titleLabel
+        view.text = "Дата рождения:"
+        return view
+    }()
+
+    private lazy var birthdayDatePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date()
+        picker.locale = .init(identifier: "ru_RU")
+        picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .compact
+        return picker
+    }()
+
     private lazy var saveButton: UIButton = {
         let button = UIButton.barButton
         button.layer.cornerRadius = 15
@@ -126,6 +141,8 @@ final class ProfileScreenViewController: UIViewController {
         view.addSubview(firstNameInput)
         view.addSubview(secondNameInput)
         view.addSubview(lastNameInput)
+        view.addSubview(birthdayLabel)
+        view.addSubview(birthdayDatePicker)
         view.addSubview(saveButton)
         view.addSubview(changePasswordButton)
         view.addSubview(removeButton)
@@ -165,8 +182,19 @@ final class ProfileScreenViewController: UIViewController {
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
         }
-        saveButton.snp.makeConstraints { make in
+        birthdayLabel.snp.makeConstraints { make in
             make.top.equalTo(lastNameInput.snp.bottom).offset(10)
+            make.leading.equalTo(lastNameInput.snp.leading)
+            make.height.equalTo(40)
+        }
+        birthdayDatePicker.snp.makeConstraints { make in
+            make.top.equalTo(lastNameInput.snp.bottom).offset(10)
+            make.trailing.equalTo(lastNameInput.snp.trailing)
+            make.height.equalTo(40)
+            make.leading.equalTo(birthdayLabel.snp.trailing).offset(10)
+        }
+        saveButton.snp.makeConstraints { make in
+            make.top.equalTo(birthdayLabel.snp.bottom).offset(10)
             make.width.equalToSuperview().multipliedBy(0.8)
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
@@ -191,6 +219,7 @@ final class ProfileScreenViewController: UIViewController {
         firstNameInput.text = curUser.firstName
         secondNameInput.text = curUser.secondName
         lastNameInput.text = curUser.lastName
+        birthdayDatePicker.date = curUser.birthday
     }
 
     @objc
@@ -207,7 +236,7 @@ final class ProfileScreenViewController: UIViewController {
             lastNameInput.setError(errorString: "")
             return
         }
-        presenter.saveChanges(firstName: firstName, secondName: secondName, lastName: lastName)
+        presenter.saveChanges(firstName: firstName, secondName: secondName, lastName: lastName, birthday: birthdayDatePicker.date)
     }
 
     private func removeInputsFocus() {
