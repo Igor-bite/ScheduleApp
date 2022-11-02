@@ -137,7 +137,21 @@ final class CourseDescriptionScreenViewController: UIViewController {
 
     @objc
     private func changeCourse() {
-        presenter.change()
+        let alertSheet = UIAlertController(title: "Что вы хотите сделать?", message: nil, preferredStyle: .actionSheet)
+        alertSheet.addAction(UIAlertAction(title: "Изменить", style: .default) { _ in
+            self.presenter.change()
+        })
+        alertSheet.addAction(UIAlertAction(title: "Дублировать курс", style: .default) { _ in
+            self.presenter.clone()
+            self.presenter.dismiss()
+        })
+        alertSheet.addAction(UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            self.presenter.delete()
+            self.presenter.dismiss()
+        })
+        alertSheet.addAction(UIAlertAction(title: "Отменить", style: .cancel))
+
+        present(alertSheet, animated: true)
     }
 
     @objc
