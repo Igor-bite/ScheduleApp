@@ -280,7 +280,7 @@ final class AuthScreenViewController: UIViewController {
     }
 
     private func updateInputVisibility(animated: Bool = true, delay: TimeInterval = 0.0) {
-        UIView.animate(withDuration: animated ? 0.5 : 0, delay: delay) {
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: animated ? delay : 0) {
             switch self.state {
             case .signUp:
                 self.firstNameInput.alpha = 1.0
@@ -307,7 +307,7 @@ final class AuthScreenViewController: UIViewController {
             signInConstraint?.isActive = true
             signUpConstraint?.isActive = false
         }
-        UIView.animate(withDuration: animated ? 0.5 : 0, delay: delay) {
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: animated ? delay : 0) {
             self.view.layoutIfNeeded()
         }
     }
