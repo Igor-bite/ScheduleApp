@@ -5,6 +5,7 @@
 //  Created by Игорь Клюжев on 25.10.2022.
 //
 
+import SafeSFSymbols
 import SnapKit
 import UIKit
 
@@ -137,7 +138,7 @@ final class CourseDescriptionScreenViewController: UIViewController {
 
     @objc
     private func changeCourse() {
-        let alertSheet = UIAlertController(title: "Что вы хотите сделать?", message: nil, preferredStyle: .actionSheet)
+        let alertSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertSheet.addAction(UIAlertAction(title: "Изменить", style: .default) { _ in
             self.presenter.change()
         })
@@ -204,6 +205,21 @@ extension CourseDescriptionScreenViewController: UITableViewDataSource {
             }
         }
         return cell
+    }
+
+    func tableView(_: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point _: CGPoint) -> UIContextMenuConfiguration?
+    {
+        let curUser = AuthService.shared.currentUser
+        if !(curUser?.isAdmin ?? false), presenter.course.curatorId != curUser?.id {
+            return nil
+        }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let action = UIAction(title: "Удалить", image: .init(.trash.fill), attributes: [.destructive]) { _ in
+                self.presenter.removeLesson(atIndexPath: indexPath)
+            }
+            return UIMenu(children: [action])
+        }
     }
 }
 

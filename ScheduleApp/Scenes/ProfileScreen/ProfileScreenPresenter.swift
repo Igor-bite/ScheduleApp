@@ -46,7 +46,8 @@ extension ProfileScreenPresenter: ProfileScreenPresenterInterface {
         else { return }
         attempt {
             let updateUser = UpdateUserModel(username: user, password: pass, firstName: firstName,
-                                             lastName: lastName, secondName: secondName, id: currentUser.id)
+                                             lastName: lastName, secondName: secondName, id: currentUser.id,
+                                             birthday: .init())
             return try await self.interactor.update(user: updateUser)
         }.then { _ in
             self.wireframe.showAlert(title: "Saved", message: nil, preset: .done, presentSide: .top)

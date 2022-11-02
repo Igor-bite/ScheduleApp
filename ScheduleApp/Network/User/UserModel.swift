@@ -36,7 +36,7 @@ struct CreateUserModel: Codable {
         self.lastName = lastName
         self.secondName = secondName
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .init(secondsFromGMT: 0)
         self.birthday = formatter.string(from: birthday)
     }
@@ -54,14 +54,16 @@ struct UpdateUserModel: Codable {
     init(username: String, password: String,
          firstName: String, lastName: String,
          secondName: String, id: Int,
-         birthday: String = "2001-10-30")
+         birthday: Date)
     {
         self.username = username
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
         self.secondName = secondName
-        self.birthday = birthday
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.birthday = formatter.string(from: birthday)
         self.id = id
     }
 }

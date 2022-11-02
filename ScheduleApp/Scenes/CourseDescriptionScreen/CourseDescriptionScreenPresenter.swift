@@ -110,4 +110,16 @@ extension CourseDescriptionScreenPresenter: CourseDescriptionScreenPresenterInte
             }
         }
     }
+
+    func removeLesson(atIndexPath indexPath: IndexPath) {
+        guard let lesson = courseLessons?[indexPath.row] else { return }
+        attempt {
+            try await self.interactor.removeLesson(lesson)
+        }.then { _ in
+            self.wireframe.showAlert(title: "Lesson removed", message: nil, preset: .error, presentSide: .top)
+            self.lessons()
+        }.catch { _ in
+            self.wireframe.showAlert(title: "Error deleting lesson", message: nil, preset: .error, presentSide: .top)
+        }
+    }
 }

@@ -97,5 +97,17 @@ extension ScheduleScreenPresenter: ScheduleScreenPresenterInterface {
                 lesson.startDateTime.get(.month) == selectedDate.get(.month) &&
                 lesson.startDateTime.get(.year) == selectedDate.get(.year)
         } ?? []
+        lessonsForChosenDay.sort { $0.startDateTime < $1.startDateTime }
+    }
+
+    func removeLesson(atIndexPath indexPath: IndexPath) {
+        attempt {
+            try await self.interactor.removeLesson(self.lessonsForChosenDay[indexPath.row])
+        }.then { _ in
+            self.wireframe.showAlert(title: "Lesson removed", message: nil, preset: .error, presentSide: .top)
+            self.refreshData()
+        }.catch { _ in
+            self.wireframe.showAlert(title: "Error deleting lesson", message: nil, preset: .error, presentSide: .top)
+        }
     }
 }

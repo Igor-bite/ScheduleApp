@@ -9,6 +9,7 @@ import Foundation
 
 final class CourseDescriptionScreenInteractor {
     private let courseService = BasicCoursesService()
+    private let lessonsService = BasicLessonsService()
 }
 
 // MARK: - Extensions -
@@ -32,5 +33,9 @@ extension CourseDescriptionScreenInteractor: CourseDescriptionScreenInteractorIn
 
     func lessons(_ course: CourseModel) async throws -> [LessonModel] {
         try await courseService.lessons(course)
+    }
+
+    func removeLesson(_ lesson: LessonModel) async throws {
+        try await lessonsService.removeLesson(lesson)
     }
 }

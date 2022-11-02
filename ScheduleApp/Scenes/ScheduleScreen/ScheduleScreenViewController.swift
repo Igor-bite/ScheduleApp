@@ -208,6 +208,22 @@ extension ScheduleScreenViewController: UITableViewDataSource {
         }
         return cell
     }
+
+    func tableView(_: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point _: CGPoint) -> UIContextMenuConfiguration?
+    {
+        let curUser = AuthService.shared.currentUser
+        let lesson = presenter.item(at: indexPath)
+        if !(curUser?.isAdmin ?? false), lesson.teacherId != curUser?.id {
+            return nil
+        }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let action = UIAction(title: "Удалить", image: .init(.trash.fill), attributes: [.destructive]) { _ in
+                self.presenter.removeLesson(atIndexPath: indexPath)
+            }
+            return UIMenu(children: [action])
+        }
+    }
 }
 
 extension ScheduleScreenViewController: UITableViewDelegate {

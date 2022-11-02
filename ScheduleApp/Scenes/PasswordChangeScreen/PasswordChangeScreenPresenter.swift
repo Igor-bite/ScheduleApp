@@ -41,7 +41,8 @@ extension PasswordChangeScreenPresenter: PasswordChangeScreenPresenterInterface 
         else { return }
         attempt {
             let new = UpdateUserModel(username: username, password: new, firstName: curUser.firstName,
-                                      lastName: curUser.lastName, secondName: curUser.secondName, id: curUser.id)
+                                      lastName: curUser.lastName, secondName: curUser.secondName, id: curUser.id,
+                                      birthday: curUser.birthday)
             return try await self.interactor.update(user: new)
         }.then { _ in
             try await AuthService.shared.signIn(withUsername: username, password: new)

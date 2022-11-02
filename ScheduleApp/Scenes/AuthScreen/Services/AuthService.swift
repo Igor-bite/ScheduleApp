@@ -31,7 +31,7 @@ final class AuthService: AuthServiceProtocol {
     func signIn(withUsername username: String, password: String) async throws -> UserModel {
         save(username: username, password: password)
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .init(secondsFromGMT: 0)
 
         let decoder = JSONDecoder()
@@ -73,7 +73,7 @@ final class AuthService: AuthServiceProtocol {
     func signUp(user: CreateUserModel) async throws -> UserModel {
         save(username: user.username, password: user.password)
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .init(secondsFromGMT: 0)
 
         let decoder = JSONDecoder()

@@ -143,6 +143,22 @@ extension CoursesScreenViewController: UITableViewDataSource {
         }
         return cell
     }
+
+    func tableView(_: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point _: CGPoint) -> UIContextMenuConfiguration?
+    {
+        let curUser = AuthService.shared.currentUser
+        let course = presenter.item(at: indexPath)
+        if !(curUser?.isAdmin ?? false), course.curatorId != curUser?.id {
+            return nil
+        }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let action = UIAction(title: "Удалить", image: .init(.trash.fill), attributes: [.destructive]) { _ in
+                self.presenter.removeCourse(atIndexPath: indexPath)
+            }
+            return UIMenu(children: [action])
+        }
+    }
 }
 
 extension CoursesScreenViewController: UITableViewDelegate {

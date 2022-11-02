@@ -13,7 +13,7 @@ class ProfileService {
 
     func update(user: UpdateUserModel) async throws -> UserModel {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .init(secondsFromGMT: 0)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(formatter)
@@ -30,7 +30,7 @@ class ProfileService {
 
     func createNewUser(user: CreateUserModel) async throws -> UserModel {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = .init(secondsFromGMT: 0)
 
         let decoder = JSONDecoder()
