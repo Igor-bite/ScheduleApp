@@ -33,4 +33,8 @@ extension CoursesScreenInteractor: CoursesScreenInteractorInterface {
     func leaveCourse(_ course: CourseModel) {
         coursesService.leaveCourse(course)
     }
+
+    func removeCourse(_ course: CourseModel) async throws {
+        try await coursesService.delete(course)
+    }
 }

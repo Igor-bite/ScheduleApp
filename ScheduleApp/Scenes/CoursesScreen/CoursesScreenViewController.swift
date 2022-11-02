@@ -15,13 +15,6 @@ final class CoursesScreenViewController: UIViewController {
         static let courseRowHeight = 160.0
     }
 
-    private lazy var logoutButton = {
-        let button = UIButton.barButton
-        button.setTitle("Выйти", for: .normal)
-        button.addTarget(self, action: #selector(logout), for: .touchUpInside)
-        return button
-    }()
-
     private lazy var createCourseButton = {
         let button = UIButton.barButton
         button.setTitle("Создать", for: .normal)
@@ -70,14 +63,6 @@ final class CoursesScreenViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(createCourseButton)
         view.addSubview(table)
-        view.addSubview(logoutButton)
-
-        logoutButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Constants.offset)
-            make.top.equalTo(view.snp.topMargin).offset(Constants.offset)
-            make.width.equalTo(view.snp.width).dividedBy(5)
-            make.height.equalTo(25)
-        }
 
         createCourseButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(Constants.offset)
@@ -102,11 +87,6 @@ final class CoursesScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refresh()
-    }
-
-    @objc
-    private func logout() {
-        presenter.logout()
     }
 
     @objc
@@ -162,6 +142,22 @@ extension CoursesScreenViewController: UITableViewDataSource {
             }
         }
         return cell
+    }
+
+    func tableView(_: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point _: CGPoint) -> UIContextMenuConfiguration?
+    {
+        let curUser = AuthService.shared.currentUser
+        let course = presenter.item(at: indexPath)
+        if !(curUser?.isAdmin ?? false), course.curatorId != curUser?.id {
+            return nil
+        }
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let action = UIAction(title: "Удалить", image: .init(.trash.fill), attributes: [.destructive]) { _ in
+                self.presenter.removeCourse(atIndexPath: indexPath)
+            }
+            return UIMenu(children: [action])
+        }
     }
 }
 

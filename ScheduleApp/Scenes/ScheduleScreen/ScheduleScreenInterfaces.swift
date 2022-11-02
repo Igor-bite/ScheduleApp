@@ -23,10 +23,12 @@ protocol ScheduleScreenPresenterInterface: PresenterInterface {
     func itemSelected(at indexPath: IndexPath)
     func fetchLessons()
     func changeLesson(_ lesson: LessonModel)
+    func removeLesson(atIndexPath indexPath: IndexPath)
 
     func setDate(_ date: Date)
 }
 
 protocol ScheduleScreenInteractorInterface: InteractorInterface {
     func getAllLessons() async throws -> [LessonModel]
+    func removeLesson(_ lesson: LessonModel) async throws
 }

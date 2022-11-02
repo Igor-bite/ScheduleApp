@@ -21,4 +21,8 @@ extension ScheduleScreenInteractor: ScheduleScreenInteractorInterface {
     func getAllLessons() async throws -> [LessonModel] {
         try await lessonsService.getLessons()
     }
+
+    func removeLesson(_ lesson: LessonModel) async throws {
+        try await lessonsService.removeLesson(lesson)
+    }
 }

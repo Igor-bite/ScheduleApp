@@ -91,7 +91,8 @@ class LessonTableViewCell: UITableViewCell, Reusable {
     func configure(with lesson: LessonModel, shouldShowDate: Bool = false, changeLessonAction: @escaping () -> Void) {
         self.lesson = lesson
         isNotificationSet = notificationId == nil ? false : UserDefaults.standard.bool(forKey: notificationId ?? "")
-        if lesson.teacherId == AuthService.shared.currentUser?.id {
+        let curUser = AuthService.shared.currentUser
+        if (curUser?.isAdmin ?? false) || lesson.teacherId == curUser?.id {
             self.changeLessonAction = changeLessonAction
             actionButton.setImage(pencilImage, for: .normal)
             actionButton.backgroundColor = .systemOrange

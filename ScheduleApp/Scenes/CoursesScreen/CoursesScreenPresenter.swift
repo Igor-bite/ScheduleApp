@@ -102,7 +102,14 @@ extension CoursesScreenPresenter: CoursesScreenPresenterInterface {
         interactor.leaveCourse(coursesToShow[indexPath.row])
     }
 
-    func logout() {
-        AuthService.shared.logout()
+    func removeCourse(atIndexPath indexPath: IndexPath) {
+        attempt {
+            try await self.interactor.removeCourse(self.coursesToShow[indexPath.row])
+        }.then { _ in
+            self.wireframe.showAlert(title: "Removed course", message: nil, preset: .done, presentSide: .top)
+            self.fetchCourses()
+        }.catch { _ in
+            self.wireframe.showAlert(title: "Error removing course", message: "Please, try again", preset: .error, presentSide: .top)
+        }
     }
 }

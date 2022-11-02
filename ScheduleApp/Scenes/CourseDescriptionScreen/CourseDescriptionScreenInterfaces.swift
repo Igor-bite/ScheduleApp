@@ -32,6 +32,7 @@ protocol CourseDescriptionScreenPresenterInterface: PresenterInterface {
     func dismiss()
     func addLesson()
     func changeLesson(atIndexPath indexPath: IndexPath)
+    func removeLesson(atIndexPath indexPath: IndexPath)
 }
 
 protocol CourseDescriptionScreenInteractorInterface: InteractorInterface {
@@ -40,4 +41,5 @@ protocol CourseDescriptionScreenInteractorInterface: InteractorInterface {
     func enroll(_ course: CourseModel)
     func leave(_ course: CourseModel)
     func lessons(_ course: CourseModel) async throws -> [LessonModel]
+    func removeLesson(_ lesson: LessonModel) async throws
 }

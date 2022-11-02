@@ -107,7 +107,7 @@ final class LessonCreatorScreenViewController: UIViewController {
         let button = UIButton.barButton
         button.setTitle("Создать", for: .normal)
         button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(createCourse), for: .touchUpInside)
+        button.addTarget(self, action: #selector(createLesson), for: .touchUpInside)
         return button
     }()
 
@@ -149,7 +149,7 @@ final class LessonCreatorScreenViewController: UIViewController {
     }
 
     @objc
-    private func createCourse() {
+    private func createLesson() {
         var type: LessonType?
 
         switch lessonTypeSegmentedControl.selectedSegmentIndex {
@@ -180,7 +180,7 @@ final class LessonCreatorScreenViewController: UIViewController {
 
         guard let curUserId = AuthService.shared.currentUser?.id else { return }
         presenter.commit(.init(title: name, description: description,
-                               teacherId: curUserId, courseId: presenter.courseId,
+                               teacherId: presenter.lesson?.teacherId ?? curUserId, courseId: presenter.courseId,
                                startDateTime: startDateTimePicker.date,
                                endDateTime: endDateTimePicker.date, lessonType: type))
         dismiss(animated: true, completion: nil)

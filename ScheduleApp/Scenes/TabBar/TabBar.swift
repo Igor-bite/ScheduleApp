@@ -28,7 +28,8 @@ class TabBar: UITabBarController {
     private func setupTabs() {
         viewControllers = [
             makeCoursesScreen(),
-            makeScheduleScreen()
+            makeScheduleScreen(),
+            makeProfileScreen()
         ]
         selectedIndex = 1
     }
@@ -36,7 +37,7 @@ class TabBar: UITabBarController {
     private func makeCoursesScreen() -> UIViewController {
         let coursesNavigationController = UINavigationController()
         coursesNavigationController.setRootWireframe(CoursesScreenWireframe())
-        coursesNavigationController.tabBarItem.image = Asset.coursesTabIcon.image.resizeImage(targetSize: .init(width: 20, height: 20))
+        coursesNavigationController.tabBarItem.image = UIImage(.list.bulletBelowRectangle)
         coursesNavigationController.tabBarItem.title = "Курсы"
         return coursesNavigationController
     }
@@ -44,8 +45,16 @@ class TabBar: UITabBarController {
     private func makeScheduleScreen() -> UIViewController {
         let scheduleNavigationController = UINavigationController()
         scheduleNavigationController.setRootWireframe(ScheduleScreenWireframe())
-        scheduleNavigationController.tabBarItem.image = Asset.scheduleTabIcon.image.resizeImage(targetSize: .init(width: 20, height: 20))
+        scheduleNavigationController.tabBarItem.image = UIImage(.clock)
         scheduleNavigationController.tabBarItem.title = "Расписание"
         return scheduleNavigationController
+    }
+
+    private func makeProfileScreen() -> UIViewController {
+        let profileNavigationController = UINavigationController()
+        profileNavigationController.setRootWireframe(ProfileScreenWireframe())
+        profileNavigationController.tabBarItem.image = UIImage(.person)
+        profileNavigationController.tabBarItem.title = "Профиль"
+        return profileNavigationController
     }
 }

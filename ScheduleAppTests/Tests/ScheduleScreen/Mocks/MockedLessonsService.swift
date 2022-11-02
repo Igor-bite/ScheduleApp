@@ -29,4 +29,6 @@ final class MockedLessonsService: LessonsService {
     func updateLesson(_: ScheduleApp.UpdateLessonModel) async throws -> LessonModel {
         MockedLessonsService.lessons[0]
     }
+
+    func removeLesson(_: ScheduleApp.LessonModel) async throws {}
 }

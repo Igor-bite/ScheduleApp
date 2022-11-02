@@ -87,6 +87,21 @@ final class AuthScreenViewController: UIViewController {
         return textField
     }()
 
+    private lazy var birthdayLabel = {
+        let view = UILabel.titleLabel
+        view.text = "Дата рождения:"
+        return view
+    }()
+
+    private lazy var birthdayDatePicker = {
+        let picker = UIDatePicker()
+        picker.date = Date()
+        picker.locale = .init(identifier: "ru_RU")
+        picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .compact
+        return picker
+    }()
+
     private lazy var usernameInput = {
         let textField = CocoaTextField()
         textField.placeholder = "Юзернейм"
@@ -146,6 +161,7 @@ final class AuthScreenViewController: UIViewController {
 
         setupViews()
         update(animated: false)
+        birthdayDatePicker.date = .init()
     }
 
     private var signInConstraint: Constraint?
@@ -157,6 +173,8 @@ final class AuthScreenViewController: UIViewController {
         view.addSubview(firstNameInput)
         view.addSubview(secondNameInput)
         view.addSubview(lastNameInput)
+        view.addSubview(birthdayLabel)
+        view.addSubview(birthdayDatePicker)
         view.addSubview(usernameInput)
         view.addSubview(passwordInput)
         view.addSubview(activeButton)
@@ -193,8 +211,19 @@ final class AuthScreenViewController: UIViewController {
             make.height.equalTo(40)
             make.centerX.equalToSuperview()
         }
+        birthdayLabel.snp.makeConstraints { make in
+            make.leading.equalTo(lastNameInput.snp.leading)
+            make.top.equalTo(lastNameInput.snp.bottom).offset(10)
+            make.height.equalTo(40)
+        }
+        birthdayDatePicker.snp.makeConstraints { make in
+            make.trailing.equalTo(lastNameInput.snp.trailing)
+            make.height.equalTo(40)
+            make.top.equalTo(lastNameInput.snp.bottom).offset(10)
+            make.leading.equalTo(birthdayLabel.snp.trailing).offset(10)
+        }
         usernameInput.snp.makeConstraints { make in
-            self.signUpConstraint = make.top.equalTo(lastNameInput.snp.bottom).offset(10).constraint
+            self.signUpConstraint = make.top.equalTo(birthdayLabel.snp.bottom).offset(10).constraint
             self.signInConstraint = make.top.equalTo(titleLabel.snp.bottom).offset(40).constraint
             self.signUpConstraint?.isActive = false
             make.width.equalToSuperview().multipliedBy(0.8)
@@ -250,22 +279,26 @@ final class AuthScreenViewController: UIViewController {
         }
     }
 
-    private func updateInputVisibility(animated: Bool = true) {
-        UIView.animate(withDuration: animated ? 0.5 : 0, delay: 0) {
+    private func updateInputVisibility(animated: Bool = true, delay: TimeInterval = 0.0) {
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: animated ? delay : 0) {
             switch self.state {
             case .signUp:
                 self.firstNameInput.alpha = 1.0
                 self.secondNameInput.alpha = 1.0
                 self.lastNameInput.alpha = 1.0
+                self.birthdayLabel.alpha = 1.0
+                self.birthdayDatePicker.alpha = 1.0
             case .signIn:
                 self.firstNameInput.alpha = 0
                 self.secondNameInput.alpha = 0
                 self.lastNameInput.alpha = 0
+                self.birthdayLabel.alpha = 0
+                self.birthdayDatePicker.alpha = 0
             }
         }
     }
 
-    private func updateConstraints(animated: Bool = true) {
+    private func updateConstraints(animated: Bool = true, delay: TimeInterval = 0.0) {
         switch state {
         case .signUp:
             signInConstraint?.isActive = false
@@ -274,15 +307,15 @@ final class AuthScreenViewController: UIViewController {
             signInConstraint?.isActive = true
             signUpConstraint?.isActive = false
         }
-        UIView.animate(withDuration: animated ? 0.5 : 0, delay: 0) {
+        UIView.animate(withDuration: animated ? 0.5 : 0, delay: animated ? delay : 0) {
             self.view.layoutIfNeeded()
         }
     }
 
     private func update(animated: Bool = true) {
         updateButtonTitles(animated: false)
-        updateInputVisibility(animated: animated)
-        updateConstraints(animated: animated)
+        updateInputVisibility(animated: animated, delay: state == .signIn ? 0 : 0.3)
+        updateConstraints(animated: animated, delay: state == .signIn ? 0.3 : 0)
     }
 
     private func signUp() {
@@ -317,7 +350,8 @@ final class AuthScreenViewController: UIViewController {
             return
         }
 
-        let user = CreateUserModel(username: username, password: password, firstName: firstName, lastName: lastName, secondName: secondName)
+        let user = CreateUserModel(username: username, password: password, firstName: firstName,
+                                   lastName: lastName, secondName: secondName, birthday: birthdayDatePicker.date)
 
         presenter.signUp(user)
     }

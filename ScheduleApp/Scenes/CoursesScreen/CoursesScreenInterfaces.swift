@@ -29,8 +29,7 @@ protocol CoursesScreenPresenterInterface: PresenterInterface {
 
     func enrollOnCourse(at indexPath: IndexPath)
     func leaveCourse(at indexPath: IndexPath)
-
-    func logout()
+    func removeCourse(atIndexPath indexPath: IndexPath)
 }
 
 protocol CoursesScreenInteractorInterface: InteractorInterface {
@@ -38,4 +37,5 @@ protocol CoursesScreenInteractorInterface: InteractorInterface {
     func getEnrolledCourses() async throws -> [CourseModel]
     func enrollOnCourse(_ course: CourseModel)
     func leaveCourse(_ course: CourseModel)
+    func removeCourse(_ course: CourseModel) async throws
 }

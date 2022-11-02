@@ -30,8 +30,6 @@ final class AuthScreenWireframe: BaseWireframe<AuthScreenViewController> {
 
 extension AuthScreenWireframe: AuthScreenWireframeInterface {
     func navigateToMain() {
-        DispatchQueue.main.async {
-            self.showMain()
-        }
+        showMain()
     }
 }

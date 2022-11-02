@@ -205,8 +205,8 @@ final class CoursesCreatorScreenViewController: UIViewController {
             return
         }
 
-        guard let curatorId = AuthService.shared.currentUser?.id else { return }
-        presenter.commit(.init(title: name, description: description, categoryId: 0, curatorId: curatorId, type: type))
+        guard let curUserId = AuthService.shared.currentUser?.id else { return }
+        presenter.commit(.init(title: name, description: description, categoryId: 0, curatorId: presenter.course?.curatorId ?? curUserId, type: type))
         dismiss(animated: true, completion: nil)
     }
 
