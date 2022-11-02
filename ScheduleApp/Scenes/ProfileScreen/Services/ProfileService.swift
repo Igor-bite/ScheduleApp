@@ -12,7 +12,12 @@ class ProfileService {
     private let network = NetworkService.shared
 
     func update(user: UpdateUserModel) async throws -> UserModel {
-        try await network.request(UserTarget.update(user)).map(UserModel.self)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.timeZone = .init(secondsFromGMT: 0)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        return try await network.request(UserTarget.update(user)).map(UserModel.self, using: decoder)
     }
 
     func removeAccount(user: UserModel?) async throws {
@@ -24,6 +29,12 @@ class ProfileService {
     }
 
     func createNewUser(user: CreateUserModel) async throws -> UserModel {
-        try await network.request(UserTarget.create(user)).map(UserModel.self)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.timeZone = .init(secondsFromGMT: 0)
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        return try await network.request(UserTarget.create(user)).map(UserModel.self, using: decoder)
     }
 }

@@ -13,7 +13,7 @@ struct UserModel: Codable {
     let firstName: String
     let lastName: String
     let secondName: String
-//    let birthday: Date
+    let birthday: Date
     var roles: [RoleModel.Role]? = [.standard]
 
     var isAdmin: Bool {
@@ -29,13 +29,16 @@ struct CreateUserModel: Codable {
     let secondName: String
     let birthday: String
 
-    init(username: String, password: String, firstName: String, lastName: String, secondName: String, birthday: String = "2001-10-30") {
+    init(username: String, password: String, firstName: String, lastName: String, secondName: String, birthday: Date) {
         self.username = username
         self.password = password
         self.firstName = firstName
         self.lastName = lastName
         self.secondName = secondName
-        self.birthday = birthday
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.timeZone = .init(secondsFromGMT: 0)
+        self.birthday = formatter.string(from: birthday)
     }
 }
 

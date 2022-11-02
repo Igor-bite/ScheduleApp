@@ -12,6 +12,11 @@
 		A51024662911ABF500B5492A /* PasswordChangeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024612911ABF500B5492A /* PasswordChangeScreenViewController.swift */; };
 		A51024672911ABF500B5492A /* PasswordChangeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024622911ABF500B5492A /* PasswordChangeScreenInteractor.swift */; };
 		A51024682911ABF500B5492A /* PasswordChangeScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */; };
+		A510246F2911B54D00B5492A /* UserCreatorScreenInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510246A2911B54D00B5492A /* UserCreatorScreenInterfaces.swift */; };
+		A51024702911B54D00B5492A /* UserCreatorScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510246B2911B54D00B5492A /* UserCreatorScreenPresenter.swift */; };
+		A51024712911B54D00B5492A /* UserCreatorScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510246C2911B54D00B5492A /* UserCreatorScreenViewController.swift */; };
+		A51024722911B54D00B5492A /* UserCreatorScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510246D2911B54D00B5492A /* UserCreatorScreenInteractor.swift */; };
+		A51024732911B54D00B5492A /* UserCreatorScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510246E2911B54D00B5492A /* UserCreatorScreenWireframe.swift */; };
 		A513BB812909964000317E6B /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = A513BB802909964000317E6B /* Atlantis */; };
 		A53A54A728D8F1D0004E0D66 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54A628D8F1D0004E0D66 /* Kingfisher */; };
 		A53A54C028D8F237004E0D66 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = A53A54BF28D8F237004E0D66 /* SPIndicator */; };
@@ -144,6 +149,11 @@
 		A51024612911ABF500B5492A /* PasswordChangeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenViewController.swift; sourceTree = "<group>"; };
 		A51024622911ABF500B5492A /* PasswordChangeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenInteractor.swift; sourceTree = "<group>"; };
 		A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeScreenWireframe.swift; sourceTree = "<group>"; };
+		A510246A2911B54D00B5492A /* UserCreatorScreenInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreatorScreenInterfaces.swift; sourceTree = "<group>"; };
+		A510246B2911B54D00B5492A /* UserCreatorScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreatorScreenPresenter.swift; sourceTree = "<group>"; };
+		A510246C2911B54D00B5492A /* UserCreatorScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreatorScreenViewController.swift; sourceTree = "<group>"; };
+		A510246D2911B54D00B5492A /* UserCreatorScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreatorScreenInteractor.swift; sourceTree = "<group>"; };
+		A510246E2911B54D00B5492A /* UserCreatorScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreatorScreenWireframe.swift; sourceTree = "<group>"; };
 		A54F7D0A28E0D30B00245559 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		A54F7D1028E104DA00245559 /* ScheduleScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleScreenTests.swift; sourceTree = "<group>"; };
 		A54F7D1328E1063600245559 /* MockedLessonsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedLessonsService.swift; sourceTree = "<group>"; };
@@ -292,6 +302,18 @@
 				A51024632911ABF500B5492A /* PasswordChangeScreenWireframe.swift */,
 			);
 			path = PasswordChangeScreen;
+			sourceTree = "<group>";
+		};
+		A51024692911B53400B5492A /* UserCreatorScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A510246A2911B54D00B5492A /* UserCreatorScreenInterfaces.swift */,
+				A510246B2911B54D00B5492A /* UserCreatorScreenPresenter.swift */,
+				A510246C2911B54D00B5492A /* UserCreatorScreenViewController.swift */,
+				A510246D2911B54D00B5492A /* UserCreatorScreenInteractor.swift */,
+				A510246E2911B54D00B5492A /* UserCreatorScreenWireframe.swift */,
+			);
+			path = UserCreatorScreen;
 			sourceTree = "<group>";
 		};
 		A54F7D1228E1062000245559 /* ScheduleScreen */ = {
@@ -608,6 +630,7 @@
 		E0BB8FB721695633001922DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A51024692911B53400B5492A /* UserCreatorScreen */,
 				A510245E2911ABD800B5492A /* PasswordChangeScreen */,
 				A5F0EEEF291009F20073E2D2 /* ProfileScreen */,
 				A57F558A290BDE47006509CB /* LessonCreatorScreen */,
@@ -899,6 +922,7 @@
 				A54F7D2B28E259E400245559 /* CoursesScreenWireframe.swift in Sources */,
 				A54F7D3928E3401A00245559 /* Colors.swift in Sources */,
 				A57F5592290BDE5D006509CB /* LessonCreatorScreenViewController.swift in Sources */,
+				A51024702911B54D00B5492A /* UserCreatorScreenPresenter.swift in Sources */,
 				A568DF1E28D3C9C600341814 /* InteractorInterface.swift in Sources */,
 				A54F7D2928E259E400245559 /* CoursesScreenViewController.swift in Sources */,
 				A5F0EEE8290FE86F0073E2D2 /* RoleTarget.swift in Sources */,
@@ -923,11 +947,13 @@
 				A568DF0A28D3C85C00341814 /* ScheduleScreenWireframe.swift in Sources */,
 				A54F7D4928E3463A00245559 /* CoursesCreatorScreenInterfaces.swift in Sources */,
 				A550E52928F056B100F846FC /* Encodable + toDictionary.swift in Sources */,
+				A51024722911B54D00B5492A /* UserCreatorScreenInteractor.swift in Sources */,
 				A568DF2028D3CDDA00341814 /* Constants.swift in Sources */,
 				A550E52E28F084AF00F846FC /* LottieAnimationViews.swift in Sources */,
 				A5F0EEEB290FEC5C0073E2D2 /* RoleModel.swift in Sources */,
 				A54F7D3728E3401400245559 /* Fonts.swift in Sources */,
 				A56717112907F5E700CEE8EE /* CourseDescriptionScreenViewController.swift in Sources */,
+				A51024732911B54D00B5492A /* UserCreatorScreenWireframe.swift in Sources */,
 				A553E9DA29117F6700C21C46 /* ProfileService.swift in Sources */,
 				A57F5596290BFC43006509CB /* NotificationsManager.swift in Sources */,
 				A568DF1C28D3C9C600341814 /* PresenterInterface.swift in Sources */,
@@ -943,6 +969,7 @@
 				A568DF1D28D3C9C600341814 /* ViewInterface.swift in Sources */,
 				A56716F92907E4B500CEE8EE /* NetworkService.swift in Sources */,
 				A56717102907F5E700CEE8EE /* CourseDescriptionScreenPresenter.swift in Sources */,
+				A510246F2911B54D00B5492A /* UserCreatorScreenInterfaces.swift in Sources */,
 				A54F7D2A28E259E400245559 /* CoursesScreenInteractor.swift in Sources */,
 				A5F0EEF629100A030073E2D2 /* ProfileScreenPresenter.swift in Sources */,
 				A54F7D3128E25B6600245559 /* CoursesService.swift in Sources */,
@@ -952,6 +979,7 @@
 				A56716D829070D0100CEE8EE /* AuthScreenPresenter.swift in Sources */,
 				A54F7D3D28E3402600245559 /* Buttons.swift in Sources */,
 				A54F7D2828E259E400245559 /* CoursesScreenPresenter.swift in Sources */,
+				A51024712911B54D00B5492A /* UserCreatorScreenViewController.swift in Sources */,
 				A54F7D0B28E0D30B00245559 /* DateCell.swift in Sources */,
 				A56716F12907D9BF00CEE8EE /* TargetType+Extension.swift in Sources */,
 				A568DF1B28D3C9C600341814 /* FormatterInterface.swift in Sources */,

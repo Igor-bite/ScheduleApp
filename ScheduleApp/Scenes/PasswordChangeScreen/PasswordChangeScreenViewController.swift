@@ -35,6 +35,7 @@ final class PasswordChangeScreenViewController: UIViewController {
     private lazy var currentPasswordInput = {
         let textField = CocoaTextField()
         textField.placeholder = "Текущий пароль"
+        textField.isSecureTextEntry = true
         textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
         textField.activeHintColor = .Pallette.buttonBg
         textField.focusedBackgroundColor = .Pallette.mainBgColor
@@ -49,6 +50,7 @@ final class PasswordChangeScreenViewController: UIViewController {
     private lazy var newPasswordInput = {
         let textField = CocoaTextField()
         textField.placeholder = "Новый пароль"
+        textField.isSecureTextEntry = true
         textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
         textField.activeHintColor = .Pallette.buttonBg
         textField.focusedBackgroundColor = .Pallette.mainBgColor
@@ -63,6 +65,7 @@ final class PasswordChangeScreenViewController: UIViewController {
     private lazy var secondTimePasswordInput = {
         let textField = CocoaTextField()
         textField.placeholder = "Новый пароль ещё раз"
+        textField.isSecureTextEntry = true
         textField.inactiveHintColor = .Pallette.secondaryTextColor.withAlphaComponent(0.4)
         textField.activeHintColor = .Pallette.buttonBg
         textField.focusedBackgroundColor = .Pallette.mainBgColor
@@ -136,6 +139,7 @@ final class PasswordChangeScreenViewController: UIViewController {
         }
 
         presenter.changePassword(new: newPass)
+        dismiss(animated: true, completion: nil)
     }
 }
 

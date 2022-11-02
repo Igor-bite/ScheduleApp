@@ -54,4 +54,16 @@ extension UserTarget: TargetType {
             return .requestJSONEncodable(createUserModel)
         }
     }
+
+    var headers: [String: String]? {
+        switch self {
+        case .create:
+            return nil
+        default:
+            if let authHeader = AuthService.shared.basicAuthHeader() {
+                return ["Authorization": authHeader]
+            }
+            return nil
+        }
+    }
 }

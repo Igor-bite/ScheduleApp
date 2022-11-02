@@ -54,9 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        let nav = UINavigationController()
-        nav.setRootWireframe(wireframe)
-        window.rootViewController = nav
+        DispatchQueue.main.async {
+            let nav = UINavigationController()
+            nav.setRootWireframe(wireframe)
+            window.rootViewController = nav
+        }
     }
 
     func applicationDidBecomeActive(_: UIApplication) {

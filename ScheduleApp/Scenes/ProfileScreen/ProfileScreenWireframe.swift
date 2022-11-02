@@ -29,5 +29,7 @@ extension ProfileScreenWireframe: ProfileScreenWireframeInterface {
         navigationController?.presentWireframe(PasswordChangeScreenWireframe())
     }
 
-    func showUserCreatorScreen() {}
+    func showUserCreatorScreen() {
+        navigationController?.presentWireframe(UserCreatorScreenWireframe())
+    }
 }

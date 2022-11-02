@@ -30,7 +30,13 @@ final class AuthService: AuthServiceProtocol {
 
     func signIn(withUsername username: String, password: String) async throws -> UserModel {
         save(username: username, password: password)
-        var user = try await network.request(UserTarget.current).map(UserModel.self)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.timeZone = .init(secondsFromGMT: 0)
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        var user = try await network.request(UserTarget.current).map(UserModel.self, using: decoder)
         if let roles = try? await network.request(RoleTarget.role(id: user.id)).map([RoleModel].self) {
             user.roles = roles.map { $0.name }
         }
@@ -66,7 +72,13 @@ final class AuthService: AuthServiceProtocol {
 
     func signUp(user: CreateUserModel) async throws -> UserModel {
         save(username: user.username, password: user.password)
-        var loggedUser = try await network.request(UserTarget.create(user)).map(UserModel.self)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.timeZone = .init(secondsFromGMT: 0)
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(formatter)
+        var loggedUser = try await network.request(UserTarget.create(user)).map(UserModel.self, using: decoder)
         if let roles = try? await network.request(RoleTarget.role(id: loggedUser.id)).map([RoleModel].self) {
             loggedUser.roles = roles.map { $0.name }
         }

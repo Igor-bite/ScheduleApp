@@ -317,7 +317,7 @@ final class AuthScreenViewController: UIViewController {
             return
         }
 
-        let user = CreateUserModel(username: username, password: password, firstName: firstName, lastName: lastName, secondName: secondName)
+        let user = CreateUserModel(username: username, password: password, firstName: firstName, lastName: lastName, secondName: secondName, birthday: .init())
 
         presenter.signUp(user)
     }
