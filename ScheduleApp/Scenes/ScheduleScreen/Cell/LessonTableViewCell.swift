@@ -97,6 +97,7 @@ class LessonTableViewCell: UITableViewCell, Reusable {
             actionButton.setImage(pencilImage, for: .normal)
             actionButton.backgroundColor = .systemOrange
         } else {
+            self.changeLessonAction = nil
             if lesson.startDateTime < Date().addingTimeInterval(5 * 60) {
                 actionButton.isHidden = true
             } else {
